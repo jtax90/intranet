@@ -2,7 +2,7 @@ package com.intr.ctr;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,24 +31,24 @@ public class RegsController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ³»ºÎ±ÔÁ¤ Á¶È¸
+	// ë‚´ë¶€ê·œì • ì¡°íšŒ
 	@RequestMapping("/intrRegsInqy1010.do")
 	public String intrRegsInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ³»ºÎ±ÔÁ¤ Á¶È¸
+			// ë‚´ë¶€ê·œì • ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			regsService.regsInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ³»ºÎ±ÔÁ¤ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë‚´ë¶€ê·œì • ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
@@ -56,19 +56,19 @@ public class RegsController {
 	}
 	
 	
-	// PDFºä¾î Á¶È¸
+	// PDFë·°ì–´ ì¡°íšŒ
 	@RequestMapping("/pdfStream")
 	public void pdfStream(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// PDFºä¾î Á¶È¸
+			// PDFë·°ì–´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			regsService.regsInqyService1011(model, paramMap, response);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : PDFºä¾î Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : PDFë·°ì–´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}

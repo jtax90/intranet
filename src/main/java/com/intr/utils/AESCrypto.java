@@ -15,7 +15,7 @@ public class AESCrypto {
     private static String KEY_STRING;
     private static String IV_STRING;
 
-    // Å¬·¡½º ·Îµù ½Ã properties ÆÄÀÏ ÀĞ±â
+    // í´ë˜ìŠ¤ ë¡œë”© ì‹œ properties íŒŒì¼ ì½ê¸°
     static {
     	//
         try {
@@ -23,29 +23,29 @@ public class AESCrypto {
         	InputStream input = AESCrypto.class.getClassLoader().getResourceAsStream("config/aes/aes.properties");
             Properties prop = new Properties();
             if (input == null) {
-                // °æ·Î¿¡ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì ¿¹¿Ü
-                throw new RuntimeException("aes.properties ÆÄÀÏÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+                // ê²½ë¡œì— íŒŒì¼ì´ ì—†ì„ ê²½ìš° ì˜ˆì™¸
+                throw new RuntimeException("aes.properties íŒŒì¼ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
             }
             prop.load(input);
             KEY_STRING = prop.getProperty("aes.key");
             IV_STRING = prop.getProperty("aes.iv");
             
         } catch (Exception e) {
-            throw new ExceptionInInitializerError("AESCrypto ÃÊ±âÈ­ ½ÇÆĞ (Properties ·Îµå ¿À·ù): " + e.getMessage());
+            throw new ExceptionInInitializerError("AESCrypto ì´ˆê¸°í™” ì‹¤íŒ¨ (Properties ë¡œë“œ ì˜¤ë¥˜): " + e.getMessage());
         }
     }
 
-    // ½ÃÅ©¸´ Å° ¹İÈ¯
+    // ì‹œí¬ë¦¿ í‚¤ ë°˜í™˜
     public static SecretKey getKey() throws Exception {
         return new SecretKeySpec(KEY_STRING.getBytes(StandardCharsets.UTF_8), "AES");
     }
 
-    // ÃÊ±âÈ­ º¤ÅÍ (IV) ¹İÈ¯
+    // ì´ˆê¸°í™” ë²¡í„° (IV) ë°˜í™˜
     public static IvParameterSpec getIv() {
         return new IvParameterSpec(IV_STRING.getBytes(StandardCharsets.UTF_8));
     }
 
-    // ¾ÏÈ£È­ Ã³¸®
+    // ì•”í˜¸í™” ì²˜ë¦¬
     public static String encrypt(String specName, SecretKey key, IvParameterSpec iv, String plainText) throws Exception {
         Cipher cipher = Cipher.getInstance(specName);
         cipher.init(Cipher.ENCRYPT_MODE, key, iv);
@@ -53,7 +53,7 @@ public class AESCrypto {
         return Base64.getEncoder().encodeToString(encrypted);
     }
 
-    // º¹È£È­ Ã³¸®
+    // ë³µí˜¸í™” ì²˜ë¦¬
     public static String decrypt(String specName, SecretKey key, IvParameterSpec iv, String cipherText) throws Exception {
         Cipher cipher = Cipher.getInstance(specName);
         cipher.init(Cipher.DECRYPT_MODE, key, iv);

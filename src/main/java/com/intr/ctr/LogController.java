@@ -29,24 +29,24 @@ public class LogController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ·Î±× ¸ñ·Ï Á¶È¸
+	// ë¡œê·¸ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrLogInqy1010.do")
 	public String intrLogInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ·Î±× ¸ñ·Ï Á¶È¸
+			// ë¡œê·¸ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			logService.logInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ·Î±× ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë¡œê·¸ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

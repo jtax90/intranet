@@ -2,9 +2,9 @@ package com.intr.ctr;
 
 import java.util.HashMap;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,51 +30,51 @@ public class QueryController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// Äõ¸® ÀÔ·Â È­¸é Á¶È¸
+	// ì¿¼ë¦¬ ì…ë ¥ í™”ë©´ ì¡°íšŒ
 	@RequestMapping("/intrQueryInqy1010.do")
 	public String intrQueryInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : Äõ¸® ÀÔ·Â È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì¿¼ë¦¬ ì…ë ¥ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_QUERY + Const.INTR_QUERY_DETL_1010;
 	}
 	
-	// Äõ¸® ÀÔ·Â È­¸é Á¶È¸
+	// ì¿¼ë¦¬ ì…ë ¥ í™”ë©´ ì¡°íšŒ
 	@RequestMapping("/intrQueryInqy1020.do")
 	public String intrQueryInqy1011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Äõ¸® Á¶È¸
+			// ì¿¼ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			queryService.queryInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : Äõ¸® ÀÔ·Â È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì¿¼ë¦¬ ì…ë ¥ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_QUERY + Const.INTR_QUERY_DETL_1011;
 	}
 
-	// ¿¢¼¿ ´Ù¿î·Îµå
+	// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 	@RequestMapping("/intrQueryInqy1030.do")
 	public void intrQueryProc1020(@RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¿¢¼¿ ´Ù¿î·Îµå
+			// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 	        Cookie excelCookie = new Cookie("excelCookie", "true");
 	        excelCookie.setPath("/");
@@ -85,12 +85,12 @@ public class QueryController {
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¿¢¼¿ ´Ù¿î·Îµå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 	
-	// Äõ¸® ÀÔ·Â Ã³¸®
+	// ì¿¼ë¦¬ ì…ë ¥ ì²˜ë¦¬
 	@RequestMapping("/intrQueryProc1010.do")
 	@ResponseBody
 	public String intrQueryProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -99,13 +99,13 @@ public class QueryController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Äõ¸® ÀÔ·Â Ã³¸®
+			// ì¿¼ë¦¬ ì…ë ¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = queryService.queryProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : Äõ¸® ÀÔ·Â Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì¿¼ë¦¬ ì…ë ¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

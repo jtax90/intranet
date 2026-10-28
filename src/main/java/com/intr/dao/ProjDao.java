@@ -13,7 +13,7 @@ public class ProjDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ÇÁ·ÎÁ§Æ® ½ÃÄö½º Á¶È¸
+	// í”„ë¡œì íŠ¸ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> projInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class ProjDao {
 		return defaultInfo;
 	}
 
-	// ÇÁ·ÎÁ§Æ® ¸ñ·Ï Á¶È¸
+	// í”„ë¡œì íŠ¸ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> projInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class ProjDao {
 		return defaultList;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® »ó¼¼ Á¶È¸
+	// í”„ë¡œì íŠ¸ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> projInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -37,7 +37,7 @@ public class ProjDao {
 		return defaultInfo;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® µî·Ï Ã³¸®
+	// í”„ë¡œì íŠ¸ ë“±ë¡ ì²˜ë¦¬
 	public int projProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -45,7 +45,7 @@ public class ProjDao {
 		return resInt;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® »èÁ¦ Ã³¸® (»èÁ¦)
+	// í”„ë¡œì íŠ¸ ì‚­ì œ ì²˜ë¦¬ (ì‚­ì œ)
 	public int projProcDao1020(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;
@@ -53,7 +53,7 @@ public class ProjDao {
 		return resInt;
 	}
 
-	// ÇÁ·ÎÁ§Æ® ¼öÁ¤ Ã³¸®
+	// í”„ë¡œì íŠ¸ ìˆ˜ì • ì²˜ë¦¬
 	public int projProcDao1030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

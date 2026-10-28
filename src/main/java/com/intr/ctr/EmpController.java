@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -36,108 +36,108 @@ public class EmpController {
 	// 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	// »ç¿ø ¸ñ·Ï È­¸é
+	// ì‚¬ì› ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy1010.do")
 	public String intrEmpInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ¸ñ·Ï Á¶È¸
+			// ì‚¬ì› ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø Á¤º¸ Á¤Á¤ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ì •ë³´ ì •ì • ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_1010;
 	}
 	
-	// »ç¿ø µî·Ï È­¸é
+	// ì‚¬ì› ë“±ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy1020.do")
 	public String intrEmpInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ºÎ¼­ Á÷±Ş Á¤º¸ Á¶È¸
+			// ë¶€ì„œ ì§ê¸‰ ì •ë³´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø µî·Ï È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë“±ë¡ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_DETL_1020;
 	}
 	
-	// »ç¿ø »ó¼¼ Á¶È¸
+	// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 	@RequestMapping("/intrEmpInqy1030.do")
 	public String intrEmpInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø »ó¼¼ Á¶È¸
+			// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø »ó¼¼ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ìƒì„¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_DETL_1010;
 	}
 	
-	// »ç¿ø ¼öÁ¤ Á¶È¸
+	// ì‚¬ì› ìˆ˜ì • ì¡°íšŒ
 	@RequestMapping("/intrEmpInqy1040.do")
 	public String intrEmpInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ºÎ¼­ Á÷±Ş Á¤º¸ Á¶È¸
+			// ë¶€ì„œ ì§ê¸‰ ì •ë³´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1020(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø »ó¼¼Á¶È¸
+			// ì‚¬ì› ìƒì„¸ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ¼öÁ¤ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ìˆ˜ì • í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_DETL_1030;
 	}
 	
-	// »ç¿ø ÇÁ·ÎÇÊ »çÁø Á¶È¸
+	// ì‚¬ì› í”„ë¡œí•„ ì‚¬ì§„ ì¡°íšŒ
 	@RequestMapping("/intrEmpInqy1099.do")
 	public void intrEmpInqy1099(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception {
 		//
@@ -145,52 +145,52 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ÀÌ¹ÌÁö Á¶È¸
+			// ì‚¬ì› ì´ë¯¸ì§€ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// URL°´Ã¼ »ı¼º (¿¹¿Ü»çÇ× Ãß°¡)
+			// URLê°ì²´ ìƒì„± (ì˜ˆì™¸ì‚¬í•­ ì¶”ê°€)
 			//--------------------------------------------------------------------------------------------
 			URL fileUrl = new URL("file:" + (String)defaultList.get(0).get("filePath") + (String)defaultList.get(0).get("saveFileNm"));
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ÀÔÃâ·Â (ÀÀ´ä°´Ã¼·Î »Ñ·ÁÁø ÆÄÀÏ µ¥ÀÌÅÍ JSP·Î Àü¼Û)
+			// íŒŒì¼ ì…ì¶œë ¥ (ì‘ë‹µê°ì²´ë¡œ ë¿Œë ¤ì§„ íŒŒì¼ ë°ì´í„° JSPë¡œ ì „ì†¡)
 			//--------------------------------------------------------------------------------------------
 			IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ÇÁ·ÎÇÊ »çÁø Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› í”„ë¡œí•„ ì‚¬ì§„ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 	
-	// »ç¿ø Á¶È¸ ¸ñ·Ï È­¸é
+	// ì‚¬ì› ì¡°íšŒ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy2010.do")
 	public String intrEmpInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ¸ñ·Ï Á¶È¸
+			// ì‚¬ì› ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ¿¬¶ôÃ³ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ì—°ë½ì²˜ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_2010;
 	}
 	
-	// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
+	// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
 	@RequestMapping("/intrEmpInqy2020.do")
 	@ResponseBody
 	public String intrEmpInqy2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -199,140 +199,140 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
+			// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ø »ó¼¼ Á¶È¸
+	// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 	@RequestMapping("/intrEmpInqy2030.do")
 	public String intrEmpInqy2030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø »ó¼¼ Á¶È¸
+			// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø »ó¼¼ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ìƒì„¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_DETL_2010;
 	}
 	
-	// ´ã´ç¾÷¹« Á¶È¸ ¸ñ·Ï È­¸é
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy3010.do")
 	public String intrEmpInqy3010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« Á¶È¸
+			// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService3010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ´ã´ç¾÷¹« ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë‹´ë‹¹ì—…ë¬´ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_3010;
 	}
 	
-	// ´ã´ç¾÷¹« Á¶È¸ ¸ñ·Ï È­¸é (AJAX)
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ ëª©ë¡ í™”ë©´ (AJAX)
 	@RequestMapping("/intrEmpInqy3011.do")
 	public String intrEmpInqy3011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« Á¶È¸ (AJAX)
+			// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ (AJAX)
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService3011(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ´ã´ç¾÷¹« ¸ñ·Ï (AJAX) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë‹´ë‹¹ì—…ë¬´ ëª©ë¡ (AJAX) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_3011;
 	}
 	
-	// ´ã´ç¾÷¹« µî·Ï È­¸é
+	// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy3012.do")
 	public String intrEmpInqy3012(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« Á¶È¸ (AJAX)
+			// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ (AJAX)
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService3012(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ´ã´ç¾÷¹« µî·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_3012;
 	}
 	
-	// ´ã´ç¾÷¹« Á¶È¸ ¸ñ·Ï È­¸é
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrEmpInqy4010.do")
 	public String intrEmpInqy4010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÀÎ»ç Åë°è Á¶È¸
+			// ì¸ì‚¬ í†µê³„ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService4010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÀÎ»çÅë°è Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì¸ì‚¬í†µê³„ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_EMP + Const.INTR_EMP_LIST_4010;
 	}
 	
-	// »ç¿ø µî·Ï Ã³¸®
+	// ì‚¬ì› ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc1010.do")
 	@ResponseBody
 	public String intrEmpProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -341,20 +341,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø µî·Ï
+			// ì‚¬ì› ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService1010(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ø ¼öÁ¤ Ã³¸®
+	// ì‚¬ì› ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc1020.do")
 	@ResponseBody
 	public String intrEmpProc1020(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -363,20 +363,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ¼öÁ¤
+			// ì‚¬ì› ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService1020(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ø º¹Á÷, Åğ»ç Ã³¸®
+	// ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc1030.do")
 	@ResponseBody
 	public String intrEmpProc1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -385,20 +385,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø º¹Á÷, Åğ»ç Ã³¸®
+			// ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø º¹Á÷, Åğ»ç Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ø »èÁ¦ Ã³¸®
+	// ì‚¬ì› ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc1040.do")
 	@ResponseBody
 	public String intrEmpProc1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -407,20 +407,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø »èÁ¦ Ã³¸®
+			// ì‚¬ì› ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService1040(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ø ºñ¹Ğ¹øÈ£ ¼öÁ¤ Ã³¸®
+	// ì‚¬ì› ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc1050.do")
 	@ResponseBody
 	public String intrEmpProc1050(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -429,20 +429,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø ºñ¹Ğ¹øÈ£ ¼öÁ¤ Ã³¸®
+			// ì‚¬ì› ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì • ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService1050(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ø ºñ¹Ğ¹øÈ£ ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ì› ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ´ã´ç¾÷¹« ÀúÀå Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc2010.do")
 	@ResponseBody
 	public String intrEmpProc2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -451,20 +451,20 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« ÀúÀå Ã³¸®
+			// ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ´ã´ç¾÷¹« ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ´ã´ç¾÷¹« »èÁ¦ Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrEmpProc2020.do")
 	@ResponseBody
 	public String intrEmpProc2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -473,13 +473,13 @@ public class EmpController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« »èÁ¦ Ã³¸®
+			// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = empService.empProcService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ´ã´ç¾÷¹« »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

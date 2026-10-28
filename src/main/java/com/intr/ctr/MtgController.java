@@ -40,89 +40,89 @@ public class MtgController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// È¸ÀÇ ¸ñ·Ï Á¶È¸
+	// íšŒì˜ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrMtgInqy1010.do")
 	public String intrMtgInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ ¸ñ·Ï Á¶È¸
+			// íšŒì˜ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (È¸ÀÇ½Ç Á¾·ù) Á¶È¸
+			// ê³µí†µì½”ë“œ (íšŒì˜ì‹¤ ì¢…ë¥˜) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Loc", "locList");
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MTG + Const.INTR_MTG_LIST_1010;
 	}
 	
-	// È¸ÀÇ µî·Ï Á¶È¸
+	// íšŒì˜ ë“±ë¡ ì¡°íšŒ
 	@RequestMapping("/intrMtgInqy1020.do")
 	public String intrMtgInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// Áßº¹ È¸ÀÇ ½Ã°£ Á¶È¸
+			// ì¤‘ë³µ íšŒì˜ ì‹œê°„ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService1091(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (È¸ÀÇ½Ç Á¾·ù) Á¶È¸
+			// ê³µí†µì½”ë“œ (íšŒì˜ì‹¤ ì¢…ë¥˜) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Loc", "locList");
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ µî·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ë“±ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MTG + Const.INTR_MTG_DETL_1020;
 	}
 	
-	// È¸ÀÇ »ó¼¼È­¸é
+	// íšŒì˜ ìƒì„¸í™”ë©´
 	@RequestMapping("/intrMtgInqy1030.do")
 	public String intrMtgInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ »ó¼¼È­¸é Á¶È¸ 
+			// íšŒì˜ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ »ó¼¼È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ìƒì„¸í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MTG + Const.INTR_MTG_DETL_1010;
 	}
 	
-	// È¸ÀÇ Áßº¹ Á¶È¸
+	// íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 	@RequestMapping("/intrMtgInqy1090.do")
 	@ResponseBody
 	public List<HashMap<String, Object>> intrMtgInqy1090(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -131,78 +131,78 @@ public class MtgController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ Áßº¹ Á¶È¸
+			// íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = mtgDao.mtgInqyDao1040(paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ »ó¼¼È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ìƒì„¸í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultList;
 	}
 	
-	// È¸ÀÇ ¼öÁ¤È­¸é
+	// íšŒì˜ ìˆ˜ì •í™”ë©´
 	@RequestMapping("/intrMtgInqy1040.do")
 	public String intrMtgInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ »ó¼¼È­¸é Á¶È¸ 
+			// íšŒì˜ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService1030(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// Áßº¹ È¸ÀÇ ½Ã°£ Á¶È¸
+			// ì¤‘ë³µ íšŒì˜ ì‹œê°„ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService1091(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (È¸ÀÇ½Ç Á¾·ù) Á¶È¸
+			// ê³µí†µì½”ë“œ (íšŒì˜ì‹¤ ì¢…ë¥˜) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Loc", "locList");
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ ¼öÁ¤È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ìˆ˜ì •í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MTG + Const.INTR_MTG_DETL_1030;
 	}
 	
-	// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+	// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrMtgInqy2010.do")
 	public String intrMtgInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+			// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : Ä¶¸°´õ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MTG + Const.INTR_MTG_DETL_2010;
 	}
 
-	// È¸ÀÇ µî·Ï Ã³¸®
+	// íšŒì˜ ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrMtgProc1010.do")
 	@ResponseBody
 	public String intrMtgProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -211,20 +211,20 @@ public class MtgController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ µî·Ï
+			// íšŒì˜ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = mtgService.mtgProcService1010(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// È¸ÀÇ »èÁ¦ Ã³¸®
+	// íšŒì˜ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrMtgProc1020.do")
 	@ResponseBody
 	public String intrMtgProc1020(Model model, @RequestParam String sequenceId, HashMap<String, Object> paramMap) throws Exception {
@@ -234,20 +234,20 @@ public class MtgController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ »èÁ¦
+			// íšŒì˜ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			defaultStr = mtgService.mtgProcService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// È¸ÀÇ ¼öÁ¤ Ã³¸®
+	// íšŒì˜ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrMtgProc1030.do")
 	@ResponseBody
 	public String intrMtgProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -256,13 +256,13 @@ public class MtgController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ ¼öÁ¤
+			// íšŒì˜ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			defaultStr = mtgService.mtgProcService1030(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : È¸ÀÇ ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íšŒì˜ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

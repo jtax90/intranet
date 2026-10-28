@@ -3,8 +3,8 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,30 +45,30 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	UtilDao utilDao;
 	
-	// °øÁö»çÇ× ¸ñ·Ï Á¶È¸
+	// ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ
 	public void boardInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¸ñ·Ï
+			// ê³µì§€ì‚¬í•­ ëª©ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultList = boardDao.boardInqyDao1020(paramMap);
 			model.addAttribute("defaultList",defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (»ç¿ë¿©ºÎ) Á¶È¸
+			// ê³µí†µì½”ë“œ (ì‚¬ìš©ì—¬ë¶€) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Use", "useList");
 			
 			//--------------------------------------------------------------------------------------------
-			// Á¶È¸¼ö ¼¼¼Ç ÃÊ±âÈ­
+			// ì¡°íšŒìˆ˜ ì„¸ì…˜ ì´ˆê¸°í™”
 			//--------------------------------------------------------------------------------------------
 			request.getSession().removeAttribute("readHit");
 			
@@ -78,7 +78,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 	}
 
-	// °øÁö»çÇ× »ó¼¼È­¸é Á¶È¸
+	// ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´ ì¡°íšŒ
 	public void boardInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -86,19 +86,19 @@ public class BoardServiceImpl implements BoardService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »ó¼¼ Á¤º¸
+			// ê³µì§€ì‚¬í•­ ìƒì„¸ ì •ë³´
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = boardDao.boardInqyDao1030(paramMap);
 			model.addAttribute("defaultInfo",defaultInfo);
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ Á¤º¸
+			// íŒŒì¼ ì •ë³´
 			//--------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 			model.addAttribute("fileList",defaultList);
 
 			//--------------------------------------------------------------------------------------------
-			// Á¶È¸¼ö Ã³¸®
+			// ì¡°íšŒìˆ˜ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			HttpSession session = request.getSession();
 			String readHit = (String)session.getAttribute("readHit");
@@ -114,7 +114,7 @@ public class BoardServiceImpl implements BoardService{
 		}
 	}
 	
-	// °øÁö»çÇ× µî·Ï
+	// ê³µì§€ì‚¬í•­ ë“±ë¡
 	public String boardProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -124,13 +124,13 @@ public class BoardServiceImpl implements BoardService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× Ã¤¹ø
+			// ê³µì§€ì‚¬í•­ ì±„ë²ˆ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = boardDao.boardInqyDao1010(paramMap);
 			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× µî·Ï
+			// ê³µì§€ì‚¬í•­ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			resInt = boardDao.boardProcDao1010(paramMap);
 			//
@@ -139,12 +139,12 @@ public class BoardServiceImpl implements BoardService{
 			}
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ µî·Ï
+			// íŒŒì¼ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -156,7 +156,7 @@ public class BoardServiceImpl implements BoardService{
 		return defaultStr;
 	}
 	
-	// °øÁö»çÇ× »èÁ¦
+	// ê³µì§€ì‚¬í•­ ì‚­ì œ
 	public String boardProcService1020(Model model, String [] deleteList) throws Exception {
 		//
 		String defaultStr = "";
@@ -165,23 +165,23 @@ public class BoardServiceImpl implements BoardService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °ª ¼¼ÆÃ
+			// ê°’ ì„¸íŒ…
 			//--------------------------------------------------------------------------------------------
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("deleteList", deleteList);
 
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »èÁ¦
+			// ê³µì§€ì‚¬í•­ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			resInt = boardDao.boardProcDao1020(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ »èÁ¦ Ã³¸® (»èÁ¦)
+			// íŒŒì¼ ì‚­ì œ ì²˜ë¦¬ (ì‚­ì œ)
 			//--------------------------------------------------------------------------------------------
 			utilDao.fileProcDao1030(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt>0) {
 				resStr = "YES";
@@ -197,7 +197,7 @@ public class BoardServiceImpl implements BoardService{
 		return defaultStr;
 	}
 	
-	// °øÁö»çÇ× ¼öÁ¤
+	// ê³µì§€ì‚¬í•­ ìˆ˜ì •
 	public String boardProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		String defaultStr = "";
@@ -206,17 +206,17 @@ public class BoardServiceImpl implements BoardService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¼öÁ¤
+			// ê³µì§€ì‚¬í•­ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			resInt = boardDao.boardProcDao1040(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ¼öÁ¤
+			// íŒŒì¼ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt>0) {
 				resStr = "YES";

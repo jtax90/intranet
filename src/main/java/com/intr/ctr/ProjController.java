@@ -27,103 +27,103 @@ public class ProjController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ÇÁ·ÎÁ§Æ® ¸ñ·Ï Á¶È¸
+	// í”„ë¡œì íŠ¸ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrProjInqy1010.do")
 	public String intrProjInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® ¸ñ·Ï Á¶È¸
+			// í”„ë¡œì íŠ¸ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			projService.projInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_PROJ + Const.INTR_PROJ_LIST_1010;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® µî·Ï È­¸é
+	// í”„ë¡œì íŠ¸ ë“±ë¡ í™”ë©´
 	@RequestMapping("/intrProjInqy1020.do")
 	public String intrProjInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® µî·Ï Á¶È¸
+			// í”„ë¡œì íŠ¸ ë“±ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			projService.projInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® µî·Ï È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ë“±ë¡ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_PROJ + Const.INTR_PROJ_DETL_1020;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® »ó¼¼È­¸é
+	// í”„ë¡œì íŠ¸ ìƒì„¸í™”ë©´
 	@RequestMapping("/intrProjInqy1030.do")
 	public String intrProjInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® »ó¼¼È­¸é Á¶È¸ 
+			// í”„ë¡œì íŠ¸ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			projService.projInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® »ó¼¼È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ìƒì„¸í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_PROJ + Const.INTR_PROJ_DETL_1010;
 	}
 
-	// ÇÁ·ÎÁ§Æ® ¼öÁ¤È­¸é
+	// í”„ë¡œì íŠ¸ ìˆ˜ì •í™”ë©´
 	@RequestMapping("/intrProjInqy1040.do")
 	public String intrProjInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® »ó¼¼È­¸é Á¶È¸ 
+			// í”„ë¡œì íŠ¸ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			projService.projInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® ¼öÁ¤È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ìˆ˜ì •í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_PROJ + Const.INTR_PROJ_DETL_1030;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® µî·Ï Ã³¸®
+	// í”„ë¡œì íŠ¸ ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrProjProc1010.do")
 	@ResponseBody
 	public String intrProjProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -132,20 +132,20 @@ public class ProjController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® µî·Ï
+			// í”„ë¡œì íŠ¸ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = projService.projProcService1010(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® »èÁ¦ Ã³¸®
+	// í”„ë¡œì íŠ¸ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrProjProc1020.do")
 	@ResponseBody
 	public String intrProjProc1020(Model model, @RequestParam String [] deleteList, HashMap<String, Object> paramMap) throws Exception {
@@ -154,20 +154,20 @@ public class ProjController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® »èÁ¦
+			// í”„ë¡œì íŠ¸ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			defaultStr = projService.projProcService1020(model, deleteList);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ÇÁ·ÎÁ§Æ® ¼öÁ¤ Ã³¸®
+	// í”„ë¡œì íŠ¸ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrProjProc1030.do")
 	@ResponseBody
 	public String intrProjProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -176,13 +176,13 @@ public class ProjController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® ¼öÁ¤
+			// í”„ë¡œì íŠ¸ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			defaultStr = projService.projProcService1030(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÇÁ·ÎÁ§Æ® ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : í”„ë¡œì íŠ¸ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

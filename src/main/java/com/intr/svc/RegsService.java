@@ -2,13 +2,13 @@ package com.intr.svc;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 
 public interface RegsService {
 	//
-	void regsInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 													// ≥ª∫Œ±‘¡§ ¡∂»∏
-	void regsInqyService1011(Model model, HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception; 	// PDF∫‰æÓ ª˝º∫
+	void regsInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 													// ÎÇ¥Î∂ÄÍ∑úÏ†ï Ï°∞Ìöå
+	void regsInqyService1011(Model model, HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception; 	// PDFÎ∑∞Ïñ¥ ÏÉùÏÑ±
 
 }

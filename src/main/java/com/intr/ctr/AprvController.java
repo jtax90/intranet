@@ -31,350 +31,350 @@ public class AprvController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ±â¾È ¾ç½Ä ¸ñ·Ï Á¶È¸
+	// ê¸°ì•ˆ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy1010.do")
 	public String intrAprvInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ¾ç½Ä ¸ñ·Ï Á¶È¸
+			// ê¸°ì•ˆ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempService.tempInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È ¾ç½Ä ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}	
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_1010;
 	}
 	
-	// ±â¾È ÀÛ¼º Á¶È¸ (LEAV)
+	// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (LEAV)
 	@RequestMapping("/intrAprvInqy1020.do")
 	public String intrAprvInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ÀÛ¼º Á¶È¸ (LEAV)
+			// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (LEAV)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È ÀÛ¼º Á¶È¸ (LEAV) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (LEAV) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_1010;
 	}
 	
-	// ±â¾È ÀÛ¼º Á¶È¸ (EXP)
+	// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (EXP)
 	@RequestMapping("/intrAprvInqy1021.do")
 	public String intrAprvInqy1021(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ÀÛ¼º Á¶È¸ (EXP)
+			// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (EXP)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È ÀÛ¼º Á¶È¸ (EXP) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (EXP) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_1011;
 	}
 	
-	// ±â¾È ÀÛ¼º Á¶È¸ (ITEM)
+	// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (ITEM)
 	@RequestMapping("/intrAprvInqy1022.do")
 	public String intrAprvInqy1022(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ÀÛ¼º »ó¼¼ Á¶È¸ (ITEM)
+			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ ì¡°íšŒ (ITEM)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È ÀÛ¼º Á¶È¸ (ITEM) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (ITEM) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_1012;
 	}
 	
-	// ±â¾È ÀÛ¼º Á¶È¸ (CORP)
+	// ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (CORP)
 	@RequestMapping("/intrAprvInqy1023.do")
 	public String intrAprvInqy1023(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ÀÛ¼º »ó¼¼ Á¶È¸ (CORP)
+			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ ì¡°íšŒ (CORP)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È ÀÛ¼º Á¶È¸ (CORP) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ì‘ì„± ì¡°íšŒ (CORP) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_1013;
 	}
 	
-	// °áÀç ¸ñ·Ï Á¶È¸
+	// ê²°ì¬ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy2010.do")
 	public String intrAprvInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç ¸ñ·Ï Á¶È¸
+			// ê²°ì¬ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_2010;
 	}
 	
-	// ±â¾È »ó¼¼ Á¶È¸ (LEAV)
+	// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (LEAV)
 	@RequestMapping("/intrAprvInqy2020.do")
 	public String intrAprvInqy2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È »ó¼¼ Á¶È¸ (LEAV)
+			// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (LEAV)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È »ó¼¼ (LEAV) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ìƒì„¸ (LEAV) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_2010;
 	}
 	
-	// ±â¾È »ó¼¼ Á¶È¸ (EXP)
+	// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (EXP)
 	@RequestMapping("/intrAprvInqy2021.do")
 	public String intrAprvInqy2021(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È »ó¼¼ Á¶È¸ (EXP)
+			// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (EXP)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È »ó¼¼ (EXP) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ìƒì„¸ (EXP) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_2011;
 	}
 	
-	// ±â¾È »ó¼¼ Á¶È¸ (ITEM)
+	// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (ITEM)
 	@RequestMapping("/intrAprvInqy2022.do")
 	public String intrAprvInqy2022(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È »ó¼¼ Á¶È¸ (ITEM)
+			// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (ITEM)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È »ó¼¼ (ITEM) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ìƒì„¸ (ITEM) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_2012;
 	}
 	
-	// ±â¾È »ó¼¼ Á¶È¸ (CORP)
+	// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (CORP)
 	@RequestMapping("/intrAprvInqy2024.do")
 	public String intrAprvInqy2024(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È »ó¼¼ Á¶È¸ (CORP)
+			// ê¸°ì•ˆ ìƒì„¸ ì¡°íšŒ (CORP)
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È »ó¼¼ (CORP) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ìƒì„¸ (CORP) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_DETL_2013;
 	}
 	
-	// ÀÏÁ¤ °ü¸® Á¶È¸
+	// ì¼ì • ê´€ë¦¬ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy3010.do")
 	public String intrAprvInqy3010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÀÏÁ¤ °ü¸® Á¶È¸
+			// ì¼ì • ê´€ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService3010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÀÏÁ¤ °ü¸® Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì¼ì • ê´€ë¦¬ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_3010;
 	}
 
-	// °áÀç¼± °ü¸® Á¶È¸
+	// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy4010.do")
 	public String intrAprvInqy4010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± °ü¸® Á¶È¸
+			// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService4010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± °ü¸® Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_4010;
 	}
 	
-	// °áÀç¼± °ü¸® Á¶È¸ (AJAX)
+	// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ (AJAX)
 	@RequestMapping("/intrAprvInqy4011.do")
 	public String intrAprvInqy4011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± °ü¸® Á¶È¸
+			// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService4010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± °ü¸® (AJAX) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ê´€ë¦¬ (AJAX) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_4011;
 	}
 	
-	// °áÀç¼± µî·Ï Á¶È¸
+	// ê²°ì¬ì„  ë“±ë¡ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy4012.do")
 	public String intrAprvInqy4012(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »ó¼¼ Á¶È¸
+			// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService4020(model, paramMap);			
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± µî·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ë“±ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_APRV + Const.INTR_APRV_LIST_4012;
 	}
 	
-	// °áÀç¼± »ó¼¼ Á¶È¸
+	// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 	@RequestMapping("/intrAprvInqy4013.do")
 	public String intrAprvInqy4013(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »ó¼¼ Á¶È¸
+			// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			aprvService.aprvInqyService4030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± »ó¼¼ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
@@ -382,7 +382,7 @@ public class AprvController {
 	}
 
 	
-	// ±â¾È µî·Ï Ã³¸®
+	// ê¸°ì•ˆ ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrAprvProc1010.do")
 	@ResponseBody
 	public String intrAprvProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -391,20 +391,20 @@ public class AprvController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È µî·Ï
+			// ê¸°ì•ˆ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = aprvService.aprvProcService1010(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆ ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// °áÀç Ã³¸®
+	// ê²°ì¬ ì²˜ë¦¬
 	@RequestMapping("/intrAprvProc1020.do")
 	@ResponseBody
 	public String intrAprvProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -413,20 +413,20 @@ public class AprvController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç Ã³¸®
+			// ê²°ì¬ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = aprvService.aprvProcService3010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// °áÀç¼± ÀúÀå Ã³¸®
+	// ê²°ì¬ì„  ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrAprvProc2010.do")
 	@ResponseBody
 	public String intrAprvProc2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -435,20 +435,20 @@ public class AprvController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± ÀúÀå Ã³¸®
+			// ê²°ì¬ì„  ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = aprvService.aprvProcService4010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// °áÀç¼± »èÁ¦ Ã³¸®
+	// ê²°ì¬ì„  ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrAprvProc2020.do")
 	@ResponseBody
 	public String intrAprvProc2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -457,13 +457,13 @@ public class AprvController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »èÁ¦ Ã³¸®
+			// ê²°ì¬ì„  ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = aprvService.aprvProcService4020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °áÀç¼± »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê²°ì¬ì„  ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

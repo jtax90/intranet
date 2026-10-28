@@ -3,8 +3,8 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +33,7 @@ public class CoreServiceImpl implements CoreService{
 	@Autowired
 	UtilDao utilDao;
 	
-	// ¸Ş´º Á¶È¸
+	// ë©”ë‰´ ì¡°íšŒ
 	public void coreInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -42,7 +42,7 @@ public class CoreServiceImpl implements CoreService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¤º¸ ¼¼¼Ç Á¶È¸
+			// ë©”ë‰´ ì •ë³´ ì„¸ì…˜ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			HttpSession session = request.getSession();
 			String menuType = (String)session.getAttribute("menuType");
@@ -50,12 +50,12 @@ public class CoreServiceImpl implements CoreService{
 			String leadMenuCd = (String)paramMap.get("leadMenuCd");
 			String menuPos = "";
 
-			// »ç¿ëÀÚ, °ü¸®ÀÚ ±¸ºĞ
+			// ì‚¬ìš©ì, ê´€ë¦¬ì êµ¬ë¶„
 			if(menuType!=null) {
 				paramMap.put("menuType", menuType);
 			}
 			
-			// »ó´Ü, ÁÂÃø ±¸ºĞ
+			// ìƒë‹¨, ì¢Œì¸¡ êµ¬ë¶„
 			menuPos =  utilService.nvlProc((String)paramMap.get("menuPos"));
 			if(menuPos.equals("top")) {
 				session.setAttribute("setUpprMenu", menuCd);
@@ -68,7 +68,7 @@ public class CoreServiceImpl implements CoreService{
 			}
 
 			//--------------------------------------------------------------------------------------------
-			// ·Î±×ÀÎ Á¤º¸ ¼¼¼Ç Á¶È¸
+			// ë¡œê·¸ì¸ ì •ë³´ ì„¸ì…˜ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empInfo = (EmpVO)session.getAttribute("empVO");
 			if(empInfo!=null) {
@@ -76,7 +76,7 @@ public class CoreServiceImpl implements CoreService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// »ó´Ü ¸Ş´º Á¶È¸
+			// ìƒë‹¨ ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempMap = new HashMap<String, Object>();
 			tempMap.put("idxSet", utilService.nvlProc((String)paramMap.get("idxSet")));
@@ -86,7 +86,7 @@ public class CoreServiceImpl implements CoreService{
 			model.addAttribute("menuList", defaultList);
 
 			//--------------------------------------------------------------------------------------------
-			// ÁÂÃø ¸Ş´º Á¶È¸
+			// ì¢Œì¸¡ ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempMap = new HashMap<String, Object>();
 			tempMap.put("menuCd", utilService.nvlProc((String)paramMap.get("menuCd")));
@@ -102,14 +102,14 @@ public class CoreServiceImpl implements CoreService{
 		}
 	}
 
-	// ÀüÃ¼ ¸Ş´º Á¶È¸
+	// ì „ì²´ ë©”ë‰´ ì¡°íšŒ
 	public void coreInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÀüÃ¼ ¸Ş´º Á¶È¸
+			// ì „ì²´ ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = coreDao.coreInqyDao1020(paramMap);
 			model.addAttribute("tMenuList", defaultList);
@@ -120,14 +120,14 @@ public class CoreServiceImpl implements CoreService{
 		}
 	}
 	
-	// ¸Ş´º ¼¼¼Ç ÀúÀå
+	// ë©”ë‰´ ì„¸ì…˜ ì €ì¥
 	public void coreInqyService1030(String menuType) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ¼¼¼Ç ÀúÀå
-			// 	- 0 : »ç¿ëÀÚ
-			//		- 1 : °ü¸®ÀÚ
+			// ë©”ë‰´ ì„¸ì…˜ ì €ì¥
+			// 	- 0 : ì‚¬ìš©ì
+			//		- 1 : ê´€ë¦¬ì
 			//--------------------------------------------------------------------------------------------
 			HttpSession session = request.getSession();
 			session.setAttribute("menuType", menuType);

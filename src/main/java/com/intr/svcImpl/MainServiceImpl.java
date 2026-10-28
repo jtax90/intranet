@@ -3,8 +3,8 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,14 +36,14 @@ public class MainServiceImpl implements MainService{
 	@Autowired
 	UtilService utilService;
 	
-	// ·Î±×ÀÎ ±ÇÇÑ »ç¿ëÀÚ Á¶È¸
+	// ë¡œê·¸ì¸ ê¶Œí•œ ì‚¬ìš©ì ì¡°íšŒ
 	public void mainInqyService1010(Model model) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ·Î±×ÀÎ ±ÇÇÑ »ç¿ëÀÚ Á¶È¸
+			// ë¡œê·¸ì¸ ê¶Œí•œ ì‚¬ìš©ì ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao5010(model);
 			//
@@ -62,7 +62,7 @@ public class MainServiceImpl implements MainService{
 		}
 	}
 	
-	// ·Î±×ÀÎ Ã³¸®
+	// ë¡œê·¸ì¸ ì²˜ë¦¬
 	public String mainProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -71,19 +71,19 @@ public class MainServiceImpl implements MainService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ·Î±×ÀÎ »ç¿ëÀÚ Á¶È¸
+			// ë¡œê·¸ì¸ ì‚¬ìš©ì ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = mainDao.mainInqyDao1010(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾ÆÀÌµğ / ºñ¹Ğ¹øÈ£ Ã¼Å©
+			// ì•„ì´ë”” / ë¹„ë°€ë²ˆí˜¸ ì²´í¬
 			//--------------------------------------------------------------------------------------------
 			if(defaultInfo!=null) {
-				String paramPwd = (String)paramMap.get("empPwd");		// ºñ¹Ğ¹øÈ£ (ÀÔ·Â)
-				String encryptPwd = (String)defaultInfo.getEmpPwd();		// ºñ¹Ğ¹øÈ£ (DB)
+				String paramPwd = (String)paramMap.get("empPwd");		// ë¹„ë°€ë²ˆí˜¸ (ì…ë ¥)
+				String encryptPwd = (String)defaultInfo.getEmpPwd();		// ë¹„ë°€ë²ˆí˜¸ (DB)
 				
 				//--------------------------------------------------------------------------------------------
-				// ºñ¹Ğ¹øÈ£ º¹È£È­
+				// ë¹„ë°€ë²ˆí˜¸ ë³µí˜¸í™”
 				//--------------------------------------------------------------------------------------------
 				String decryptPwd = utilService.decryptProc(encryptPwd);
 				//
@@ -93,7 +93,7 @@ public class MainServiceImpl implements MainService{
 					//
 					resStr = "YES";
 					session.setAttribute("empVO", defaultInfo);
-					session.setMaxInactiveInterval(60*60); // 1½Ã°£
+					session.setMaxInactiveInterval(60*60); // 1ì‹œê°„
 				}
 				
 			} else {

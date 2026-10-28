@@ -6,12 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface BoardService {
-	// °øÁö»çÇ×
-	void boardInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; // Á¤º¸ Á¤Á¤ ¸ñ·Ï Á¶È¸
-	void boardInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; // »ó¼¼ È­¸é Á¶È¸
+	// ê³µì§€ì‚¬í•­
+	void boardInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; // ì •ë³´ ì •ì • ëª©ë¡ ì¡°íšŒ
+	void boardInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; // ìƒì„¸ í™”ë©´ ì¡°íšŒ
 	//
-	String boardProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// µî·Ï
-	String boardProcService1020(Model model, String[] deleteList) throws Exception; 	// »èÁ¦
-	String boardProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ¼öÁ¤
+	String boardProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ë“±ë¡
+	String boardProcService1020(Model model, String[] deleteList) throws Exception; 	// ì‚­ì œ
+	String boardProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ìˆ˜ì •
 
 }

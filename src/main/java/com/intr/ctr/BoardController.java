@@ -27,146 +27,146 @@ public class BoardController {
 	// 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// °øÁö»çÇ× ¸ñ·Ï È­¸é
+	// ê³µì§€ì‚¬í•­ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrBoardInqy1010.do")
 	public String intrBoardInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¸ñ·Ï Á¶È¸
+			// ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			boardService.boardInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_LIST_1010;
 	}
 	
-	// °øÁö»çÇ× µî·Ï È­¸é
+	// ê³µì§€ì‚¬í•­ ë“±ë¡ í™”ë©´
 	@RequestMapping("/intrBoardInqy1020.do")
 	public String intrBoardInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× µî·Ï È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ë“±ë¡ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_DETL_1020;
 	}
 	
-	// °øÁö»çÇ× »ó¼¼È­¸é
+	// ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´
 	@RequestMapping("/intrBoardInqy1030.do")
 	public String intrBoardInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »ó¼¼È­¸é Á¶È¸ 
+			// ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			boardService.boardInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× »ó¼¼È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_DETL_1010;
 	}
 
-	// °øÁö»çÇ× ¼öÁ¤È­¸é
+	// ê³µì§€ì‚¬í•­ ìˆ˜ì •í™”ë©´
 	@RequestMapping("/intrBoardInqy1040.do")
 	public String intrBoardInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »ó¼¼È­¸é Á¶È¸ 
+			// ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			boardService.boardInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× ¼öÁ¤È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ìˆ˜ì •í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_DETL_1030;
 	}
 	
-	// °øÁö»çÇ× ¸ñ·Ï Á¶È¸
+	// ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrBoardInqy2010.do")
 	public String intrBoardInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¸ñ·Ï Á¶È¸
+			// ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			boardService.boardInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_LIST_2010;
 	}
 	
-	// °øÁö»çÇ× »ó¼¼ Á¶È¸
+	// ê³µì§€ì‚¬í•­ ìƒì„¸ ì¡°íšŒ
 	@RequestMapping("/intrBoardInqy2020.do")
 	public String intrBoardInqy2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »ó¼¼È­¸é Á¶È¸ 
+			// ê³µì§€ì‚¬í•­ ìƒì„¸í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			boardService.boardInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× »ó¼¼ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ìƒì„¸ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BOARD + Const.INTR_BOARD_DETL_2010;
 	}
 	
-	// °øÁö»çÇ× µî·Ï Ã³¸®
+	// ê³µì§€ì‚¬í•­ ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrBoardProc1010.do")
 	@ResponseBody
 	public String intrBoardProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -175,20 +175,20 @@ public class BoardController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× µî·Ï
+			// ê³µì§€ì‚¬í•­ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = boardService.boardProcService1010(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// °øÁö»çÇ× »èÁ¦ Ã³¸®
+	// ê³µì§€ì‚¬í•­ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrBoardProc1020.do")
 	@ResponseBody
 	public String intrBoardProc1020(Model model, @RequestParam String [] deleteList, HashMap<String, Object> paramMap) throws Exception {
@@ -197,20 +197,20 @@ public class BoardController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× »èÁ¦
+			// ê³µì§€ì‚¬í•­ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			defaultStr = boardService.boardProcService1020(model, deleteList);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// °øÁö»çÇ× ¼öÁ¤ Ã³¸®
+	// ê³µì§€ì‚¬í•­ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrBoardProc1030.do")
 	@ResponseBody
 	public String intrBoardProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
@@ -219,13 +219,13 @@ public class BoardController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¼öÁ¤
+			// ê³µì§€ì‚¬í•­ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			defaultStr = boardService.boardProcService1030(model, paramMap, request);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °øÁö»çÇ× ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê³µì§€ì‚¬í•­ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

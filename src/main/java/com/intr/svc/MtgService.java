@@ -6,16 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface MtgService {
-	// È¸ÀÇ
-	void mtgInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ¸ñ·Ï Á¶È¸
-	void mtgInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// µî·Ï Á¶È¸
-	void mtgInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception; // »ó¼¼ È­¸é Á¶È¸
-	void mtgInqyService1091(Model model, HashMap<String, Object> paramMap) throws Exception; // È¸ÀÇ Áßº¹ Á¶È¸
+	// íšŒì˜
+	void mtgInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ëª©ë¡ ì¡°íšŒ
+	void mtgInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// ë“±ë¡ ì¡°íšŒ
+	void mtgInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception; // ìƒì„¸ í™”ë©´ ì¡°íšŒ
+	void mtgInqyService1091(Model model, HashMap<String, Object> paramMap) throws Exception; // íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 	
-	void mtgInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception;	// Ä¶¸°´õ Á¶È¸
-	void mtgInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception;	// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+	void mtgInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ìº˜ë¦°ë” ì¡°íšŒ
+	void mtgInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception;	// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 
-	String mtgProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// µî·Ï
-	String mtgProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »èÁ¦
-	String mtgProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ¼öÁ¤
+	String mtgProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ë“±ë¡
+	String mtgProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚­ì œ
+	String mtgProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ìˆ˜ì •
 }

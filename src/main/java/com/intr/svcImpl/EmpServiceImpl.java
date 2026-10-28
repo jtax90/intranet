@@ -3,7 +3,7 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,25 +41,25 @@ public class EmpServiceImpl implements EmpService {
 	@Autowired
 	HttpServletRequest request;
 
-	// »ç¿ø ¸ñ·Ï Á¶È¸
+	// ì‚¬ì› ëª©ë¡ ì¡°íšŒ
 	public void empInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ¸ñ·Ï
+			// ì‚¬ì› ëª©ë¡
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.empInqyDao1020(paramMap);
 			model.addAttribute("defaultList", defaultList);
 
 			// --------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (ÀçÁ÷¿©ºÎ) Á¶È¸
+			// ê³µí†µì½”ë“œ (ì¬ì§ì—¬ë¶€) ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Hire", "hireList");
 
@@ -69,20 +69,20 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ºÎ¼­ Á÷±Ş Á¶È¸
+	// ë¶€ì„œ ì§ê¸‰ ì¡°íšŒ
 	public void empInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ºÎ¼­ ¸ñ·Ï Á¶È¸
+			// ë¶€ì„œ ëª©ë¡ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy1021(paramMap);
 			model.addAttribute("orgList", defaultList);
 
 			// --------------------------------------------------------------------------------------------
-			// Á÷±Ş ¸ñ·Ï Á¶È¸
+			// ì§ê¸‰ ëª©ë¡ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy1022(paramMap);
 			model.addAttribute("rankList", defaultList);
@@ -93,14 +93,14 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// »ç¿ø »ó¼¼ Á¶È¸
+	// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 	public void empInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø »ó¼¼ Á¤º¸
+			// ì‚¬ì› ìƒì„¸ ì •ë³´
 			// --------------------------------------------------------------------------------------------
 			defaultInfo = empDao.intrEmpInqy1031(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
@@ -111,14 +111,14 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ºÎ¼­ Á÷±Ş Á¶È¸
+	// ë¶€ì„œ ì§ê¸‰ ì¡°íšŒ
 	public void empInqyService1040(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ºÎ¼­ ¸ñ·Ï (ÀüÃ¼) Á¶È¸
+			// ë¶€ì„œ ëª©ë¡ (ì „ì²´) ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy1023(paramMap);
 			model.addAttribute("orgList", defaultList);
@@ -129,7 +129,7 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
+	// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
 	public String empInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -138,7 +138,7 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
+			// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy2021(paramMap);
 			//
@@ -147,7 +147,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -159,14 +159,14 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// ºÎ¼­ »ç¿ø Æ®¸® Á¶È¸
+	// ë¶€ì„œ ì‚¬ì› íŠ¸ë¦¬ ì¡°íšŒ
 	public void empInqyService2030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ºÎ¼­ »ç¿ø Æ®¸® Á¶È¸
+			// ë¶€ì„œ ì‚¬ì› íŠ¸ë¦¬ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy2031(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -177,14 +177,14 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ºÎ¼­ ÇöÈ²
+	// ë¶€ì„œ í˜„í™©
 	public void empInqyService2040(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ºÎ¼­ ÇöÈ²
+			// ë¶€ì„œ í˜„í™©
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy2041(paramMap);
 			model.addAttribute("empCnt", defaultList);
@@ -195,19 +195,19 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ´ã´ç¾÷¹« Á¶È¸
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
 	public void empInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 
 			// --------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« Á¶È¸
+			// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy3011(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -218,19 +218,19 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ´ã´ç¾÷¹« Á¶È¸ (AJAX)
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ (AJAX)
 	public void empInqyService3011(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 
 			// --------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« Á¶È¸
+			// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy3011(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -241,14 +241,14 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ´ã´ç¾÷¹« µî·Ï Á¶È¸ (AJAX)
+	// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ ì¡°íšŒ (AJAX)
 	public void empInqyService3012(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« µî·Ï Á¶È¸
+			// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultInfo = empDao.intrEmpInqy3012(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
@@ -259,7 +259,7 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// ÀÎ»çÅë°è ¸ñ·Ï Á¶È¸
+	// ì¸ì‚¬í†µê³„ ëª©ë¡ ì¡°íšŒ
 	public void empInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -268,12 +268,12 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ÀÎ»çÅë°è ¸ñ·Ï Á¶È¸
+			// ì¸ì‚¬í†µê³„ ëª©ë¡ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy4012(paramMap);
 			//
 			for (HashMap<String, Object> row : defaultList) {
-				// [¿¹½Ã]: "°ü¸®ÆÀ_202501", "°ü¸®ÆÀ_¿¬°£ ¼Ò°è", "ÀüÃ¼ ÇÕ°è_202501"
+				// [ì˜ˆì‹œ]: "ê´€ë¦¬íŒ€_202501", "ê´€ë¦¬íŒ€_ì—°ê°„ ì†Œê³„", "ì „ì²´ í•©ê³„_202501"
 				key = row.get("orgNm") + "_" + row.get("yearMm");
 				statList.put(key, row);
 			}
@@ -281,24 +281,24 @@ public class EmpServiceImpl implements EmpService {
 			model.addAttribute("statList", statList);
 
 			// --------------------------------------------------------------------------------------------
-			// Åë°è ¿¬µµ Á¶È¸
+			// í†µê³„ ì—°ë„ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy4013(paramMap);
 			model.addAttribute("yearList", defaultList);
 
 			// --------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (ÀçÁ÷¿©ºÎ) Á¶È¸
+			// ê³µí†µì½”ë“œ (ì¬ì§ì—¬ë¶€) ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Hire", "hireList");
 
 			// --------------------------------------------------------------------------------------------
-			// Åë°è ¿¬¿ù Á¶È¸
+			// í†µê³„ ì—°ì›” ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy4014(paramMap);
 			model.addAttribute("ymList", defaultList);
 
 			// --------------------------------------------------------------------------------------------
-			// ºÎ¼­ Á¶È¸
+			// ë¶€ì„œ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy1021(paramMap);
 			model.addAttribute("orgList", defaultList);
@@ -309,7 +309,7 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// »ç¿ø µî·Ï
+	// ì‚¬ì› ë“±ë¡
 	public String empProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		List<MultipartFile> fileList = request.getFiles("fileList");
@@ -320,18 +320,18 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ÀÎµ¦½º Ã¤¹ø
+			// ì‚¬ì› ì¸ë±ìŠ¤ ì±„ë²ˆ
 			// --------------------------------------------------------------------------------------------
 			defaultInfo = empDao.empInqyDao1010(paramMap);
 			paramMap.put("sequenceId", defaultInfo.get("sequenceId"));
 
 			// --------------------------------------------------------------------------------------------
-			// ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­
+			// ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™”
 			// --------------------------------------------------------------------------------------------
 			paramMap.put("empPwd", utilService.encryptProc((String) paramMap.get("empPwd")));
 
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø µî·Ï
+			// ì‚¬ì› ë“±ë¡
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1011(paramMap);
 			//
@@ -340,14 +340,14 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// ÆÄÀÏ µî·Ï
+			// íŒŒì¼ ë“±ë¡
 			// --------------------------------------------------------------------------------------------
 			if (fileList != null) {
 				resStr = utilService.fileUpload(model, paramMap, request);
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -359,7 +359,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// »ç¿ø ¼öÁ¤
+	// ì‚¬ì› ìˆ˜ì •
 	public String empProcService1020(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		String defaultStr = "";
@@ -369,14 +369,14 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­
+			// ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™”
 			// --------------------------------------------------------------------------------------------
 			if (empPwd != "") {
 				paramMap.put("empPwd", utilService.encryptProc((String) paramMap.get("empPwd")));
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ¼öÁ¤
+			// ì‚¬ì› ìˆ˜ì •
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1021(paramMap);
 			//
@@ -385,12 +385,12 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// ÆÄÀÏ µî·Ï
+			// íŒŒì¼ ë“±ë¡
 			// --------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -402,7 +402,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// »ç¿ø º¹Á÷, Åğ»ç Ã³¸®
+	// ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬
 	public String empProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -411,7 +411,7 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø º¹Á÷, Åğ»ç Ã³¸®
+			// ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1031(paramMap);
 			//
@@ -420,7 +420,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -432,7 +432,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// »ç¿ø »èÁ¦
+	// ì‚¬ì› ì‚­ì œ
 	public String empProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -441,7 +441,7 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø »èÁ¦
+			// ì‚¬ì› ì‚­ì œ
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1041(paramMap);
 			//
@@ -450,7 +450,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -462,7 +462,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// »ç¿ø ºñ¹Ğ¹øÈ£ ¼öÁ¤
+	// ì‚¬ì› ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì •
 	public String empProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -473,13 +473,13 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ¾ÏÈ£È­ Ã³¸®
+			// ì•”í˜¸í™” ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			encryptedText = utilService.encryptProc(newPwd);
 			paramMap.put("chngPwd", encryptedText);
 
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ¼öÁ¤
+			// ì‚¬ì› ìˆ˜ì •
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1051(paramMap);
 			//
@@ -488,7 +488,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -500,7 +500,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// ´ã´ç¾÷¹« ÀúÀå Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬
 	public String empProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -509,7 +509,7 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« ÀúÀå Ã³¸®
+			// ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc2011(paramMap);
 			//
@@ -518,7 +518,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 
@@ -530,7 +530,7 @@ public class EmpServiceImpl implements EmpService {
 		return defaultStr;
 	}
 
-	// ´ã´ç¾÷¹« »èÁ¦ Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬
 	public String empProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -539,7 +539,7 @@ public class EmpServiceImpl implements EmpService {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ´ã´ç¾÷¹« »èÁ¦ Ã³¸®
+			// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc2021(paramMap);
 			//
@@ -548,7 +548,7 @@ public class EmpServiceImpl implements EmpService {
 			}
 
 			// --------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			// --------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 

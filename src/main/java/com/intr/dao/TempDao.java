@@ -13,7 +13,7 @@ public class TempDao {
 	@Autowired
 	SqlSession sqlsession;
 
-	// ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> tempInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -21,7 +21,7 @@ public class TempDao {
 		return defaultList;
 	}
 	
-	// ±â¾È¹® ¾ç½Ä »ó¼¼ Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> tempInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -30,7 +30,7 @@ public class TempDao {
 		return defaultInfo;
 	}
 	
-	// ±â¾È¹® ¾ç½Ä ¼öÁ¤
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì •
 	public int tempProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

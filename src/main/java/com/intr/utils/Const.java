@@ -2,275 +2,275 @@ package com.intr.utils;
 
 public class Const {
 	//--------------------------------------------------------------------------------------------
-	// °øÅë
+	// ê³µí†µ
 	//--------------------------------------------------------------------------------------------
-	public static final String USER 		= "0"; 			// »ç¿ëÀÚ
-	public static final String ADMIN 	= "1"; 			// °ü¸®ÀÚ
+	public static final String USER 		= "0"; 			// ì‚¬ìš©ì
+	public static final String ADMIN 	= "1"; 			// ê´€ë¦¬ì
 	
-	public static final String STEP_PROG 		= "STEP_0010"; 			// °áÀçÁøÇàÁß
-	public static final String STEP_COMP 		= "STEP_0020"; 			// °áÀç¿Ï·á
-	public static final String STEP_REJT 		= "STEP_0030"; 			// °áÀç¹İ¼Û
-	public static final String STEP_CANC 		= "STEP_0040"; 			// °áÀçÃë¼Ò
+	public static final String STEP_PROG 		= "STEP_0010"; 			// ê²°ì¬ì§„í–‰ì¤‘
+	public static final String STEP_COMP 		= "STEP_0020"; 			// ê²°ì¬ì™„ë£Œ
+	public static final String STEP_REJT 		= "STEP_0030"; 			// ê²°ì¬ë°˜ì†¡
+	public static final String STEP_CANC 		= "STEP_0040"; 			// ê²°ì¬ì·¨ì†Œ
 	
-	public static final String TYPE_DRFT 		= "TYPE_0010"; 			// ±â¾È
-	public static final String TYPE_APRV 		= "TYPE_0020"; 			// °áÀç
-	public static final String TYPE_REFR 		= "TYPE_0030"; 			// ÂüÁ¶
+	public static final String TYPE_DRFT 		= "TYPE_0010"; 			// ê¸°ì•ˆ
+	public static final String TYPE_APRV 		= "TYPE_0020"; 			// ê²°ì¬
+	public static final String TYPE_REFR 		= "TYPE_0030"; 			// ì°¸ì¡°
 	
-	public static final String RSLT_0010 		= "RSLT_0010"; 			// ½ÂÀÎ
-	public static final String RSLT_0020 		= "RSLT_0020"; 			// ¹İ¼Û
-	public static final String RSLT_0030 		= "RSLT_0030"; 			// Ãë¼Ò
+	public static final String RSLT_0010 		= "RSLT_0010"; 			// ìŠ¹ì¸
+	public static final String RSLT_0020 		= "RSLT_0020"; 			// ë°˜ì†¡
+	public static final String RSLT_0030 		= "RSLT_0030"; 			// ì·¨ì†Œ
 	
-	public static final String LOG_INQY 		= "PROC_0010"; 			// Á¶È¸
-	public static final String LOG_PROC 		= "PROC_0020"; 			// Ã³¸®
+	public static final String LOG_INQY 		= "PROC_0010"; 			// ì¡°íšŒ
+	public static final String LOG_PROC 		= "PROC_0020"; 			// ì²˜ë¦¬
 
-	public static final String LOG_SUCC 		= "Y"; 				// ¼º°ø
-	public static final String LOG_FAIL 		= "N"; 				// ½ÇÆĞ
+	public static final String LOG_SUCC 		= "Y"; 				// ì„±ê³µ
+	public static final String LOG_FAIL 		= "N"; 				// ì‹¤íŒ¨
 	
-	public static final String TEMP_LEAV 		= "Leav"; 			// ÈŞ°¡ ½ÅÃ»¼­
-	public static final String TEMP_EXP 		= "Exp"; 			// °¡Áö±Ş°áÀÇ¼­
-	public static final String TEMP_ITEM 		= "Item"; 			// ¹°Ç°¹İÃâÀÔ ½ÅÃ»¼­
-	public static final String TEMP_CORP 		= "Corp"; 			// ¹ıÀÎÄ«µå Á¤»ê¼­
+	public static final String TEMP_LEAV 		= "Leav"; 			// íœ´ê°€ ì‹ ì²­ì„œ
+	public static final String TEMP_EXP 		= "Exp"; 			// ê°€ì§€ê¸‰ê²°ì˜ì„œ
+	public static final String TEMP_ITEM 		= "Item"; 			// ë¬¼í’ˆë°˜ì¶œì… ì‹ ì²­ì„œ
+	public static final String TEMP_CORP 		= "Corp"; 			// ë²•ì¸ì¹´ë“œ ì •ì‚°ì„œ
 	
 	//--------------------------------------------------------------------------------------------
-	// ¸Å´º¾ó
+	// ë§¤ë‰´ì–¼
 	//--------------------------------------------------------------------------------------------
 	public static final String MANU_WORD  = "intr_table.docx"; 		// WORD
 	public static final String MANU_EXCEL  = "intr_data.xlsx"; 		// EXCEL
 	public static final String MANU_PPT  = "intr_project.pptx"; 		// PPT
 	
 	//--------------------------------------------------------------------------------------------
-	// ³»ºÎ±ÔÁ¤
+	// ë‚´ë¶€ê·œì •
 	//--------------------------------------------------------------------------------------------
-	public static final String TAB_CORP  = "corp"; 		// »ç±Ô (ÅÇ)
-	public static final String TAB_HRM  = "hrm"; 			// ÀÎ»ç°ü¸® (ÅÇ)
-	public static final String TAB_WEL  = "wel"; 			// º¹¸®ÈÄ»ı (ÅÇ)
+	public static final String TAB_CORP  = "corp"; 		// ì‚¬ê·œ (íƒ­)
+	public static final String TAB_HRM  = "hrm"; 			// ì¸ì‚¬ê´€ë¦¬ (íƒ­)
+	public static final String TAB_WEL  = "wel"; 			// ë³µë¦¬í›„ìƒ (íƒ­)
 	
-	public static final String RULE_CORP  = "RULE_CORP.pdf"; 	// »ç±Ô
-	public static final String RULE_HRM  = "RULE_HRM.pdf";		// ÀÎ»ç°ü¸®
-	public static final String RULE_WEL  = "RULE_WEL.pdf"; 		// º¹¸®ÈÄ»ı
-	
-	//--------------------------------------------------------------------------------------------
-	// ÆäÀÌÂ¡
-	//--------------------------------------------------------------------------------------------
-	public final static int BLOCKLIST = 10; 		// ÆäÀÌÁö ¸ñ·Ï ¼ö
-	public final static int BLOCKPAGE = 5; 		// ÆäÀÌÁö ÆäÀÌÁö ¼ö 
+	public static final String RULE_CORP  = "RULE_CORP.pdf"; 	// ì‚¬ê·œ
+	public static final String RULE_HRM  = "RULE_HRM.pdf";		// ì¸ì‚¬ê´€ë¦¬
+	public static final String RULE_WEL  = "RULE_WEL.pdf"; 		// ë³µë¦¬í›„ìƒ
 	
 	//--------------------------------------------------------------------------------------------
-	// Æú´õ °æ·Î
+	// í˜ì´ì§•
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_PATH  					= "/WEB-INF/views/intr";				// ÇÁ·ÎÁ§Æ®
-	public static final String VIEW_PATH_POPUP 		= INTR_PATH + "/comm/popup/"; 	// ÆË¾÷
-	public static final String VIEW_PATH_MAIN 		= INTR_PATH + "/main/"; 				// ¸ŞÀÎ
-	public static final String VIEW_PATH_LOGIN 		= INTR_PATH + "/login/"; 				// ·Î±×ÀÎ
-	public static final String VIEW_PATH_MYPAGE 		= INTR_PATH + "/mypage/"; 			// ³» Á¤º¸
-	public static final String VIEW_PATH_BOARD 		= INTR_PATH + "/board/"; 				// °øÁö»çÇ×
-	public static final String VIEW_PATH_TASK 			= INTR_PATH + "/task/"; 				// ¾÷¹«
-	public static final String VIEW_PATH_EMP 			= INTR_PATH + "/emp/";	 				// »ç¿ø
-	public static final String VIEW_PATH_TEMP 			= INTR_PATH + "/temp/";	 			// ±â¾È¹® ¾ç½Ä
-	public static final String VIEW_PATH_ROLE 			= INTR_PATH + "/role/";	 				// ±ÇÇÑ
-	public static final String VIEW_PATH_APRV 			= INTR_PATH + "/aprv/";	 			// °áÀç
-	public static final String VIEW_PATH_QUERY 		= INTR_PATH + "/query/";	 			// Äõ¸®
-	public static final String VIEW_PATH_PROJ 			= INTR_PATH + "/project/"; 			// ÇÁ·ÎÁ§Æ®
-	public static final String VIEW_PATH_MTG 			= INTR_PATH + "/meeting/"; 			// È¸ÀÇ
-	public static final String VIEW_PATH_BANR 			= INTR_PATH + "/banr/"; 				// ¹è³Ê
-	public static final String VIEW_PATH_REGS 			= INTR_PATH + "/regs/"; 				// ³»ºÎ±ÔÁ¤
-	public static final String VIEW_PATH_LOG 			= INTR_PATH + "/log/"; 					// ·Î±×
+	public final static int BLOCKLIST = 10; 		// í˜ì´ì§€ ëª©ë¡ ìˆ˜
+	public final static int BLOCKPAGE = 5; 		// í˜ì´ì§€ í˜ì´ì§€ ìˆ˜
 	
 	//--------------------------------------------------------------------------------------------
-	// ÆÄÀÏ ´Ù¿î·Îµå °æ·Î
+	// í´ë” ê²½ë¡œ
 	//--------------------------------------------------------------------------------------------
-	public static final String FILE_PATH = "INTR\\FILE"; 				// ÆÄÀÏ
-	public static final String TEMP_PATH = "INTR\\TEMP"; 				// ÀÓ½Ã
-	public static final String MANU_PATH  = "INTR\\MANUAL"; 		// ¸Å´º¾ó
-	public static final String REGS_PATH  = "INTR\\REGS"; 			// ³»ºÎ±ÔÁ¤
+	public static final String INTR_PATH  					= "/WEB-INF/views/intr";				// í”„ë¡œì íŠ¸
+	public static final String VIEW_PATH_POPUP 		= INTR_PATH + "/comm/popup/"; 	// íŒì—…
+	public static final String VIEW_PATH_MAIN 		= INTR_PATH + "/main/"; 				// ë©”ì¸
+	public static final String VIEW_PATH_LOGIN 		= INTR_PATH + "/login/"; 				// ë¡œê·¸ì¸
+	public static final String VIEW_PATH_MYPAGE 		= INTR_PATH + "/mypage/"; 			// ë‚´ ì •ë³´
+	public static final String VIEW_PATH_BOARD 		= INTR_PATH + "/board/"; 				// ê³µì§€ì‚¬í•­
+	public static final String VIEW_PATH_TASK 			= INTR_PATH + "/task/"; 				// ì—…ë¬´
+	public static final String VIEW_PATH_EMP 			= INTR_PATH + "/emp/";	 				// ì‚¬ì›
+	public static final String VIEW_PATH_TEMP 			= INTR_PATH + "/temp/";	 			// ê¸°ì•ˆë¬¸ ì–‘ì‹
+	public static final String VIEW_PATH_ROLE 			= INTR_PATH + "/role/";	 				// ê¶Œí•œ
+	public static final String VIEW_PATH_APRV 			= INTR_PATH + "/aprv/";	 			// ê²°ì¬
+	public static final String VIEW_PATH_QUERY 		= INTR_PATH + "/query/";	 			// ì¿¼ë¦¬
+	public static final String VIEW_PATH_PROJ 			= INTR_PATH + "/project/"; 			// í”„ë¡œì íŠ¸
+	public static final String VIEW_PATH_MTG 			= INTR_PATH + "/meeting/"; 			// íšŒì˜
+	public static final String VIEW_PATH_BANR 			= INTR_PATH + "/banr/"; 				// ë°°ë„ˆ
+	public static final String VIEW_PATH_REGS 			= INTR_PATH + "/regs/"; 				// ë‚´ë¶€ê·œì •
+	public static final String VIEW_PATH_LOG 			= INTR_PATH + "/log/"; 					// ë¡œê·¸
 	
 	//--------------------------------------------------------------------------------------------
-	// ·Î±×ÀÎ
+	// íŒŒì¼ ë‹¤ìš´ë¡œë“œ ê²½ë¡œ
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_LOGIN_INQY_1010 	= "intr_login_inqy_1010.jsp"; 	// ·Î±×ÀÎ
-	public static final String INTR_LOGIN_INQY_1020 	= "intr_login_inqy_1020.jsp"; 	// Á¤º¸ Ã£±â
+	public static final String FILE_PATH = "INTR\\FILE"; 				// íŒŒì¼
+	public static final String TEMP_PATH = "INTR\\TEMP"; 				// ì„ì‹œ
+	public static final String MANU_PATH  = "INTR\\MANUAL"; 		// ë§¤ë‰´ì–¼
+	public static final String REGS_PATH  = "INTR\\REGS"; 			// ë‚´ë¶€ê·œì •
 	
 	//--------------------------------------------------------------------------------------------
-	// ¸ŞÀÎ
+	// ë¡œê·¸ì¸
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_MAIN_INQY_1010 	= "intr_main_inqy_1010.jsp"; 	// ¸ŞÀÎ (À¯Àú)
-	public static final String INTR_MAIN_INQY_2010 	= "intr_main_inqy_2010.jsp"; 	// ¸ŞÀÎ (°ü¸®ÀÚ)
+	public static final String INTR_LOGIN_INQY_1010 	= "intr_login_inqy_1010.jsp"; 	// ë¡œê·¸ì¸
+	public static final String INTR_LOGIN_INQY_1020 	= "intr_login_inqy_1020.jsp"; 	// ì •ë³´ ì°¾ê¸°
 	
 	//--------------------------------------------------------------------------------------------
-	// ³»Á¤º¸
+	// ë©”ì¸
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_MYPAGE_INQY_1010 = "intr_mypage_detl_1010.jsp"; 	// ³» Á¤º¸
+	public static final String INTR_MAIN_INQY_1010 	= "intr_main_inqy_1010.jsp"; 	// ë©”ì¸ (ìœ ì €)
+	public static final String INTR_MAIN_INQY_2010 	= "intr_main_inqy_2010.jsp"; 	// ë©”ì¸ (ê´€ë¦¬ì)
 	
 	//--------------------------------------------------------------------------------------------
-	// ÆË¾÷
+	// ë‚´ì •ë³´
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_POPUP_INQY_1010 = "intr_popup_inqy_1010.jsp";			// ´ã´çÀÚ ÆË¾÷
-	public static final String INTR_POPUP_INQY_1011 = "intr_popup_inqy_1011.jsp";			// ´ã´çÀÚ Æ®¸®
+	public static final String INTR_MYPAGE_INQY_1010 = "intr_mypage_detl_1010.jsp"; 	// ë‚´ ì •ë³´
 	
-	public static final String INTR_POPUP_INQY_1020 = "intr_popup_inqy_1020.jsp";		// È¸¿øÁ¤º¸ Ã£±â ÆË¾÷
-	public static final String INTR_POPUP_INQY_1021 = "intr_popup_inqy_1021.jsp";			// ÆË¾÷ (¾ÆÀÌµğ Ã£±â)
-	public static final String INTR_POPUP_INQY_1022 = "intr_popup_inqy_1022.jsp";		// ÆË¾÷ (ºñ¹Ğ¹øÈ£ Ã£±â)
+	//--------------------------------------------------------------------------------------------
+	// íŒì—…
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_POPUP_INQY_1010 = "intr_popup_inqy_1010.jsp";			// ë‹´ë‹¹ì íŒì—…
+	public static final String INTR_POPUP_INQY_1011 = "intr_popup_inqy_1011.jsp";			// ë‹´ë‹¹ì íŠ¸ë¦¬
+	
+	public static final String INTR_POPUP_INQY_1020 = "intr_popup_inqy_1020.jsp";		// íšŒì›ì •ë³´ ì°¾ê¸° íŒì—…
+	public static final String INTR_POPUP_INQY_1021 = "intr_popup_inqy_1021.jsp";			// íŒì—… (ì•„ì´ë”” ì°¾ê¸°)
+	public static final String INTR_POPUP_INQY_1022 = "intr_popup_inqy_1022.jsp";		// íŒì—… (ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°)
 
-	public static final String INTR_POPUP_INQY_1030 = "intr_popup_inqy_1030.jsp";		// ÇÁ·ÎÁ§Æ® ÆË¾÷
-	public static final String INTR_POPUP_INQY_1031 = "intr_popup_inqy_1031.jsp";			// ÇÁ·ÎÁ§Æ® Æ®¸®
+	public static final String INTR_POPUP_INQY_1030 = "intr_popup_inqy_1030.jsp";		// í”„ë¡œì íŠ¸ íŒì—…
+	public static final String INTR_POPUP_INQY_1031 = "intr_popup_inqy_1031.jsp";			// í”„ë¡œì íŠ¸ íŠ¸ë¦¬
 	
-	public static final String INTR_POPUP_INQY_1040 = "intr_popup_inqy_1040.jsp";		// °áÀç¼± ÆË¾÷
-	public static final String INTR_POPUP_INQY_1041 = "intr_popup_inqy_1041.jsp";			// °áÀç¼± Æ®¸®
-	public static final String INTR_POPUP_INQY_1042 = "intr_popup_inqy_1042.jsp";		// °áÀç¼± ¸ñ·Ï
-	public static final String INTR_POPUP_INQY_1043 = "intr_popup_inqy_1043.jsp";		// °áÀç¼± »ó¼¼
+	public static final String INTR_POPUP_INQY_1040 = "intr_popup_inqy_1040.jsp";		// ê²°ì¬ì„  íŒì—…
+	public static final String INTR_POPUP_INQY_1041 = "intr_popup_inqy_1041.jsp";			// ê²°ì¬ì„  íŠ¸ë¦¬
+	public static final String INTR_POPUP_INQY_1042 = "intr_popup_inqy_1042.jsp";		// ê²°ì¬ì„  ëª©ë¡
+	public static final String INTR_POPUP_INQY_1043 = "intr_popup_inqy_1043.jsp";		// ê²°ì¬ì„  ìƒì„¸
 
-	public static final String INTR_POPUP_INQY_1050 = "intr_popup_inqy_1050.jsp";		// °áÀçÀÇ°ß ÆË¾÷
-	public static final String INTR_POPUP_INQY_1051 = "intr_popup_inqy_1051.jsp";			// °áÀçÀÇ°ß ÀÔ·Â
+	public static final String INTR_POPUP_INQY_1050 = "intr_popup_inqy_1050.jsp";		// ê²°ì¬ì˜ê²¬ íŒì—…
+	public static final String INTR_POPUP_INQY_1051 = "intr_popup_inqy_1051.jsp";			// ê²°ì¬ì˜ê²¬ ì…ë ¥
 
-	public static final String INTR_POPUP_INQY_1060 = "intr_popup_inqy_1060.jsp";		// ¹°Ç° ÆË¾÷
-	public static final String INTR_POPUP_INQY_1061 = "intr_popup_inqy_1061.jsp";			// ¹°Ç° µî·Ï
-	public static final String INTR_POPUP_INQY_1062 = "intr_popup_inqy_1062.jsp";		// ¹°Ç° Á¶È¸
+	public static final String INTR_POPUP_INQY_1060 = "intr_popup_inqy_1060.jsp";		// ë¬¼í’ˆ íŒì—…
+	public static final String INTR_POPUP_INQY_1061 = "intr_popup_inqy_1061.jsp";			// ë¬¼í’ˆ ë“±ë¡
+	public static final String INTR_POPUP_INQY_1062 = "intr_popup_inqy_1062.jsp";		// ë¬¼í’ˆ ì¡°íšŒ
 	
-	public static final String INTR_POPUP_INQY_1070 = "intr_popup_inqy_1070.jsp";		// Á¤»ê³»¿ª ÆË¾÷
-	public static final String INTR_POPUP_INQY_1071 = "intr_popup_inqy_1071.jsp";			// Á¤»ê³»¿ª µî·Ï
-	public static final String INTR_POPUP_INQY_1072 = "intr_popup_inqy_1072.jsp";		// Á¤»ê³»¿ª Á¶È¸
+	public static final String INTR_POPUP_INQY_1070 = "intr_popup_inqy_1070.jsp";		// ì •ì‚°ë‚´ì—­ íŒì—…
+	public static final String INTR_POPUP_INQY_1071 = "intr_popup_inqy_1071.jsp";			// ì •ì‚°ë‚´ì—­ ë“±ë¡
+	public static final String INTR_POPUP_INQY_1072 = "intr_popup_inqy_1072.jsp";		// ì •ì‚°ë‚´ì—­ ì¡°íšŒ
 	
-	public static final String INTR_POPUP_INQY_1080 = "intr_popup_inqy_1080.jsp";		// ÈŞ°¡ ÆË¾÷
-	public static final String INTR_POPUP_INQY_1081 = "intr_popup_inqy_1081.jsp";			// ÈŞ°¡ Á¶È¸
+	public static final String INTR_POPUP_INQY_1080 = "intr_popup_inqy_1080.jsp";		// íœ´ê°€ íŒì—…
+	public static final String INTR_POPUP_INQY_1081 = "intr_popup_inqy_1081.jsp";			// íœ´ê°€ ì¡°íšŒ
 
-	public static final String INTR_POPUP_INQY_1090 = "intr_popup_inqy_1090.jsp";		// È¸ÀÇ ÆË¾÷
-	public static final String INTR_POPUP_INQY_1091 = "intr_popup_inqy_1091.jsp";			// È¸ÀÇ Á¶È¸
+	public static final String INTR_POPUP_INQY_1090 = "intr_popup_inqy_1090.jsp";		// íšŒì˜ íŒì—…
+	public static final String INTR_POPUP_INQY_1091 = "intr_popup_inqy_1091.jsp";			// íšŒì˜ ì¡°íšŒ
 	
-	public static final String INTR_POPUP_INQY_1100 = "intr_popup_inqy_1100.jsp";			// Á¶Á÷µµ ÆË¾÷
-	public static final String INTR_POPUP_INQY_1101 = "intr_popup_inqy_1101.jsp";			// Á¶Á÷µµ Æ®¸®
-	public static final String INTR_POPUP_INQY_1102 = "intr_popup_inqy_1102.jsp";			// Á¶Á÷µµ Æ®¸® Á¶È¸
+	public static final String INTR_POPUP_INQY_1100 = "intr_popup_inqy_1100.jsp";			// ì¡°ì§ë„ íŒì—…
+	public static final String INTR_POPUP_INQY_1101 = "intr_popup_inqy_1101.jsp";			// ì¡°ì§ë„ íŠ¸ë¦¬
+	public static final String INTR_POPUP_INQY_1102 = "intr_popup_inqy_1102.jsp";			// ì¡°ì§ë„ íŠ¸ë¦¬ ì¡°íšŒ
 	
-	public static final String INTR_POPUP_INQY_1110 = "intr_popup_inqy_1110.jsp";			// API ÆË¾÷
-	public static final String INTR_POPUP_INQY_1111 = "intr_popup_inqy_1111.jsp";			// API Á¶È¸
+	public static final String INTR_POPUP_INQY_1110 = "intr_popup_inqy_1110.jsp";			// API íŒì—…
+	public static final String INTR_POPUP_INQY_1111 = "intr_popup_inqy_1111.jsp";			// API ì¡°íšŒ
 
-	public static final String INTR_POPUP_INQY_1120 = "intr_popup_inqy_1120.jsp";			// ¾÷¹« Ä¶¸°´õ ÆË¾÷
-	public static final String INTR_POPUP_INQY_1121 = "intr_popup_inqy_1121.jsp";			// ¾÷¹« Ä¶¸°´õ µî·Ï
-	public static final String INTR_POPUP_INQY_1122 = "intr_popup_inqy_1122.jsp";			// ¾÷¹« Ä¶¸°´õ »ó¼¼
-	public static final String INTR_POPUP_INQY_1123 = "intr_popup_inqy_1123.jsp";			// ¾÷¹« Ä¶¸°´õ »ó¼¼ (¸ŞÀÎ)
+	public static final String INTR_POPUP_INQY_1120 = "intr_popup_inqy_1120.jsp";			// ì—…ë¬´ ìº˜ë¦°ë” íŒì—…
+	public static final String INTR_POPUP_INQY_1121 = "intr_popup_inqy_1121.jsp";			// ì—…ë¬´ ìº˜ë¦°ë” ë“±ë¡
+	public static final String INTR_POPUP_INQY_1122 = "intr_popup_inqy_1122.jsp";			// ì—…ë¬´ ìº˜ë¦°ë” ìƒì„¸
+	public static final String INTR_POPUP_INQY_1123 = "intr_popup_inqy_1123.jsp";			// ì—…ë¬´ ìº˜ë¦°ë” ìƒì„¸ (ë©”ì¸)
 	
-	public static final String INTR_POPUP_INQY_2010 = "intr_popup_inqy_2010.jsp";		// ºñ¹Ğ¹øÈ£ º¯°æ ÆË¾÷ (¸¶ÀÌÆäÀÌÁö)
-	public static final String INTR_POPUP_INQY_2011 = "intr_popup_inqy_2011.jsp";			// ºñ¹Ğ¹øÈ£ º¯°æ (¸¶ÀÌÆäÀÌÁö)
+	public static final String INTR_POPUP_INQY_2010 = "intr_popup_inqy_2010.jsp";		// ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ íŒì—… (ë§ˆì´í˜ì´ì§€)
+	public static final String INTR_POPUP_INQY_2011 = "intr_popup_inqy_2011.jsp";			// ë¹„ë°€ë²ˆí˜¸ ë³€ê²½ (ë§ˆì´í˜ì´ì§€)
 
-	public static final String INTR_POPUP_INQY_2020 = "intr_popup_inqy_2020.jsp";		// ·Î±× ¸Ş¼¼Áö ÆË¾÷
-	public static final String INTR_POPUP_INQY_2021 = "intr_popup_inqy_2021.jsp";		// ·Î±× ¸Ş¼¼Áö »ó¼¼
+	public static final String INTR_POPUP_INQY_2020 = "intr_popup_inqy_2020.jsp";		// ë¡œê·¸ ë©”ì„¸ì§€ íŒì—…
+	public static final String INTR_POPUP_INQY_2021 = "intr_popup_inqy_2021.jsp";		// ë¡œê·¸ ë©”ì„¸ì§€ ìƒì„¸
 	
 	//--------------------------------------------------------------------------------------------
-	// °øÁö»çÇ×
+	// ê³µì§€ì‚¬í•­
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_BOARD_LIST_1010 = "intr_board_list_1010.jsp";			// °øÁö»çÇ× ¸ñ·Ï
-	public static final String INTR_BOARD_DETL_1010 = "intr_board_detl_1010.jsp";			// °øÁö»çÇ× »ó¼¼
-	public static final String INTR_BOARD_DETL_1020 = "intr_board_detl_1020.jsp";		// °øÁö»çÇ× µî·Ï
-	public static final String INTR_BOARD_DETL_1030 = "intr_board_detl_1030.jsp";		// °øÁö»çÇ× ¼öÁ¤
+	public static final String INTR_BOARD_LIST_1010 = "intr_board_list_1010.jsp";			// ê³µì§€ì‚¬í•­ ëª©ë¡
+	public static final String INTR_BOARD_DETL_1010 = "intr_board_detl_1010.jsp";			// ê³µì§€ì‚¬í•­ ìƒì„¸
+	public static final String INTR_BOARD_DETL_1020 = "intr_board_detl_1020.jsp";		// ê³µì§€ì‚¬í•­ ë“±ë¡
+	public static final String INTR_BOARD_DETL_1030 = "intr_board_detl_1030.jsp";		// ê³µì§€ì‚¬í•­ ìˆ˜ì •
 
-	public static final String INTR_BOARD_LIST_2010 = "intr_board_list_2010.jsp";			// °øÁö»çÇ× ¸ñ·Ï
-	public static final String INTR_BOARD_DETL_2010 = "intr_board_detl_2010.jsp";		// °øÁö»çÇ× »ó¼¼
+	public static final String INTR_BOARD_LIST_2010 = "intr_board_list_2010.jsp";			// ê³µì§€ì‚¬í•­ ëª©ë¡
+	public static final String INTR_BOARD_DETL_2010 = "intr_board_detl_2010.jsp";		// ê³µì§€ì‚¬í•­ ìƒì„¸
 	
 	//--------------------------------------------------------------------------------------------
-	// ¾÷¹«ÀÏÁö
+	// ì—…ë¬´ì¼ì§€
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_TASK_LIST_1010 = "intr_task_list_1010.jsp";			// ¾÷¹« ÀÛ¼º
-	public static final String INTR_TASK_LIST_1011 = "intr_task_list_1011.jsp";			// ¾÷¹« ÀÛ¼º (AJAX)
-	public static final String INTR_TASK_LIST_2010 = "intr_task_list_2010.jsp";			// ¾÷¹« Á¶È¸
-	public static final String INTR_TASK_LIST_2011 = "intr_task_list_2011.jsp";			// ¾÷¹« Á¶È¸ (AJAX)
-	public static final String INTR_TASK_LIST_3010 = "intr_task_list_3010.jsp";			// ¾÷¹« Ä¶¸°´õ Á¶È¸
-	public static final String INTR_TASK_DETL_1010 = "intr_task_detl_1010.jsp";			// ¾÷¹« »ó¼¼
+	public static final String INTR_TASK_LIST_1010 = "intr_task_list_1010.jsp";			// ì—…ë¬´ ì‘ì„±
+	public static final String INTR_TASK_LIST_1011 = "intr_task_list_1011.jsp";			// ì—…ë¬´ ì‘ì„± (AJAX)
+	public static final String INTR_TASK_LIST_2010 = "intr_task_list_2010.jsp";			// ì—…ë¬´ ì¡°íšŒ
+	public static final String INTR_TASK_LIST_2011 = "intr_task_list_2011.jsp";			// ì—…ë¬´ ì¡°íšŒ (AJAX)
+	public static final String INTR_TASK_LIST_3010 = "intr_task_list_3010.jsp";			// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
+	public static final String INTR_TASK_DETL_1010 = "intr_task_detl_1010.jsp";			// ì—…ë¬´ ìƒì„¸
 	
 	//--------------------------------------------------------------------------------------------
-	// »ç¿ø
+	// ì‚¬ì›
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_EMP_LIST_1010 = "intr_emp_list_1010.jsp";				// »ç¿ø ¸ñ·Ï (»ç¿ëÀÚ)
-	public static final String INTR_EMP_LIST_2010 = "intr_emp_list_2010.jsp";				// »ç¿ø ¸ñ·Ï (°ü¸®ÀÚ)
-	public static final String INTR_EMP_LIST_3010 = "intr_emp_list_3010.jsp";				// ´ã´ç¾÷¹« Á¶È¸
-	public static final String INTR_EMP_LIST_3011 = "intr_emp_list_3011.jsp";				// ´ã´ç¾÷¹« Á¶È¸ (AJAX)
-	public static final String INTR_EMP_LIST_3012 = "intr_emp_list_3012.jsp";				// ´ã´ç¾÷¹« µî·Ï (AJAX)
-	public static final String INTR_EMP_LIST_4010 = "intr_emp_list_4010.jsp";				// ÀÎ»çÅë°è Á¶È¸
-	public static final String INTR_EMP_DETL_1010 = "intr_emp_detl_1010.jsp";				// »ç¿ø µî·Ï
-	public static final String INTR_EMP_DETL_1020 = "intr_emp_detl_1020.jsp";			// »ç¿ø ¼öÁ¤
-	public static final String INTR_EMP_DETL_1030 = "intr_emp_detl_1030.jsp";			// »ç¿ø »ó¼¼
-	public static final String INTR_EMP_DETL_2010 = "intr_emp_detl_2010.jsp";			// »ç¿ø Á¶È¸
-
-	//--------------------------------------------------------------------------------------------
-	// ±â¾È¹® ¾ç½Ä
-	//--------------------------------------------------------------------------------------------
-	public static final String INTR_TEMP_LIST_1010 = "intr_temp_list_1010.jsp"; 			// ±â¾È¹® ¾ç½Ä ¸ñ·Ï
-	public static final String INTR_TEMP_LIST_1011 = "intr_temp_list_1011.jsp"; 			// ±â¾È¹® ¾ç½Ä ¸ñ·Ï (Æ®¸®)
-
-	public static final String INTR_TEMP_DETL_1010 = "intr_temp_detl_1010.jsp";			// ±â¾È¹® ¾ç½Ä »ó¼¼
+	public static final String INTR_EMP_LIST_1010 = "intr_emp_list_1010.jsp";				// ì‚¬ì› ëª©ë¡ (ì‚¬ìš©ì)
+	public static final String INTR_EMP_LIST_2010 = "intr_emp_list_2010.jsp";				// ì‚¬ì› ëª©ë¡ (ê´€ë¦¬ì)
+	public static final String INTR_EMP_LIST_3010 = "intr_emp_list_3010.jsp";				// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
+	public static final String INTR_EMP_LIST_3011 = "intr_emp_list_3011.jsp";				// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ (AJAX)
+	public static final String INTR_EMP_LIST_3012 = "intr_emp_list_3012.jsp";				// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ (AJAX)
+	public static final String INTR_EMP_LIST_4010 = "intr_emp_list_4010.jsp";				// ì¸ì‚¬í†µê³„ ì¡°íšŒ
+	public static final String INTR_EMP_DETL_1010 = "intr_emp_detl_1010.jsp";				// ì‚¬ì› ë“±ë¡
+	public static final String INTR_EMP_DETL_1020 = "intr_emp_detl_1020.jsp";			// ì‚¬ì› ìˆ˜ì •
+	public static final String INTR_EMP_DETL_1030 = "intr_emp_detl_1030.jsp";			// ì‚¬ì› ìƒì„¸
+	public static final String INTR_EMP_DETL_2010 = "intr_emp_detl_2010.jsp";			// ì‚¬ì› ì¡°íšŒ
 
 	//--------------------------------------------------------------------------------------------
-	// ±ÇÇÑ
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_ROLE_LIST_1010 = "intr_role_list_1010.jsp"; 			// ±ÇÇÑ ¸ñ·Ï (±ÇÇÑ)
-	public static final String INTR_ROLE_LIST_1011 = "intr_role_list_1011.jsp"; 			// ±ÇÇÑ ¸ñ·Ï 
+	public static final String INTR_TEMP_LIST_1010 = "intr_temp_list_1010.jsp"; 			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡
+	public static final String INTR_TEMP_LIST_1011 = "intr_temp_list_1011.jsp"; 			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ (íŠ¸ë¦¬)
 
-	public static final String INTR_ROLE_DETL_1010 = "intr_role_detl_1010.jsp";			// ±ÇÇÑ »ó¼¼
-	public static final String INTR_ROLE_DETL_1020 = "intr_role_detl_1020.jsp";			// ±ÇÇÑ µî·Ï
-	public static final String INTR_ROLE_DETL_1030 = "intr_role_detl_1030.jsp";			// ±ÇÇÑ ¼öÁ¤
+	public static final String INTR_TEMP_DETL_1010 = "intr_temp_detl_1010.jsp";			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸
 
-	public static final String INTR_ROLE_LIST_2010 = "intr_role_list_2010.jsp"; 			// ±ÇÇÑ ¸ñ·Ï (¸Ş´º ±ÇÇÑ)
-	public static final String INTR_ROLE_LIST_2011 = "intr_role_list_2011.jsp"; 			// ±ÇÇÑ ¸ñ·Ï
+	//--------------------------------------------------------------------------------------------
+	// ê¶Œí•œ
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_ROLE_LIST_1010 = "intr_role_list_1010.jsp"; 			// ê¶Œí•œ ëª©ë¡ (ê¶Œí•œ)
+	public static final String INTR_ROLE_LIST_1011 = "intr_role_list_1011.jsp"; 			// ê¶Œí•œ ëª©ë¡
+
+	public static final String INTR_ROLE_DETL_1010 = "intr_role_detl_1010.jsp";			// ê¶Œí•œ ìƒì„¸
+	public static final String INTR_ROLE_DETL_1020 = "intr_role_detl_1020.jsp";			// ê¶Œí•œ ë“±ë¡
+	public static final String INTR_ROLE_DETL_1030 = "intr_role_detl_1030.jsp";			// ê¶Œí•œ ìˆ˜ì •
+
+	public static final String INTR_ROLE_LIST_2010 = "intr_role_list_2010.jsp"; 			// ê¶Œí•œ ëª©ë¡ (ë©”ë‰´ ê¶Œí•œ)
+	public static final String INTR_ROLE_LIST_2011 = "intr_role_list_2011.jsp"; 			// ê¶Œí•œ ëª©ë¡
 	
-	public static final String INTR_ROLE_LIST_3010 = "intr_role_list_3010.jsp"; 			// ±ÇÇÑ ¸ñ·Ï (»ç¿ëÀÚ ±ÇÇÑ)
-	public static final String INTR_ROLE_LIST_3011 = "intr_role_list_3011.jsp"; 			// ±ÇÇÑ ¸ñ·Ï
+	public static final String INTR_ROLE_LIST_3010 = "intr_role_list_3010.jsp"; 			// ê¶Œí•œ ëª©ë¡ (ì‚¬ìš©ì ê¶Œí•œ)
+	public static final String INTR_ROLE_LIST_3011 = "intr_role_list_3011.jsp"; 			// ê¶Œí•œ ëª©ë¡
 
 	//--------------------------------------------------------------------------------------------
-	// °áÀç
+	// ê²°ì¬
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_APRV_LIST_1010 = "intr_aprv_list_1010.jsp"; 				// ±â¾È ÀÛ¼º ¸ñ·Ï
-	public static final String INTR_APRV_DETL_1010 = "intr_aprv_detl_1010.jsp"	;			// ±â¾È ÀÛ¼º »ó¼¼ (ÈŞ°¡ ½ÅÃ»¼­)
-	public static final String INTR_APRV_DETL_1011 = "intr_aprv_detl_1011.jsp"	;			// ±â¾È ÀÛ¼º »ó¼¼ (°¡Áö±Ş°áÀÇ¼­)
-	public static final String INTR_APRV_DETL_1012 = "intr_aprv_detl_1012.jsp"	;			// ±â¾È ÀÛ¼º »ó¼¼ (¹°Ç°¹İÃâÀÔ ½ÅÃ»¼­)
-	public static final String INTR_APRV_DETL_1013 = "intr_aprv_detl_1013.jsp"	;			// ±â¾È ÀÛ¼º »ó¼¼ (¹ıÀÎÄ«µå Á¤»ê¼­)
+	public static final String INTR_APRV_LIST_1010 = "intr_aprv_list_1010.jsp"; 				// ê¸°ì•ˆ ì‘ì„± ëª©ë¡
+	public static final String INTR_APRV_DETL_1010 = "intr_aprv_detl_1010.jsp"	;			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ (íœ´ê°€ ì‹ ì²­ì„œ)
+	public static final String INTR_APRV_DETL_1011 = "intr_aprv_detl_1011.jsp"	;			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ (ê°€ì§€ê¸‰ê²°ì˜ì„œ)
+	public static final String INTR_APRV_DETL_1012 = "intr_aprv_detl_1012.jsp"	;			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ (ë¬¼í’ˆë°˜ì¶œì… ì‹ ì²­ì„œ)
+	public static final String INTR_APRV_DETL_1013 = "intr_aprv_detl_1013.jsp"	;			// ê¸°ì•ˆ ì‘ì„± ìƒì„¸ (ë²•ì¸ì¹´ë“œ ì •ì‚°ì„œ)
 	
-	public static final String INTR_APRV_LIST_2010 = "intr_aprv_list_2010.jsp"; 				// °áÀç Á¶È¸
-	public static final String INTR_APRV_DETL_2010 = "intr_aprv_detl_2010.jsp"	;			// °áÀç »ó¼¼ (ÈŞ°¡ ½ÅÃ»¼­)
-	public static final String INTR_APRV_DETL_2011 = "intr_aprv_detl_2011.jsp"	;			// °áÀç »ó¼¼ (°¡Áö±Ş°áÀÇ¼­)
-	public static final String INTR_APRV_DETL_2012 = "intr_aprv_detl_2012.jsp"	;			// °áÀç »ó¼¼ (¹°Ç°¹İÃâÀÔ ½ÅÃ»¼­)
-	public static final String INTR_APRV_DETL_2013 = "intr_aprv_detl_2013.jsp"	;			// °áÀç »ó¼¼ (¹ıÀÎÄ«µå Á¤»ê¼­)
+	public static final String INTR_APRV_LIST_2010 = "intr_aprv_list_2010.jsp"; 				// ê²°ì¬ ì¡°íšŒ
+	public static final String INTR_APRV_DETL_2010 = "intr_aprv_detl_2010.jsp"	;			// ê²°ì¬ ìƒì„¸ (íœ´ê°€ ì‹ ì²­ì„œ)
+	public static final String INTR_APRV_DETL_2011 = "intr_aprv_detl_2011.jsp"	;			// ê²°ì¬ ìƒì„¸ (ê°€ì§€ê¸‰ê²°ì˜ì„œ)
+	public static final String INTR_APRV_DETL_2012 = "intr_aprv_detl_2012.jsp"	;			// ê²°ì¬ ìƒì„¸ (ë¬¼í’ˆë°˜ì¶œì… ì‹ ì²­ì„œ)
+	public static final String INTR_APRV_DETL_2013 = "intr_aprv_detl_2013.jsp"	;			// ê²°ì¬ ìƒì„¸ (ë²•ì¸ì¹´ë“œ ì •ì‚°ì„œ)
 
-	public static final String INTR_APRV_LIST_3010 = "intr_aprv_list_3010.jsp";				// ÀÏÁ¤ °ü¸®
+	public static final String INTR_APRV_LIST_3010 = "intr_aprv_list_3010.jsp";				// ì¼ì • ê´€ë¦¬
 
-	public static final String INTR_APRV_LIST_4010 = "intr_aprv_list_4010.jsp";				// °áÀç¼± °ü¸®
-	public static final String INTR_APRV_LIST_4011 = "intr_aprv_list_4011.jsp";				// °áÀç¼± °ü¸® (AJAX)
-	public static final String INTR_APRV_LIST_4012 = "intr_aprv_list_4012.jsp";				// °áÀç¼± µî·Ï
-	public static final String INTR_APRV_LIST_4013 = "intr_aprv_list_4013.jsp";				// °áÀç¼± »ó¼¼
+	public static final String INTR_APRV_LIST_4010 = "intr_aprv_list_4010.jsp";				// ê²°ì¬ì„  ê´€ë¦¬
+	public static final String INTR_APRV_LIST_4011 = "intr_aprv_list_4011.jsp";				// ê²°ì¬ì„  ê´€ë¦¬ (AJAX)
+	public static final String INTR_APRV_LIST_4012 = "intr_aprv_list_4012.jsp";				// ê²°ì¬ì„  ë“±ë¡
+	public static final String INTR_APRV_LIST_4013 = "intr_aprv_list_4013.jsp";				// ê²°ì¬ì„  ìƒì„¸
 
 	//--------------------------------------------------------------------------------------------
-	// Äõ¸®
+	// ì¿¼ë¦¬
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_QUERY_DETL_1010 = "intr_query_detl_1010.jsp";			// Äõ¸® ÀÔ·Â
-	public static final String INTR_QUERY_DETL_1011 = "intr_query_detl_1011.jsp";			// Äõ¸® °á°ú
-	
-	//--------------------------------------------------------------------------------------------
-	// ÇÁ·ÎÁ§Æ®
-	//--------------------------------------------------------------------------------------------
-	public static final String INTR_PROJ_LIST_1010 = "intr_proj_list_1010.jsp"; 				// ÇÁ·ÎÁ§Æ® ¸ñ·Ï
-	public static final String INTR_PROJ_DETL_1010 = "intr_proj_detl_1010.jsp"	;			// ÇÁ·ÎÁ§Æ® »ó¼¼
-	public static final String INTR_PROJ_DETL_1020 = "intr_proj_detl_1020.jsp"	;			// ÇÁ·ÎÁ§Æ® µî·Ï
-	public static final String INTR_PROJ_DETL_1030 = "intr_proj_detl_1030.jsp";				// ÇÁ·ÎÁ§Æ® ¼öÁ¤
-	
-	//--------------------------------------------------------------------------------------------
-	// È¸ÀÇ
-	//--------------------------------------------------------------------------------------------
-	public static final String INTR_MTG_LIST_1010 = "intr_mtg_list_1010.jsp"; 				// È¸ÀÇ ¸ñ·Ï
-	public static final String INTR_MTG_DETL_1010 = "intr_mtg_detl_1010.jsp"	;			// È¸ÀÇ »ó¼¼
-	public static final String INTR_MTG_DETL_1020 = "intr_mtg_detl_1020.jsp"	;			// È¸ÀÇ µî·Ï
-	public static final String INTR_MTG_DETL_1030 = "intr_mtg_detl_1030.jsp";			// È¸ÀÇ ¼öÁ¤
-	public static final String INTR_MTG_DETL_2010 = "intr_mtg_detl_2010.jsp"	;			// Ä¶¸°´õ ¸ñ·Ï
+	public static final String INTR_QUERY_DETL_1010 = "intr_query_detl_1010.jsp";			// ì¿¼ë¦¬ ì…ë ¥
+	public static final String INTR_QUERY_DETL_1011 = "intr_query_detl_1011.jsp";			// ì¿¼ë¦¬ ê²°ê³¼
 	
 	//--------------------------------------------------------------------------------------------
-	// ¹è³Ê
+	// í”„ë¡œì íŠ¸
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_BANR_DETL_1010 = "intr_banr_detl_1010.jsp"; 		// ¹è³Ê °ü¸®
-
-	//--------------------------------------------------------------------------------------------
-	// ³»ºÎ±ÔÁ¤
-	//--------------------------------------------------------------------------------------------
-	public static final String INTR_REGS_DETL_1010 = "intr_regs_detl_1010.jsp"; 			// ³»ºÎ±ÔÁ¤ Á¶È¸
-	public static final String INTR_REGS_DETL_1020 = "intr_regs_detl_1020.jsp"; 		// PDF ºä¾î
+	public static final String INTR_PROJ_LIST_1010 = "intr_proj_list_1010.jsp"; 				// í”„ë¡œì íŠ¸ ëª©ë¡
+	public static final String INTR_PROJ_DETL_1010 = "intr_proj_detl_1010.jsp"	;			// í”„ë¡œì íŠ¸ ìƒì„¸
+	public static final String INTR_PROJ_DETL_1020 = "intr_proj_detl_1020.jsp"	;			// í”„ë¡œì íŠ¸ ë“±ë¡
+	public static final String INTR_PROJ_DETL_1030 = "intr_proj_detl_1030.jsp";				// í”„ë¡œì íŠ¸ ìˆ˜ì •
 	
 	//--------------------------------------------------------------------------------------------
-	// ·Î±×
+	// íšŒì˜
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_LOG_LIST_1010 = "intr_log_list_1010.jsp"; 				// ·Î±× ¸ñ·Ï Á¶È¸
+	public static final String INTR_MTG_LIST_1010 = "intr_mtg_list_1010.jsp"; 				// íšŒì˜ ëª©ë¡
+	public static final String INTR_MTG_DETL_1010 = "intr_mtg_detl_1010.jsp"	;			// íšŒì˜ ìƒì„¸
+	public static final String INTR_MTG_DETL_1020 = "intr_mtg_detl_1020.jsp"	;			// íšŒì˜ ë“±ë¡
+	public static final String INTR_MTG_DETL_1030 = "intr_mtg_detl_1030.jsp";			// íšŒì˜ ìˆ˜ì •
+	public static final String INTR_MTG_DETL_2010 = "intr_mtg_detl_2010.jsp"	;			// ìº˜ë¦°ë” ëª©ë¡
+	
+	//--------------------------------------------------------------------------------------------
+	// ë°°ë„ˆ
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_BANR_DETL_1010 = "intr_banr_detl_1010.jsp"; 		// ë°°ë„ˆ ê´€ë¦¬
+
+	//--------------------------------------------------------------------------------------------
+	// ë‚´ë¶€ê·œì •
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_REGS_DETL_1010 = "intr_regs_detl_1010.jsp"; 			// ë‚´ë¶€ê·œì • ì¡°íšŒ
+	public static final String INTR_REGS_DETL_1020 = "intr_regs_detl_1020.jsp"; 		// PDF ë·°ì–´
+	
+	//--------------------------------------------------------------------------------------------
+	// ë¡œê·¸
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_LOG_LIST_1010 = "intr_log_list_1010.jsp"; 				// ë¡œê·¸ ëª©ë¡ ì¡°íšŒ
 }

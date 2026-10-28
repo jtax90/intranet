@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,14 +32,14 @@ public class RegsServiceImpl implements RegsService {
 	@Autowired
 	RegsDao regsDao;
 	
-	// ³»ºÎ±ÔÁ¤ Á¶È¸
+	// ë‚´ë¶€ê·œì • ì¡°íšŒ
 	public void regsInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String tabCd = utilService.nvlProc((String)paramMap.get("tabCd"));
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¼±ÅÃ ÅÇ Àü¼Û
+			// ì„ íƒ íƒ­ ì „ì†¡
 			//--------------------------------------------------------------------------------------------
 			model.addAttribute("tabCd", tabCd);
 			
@@ -48,13 +48,13 @@ public class RegsServiceImpl implements RegsService {
 		}
 	}
 	
-	// PDF ºä¾î »ı¼º
+	// PDF ë·°ì–´ ìƒì„±
 	@Override
     public void regsInqyService1011(Model model, HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception {
-        // ¹°¸® °æ·Î ¼³Á¤
+        // ë¬¼ë¦¬ ê²½ë¡œ ì„¤ì •
 		 String filePath = utilService.setBasePath(Const.REGS_PATH, null);
 		
-		// ÆÄÀÏ¸í ¼³Á¤
+		// íŒŒì¼ëª… ì„¤ì •
 		String tabCd = (String)paramMap.get("tabCd");
 		String fileNm = Const.TAB_WEL.equals(tabCd) ? Const.RULE_WEL : Const.TAB_HRM.equals(tabCd) ? Const.RULE_HRM : Const.RULE_CORP;
 		File pdfFile = new File(filePath, fileNm);
@@ -63,7 +63,7 @@ public class RegsServiceImpl implements RegsService {
         	throw new FileNotFoundException("[ERROR] file not found : " + pdfFile.getAbsolutePath());	
         }
 
-        // ºê¶ó¿ìÀú ÀÌµ¿ ¾øµµ·Ï Ã³¸®
+        // ë¸Œë¼ìš°ì € ì´ë™ ì—†ë„ë¡ ì²˜ë¦¬
         response.setContentType("application/pdf");
 		response.setHeader("Content-Disposition", "inline; filename=\"" + pdfFile.getName() + "\"; filename*=UTF-8''" + pdfFile.getName());
         response.setContentLength((int) pdfFile.length());

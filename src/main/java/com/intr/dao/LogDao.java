@@ -13,7 +13,7 @@ public class LogDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ·Î±× ½ÃÄö½º Á¶È¸
+	// ë¡œê·¸ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> logInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class LogDao {
 		return defaultInfo;
 	}
 	
-	// ·Î±× ¸ñ·Ï
+	// ë¡œê·¸ ëª©ë¡
 	public List<HashMap<String, Object>> logInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class LogDao {
 		return defaultList;
 	}
 	
-	// ·Î±× µî·Ï
+	// ë¡œê·¸ ë“±ë¡
 	public int logProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -37,7 +37,7 @@ public class LogDao {
 		return resInt;
 	}
 	
-	// ·Î±× »ó¼¼ Á¶È¸
+	// ë¡œê·¸ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> logInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;

@@ -26,79 +26,79 @@ public class TempController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ±â¾È¹® ¾ç½Ä ¸ñ·Ï È­¸é
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrTempInqy1010.do")
 	public String intrTempInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempService.tempInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TEMP + Const.INTR_TEMP_LIST_1010;
 	}
 
-	// ±â¾È¹® ¾ç½Ä Æ®¸® ¸ñ·Ï È­¸é
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ íŠ¸ë¦¬ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrTempInqy1011.do")
 	public String intrTempInqy1011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempService.tempInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È¹® ¾ç½Ä Æ®¸® ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆë¬¸ ì–‘ì‹ íŠ¸ë¦¬ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TEMP + Const.INTR_TEMP_LIST_1011;
 	}
 	
-	// ±â¾È¹® ¾ç½Ä »ó¼¼ È­¸é
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ í™”ë©´
 	@RequestMapping("/intrTempInqy1020.do")
 	public String intrTempInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä »ó¼¼ Á¶È¸
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempService.tempInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È¹® ¾ç½Ä »ó¼¼ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TEMP + Const.INTR_TEMP_DETL_1010;
 	}
 	
-	// ±â¾È¹® ¾ç½Ä ¼öÁ¤ Ã³¸®
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrTempProc1010.do")
 	@ResponseBody
 	public String intrTempProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -107,13 +107,13 @@ public class TempController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä ¼öÁ¤ Ã³¸®
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì • ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = tempService.tempProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±â¾È¹® ¾ç½Ä ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

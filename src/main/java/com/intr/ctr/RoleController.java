@@ -26,233 +26,233 @@ public class RoleController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrRoleInqy1010.do")
 	public String intrRoleInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_1010;
 	}
 
-	// ±ÇÇÑ Æ®¸® ¸ñ·Ï È­¸é
+	// ê¶Œí•œ íŠ¸ë¦¬ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrRoleInqy1011.do")
 	public String intrRoleInqy1011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ Æ®¸® ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ íŠ¸ë¦¬ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_1011;
 	}
 	
-	// ±ÇÇÑ µî·Ï È­¸é
+	// ê¶Œí•œ ë“±ë¡ í™”ë©´
 	@RequestMapping("/intrRoleInqy1020.do")
 	public String intrRoleInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ µî·Ï È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ë“±ë¡ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_DETL_1020;
 	}
 	
-	// ±ÇÇÑ »ó¼¼ È­¸é
+	// ê¶Œí•œ ìƒì„¸ í™”ë©´
 	@RequestMapping("/intrRoleInqy1030.do")
 	public String intrRoleInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ »ó¼¼ Á¶È¸
+			// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ »ó¼¼ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ìƒì„¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_DETL_1010;
 	}
 	
-	// ±ÇÇÑ ¼öÁ¤ È­¸é
+	// ê¶Œí•œ ìˆ˜ì • í™”ë©´
 	@RequestMapping("/intrRoleInqy1040.do")
 	public String intrRoleInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ »ó¼¼ Á¶È¸
+			// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ ¼öÁ¤ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ìˆ˜ì • í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_DETL_1030;
 	}
 	
-	// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrRoleInqy2010.do")
 	public String intrRoleInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ¸ñ·Ï Á¶È¸
+			// ë©”ë‰´ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_2010;
 	}
 	
-	// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrRoleInqy2011.do")
 	public String intrRoleInqy2011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_2011;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrRoleInqy3010.do")
 	public String intrRoleInqy3010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
+			// ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService3010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_3010;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ Æ®¸® ¸ñ·Ï È­¸é
+	// ì‚¬ìš©ì ê¶Œí•œ íŠ¸ë¦¬ ëª©ë¡ í™”ë©´
 	@RequestMapping("/intrRoleInqy3011.do")
 	public String intrRoleInqy3011(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			roleService.roleInqyService4010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ëÀÚ ±ÇÇÑ Æ®¸® ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ìš©ì ê¶Œí•œ íŠ¸ë¦¬ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_ROLE + Const.INTR_ROLE_LIST_3011;
 	}
 	
-	// ±ÇÇÑ µî·Ï Ã³¸®
+	// ê¶Œí•œ ë“±ë¡ ì²˜ë¦¬
 	@RequestMapping("/intrRoleProc1010.do")
 	@ResponseBody
 	public String intrRoleProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -261,13 +261,13 @@ public class RoleController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ µî·Ï
+			// ê¶Œí•œ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = roleService.roleProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ µî·Ï Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ë“±ë¡ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
@@ -275,7 +275,7 @@ public class RoleController {
 	}
 	
 	
-	// ±ÇÇÑ ¼öÁ¤ Ã³¸®
+	// ê¶Œí•œ ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrRoleProc1020.do")
 	@ResponseBody
 	public String intrRoleProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -284,20 +284,20 @@ public class RoleController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¼öÁ¤ Ã³¸®
+			// ê¶Œí•œ ìˆ˜ì • ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = roleService.roleProcService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 
-	// ±ÇÇÑ »èÁ¦ Ã³¸®
+	// ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrRoleProc1030.do")
 	@ResponseBody
 	public String intrRoleProc1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -306,20 +306,20 @@ public class RoleController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ »èÁ¦
+			// ê¶Œí•œ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			defaultStr = roleService.roleProcService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ±ÇÇÑ »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ¸Ş´º ±ÇÇÑ ÀúÀå Ã³¸®
+	// ë©”ë‰´ ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrRoleProc2010.do")
 	@ResponseBody
 	public String intrRoleProc2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -328,20 +328,20 @@ public class RoleController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ±ÇÇÑ ÀúÀå
+			// ë©”ë‰´ ê¶Œí•œ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			defaultStr = roleService.roleProcService1040(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¸Ş´º ±ÇÇÑ ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë©”ë‰´ ê¶Œí•œ ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå Ã³¸®
+	// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrRoleProc3010.do")
 	@ResponseBody
 	public String intrRoleProc3010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -350,13 +350,13 @@ public class RoleController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå
+			// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			defaultStr = roleService.roleProcService1050(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ëÀÚ ±ÇÇÑ ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ìš©ì ê¶Œí•œ ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

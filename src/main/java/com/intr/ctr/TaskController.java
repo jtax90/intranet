@@ -30,139 +30,139 @@ public class TaskController {
 	// 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ¾÷¹«ÀÏÁö Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ì¡°íšŒ
 	@RequestMapping("/intrTaskInqy1010.do")
 	public String intrTaskInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« ÀÛ¼º Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ì‘ì„± ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_LIST_1010;
 	}
 
-	// ¾÷¹«ÀÏÁö (AJAX) Á¶È¸
+	// ì—…ë¬´ì¼ì§€ (AJAX) ì¡°íšŒ
 	@RequestMapping("/intrTaskInqy1011.do")
 	public String intrTaskInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö (AJAX) Á¶È¸
+			// ì—…ë¬´ì¼ì§€ (AJAX) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« ÀÛ¼º (AJAX) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ì‘ì„± (AJAX) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_LIST_1011;
 	}
 	
-	// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸ È­¸é
+	// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ í™”ë©´
 	@RequestMapping("/intrTaskInqy2010.do")
 	public String intrTaskInqy2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ºÎ¼­ ¸ñ·Ï Á¶È¸
+			// ë¶€ì„œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1040(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_LIST_2010;
 	}
 	
-	// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ
 	@RequestMapping("/intrTaskInqy2020.do")
 	public String intrTaskInqy2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ¸ñ·Ï (AJAX) Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ëª©ë¡ (AJAX) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« ÀÏÁö ¸ñ·Ï (AJAX) Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ì¼ì§€ ëª©ë¡ (AJAX) ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_LIST_2011;
 	}
 	
-	// ¾÷¹«ÀÏÁö »ó¼¼ Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ìƒì„¸ ì¡°íšŒ
 	@RequestMapping("/intrTaskInqy2030.do")
 	public String intrTaskInqy2030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö »ó¼¼ Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« »ó¼¼ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ìƒì„¸ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_DETL_1010;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ Á¶È¸
+	// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
 	@RequestMapping("/intrTaskInqy3010.do")
 	public String intrTaskInqy3010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« Ä¶¸°´õ Á¶È¸
+			// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			taskService.taskInqyService3010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« Ä¶¸°´õ Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		
@@ -170,7 +170,7 @@ public class TaskController {
 		return Const.VIEW_PATH_TASK + Const.INTR_TASK_LIST_3010;
 	}
 	
-	// ¾÷¹«ÀÏÁö ÀúÀå Ã³¸®
+	// ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrTaskProc1010.do")
 	@ResponseBody
 	public String intrTaskProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -179,20 +179,20 @@ public class TaskController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ÀúÀå Ã³¸®
+			// ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = taskService.taskProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹«ÀÏÁö ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ¾÷¹«ÀÏÁö »èÁ¦ Ã³¸®
+	// ì—…ë¬´ì¼ì§€ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrTaskProc1020.do")
 	@ResponseBody
 	public String intrTaskProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -201,20 +201,20 @@ public class TaskController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö »èÁ¦ Ã³¸®
+			// ì—…ë¬´ì¼ì§€ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = taskService.taskProcService1020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹«ÀÏÁö »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ì¼ì§€ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ ÀúÀå Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrTaskProc2010.do")
 	@ResponseBody
 	public String intrTaskProc2010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -223,20 +223,20 @@ public class TaskController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ÀúÀå Ã³¸®
+			// ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = taskService.taskProcService2010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« Ä¶¸°´õ ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ìº˜ë¦°ë” ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ ¼öÁ¤ Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì • ì²˜ë¦¬
 	@RequestMapping("/intrTaskProc2020.do")
 	@ResponseBody
 	public String intrTaskProc2020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -245,20 +245,20 @@ public class TaskController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ÀúÀå Ã³¸®
+			// ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = taskService.taskProcService2020(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« Ä¶¸°´õ ¼öÁ¤ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì • ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ »èÁ¦ Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrTaskProc2030.do")
 	@ResponseBody
 	public String intrTaskProc2030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -267,13 +267,13 @@ public class TaskController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ÀúÀå Ã³¸®
+			// ì—…ë¬´ì¼ì§€ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			defaultStr = taskService.taskProcService2030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¾÷¹« Ä¶¸°´õ »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

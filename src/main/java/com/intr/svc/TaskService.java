@@ -5,16 +5,16 @@ import java.util.HashMap;
 import org.springframework.ui.Model;
 
 public interface TaskService {
-	// ¾÷¹«
-	void taskInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¾÷¹« ÀÛ¼º
-	void taskInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¾÷¹« ÀÛ¼º (AJAX)
-	void taskInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¾÷¹« Á¶È¸
-	void taskInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¾÷¹« »ó¼¼
-	void taskInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¾÷¹« Ä¶¸°´õ Á¶È¸
+	// ì—…ë¬´
+	void taskInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì—…ë¬´ ì‘ì„±
+	void taskInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì—…ë¬´ ì‘ì„± (AJAX)
+	void taskInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì—…ë¬´ ì¡°íšŒ
+	void taskInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì—…ë¬´ ìƒì„¸
+	void taskInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
 	//
-	String taskProcService1010(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ¾÷¹«ÀÏÁö ÀúÀå
-	String taskProcService1020(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ¾÷¹«ÀÏÁö »èÁ¦
-	String taskProcService2010(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ¾÷¹« Ä¶¸°´õ µî·Ï
-	String taskProcService2020(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ¾÷¹« Ä¶¸°´õ ¼öÁ¤
-	String taskProcService2030(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ¾÷¹« Ä¶¸°´õ »èÁ¦
+	String taskProcService1010(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ì—…ë¬´ì¼ì§€ ì €ì¥
+	String taskProcService1020(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ì—…ë¬´ì¼ì§€ ì‚­ì œ
+	String taskProcService2010(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ì—…ë¬´ ìº˜ë¦°ë” ë“±ë¡
+	String taskProcService2020(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì •
+	String taskProcService2030(Model model, HashMap<String,Object> paramMapt) throws Exception; 	// ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ
 }

@@ -1,0 +1,77 @@
+;;; 
+Import: Release 21.0.0.0.0 - Production on 화 10월 27 23:05:32 2026
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+;;; 
+접속 대상: Oracle Database 21c Express Edition Release 21.0.0.0.0 - Production
+마스터 테이블 "INTR"."SYS_IMPORT_FULL_01"이(가) 성공적으로 로드됨/로드 취소됨
+"INTR"."SYS_IMPORT_FULL_01" 시작 중: INTR/********@//localhost:1521/XEPDB1 DIRECTORY=INTR_DUMP_DIR DUMPFILE=intr_backup.dmp LOGFILE=intr_import.log 
+객체 유형 SCHEMA_EXPORT/USER 처리 중
+ORA-31685: 권한 부족으로 인해 객체 유형 USER:"INTR"을(를) 실패함. 실패한 SQL:
+ CREATE USER "INTR" IDENTIFIED BY VALUES 'S:BB931E8B08A5BBABCFDF2139626A30160F95F8282957143EAA27DBC3CA5C;T:E3702C7890F1B6C40C5985BEF0DBC0947C4170957A67500F521A355CC0EF986B0A62105F59DAF2B8E1FCD455A6DF9E1DE759EBA661A2B5882504FF80D518B06BB9D874FB18B8EAC8BD2E182C39619C3B' DEFAULT TABLESPACE "USERS" TEMPORARY TABLESPACE "TEMP"
+객체 유형 SCHEMA_EXPORT/ORACLE_OBJECT_GRANT/OBJECT_GRANT 처리 중
+ORA-39083: 다음 오류와 함께 객체 유형 OBJECT_GRANT 생성 실패:
+ORA-31625: SYS 스키마가 이 객체를 임포트하는 데 필요하지만 액세스할 수 없습니다.
+ORA-01031: 권한이 불충분합니다
+
+실패한 SQL:
+GRANT READ ON DIRECTORY "DATA_PUMP_DIR" TO "INTR"
+ORA-39083: 다음 오류와 함께 객체 유형 OBJECT_GRANT 생성 실패:
+ORA-31625: SYS 스키마가 이 객체를 임포트하는 데 필요하지만 액세스할 수 없습니다.
+ORA-01031: 권한이 불충분합니다
+
+실패한 SQL:
+GRANT WRITE ON DIRECTORY "DATA_PUMP_DIR" TO "INTR"
+객체 유형 SCHEMA_EXPORT/ROLE_GRANT 처리 중
+ORA-39083: 다음 오류와 함께 객체 유형 ROLE_GRANT 생성 실패:
+ORA-01924: 롤 'CONNECT'(이)가 허가되지 않았거나 존재하지 않습니다
+
+실패한 SQL:
+ GRANT "CONNECT" TO "INTR"
+ORA-39083: 다음 오류와 함께 객체 유형 ROLE_GRANT 생성 실패:
+ORA-01924: 롤 'RESOURCE'(이)가 허가되지 않았거나 존재하지 않습니다
+
+실패한 SQL:
+ GRANT "RESOURCE" TO "INTR"
+객체 유형 SCHEMA_EXPORT/DEFAULT_ROLE 처리 중
+ORA-31685: 권한 부족으로 인해 객체 유형 DEFAULT_ROLE:"INTR"을(를) 실패함. 실패한 SQL:
+ ALTER USER "INTR" DEFAULT ROLE ALL
+객체 유형 SCHEMA_EXPORT/TABLESPACE_QUOTA 처리 중
+ORA-31685: 권한 부족으로 인해 객체 유형 TABLESPACE_QUOTA:"INTR"."USERS"을(를) 실패함. 실패한 SQL:
+DECLARE   TEMP_COUNT NUMBER;   SQLSTR VARCHAR2(200); BEGIN   SQLSTR := 'ALTER USER "INTR" QUOTA UNLIMITED ON "USERS"';  EXECUTE IMMEDIATE SQLSTR;EXCEPTION   WHEN OTHERS THEN    IF SQLCODE = -30041 THEN       SQLSTR := 'SELECT COUNT(*) FROM USER_TABLESPACES               WHERE TABLESPACE_NAME = ''USERS'' AND CONTENTS = ''TEMPORARY''';      EXECUTE IMMEDIATE SQLSTR INTO TEMP_COUNT;      IF TEMP_COUNT = 1 THEN RETURN;       ELSE RAISE;       END IF;    ELSE      RAISE;    END IF;END;
+객체 유형 SCHEMA_EXPORT/PRE_SCHEMA/PROCACT_SCHEMA 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/TABLE 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/TABLE_DATA 처리 중
+. . "INTR"."PROJECT"                            11.14 KB       1행이 임포트됨
+. . "INTR"."EMP_INFO"                           10.36 KB       2행이 임포트됨
+. . "INTR"."MENU"                               9.835 KB      31행이 임포트됨
+. . "INTR"."LOG"                                9.937 KB       1행이 임포트됨
+. . "INTR"."FILE_INFO"                          9.507 KB       2행이 임포트됨
+. . "INTR"."COMMCODE"                           9.398 KB      30행이 임포트됨
+. . "INTR"."TEMPLATE"                           38.84 KB       4행이 임포트됨
+. . "INTR"."BOARD"                              8.929 KB       1행이 임포트됨
+. . "INTR"."ORG"                                8.625 KB      13행이 임포트됨
+. . "INTR"."RANK"                               7.992 KB      10행이 임포트됨
+. . "INTR"."MENU_ROLE"                          7.625 KB      31행이 임포트됨
+. . "INTR"."ROLE"                               6.812 KB       2행이 임포트됨
+. . "INTR"."EMP_ROLE"                           6.781 KB       1행이 임포트됨
+. . "INTR"."APRV_HIST"                              0 KB       0행이 임포트됨
+. . "INTR"."APRV_LINE_DETL"                         0 KB       0행이 임포트됨
+. . "INTR"."APRV_LINE_MAST"                         0 KB       0행이 임포트됨
+. . "INTR"."APRV_MAST"                              0 KB       0행이 임포트됨
+. . "INTR"."APRV_REL_CORP"                          0 KB       0행이 임포트됨
+. . "INTR"."APRV_REL_EXP"                           0 KB       0행이 임포트됨
+. . "INTR"."APRV_REL_ITEM"                          0 KB       0행이 임포트됨
+. . "INTR"."APRV_REL_LEAV"                          0 KB       0행이 임포트됨
+. . "INTR"."BANR"                                   0 KB       0행이 임포트됨
+. . "INTR"."EMP_DUTY"                               0 KB       0행이 임포트됨
+. . "INTR"."MEETING"                                0 KB       0행이 임포트됨
+. . "INTR"."TASK"                                   0 KB       0행이 임포트됨
+. . "INTR"."TASK_CALENDAR"                          0 KB       0행이 임포트됨
+객체 유형 SCHEMA_EXPORT/TABLE/CONSTRAINT/CONSTRAINT 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/INDEX/STATISTICS/INDEX_STATISTICS 처리 중
+객체 유형 SCHEMA_EXPORT/TABLE/STATISTICS/TABLE_STATISTICS 처리 중
+객체 유형 SCHEMA_EXPORT/STATISTICS/MARKER 처리 중
+"INTR"."SYS_IMPORT_FULL_01" 작업이 7 오류와 함께 화 10월 27 23:06:09 2026 elapsed 0 00:00:34에서 완료됨
+

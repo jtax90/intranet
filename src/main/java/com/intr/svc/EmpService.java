@@ -6,29 +6,29 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface EmpService {
-	// »ç¿ø Á¤º¸
-	void empInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¸ñ·Ï Á¶È¸
-	void empInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ºÎ¼­ Á÷±Ş Á¶È¸
-	void empInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception;		// »ó¼¼ Á¶È¸
-	void empInqyService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ºÎ¼­ (ÀüÃ¼) Á¶È¸
+	// ì‚¬ì› ì •ë³´
+	void empInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ëª©ë¡ ì¡°íšŒ
+	void empInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë¶€ì„œ ì§ê¸‰ ì¡°íšŒ
+	void empInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception;		// ìƒì„¸ ì¡°íšŒ
+	void empInqyService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë¶€ì„œ (ì „ì²´) ì¡°íšŒ
 	//
-	String empInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
-	void empInqyService2030(Model model, HashMap<String, Object> paramMap) throws Exception;		// ºÎ¼­ »ç¿ø Æ®¸® Á¶È¸
-	void empInqyService2040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ºÎ¼­ »ç¿ø ¼ö Á¶È¸
+	String empInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
+	void empInqyService2030(Model model, HashMap<String, Object> paramMap) throws Exception;		// ë¶€ì„œ ì‚¬ì› íŠ¸ë¦¬ ì¡°íšŒ
+	void empInqyService2040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë¶€ì„œ ì‚¬ì› ìˆ˜ ì¡°íšŒ
 	//
-	void empInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ´ã´ç¾÷¹« Á¶È¸
-	void empInqyService3011(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ´ã´ç¾÷¹« Á¶È¸ (AJAX)
-	void empInqyService3012(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ´ã´ç¾÷¹« µî·Ï Á¶È¸ (AJAX)
+	void empInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
+	void empInqyService3011(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ (AJAX)
+	void empInqyService3012(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ ì¡°íšŒ (AJAX)
 	//
-	void empInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ÀÎ»çÅë°è ¸ñ·Ï Á¶È¸
+	void empInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ì¸ì‚¬í†µê³„ ëª©ë¡ ì¡°íšŒ
 	
-	// »ç¿ø °ü¸®
-	String empProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// µî·Ï
-	String empProcService1020(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ¼öÁ¤
-	String empProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception; 		// º¹Á÷, Åğ»ç
-	String empProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// »èÁ¦
-	String empProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception; 		// »ç¿ø ºñ¹Ğ¹øÈ£ ¼öÁ¤
+	// ì‚¬ì› ê´€ë¦¬
+	String empProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ë“±ë¡
+	String empProcService1020(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ìˆ˜ì •
+	String empProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë³µì§, í‡´ì‚¬
+	String empProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì‚­ì œ
+	String empProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì‚¬ì› ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì •
 	//
-	String empProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ´ã´ç¾÷¹« ÀúÀå
-	String empProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ´ã´ç¾÷¹« »èÁ¦
+	String empProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë‹´ë‹¹ì—…ë¬´ ì €ì¥
+	String empProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ
 }

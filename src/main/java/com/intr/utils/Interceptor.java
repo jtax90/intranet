@@ -2,9 +2,9 @@ package com.intr.utils;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,26 +24,26 @@ public class Interceptor implements HandlerInterceptor {
 	
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		// ¿äÃ» URI
+		// ìš”ì²­ URI
 		String requestURI = request.getRequestURI().substring(request.getContextPath().length());
 
-		//  ¼¼¼Ç Ã¼Å© Á¦¿Ü
+		//  ì„¸ì…˜ ì²´í¬ ì œì™¸
 		if (isExcludeUri(requestURI)) {
-			// Controller µ¿ÀÛ
+			// Controller ë™ì‘
 	        return true; 
         }
 		
-		// ¼¼¼Ç Ã¼Å©
+		// ì„¸ì…˜ ì²´í¬
 		HttpSession session = request.getSession();
 		EmpVO loginInfo = (EmpVO)session.getAttribute("empVO");
 		
 		if (loginInfo == null) {
-            session.setAttribute("alertMsg", "¼¼¼Ç Á¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            session.setAttribute("alertMsg", "ì„¸ì…˜ ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
             response.sendRedirect(request.getContextPath() + "/intrMainInqy1010.do");
             return false;
         }
 		
-        // Controller µ¿ÀÛ
+        // Controller ë™ì‘
         return true;
     }
 	
@@ -56,19 +56,19 @@ public class Interceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception exception) throws Exception {
 		//
 		try {
-			// ¼¼¼Ç È®ÀÎ
+			// ì„¸ì…˜ í™•ì¸
 			HttpSession session = request.getSession(false);
 			EmpVO loginInfo = null;
 	        if (session != null) loginInfo = (EmpVO) session.getAttribute("empVO");
 	
-			String mappingId = request.getRequestURI().substring(request.getContextPath().length());					// ¿äÃ» URI
-			String logtypeCd = mappingId.contains(Const.LOG_PROC) ? Const.LOG_PROC : Const.LOG_INQY;		// Ã³¸® ±¸ºĞ
-			String ipAddr = request.getRemoteAddr();																							// ¿äÃ»ÀÚ IP
-			String empIdx = (loginInfo == null) ? "" : loginInfo.getEmpIdx();														// ¿äÃ»ÀÚ IDX
-			String isSucc = (exception == null) ? Const.LOG_SUCC : Const.LOG_FAIL;										// ¼º°ø ¿©ºÎ
-			String logMsg = (exception == null) ? "" : exception.toString();															// ¿À·ù ¸Ş¼¼Áö
+			String mappingId = request.getRequestURI().substring(request.getContextPath().length());					// ìš”ì²­ URI
+			String logtypeCd = mappingId.contains(Const.LOG_PROC) ? Const.LOG_PROC : Const.LOG_INQY;		// ì²˜ë¦¬ êµ¬ë¶„
+			String ipAddr = request.getRemoteAddr();																							// ìš”ì²­ì IP
+			String empIdx = (loginInfo == null) ? "" : loginInfo.getEmpIdx();														// ìš”ì²­ì IDX
+			String isSucc = (exception == null) ? Const.LOG_SUCC : Const.LOG_FAIL;										// ì„±ê³µ ì—¬ë¶€
+			String logMsg = (exception == null) ? "" : exception.toString();															// ì˜¤ë¥˜ ë©”ì„¸ì§€
 			
-			// ¸®¼Ò½º ¿äÃ» È¤Àº Á¤»óÀÎ °æ¿ì ·Î±× ¹Ì µî·Ï
+			// ë¦¬ì†ŒìŠ¤ ìš”ì²­ í˜¹ì€ ì •ìƒì¸ ê²½ìš° ë¡œê·¸ ë¯¸ ë“±ë¡
 			if (isExcludeUri(mappingId)
 				|| exception == null) {
 	            return;
@@ -83,16 +83,16 @@ public class Interceptor implements HandlerInterceptor {
 			paramMap.put("logMsg", logMsg);
 	
 			//--------------------------------------------------------------------------------------------
-			// ·Î±× µî·Ï
+			// ë¡œê·¸ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			logService.logProcService1010(null, paramMap);
 			
 		} catch (Exception e) {
-			logger.debug("Exception : Á¢¼Ó ·Î±× ÀúÀå Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì ‘ì† ë¡œê·¸ ì €ì¥ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 	    }
     }
 	
-	//  ¼¼¼Ç Ã¼Å© Á¦¿Ü
+	//  ì„¸ì…˜ ì²´í¬ ì œì™¸
 	private boolean isExcludeUri(String requestURI) {
 	    return requestURI.equals("/")
 	        || requestURI.equals("/intrMainInqy1010.do")

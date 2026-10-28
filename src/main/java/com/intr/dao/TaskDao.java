@@ -13,7 +13,7 @@ public class TaskDao {
 	@Autowired
 	SqlSession sqlsession;
 
-	// ¾÷¹«ÀÏÁö ½ÃÄö½º Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> taskInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class TaskDao {
 		return defaultInfo;
 	}
 	
-	// ¾÷¹«ÀÏÁö ÀÛ¼º Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ì‘ì„± ì¡°íšŒ
 	public List<HashMap<String, Object>> taskInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class TaskDao {
 		return defaultList;
 	}
 
-	// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> taskInqyDao2010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -37,7 +37,7 @@ public class TaskDao {
 		return defaultList;
 	}
 	
-	// ¾÷¹«ÀÏÁö »ó¼¼ Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ìƒì„¸ ì¡°íšŒ
 	public List<HashMap<String, Object>> taskInqyDao2020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -45,7 +45,7 @@ public class TaskDao {
 		return defaultList;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ Á¶È¸
+	// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
 	public List<HashMap<String, Object>> taskInqyDao3010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -53,7 +53,7 @@ public class TaskDao {
 		return defaultList;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ »ó¼¼
+	// ì—…ë¬´ ìº˜ë¦°ë” ìƒì„¸
 	public HashMap<String, Object> taskInqyDao3020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -61,7 +61,7 @@ public class TaskDao {
 		return defaultInfo;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ (¸ŞÀÎ) Á¶È¸
+	// ì—…ë¬´ ìº˜ë¦°ë” (ë©”ì¸) ì¡°íšŒ
 	public List<HashMap<String, Object>> taskInqyDao3030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -69,7 +69,7 @@ public class TaskDao {
 		return defaultList;
 	}
 	
-	// ¾÷¹«ÀÏÁö µî·Ï
+	// ì—…ë¬´ì¼ì§€ ë“±ë¡
 	public int taskProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -77,7 +77,7 @@ public class TaskDao {
 		return resInt;
 	}
 	
-	// ¾÷¹«ÀÏÁö »èÁ¦
+	// ì—…ë¬´ì¼ì§€ ì‚­ì œ
 	public int taskProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -85,7 +85,7 @@ public class TaskDao {
 		return resInt;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ µî·Ï
+	// ì—…ë¬´ ìº˜ë¦°ë” ë“±ë¡
 	public int taskProcDao2010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -93,7 +93,7 @@ public class TaskDao {
 		return resInt;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ ¼öÁ¤
+	// ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì •
 	public int taskProcDao2020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -101,7 +101,7 @@ public class TaskDao {
 		return resInt;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ »èÁ¦
+	// ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ
 	public int taskProcDao2030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

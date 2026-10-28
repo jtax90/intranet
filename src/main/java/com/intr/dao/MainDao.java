@@ -14,7 +14,7 @@ public class MainDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ·Î±×ÀÎ »ç¿ëÀÚ Á¶È¸
+	// ë¡œê·¸ì¸ ì‚¬ìš©ì ì¡°íšŒ
 	public EmpVO mainInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		EmpVO defatulInfo = null;

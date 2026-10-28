@@ -13,7 +13,7 @@ public class CoreDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ¸Ş´º Á¶È¸
+	// ë©”ë‰´ ì¡°íšŒ
 	public List<HashMap<String, Object>> coreInqyDao1010(HashMap<String,Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -21,7 +21,7 @@ public class CoreDao {
 		return defaultList;
 	}
 
-	// ÀüÃ¼ ¸Ş´º Á¶È¸
+	// ì „ì²´ ë©”ë‰´ ì¡°íšŒ
 	public List<HashMap<String, Object>> coreInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class CoreDao {
 		return defaultList;
 	}
 	
-	// ¸ñ·Ï ¼ö Á¶È¸
+	// ëª©ë¡ ìˆ˜ ì¡°íšŒ
 	public List<HashMap<String, Object>> coreInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;

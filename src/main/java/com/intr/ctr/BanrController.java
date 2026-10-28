@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -36,31 +36,31 @@ public class BanrController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ¹è³Ê °ü¸® Á¶È¸
+	// ë°°ë„ˆ ê´€ë¦¬ ì¡°íšŒ
 	@RequestMapping("/intrBanrInqy1010.do")
 	public String intrBanrInqy1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 
 			// --------------------------------------------------------------------------------------------
-			// ¹è³Ê °ü¸® Á¶È¸
+			// ë°°ë„ˆ ê´€ë¦¬ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			banrService.banrInqyService1010(model, paramMap);
 
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¹è³Ê °ü¸® Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë°°ë„ˆ ê´€ë¦¬ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_BANR + Const.INTR_BANR_DETL_1010;
 	}
 
-	// ¹è³Ê »çÁø Á¶È¸
+	// ë°°ë„ˆ ì‚¬ì§„ ì¡°íšŒ
 	@RequestMapping("/intrBanrInqy1099.do")
 	public void intrBanrInqy1099(Model model, @RequestParam HashMap<String, Object> paramMap,
 			HttpServletResponse response) throws Exception {
@@ -69,28 +69,28 @@ public class BanrController {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// »ç¿ø ÀÌ¹ÌÁö Á¶È¸
+			// ì‚¬ì› ì´ë¯¸ì§€ ì¡°íšŒ
 			// --------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 
 			// --------------------------------------------------------------------------------------------
-			// URL°´Ã¼ »ı¼º (¿¹¿Ü»çÇ× Ãß°¡)
+			// URLê°ì²´ ìƒì„± (ì˜ˆì™¸ì‚¬í•­ ì¶”ê°€)
 			// --------------------------------------------------------------------------------------------
 			URL fileUrl = new URL("file:" + (String) defaultList.get(0).get("filePath") + (String) defaultList.get(0).get("saveFileNm"));
 					
 			// --------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ÀÔÃâ·Â (ÀÀ´ä°´Ã¼·Î »Ñ·ÁÁø ÆÄÀÏ µ¥ÀÌÅÍ JSP·Î Àü¼Û)
+			// íŒŒì¼ ì…ì¶œë ¥ (ì‘ë‹µê°ì²´ë¡œ ë¿Œë ¤ì§„ íŒŒì¼ ë°ì´í„° JSPë¡œ ì „ì†¡)
 			// --------------------------------------------------------------------------------------------
 			IOUtils.copy(fileUrl.openStream(), response.getOutputStream());
 
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¹è³Ê »çÁø Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë°°ë„ˆ ì‚¬ì§„ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 
-	// ¹è³Ê ÀúÀå Ã³¸®
+	// ë°°ë„ˆ ì €ì¥ ì²˜ë¦¬
 	@RequestMapping("/intrBanrProc1010.do")
 	@ResponseBody
 	public String intrBanrProc1010(Model model, @RequestParam HashMap<String, Object> paramMap,
@@ -100,20 +100,20 @@ public class BanrController {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ¹è³Ê ÀúÀå
+			// ë°°ë„ˆ ì €ì¥
 			// --------------------------------------------------------------------------------------------
 			defaultStr = banrService.banrProcService1010(model, paramMap, request);
 
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¹è³Ê ÀúÀå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë°°ë„ˆ ì €ì¥ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 
-	// ¹è³Ê »èÁ¦ Ã³¸®
+	// ë°°ë„ˆ ì‚­ì œ ì²˜ë¦¬
 	@RequestMapping("/intrBanrProc1020.do")
 	@ResponseBody
 	public String intrBanrProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -122,13 +122,13 @@ public class BanrController {
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// ¹è³Ê »èÁ¦
+			// ë°°ë„ˆ ì‚­ì œ
 			// --------------------------------------------------------------------------------------------
 			defaultStr = banrService.banrProcService1020(model, paramMap);
 
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¹è³Ê »èÁ¦ Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë°°ë„ˆ ì‚­ì œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

@@ -13,7 +13,7 @@ public class MtgDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// È¸ÀÇ ½ÃÄö½º Á¶È¸
+	// íšŒì˜ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> mtgInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class MtgDao {
 		return defaultInfo;
 	}
 	
-	// È¸ÀÇ ¸ñ·Ï Á¶È¸
+	// íšŒì˜ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> mtgInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class MtgDao {
 		return defaultList;
 	}
 	
-	// È¸ÀÇ »ó¼¼ Á¶È¸
+	// íšŒì˜ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> mtgInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -37,7 +37,7 @@ public class MtgDao {
 		return defaultInfo;
 	}
 	
-	// È¸ÀÇ Áßº¹ Á¶È¸
+	// íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 	public List<HashMap<String, Object>> mtgInqyDao1040(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -45,7 +45,7 @@ public class MtgDao {
 		return defaultList;
 	}
 	
-	// Ä¶¸°´õ Á¶È¸
+	// ìº˜ë¦°ë” ì¡°íšŒ
 	public List<HashMap<String, Object>> mtgInqyDao2010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -53,7 +53,7 @@ public class MtgDao {
 		return defaultList;
 	}
 
-	// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+	// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> mtgInqyDao2020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -61,7 +61,7 @@ public class MtgDao {
 		return defaultList;
 	}
 	
-	// È¸ÀÇ µî·Ï Ã³¸®
+	// íšŒì˜ ë“±ë¡ ì²˜ë¦¬
 	public int mtgProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -69,7 +69,7 @@ public class MtgDao {
 		return resInt;
 	}
 	
-	// È¸ÀÇ »èÁ¦ Ã³¸®
+	// íšŒì˜ ì‚­ì œ ì²˜ë¦¬
 	public int mtgProcDao1020(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;
@@ -77,7 +77,7 @@ public class MtgDao {
 		return resInt;
 	}
 	
-	// È¸ÀÇ ¼öÁ¤ Ã³¸®
+	// íšŒì˜ ìˆ˜ì • ì²˜ë¦¬
 	public int mtgProcDao1030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import org.springframework.ui.Model;
 
 public interface CoreService {
-	// ¸Þ´º Á¶È¸
-	void coreInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ¸Þ´º Á¶È¸
-	void coreInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ÀüÃ¼ ¸Þ´º
-	void coreInqyService1030(String string) throws Exception; 																	// ¸Þ´º ¼¼¼Ç ÀúÀå
+	// ë©”ë‰´ ì¡°íšŒ
+	void coreInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ë©”ë‰´ ì¡°íšŒ
+	void coreInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì „ì²´ ë©”ë‰´
+	void coreInqyService1030(String string) throws Exception; 																	// ë©”ë‰´ ì„¸ì…˜ ì €ìž¥
 }

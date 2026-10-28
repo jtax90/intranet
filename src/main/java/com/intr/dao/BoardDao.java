@@ -13,7 +13,7 @@ public class BoardDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// °øÁö»çÇ× ½ÃÄö½º Á¶È¸
+	// ê³µì§€ì‚¬í•­ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> boardInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class BoardDao {
 		return defaultInfo;
 	}
 	
-	// °øÁö»çÇ× ¸ñ·Ï
+	// ê³µì§€ì‚¬í•­ ëª©ë¡
 	public List<HashMap<String, Object>> boardInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class BoardDao {
 		return defaultList;
 	}
 	
-	// °øÁö»çÇ× »ó¼¼ Á¶È¸
+	// ê³µì§€ì‚¬í•­ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> boardInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -37,7 +37,7 @@ public class BoardDao {
 		return defaultInfo;
 	}
 	
-	// °øÁö»çÇ× µî·Ï
+	// ê³µì§€ì‚¬í•­ ë“±ë¡
 	public int boardProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -45,7 +45,7 @@ public class BoardDao {
 		return resInt;
 	}
 
-	// °øÁö»çÇ× »èÁ¦ (¼öÁ¤)
+	// ê³µì§€ì‚¬í•­ ì‚­ì œ (ìˆ˜ì •)
 	public int boardProcDao1020(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;
@@ -53,7 +53,7 @@ public class BoardDao {
 		return resInt;
 	}
 
-	// °øÁö»çÇ× »èÁ¦ (»èÁ¦)
+	// ê³µì§€ì‚¬í•­ ì‚­ì œ (ì‚­ì œ)
 	public int boardProcDao1030(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;
@@ -61,7 +61,7 @@ public class BoardDao {
 		return resInt;
 	}
 	
-	// °øÁö»çÇ× ¼öÁ¤
+	// ê³µì§€ì‚¬í•­ ìˆ˜ì •
 	public int boardProcDao1040(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -69,7 +69,7 @@ public class BoardDao {
 		return resInt;
 	}
 	
-	// °øÁö»çÇ× Á¶È¸¼ö Áõ°¡
+	// ê³µì§€ì‚¬í•­ ì¡°íšŒìˆ˜ ì¦ê°€
 	public int boardProcDao1050(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

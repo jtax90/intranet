@@ -3,7 +3,7 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -43,14 +43,14 @@ public class TaskServiceImpl implements TaskService{
 	@Autowired
 	HttpSession session;
 
-	// ¾÷¹«ÀÏÁö ÀÛ¼º
+	// ì—…ë¬´ì¼ì§€ ì‘ì„±
 	public void taskInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao1020(paramMap);
 			model.addAttribute("defaultList",defaultList);
@@ -61,14 +61,14 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// ¾÷¹«ÀÏÁö ÀÛ¼º (ajax)
+	// ì—…ë¬´ì¼ì§€ ì‘ì„± (ajax)
 	public void taskInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao1020(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -79,19 +79,19 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ
 	public void taskInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö ¸ñ·Ï Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao2010(paramMap);
 			model.addAttribute("defaultList",defaultList);
@@ -102,14 +102,14 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// ¾÷¹«ÀÏÁö »ó¼¼ Á¶È¸
+	// ì—…ë¬´ì¼ì§€ ìƒì„¸ ì¡°íšŒ
 	public void taskInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö »ó¼¼ Á¶È¸
+			// ì—…ë¬´ì¼ì§€ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao2020(paramMap);
 			model.addAttribute("defaultList",defaultList);
@@ -120,14 +120,14 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ Á¶È¸
+	// ì—…ë¬´ ìº˜ë¦°ë” ì¡°íšŒ
 	public void taskInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+			// ì—…ë¬´ ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao3010(paramMap);
 			model.addAttribute("defaultList", JSONArray.toJSONString(defaultList));
@@ -138,7 +138,7 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// ¾÷¹«ÀÏÁö ÀúÀå
+	// ì—…ë¬´ì¼ì§€ ì €ì¥
 	public String taskProcService1010(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -149,7 +149,7 @@ public class TaskServiceImpl implements TaskService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« ÀÏÁö ÀüÃ¼ »èÁ¦
+			// ì—…ë¬´ ì¼ì§€ ì „ì²´ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			tempMap = new HashMap<String, Object>();
 			tempMap.put("empIdx", (String)paramMap.get("empIdx"));
@@ -158,12 +158,12 @@ public class TaskServiceImpl implements TaskService{
 			taskDao.taskProcDao1020(tempMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö Ã¤¹ø
+			// ì—…ë¬´ì¼ì§€ ì±„ë²ˆ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = taskDao.taskInqyDao1010(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« ÀÏÁö µî·Ï
+			// ì—…ë¬´ ì¼ì§€ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			String jStr = (String)paramMap.get("taskList");
 			JSONParser parser = new JSONParser();
@@ -172,7 +172,7 @@ public class TaskServiceImpl implements TaskService{
 			
 			for(Object data : arr) {
 				obj = (JSONObject) data;
-				// ÀÓ½Ã ÀúÀå
+				// ì„ì‹œ ì €ì¥
 				tempMap = new HashMap<String, Object>();
 				
 				tempMap.put("sequenceId", utilService.nvlProc((String)defaultInfo.get("sequenceId")));
@@ -183,12 +183,12 @@ public class TaskServiceImpl implements TaskService{
 				tempMap.put("taskDt", utilService.nvlProc((String)obj.get("taskDt")));
 				tempMap.put("empIdx", utilService.nvlProc((String)obj.get("empIdx")));
 				
-				// µî·Ï Ã³¸®
+				// ë“±ë¡ ì²˜ë¦¬
 				resInt += taskDao.taskProcDao1010(tempMap);
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(arr.size() == resInt) {
 				resStr = "YES";
@@ -204,7 +204,7 @@ public class TaskServiceImpl implements TaskService{
 		return defaultStr;
 	}
 	
-	// ¾÷¹«ÀÏÁö »èÁ¦
+	// ì—…ë¬´ì¼ì§€ ì‚­ì œ
 	public String taskProcService1020(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -213,7 +213,7 @@ public class TaskServiceImpl implements TaskService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹«ÀÏÁö »èÁ¦
+			// ì—…ë¬´ì¼ì§€ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			tempMap = new HashMap<String, Object>();
 			tempMap.put("empIdx", (String)paramMap.get("empIdx"));
@@ -231,7 +231,7 @@ public class TaskServiceImpl implements TaskService{
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ µî·Ï Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ë“±ë¡ ì²˜ë¦¬
 	public String taskProcService2010(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -240,12 +240,12 @@ public class TaskServiceImpl implements TaskService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« Ä¶¸°´õ µî·Ï Ã³¸®
+			// ì—…ë¬´ ìº˜ë¦°ë” ë“±ë¡ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = taskDao.taskProcDao2010(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt > 0) {
 				resStr = "YES";
@@ -261,7 +261,7 @@ public class TaskServiceImpl implements TaskService{
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ ¼öÁ¤ Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì • ì²˜ë¦¬
 	public String taskProcService2020(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -270,12 +270,12 @@ public class TaskServiceImpl implements TaskService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« Ä¶¸°´õ ¼öÁ¤ Ã³¸®
+			// ì—…ë¬´ ìº˜ë¦°ë” ìˆ˜ì • ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = taskDao.taskProcDao2020(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt > 0) {
 				resStr = "YES";
@@ -291,7 +291,7 @@ public class TaskServiceImpl implements TaskService{
 		return defaultStr;
 	}
 	
-	// ¾÷¹« Ä¶¸°´õ »èÁ¦ Ã³¸®
+	// ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ ì²˜ë¦¬
 	public String taskProcService2030(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -300,12 +300,12 @@ public class TaskServiceImpl implements TaskService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾÷¹« Ä¶¸°´õ »èÁ¦ Ã³¸®
+			// ì—…ë¬´ ìº˜ë¦°ë” ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = taskDao.taskProcDao2030(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt > 0) {
 				resStr = "YES";

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,12 +27,12 @@ public class QueryServiceImpl implements QueryService{
 	@Autowired
 	QueryDao queryDao;
 	
-	// Äõ¸® È­¸é Á¶È¸
+	// ì¿¼ë¦¬ í™”ë©´ ì¡°íšŒ
 	public void queryInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Äõ¸® È­¸é Á¶È¸
+			// ì¿¼ë¦¬ í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			
 		} catch (Exception e) {
@@ -41,7 +41,7 @@ public class QueryServiceImpl implements QueryService{
 		}
 	}
 	
-	// Äõ¸® °á°ú Á¶È¸
+	// ì¿¼ë¦¬ ê²°ê³¼ ì¡°íšŒ
 	public void queryInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -49,7 +49,7 @@ public class QueryServiceImpl implements QueryService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Äõ¸® È­¸é Á¶È¸
+			// ì¿¼ë¦¬ í™”ë©´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = queryDao.queryInqyDao1010(paramMap);
 			
@@ -59,24 +59,24 @@ public class QueryServiceImpl implements QueryService{
 				model.addAttribute("colList",colList);
 				model.addAttribute("dataList",defaultList);
 			} else {
-				model.addAttribute("resMsg", "Äõ¸® Á¶È¸ °á°ú°¡ ¾ø½À´Ï´Ù.");
+				model.addAttribute("resMsg", "ì¿¼ë¦¬ ì¡°íšŒ ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			}
 			
 		} catch (Exception e) {
 			//
-			model.addAttribute("resMsg", "ÀÔ·ÂÇÑ Äõ¸®¸¦ ½ÇÇàÇÒ ¼ö ¾ø½À´Ï´Ù. Äõ¸® ¹®¹ı ¶Ç´Â Å×ÀÌºí/ÄÃ·³À» È®ÀÎÇØÁÖ¼¼¿ä.");
+			model.addAttribute("resMsg", "ì…ë ¥í•œ ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ì¿¼ë¦¬ ë¬¸ë²• ë˜ëŠ” í…Œì´ë¸”/ì»¬ëŸ¼ì„ í™•ì¸í•´ì£¼ì„¸ìš”.");
 			throw e;
 		}
 	}
 
-	// ¿¢¼¿ ´Ù¿î·Îµå
+	// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 	public void queryInqyService1030(HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		List<Map<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¿¢¼¿ ´Ù¿î·Îµå
+			// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			defaultList = queryDao.queryInqyDao1020(paramMap);
 			utilService.excelDown(defaultList, paramMap, request, response);
@@ -87,7 +87,7 @@ public class QueryServiceImpl implements QueryService{
 		}
 	}
 
-	// Äõ¸® ÀÔ·Â Ã³¸®
+	// ì¿¼ë¦¬ ì…ë ¥ ì²˜ë¦¬
 	public String queryProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -96,17 +96,17 @@ public class QueryServiceImpl implements QueryService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Äõ¸® ÀÔ·Â Ã³¸®
+			// ì¿¼ë¦¬ ì…ë ¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			paramMap.put("query", query.replaceAll(";", ""));
 			resInt = queryDao.queryProcDao1010(paramMap);
 					
-			// Ã³¸®µÈ °ÇÀÌ ¾ø´Â °æ¿ì ºó °ªÀ¸·Î °á°ú Àü¼Û
+			// ì²˜ë¦¬ëœ ê±´ì´ ì—†ëŠ” ê²½ìš° ë¹ˆ ê°’ìœ¼ë¡œ ê²°ê³¼ ì „ì†¡
 			if(resInt>0) {
 				defaultStr = "Yes";
 			}
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'resInt':'%d'}]", resInt);			
 					

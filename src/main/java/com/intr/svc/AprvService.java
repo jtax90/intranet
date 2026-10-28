@@ -6,24 +6,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface AprvService {
-	// ∞·¿Á
-	void aprvInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ±‚æ» ∏Ò∑œ
-	HashMap<String, Object> aprvInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// ±‚æ» µÓ∑œ æÁΩƒ
+	// Í≤∞Ïû¨
+	void aprvInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í∏∞Ïïà Î™©Î°ù
+	HashMap<String, Object> aprvInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// Í∏∞Ïïà Îì±Î°ù ÏñëÏãù
 	//
-	void aprvInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∞·¿Á ∏Ò∑œ
-	void aprvInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∞·¿Á ªÛºº
+	void aprvInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í≤∞Ïû¨ Î™©Î°ù
+	void aprvInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í≤∞Ïû¨ ÏÉÅÏÑ∏
 	//
-	void aprvInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ¿œ¡§ ∞¸∏Æ
+	void aprvInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ÏùºÏ†ï Í¥ÄÎ¶¨
 	//
-	void aprvInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∞·¿Áº± ∞¸∏Æ
-	void aprvInqyService4020(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∞·¿Áº± µÓ∑œ
-	void aprvInqyService4030(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∞·¿Áº± ªÛºº
+	void aprvInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í≤∞Ïû¨ÏÑ† Í¥ÄÎ¶¨
+	void aprvInqyService4020(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í≤∞Ïû¨ÏÑ† Îì±Î°ù
+	void aprvInqyService4030(Model model, HashMap<String, Object> paramMap) throws Exception;		// Í≤∞Ïû¨ÏÑ† ÏÉÅÏÑ∏
 	//
-	String aprvProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ±‚æ» µÓ∑œ
-	void aprvProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ±‚∫ª ¡§∫∏ √≥∏Æ
-	void aprvProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// æÁΩƒ ¿Ø«¸ √≥∏Æ
-	String aprvProcService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ∞·¿Á √≥∏Æ
+	String aprvProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// Í∏∞Ïïà Îì±Î°ù
+	void aprvProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// Í∏∞Î≥∏ Ï†ïÎ≥¥ Ï≤òÎ¶¨
+	void aprvProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ÏñëÏãù Ïú†Ìòï Ï≤òÎ¶¨
+	String aprvProcService3010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// Í≤∞Ïû¨ Ï≤òÎ¶¨
 	//
-	String aprvProcService4010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ∞·¿Áº± ¿˙¿Â √≥∏Æ
-	String aprvProcService4020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ∞·¿Áº± ªË¡¶ √≥∏Æ
+	String aprvProcService4010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// Í≤∞Ïû¨ÏÑ† Ï†ÄÏû• Ï≤òÎ¶¨
+	String aprvProcService4020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// Í≤∞Ïû¨ÏÑ† ÏÇ≠Ï†ú Ï≤òÎ¶¨
 }

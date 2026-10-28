@@ -6,6 +6,6 @@ import org.springframework.ui.Model;
 
 public interface MainService {
 	//
-	void mainInqyService1010(Model model) throws Exception; 	// ·Î±×ÀÎ ±ÇÇÑ »ç¿ëÀÚ Á¶È¸
-	String mainProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »ç¿ëÀÚ Á¶È¸
+	void mainInqyService1010(Model model) throws Exception; 	// ë¡œê·¸ì¸ ê¶Œí•œ ì‚¬ìš©ì ì¡°íšŒ
+	String mainProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚¬ìš©ì ì¡°íšŒ
 }

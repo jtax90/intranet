@@ -6,13 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface ProjService {
-	// «¡∑Œ¡ß∆Æ
-	void projInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ∏Ò∑œ ¡∂»∏
-	void projInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// µÓ∑œ ¡∂»∏
-	void projInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception; // ªÛºº »≠∏È ¡∂»∏
+	// ÌîÑÎ°úÏ†ùÌä∏
+	void projInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// Î™©Î°ù Ï°∞Ìöå
+	void projInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// Îì±Î°ù Ï°∞Ìöå
+	void projInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception; // ÏÉÅÏÑ∏ ÌôîÎ©¥ Ï°∞Ìöå
 	//
-	String projProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// µÓ∑œ
-	String projProcService1020(Model model, String[] deleteList) throws Exception; 	// ªË¡¶
-	String projProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ºˆ¡§
+	String projProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// Îì±Î°ù
+	String projProcService1020(Model model, String[] deleteList) throws Exception; 	// ÏÇ≠Ï†ú
+	String projProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ÏàòÏ†ï
 
 }

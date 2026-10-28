@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.springframework.ui.Model;
 
 public interface LogService {
-	// ∑Œ±◊
-	void logInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ∏Ò∑œ ¡∂»∏
-	void logProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ¿˙¿Â
+	// Î°úÍ∑∏
+	void logInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;		// Î™©Î°ù Ï°∞Ìöå
+	void logProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// Ï†ÄÏû•
 }

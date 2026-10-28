@@ -21,13 +21,16 @@ import java.util.zip.ZipOutputStream;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.BorderStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
+import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -77,10 +80,10 @@ public class UtilServiceImpl implements UtilService{
     
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ÆÄÀÏ °æ·Î Á¶È¸
+	// íŒŒì¼ ê²½ë¡œ ì¡°íšŒ
 	public String setFilePath(HashMap<String, Object> paramMap) throws Exception {
 		//--------------------------------------------------------------------------------------------
-		// °æ·Î °Ë»ö
+		// ê²½ë¡œ ê²€ìƒ‰
 		//--------------------------------------------------------------------------------------------
 		String fullPath = "";
 		String filetypeCd = this.nvlProc((String)paramMap.get("filetypeCd"));
@@ -90,10 +93,10 @@ public class UtilServiceImpl implements UtilService{
 		return fullPath;
 	}
 	
-	// (ÀÓ½Ã) ÆÄÀÏ °æ·Î Á¶È¸
+	// (ì„ì‹œ) íŒŒì¼ ê²½ë¡œ ì¡°íšŒ
 	public String setTempPath(HashMap<String, Object> paramMap) throws Exception {
 		//--------------------------------------------------------------------------------------------
-		// °æ·Î °Ë»ö
+		// ê²½ë¡œ ê²€ìƒ‰
 		//--------------------------------------------------------------------------------------------
 		String fullPath = "";
 		String filetypeCd = this.nvlProc((String)paramMap.get("filetypeCd"));
@@ -103,22 +106,22 @@ public class UtilServiceImpl implements UtilService{
 		return fullPath;
 	}
 	
-	// ¿î¿µ Ã¼Á¦ Á¶È¸
+	// ìš´ì˜ ì²´ì œ ì¡°íšŒ
 	public String setBasePath(String basePath, String filetypeCd) throws Exception {
 		//--------------------------------------------------------------------------------------------
-		// °æ·Î »ı¼º
+		// ê²½ë¡œ ìƒì„±
 		//--------------------------------------------------------------------------------------------
 		String os = System.getProperty("os.name").toLowerCase();
 		String filePath = "";
 
-		// ¿î¿µ Ã¼Á¦ ±¸ºĞ
+		// ìš´ì˜ ì²´ì œ êµ¬ë¶„
 		if(os.contains("win")) {
 			filePath = "C:\\" + basePath + File.separator;
 		} else {
 			filePath = "/" + basePath.replace("\\", "/") + File.separator;
 		}
 		
-		// ÆÄÀÏ Á¾·ù
+		// íŒŒì¼ ì¢…ë¥˜
 		if(!isNull(filetypeCd)) {
 			filePath += filetypeCd + File.separator;
 		}
@@ -126,7 +129,7 @@ public class UtilServiceImpl implements UtilService{
 		return filePath;
 	}
 	
-	// ³¯Â¥º° °æ·Î »ı¼º
+	// ë‚ ì§œë³„ ê²½ë¡œ ìƒì„±
 	private String getDatePath() {
 	    LocalDate now = LocalDate.now();
 
@@ -136,7 +139,7 @@ public class UtilServiceImpl implements UtilService{
 	            + File.separator;
 	}
 	
-	// °øÅë ÄÚµå Á¶È¸
+	// ê³µí†µ ì½”ë“œ ì¡°íšŒ
 	public void getCodeList(Model model, String groupCd, String modelNm) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -144,7 +147,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÅë ÄÚµå Á¶È¸
+			// ê³µí†µ ì½”ë“œ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			tempMap.put("commcodeGcd", groupCd);
 			defaultList = utilDao.codeInqyDao1010(tempMap);
@@ -156,23 +159,23 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ¸ŞÀÏ Àü¼Û
+	// ë©”ì¼ ì „ì†¡
 	public String sendMail(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
-		String defaultStr = ""; // °á°ú Àü´Ş JSON
-		String joinCode = "";		// ÀÎÁõ ÄÚµå
+		String defaultStr = ""; // ê²°ê³¼ ì „ë‹¬ JSON
+		String joinCode = "";		// ì¸ì¦ ì½”ë“œ
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ Á¤º¸ Á¶È¸
+			// ì‚¬ìš©ì ì •ë³´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = empDao.empInqyDao1030(paramMap);
 			//
 			if(defaultInfo != null) {
 				//--------------------------------------------------------------------------------------------
-				// ¸ŞÀÏ Àü¼Û
+				// ë©”ì¼ ì „ì†¡
 				//--------------------------------------------------------------------------------------------
 				joinCode = sendMailProc(paramMap);
 			}
@@ -187,39 +190,39 @@ public class UtilServiceImpl implements UtilService{
 		return defaultStr;
 	}
 
-	// ¸ŞÀÏ ¹ß¼Û
+	// ë©”ì¼ ë°œì†¡
 	private String sendMailProc(HashMap<String, Object> paramMap) throws Exception {
 		//
         MimeMessage message = javaMailSender.createMimeMessage();
         //
-		String joinCode = ""; 	// ÀÎÁõÄÚµå
-		String subject = ""; 	// Á¦¸ñ
-		String content = "";	// ³»¿ë
+		String joinCode = ""; 	// ì¸ì¦ì½”ë“œ
+		String subject = ""; 	// ì œëª©
+		String content = "";	// ë‚´ìš©
         //
-        String sender = "";		// ¹ß½ÅÀÚ
-        String receiver = "";	// ¼ö½ÅÀÚ
+        String sender = "";		// ë°œì‹ ì
+        String receiver = "";	// ìˆ˜ì‹ ì
 		HashMap<String, Object> defaultInfo = null;
 
 		//
         try {
 			//--------------------------------------------------------------------------------------------
-			// ³­¼ö »ı¼º
+			// ë‚œìˆ˜ ìƒì„±
 			//--------------------------------------------------------------------------------------------
 			int random = new Random().nextInt(10000) + 100000;
 			
-			// ÀÎÁõ ÄÚµå ¹ß±Ş
+			// ì¸ì¦ ì½”ë“œ ë°œê¸‰
 			joinCode = String.valueOf(random);
 			
 			//--------------------------------------------------------------------------------------------
-			// Á¦¸ñ ¹× ±â¾È¹® ¾ç½Ä »ı¼º
+			// ì œëª© ë° ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„±
 			//--------------------------------------------------------------------------------------------
-			subject = "[ÀÎÆ®¶ó³İ] Á¤º¸ Ã£±â ÀÎÁõÄÚµå ¹ß±Ş ¾È³»";
+			subject = "[ì¸íŠ¸ë¼ë„·] ì •ë³´ ì°¾ê¸° ì¸ì¦ì½”ë“œ ë°œê¸‰ ì•ˆë‚´";
 			//
 			StringBuilder sb = new StringBuilder();
-			sb.append("[INTR] Á¤º¸ Ã£±â ÀÎÁõÄÚµå ¹ß±Ş ¾È³»" + "\n");
-			sb.append("ÀÎÁõ ÄÚµå´Â " + joinCode + "ÀÔ´Ï´Ù." + "\n");
+			sb.append("[INTR] ì •ë³´ ì°¾ê¸° ì¸ì¦ì½”ë“œ ë°œê¸‰ ì•ˆë‚´" + "\n");
+			sb.append("ì¸ì¦ ì½”ë“œëŠ” " + joinCode + "ì…ë‹ˆë‹¤." + "\n");
 			sb.append("\n");
-			sb.append("ÀÎÁõ ÄÚµå¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			sb.append("ì¸ì¦ ì½”ë“œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			//
 			content = sb.toString();
         	
@@ -227,7 +230,7 @@ public class UtilServiceImpl implements UtilService{
             MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
 
             //--------------------------------------------------------------------------------------------
-			// °ü¸®ÀÚ ¸ŞÀÏ Á¶È¸
+			// ê´€ë¦¬ì ë©”ì¼ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
             defaultInfo = empDao.empInqyDao1040();
             //
@@ -235,21 +238,21 @@ public class UtilServiceImpl implements UtilService{
             receiver 	= String.valueOf(paramMap.get("findEmail"));
 
             //--------------------------------------------------------------------------------------------
-			// Àü¼Û
+			// ì „ì†¡
 			//--------------------------------------------------------------------------------------------
-            helper.setSubject(subject); // Á¦¸ñ
-            helper.setText(content); // ³»¿ë 
-            helper.setFrom(sender); // ¹ß½ÅÀÚ
-            helper.setTo(receiver);	// ¼ö½Å»ç
+            helper.setSubject(subject); // ì œëª©
+            helper.setText(content); // ë‚´ìš©
+            helper.setFrom(sender); // ë°œì‹ ì
+            helper.setTo(receiver);	// ìˆ˜ì‹ ì‚¬
  
-			// Ã·ºÎ ÆÄÀÏ Ã³¸® ½Ã
+			// ì²¨ë¶€ íŒŒì¼ ì²˜ë¦¬ ì‹œ
             /*
 				if (filePath != null) { // File file = new File(filePath); 
             		if (file.exists()) { helper.addAttachment(file.getName(), new File(filePath)); }
 				};
 			 */
 
-            // Àü¼Û ¿Ï·á
+            // ì „ì†¡ ì™„ë£Œ
             javaMailSender.send(message);
             //
             
@@ -261,7 +264,7 @@ public class UtilServiceImpl implements UtilService{
 		return joinCode;
     }
 	
-	// ÆÄÀÏ ¾÷·Îµå & ¼öÁ¤
+	// íŒŒì¼ ì—…ë¡œë“œ & ìˆ˜ì •
 	public String fileUpload(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -273,60 +276,60 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ¾÷·Îµå
+			// íŒŒì¼ ì—…ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			List<MultipartFile> fileList = request.getFiles("fileList");
 			
 			//--------------------------------------------------------------------------------------------
-			// °æ·Î Á¶È¸
+			// ê²½ë¡œ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			filePath = this.setFilePath(paramMap);
 			paramMap.put("filePath", filePath);
 
 			//--------------------------------------------------------------------------------------------
-			// DB, ÆÄÀÏ µî·Ï ¹× ¼öÁ¤
+			// DB, íŒŒì¼ ë“±ë¡ ë° ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			for (String key : paramMap.keySet()) {
 				String saveFileNm = "";
 				//
 				if(key.contains("insert")) {
-					// µî·Ï
+					// ë“±ë¡
 					if(!fileList.isEmpty()) {
 						num = Integer.parseInt(key.replace("insert",""));
 						file = fileList.get(num);
 						saveFileNm = this.intrFileProc1010(paramMap, file);
 					}
 					
-					// file ÀúÀå
+					// file ì €ì¥
 					this.saveFile(filePath, saveFileNm, file);
 					
 				} else if(key.contains("delete")) {
-					// »èÁ¦
+					// ì‚­ì œ
 					num = Integer.parseInt(key.replace("delete",""));
 					this.intrFileProc1020(paramMap, num);
 					
 				} else if(key.contains("isUploadImg")) {
 					isUploadImg = this.nvlProc((String)paramMap.get(key));
-					// ÀÌ¹ÌÁö (ÇÁ·ÎÇÊ, ¹è³Ê)
+					// ì´ë¯¸ì§€ (í”„ë¡œí•„, ë°°ë„ˆ)
 					if(isUploadImg != null && isUploadImg != "") {
-						// »èÁ¦
+						// ì‚­ì œ
 						tempMap = new HashMap<String, Object>();
 						tempMap.put("fileId", 		this.nvlProc((String)paramMap.get("sequenceId")));
 						tempMap.put("fileSno", 	"");
 						//
 						utilDao.fileProcDao1020(tempMap);
 						
-						// µî·Ï
+						// ë“±ë¡
 						if(isUploadImg.equals("Y")) {
 							file = fileList.get(0);
-							saveFileNm = this.intrFileProc1010(paramMap, file);	// µî·Ï
+							saveFileNm = this.intrFileProc1010(paramMap, file);	// ë“±ë¡
 							this.saveFile(filePath, saveFileNm, file);
 						} 
 					}
 				}
 			}
 			
-			// °á°ú Á¶È¸
+			// ê²°ê³¼ ì¡°íšŒ
 			resStr = "YES";
 			
 		} catch (Exception e) {
@@ -337,7 +340,7 @@ public class UtilServiceImpl implements UtilService{
 		return resStr;
 	}
 
-	// ÆÄÀÏ DB ÀúÀå
+	// íŒŒì¼ DB ì €ì¥
 	public String intrFileProc1010(HashMap<String, Object> paramMap, MultipartFile file)  throws Exception {
 		//
 		HashMap<String, Object> tempMap = new HashMap<String, Object>();
@@ -364,7 +367,7 @@ public class UtilServiceImpl implements UtilService{
 		return saveFileNm ;
 	}
 	
-	// ÀúÀå ÆÄÀÏ¸í »ı¼º
+	// ì €ì¥ íŒŒì¼ëª… ìƒì„±
 	private String makeSaveFileNm(String fileExt) {
 		//
 		final String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -378,7 +381,7 @@ public class UtilServiceImpl implements UtilService{
 		return sb.toString() + "." + fileExt;
 	}
 	
-	// ÆÄÀÏ DB »èÁ¦
+	// íŒŒì¼ DB ì‚­ì œ
 	public void intrFileProc1020(HashMap<String, Object> paramMap, int num)  throws Exception {
 		//
 		HashMap<String, Object> tempMap = new HashMap<String, Object>();
@@ -395,7 +398,7 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ÆÄÀÏ ÀúÀå
+	// íŒŒì¼ ì €ì¥
 	public void saveFile(String filePath, String saveFileNm, MultipartFile file) throws Exception {
 		File dir = new File(filePath);
 		//
@@ -413,7 +416,7 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ÆÄÀÏ ´Ù¿î·Îµå
+	// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 		public void fileDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 			//
 			HashMap<String, Object> defaultInfo = null;
@@ -423,7 +426,7 @@ public class UtilServiceImpl implements UtilService{
 			//
 			try {
 				//--------------------------------------------------------------------------------------------
-				// ÆÄÀÏ Á¤º¸ Á¶È¸
+				// íŒŒì¼ ì •ë³´ ì¡°íšŒ
 				//--------------------------------------------------------------------------------------------
 				defaultInfo = utilDao.fileInqyDao1020(paramMap);
 				
@@ -432,7 +435,7 @@ public class UtilServiceImpl implements UtilService{
 				saveFileNm = this.nvlProc((String)defaultInfo.get("saveFileNm"));
 				
 				//--------------------------------------------------------------------------------------------
-				// ÆÄÀÏ ´Ù¿î·Îµå
+				// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 				//--------------------------------------------------------------------------------------------
 				fileDownProc(filePath, fileNm, saveFileNm, request, response);
 				
@@ -442,7 +445,7 @@ public class UtilServiceImpl implements UtilService{
 			}
 		}
 	
-	// ÆÄÀÏ ´Ù¿î·Îµå
+	// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 	public void fileDownProc(String filePath, String fileNm, String saveFileNm, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		String value = "";
@@ -450,7 +453,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ´Ù¿î·Îµå
+			// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			File f = new File(fullPath);
 			byte [] b = new byte[1024*1024*4]; 
@@ -462,13 +465,13 @@ public class UtilServiceImpl implements UtilService{
 				userCharSet="utf-8";
 			}
 			
-	        // IEÀÎ °æ¿ì
+	        // IEì¸ ê²½ìš°
 	        if(strAgent.indexOf("MSIE") > -1){
-	            // IE5.5ÀÎ °æ¿ì
+	            // IE5.5ì¸ ê²½ìš°
 	            if(strAgent.indexOf("MSIE 5.5") > -1){
 	                value = "=" + fileNm;
 	            }
-	            // ³ª¸ÓÁöÀÇ °æ¿ì
+	            // ë‚˜ë¨¸ì§€ì˜ ê²½ìš°
 	            else if(strAgent.indexOf("MSIE 7.0") > -1){
 	            	//
 	                if(userCharSet.equalsIgnoreCase("UTF-8")){
@@ -481,7 +484,7 @@ public class UtilServiceImpl implements UtilService{
 	                    value = "attachment; filename=" + new String(fileNm.getBytes(userCharSet), "ISO-8859-1");
 	                }
 	            }else{
-	            	// IE8.0 ÀÌ»óÀÇ °æ¿ì 
+		// IE8.0 ì´ìƒì˜ ê²½ìš°
 	            	if(userCharSet.equalsIgnoreCase("UTF-8")){
 	            		//
 	            		fileNm = URLEncoder.encode(fileNm,"utf-8");
@@ -494,10 +497,10 @@ public class UtilServiceImpl implements UtilService{
 	            }
 	            
 	        }else if(strAgent.indexOf("Firefox") > -1){
-	        	// ÆÄÀÌ¾îÆø½º (°ø¹é¹®ÀÚ ÀÌÈÄ ÀÎ½ÄÀÌ ¾ÈµÇ´Â Çö»ó)
+		// íŒŒì´ì–´í­ìŠ¤ (ê³µë°±ë¬¸ì ì´í›„ ì¸ì‹ì´ ì•ˆë˜ëŠ” í˜„ìƒ)
 	        	value = "attachment; filename=" + new String(fileNm.getBytes(), "ISO-8859-1");
 	        }else{
-	            // IE Á¦¿Ü (ºê¶ó¿ìÀú)
+	            // IE ì œì™¸ (ë¸Œë¼ìš°ì €)
                 value = "attachment; filename=" + new String(fileNm.getBytes(userCharSet), "ISO-8859-1");
 	        }
 	        //
@@ -507,7 +510,7 @@ public class UtilServiceImpl implements UtilService{
 			response.setHeader("Content-Disposition", value);
 			response.setHeader("Content-Transfer-Encoding", "binary;");
 	
-			// ÆÄÀÏ ÀĞ¾î¿À±â
+			// íŒŒì¼ ì½ì–´ì˜¤ê¸°
 			if(f.isFile()){
 				//
 				int i=0;
@@ -537,7 +540,7 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ¸Å´º¾ó ´Ù¿î·Îµå
+	// ë§¤ë‰´ì–¼ ë‹¤ìš´ë¡œë“œ
 	public void docDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		String docCd = this.nvlProc((String)paramMap.get("docCd"));
@@ -547,18 +550,18 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸íÄª ¹× °æ·Î Á¶È¸
+			// ëª…ì¹­ ë° ê²½ë¡œ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			fileNm = (docCd.equals("ppt")) ? Const.MANU_PPT : (docCd.equals("word")) ? Const.MANU_WORD : Const.MANU_EXCEL;
 			saveFileNm = fileNm;
 
 			//--------------------------------------------------------------------------------------------
-			// °æ·Î »ı¼º
+			// ê²½ë¡œ ìƒì„±
 			//--------------------------------------------------------------------------------------------
 			filePath = setBasePath(Const.MANU_PATH, null);
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ´Ù¿î·Îµå
+			// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			fileDownProc(filePath, fileNm, saveFileNm, request, response);
 			
@@ -568,7 +571,7 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ÀüÃ¼ ´Ù¿î·Îµå
+	// ì „ì²´ ë‹¤ìš´ë¡œë“œ
 	public void zipDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		String tempPath = "";
@@ -578,17 +581,17 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾ĞÃà ÆÄÀÏ »ı¼º
+			// ì••ì¶• íŒŒì¼ ìƒì„±
 			//--------------------------------------------------------------------------------------------
 			tempPath = makeZip(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ´Ù¿î·Îµå
+			// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			fileDownProc(tempPath, fileNm, saveFileNm, request, response);
 
 			//--------------------------------------------------------------------------------------------
-			// ÀÓ½Ã °æ·Î »èÁ¦
+			// ì„ì‹œ ê²½ë¡œ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			delTempPath(tempPath);
 			
@@ -598,7 +601,7 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 
-	// ¾ĞÃà ÆÄÀÏ »ı¼º
+	// ì••ì¶• íŒŒì¼ ìƒì„±
 	public String makeZip(HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -613,12 +616,12 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÀÓ½ÃÆÄÀÏ °æ·Î »ı¼º
+			// ì„ì‹œíŒŒì¼ ê²½ë¡œ ìƒì„±
 			//--------------------------------------------------------------------------------------------
 			tempPath = this.setTempPath(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ¾ĞÃà ÆÄÀÏ Á¶È¸
+			// ì••ì¶• íŒŒì¼ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 					
@@ -626,7 +629,7 @@ public class UtilServiceImpl implements UtilService{
 				//
 				filePath = this.nvlProc((String)defaultList.get(0).get("filePath"));
 				//--------------------------------------------------------------------------------------------
-				// ÀÓ½Ã(¾ĞÃà) ÆÄÀÏ 
+				// ì„ì‹œ(ì••ì¶•) íŒŒì¼
 				//--------------------------------------------------------------------------------------------
 				File zip = new File(tempPath);
 				//
@@ -634,25 +637,25 @@ public class UtilServiceImpl implements UtilService{
 					zip.mkdirs();
 				}
 
-				// ¾ĞÃà ÆÄÀÏ »ı¼º ½ºÆ®¸² ¿ÀÇÂ
+				// ì••ì¶• íŒŒì¼ ìƒì„± ìŠ¤íŠ¸ë¦¼ ì˜¤í”ˆ
 				fos = new FileOutputStream(tempPath + contentNm + ".zip");
 				zos = new ZipOutputStream(fos);
 				
-				// ¾ĞÃàÇÒ ÆÄÀÏÀ» ÀÓ½Ã °æ·Î¿¡ »ı¼º
+				// ì••ì¶•í•  íŒŒì¼ì„ ì„ì‹œ ê²½ë¡œì— ìƒì„±
 				for(int i=0;i<defaultList.size();i++) {
 					//
 					File f = new File(filePath + (String)defaultList.get(i).get("saveFileNm"));
-					fis = new FileInputStream(f); // ¾ĞÃà ´ë»ó ½ºÆ®¸² ¿ÀÇÂ
-					zos.putNextEntry(new ZipEntry(f.getName())); // ¾ĞÃà ¸®½ºÆ® Ãß°¡
+					fis = new FileInputStream(f); // ì••ì¶• ëŒ€ìƒ ìŠ¤íŠ¸ë¦¼ ì˜¤í”ˆ
+					zos.putNextEntry(new ZipEntry(f.getName())); // ì••ì¶• ë¦¬ìŠ¤íŠ¸ ì¶”ê°€
 					// 
 					byte [] bytes = new byte[1024];
 					int length;
-					// ¾ĞÃà ´ë»ó ÆÄÀÏ ÀĞÀ½ (¸¶Áö¸· µµ´Ş ½Ã -1 ¸®ÅÏ)
+					// ì••ì¶• ëŒ€ìƒ íŒŒì¼ ì½ìŒ (ë§ˆì§€ë§‰ ë„ë‹¬ ì‹œ -1 ë¦¬í„´)
 					while((length=fis.read(bytes))>=0) {
 						zos.write(bytes,0,length);
 					}
 					
-					// ½ºÆ®¸² Á¾·á 
+					// ìŠ¤íŠ¸ë¦¼ ì¢…ë£Œ
 					fis.close();
 					zos.closeEntry();
 				}
@@ -661,7 +664,7 @@ public class UtilServiceImpl implements UtilService{
 				fos.close();
 
 			} else {
-				throw new Exception("´Ù¿î·ÎµåÇÒ ÆÄÀÏÀÌ ¾ø½À´Ï´Ù.");
+				throw new Exception("ë‹¤ìš´ë¡œë“œí•  íŒŒì¼ì´ ì—†ìŠµë‹ˆë‹¤.");
 			}
 			
 		} catch (Exception e) {
@@ -679,7 +682,7 @@ public class UtilServiceImpl implements UtilService{
 		return tempPath;
 	}
 	
-	// °æ·Î »èÁ¦
+	// ê²½ë¡œ ì‚­ì œ
 	public void delTempPath(String path) throws Exception {
 		//
 		try {
@@ -707,13 +710,13 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 
-	// ¿¢¼¿ ´Ù¿î·Îµå
+	// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 	public void excelDown(List<Map<String, Object>> defaultList, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		Set<String> allKeys = new HashSet<String>();
 		//
 		try {
-			 // ÄÃ·³ ¸ñ·Ï
+			 // ì»¬ëŸ¼ ëª©ë¡
 			 for (Map<String, Object> map : defaultList) {
 			     allKeys.addAll(map.keySet());
 			 }
@@ -721,37 +724,37 @@ public class UtilServiceImpl implements UtilService{
 			 List<String> columList = new ArrayList<String>(allKeys);
 			  
 			 //---------------------------------------------------------------------------
-			 // ¿¢¼¿ »ı¼º
+			 // ì—‘ì…€ ìƒì„±
 			 //---------------------------------------------------------------------------
 			 XSSFWorkbook wb = new XSSFWorkbook(); Sheet sheet = wb.createSheet("query");
 
-			 // ¼­½Ä »ı¼º
+			 // ì„œì‹ ìƒì„±
 	        CellStyle headerStyle = wb.createCellStyle();
-	        headerStyle.setAlignment(CellStyle.ALIGN_CENTER);
-	        headerStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+	        headerStyle.setAlignment(HorizontalAlignment.CENTER);
+	        headerStyle.setVerticalAlignment(VerticalAlignment.CENTER);
 	        
 	        XSSFFont headerFont = wb.createFont();
-	        headerFont.setBoldweight(Font.BOLDWEIGHT_BOLD);
+	        headerFont.setBold(true);
 	        headerStyle.setFont(headerFont);
 	        headerStyle.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
-	        headerStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
-	        headerStyle.setBorderTop(CellStyle.BORDER_THIN);
-	        headerStyle.setBorderBottom(CellStyle.BORDER_THIN);
-	        headerStyle.setBorderLeft(CellStyle.BORDER_THIN);
-	        headerStyle.setBorderRight(CellStyle.BORDER_THIN);
+	        headerStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+	        headerStyle.setBorderTop(BorderStyle.THIN);
+	        headerStyle.setBorderBottom(BorderStyle.THIN);
+	        headerStyle.setBorderLeft(BorderStyle.THIN);
+	        headerStyle.setBorderRight(BorderStyle.THIN);
 	        
 	        CellStyle bodyStyle = wb.createCellStyle();
 	        XSSFFont bodyFont = wb.createFont();
 	        bodyStyle.setFont(bodyFont);
-	        bodyStyle.setAlignment(CellStyle.ALIGN_CENTER);
-	        bodyStyle.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
-	        bodyStyle.setBorderTop(CellStyle.BORDER_THIN);
-	        bodyStyle.setBorderBottom(CellStyle.BORDER_THIN);
-	        bodyStyle.setBorderLeft(CellStyle.BORDER_THIN);
-	        bodyStyle.setBorderRight(CellStyle.BORDER_THIN);
+	        bodyStyle.setAlignment(HorizontalAlignment.CENTER);
+	        bodyStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+	        bodyStyle.setBorderTop(BorderStyle.THIN);
+	        bodyStyle.setBorderBottom(BorderStyle.THIN);
+	        bodyStyle.setBorderLeft(BorderStyle.THIN);
+	        bodyStyle.setBorderRight(BorderStyle.THIN);
 
 			//--------------------------------------------------------------------------------------------
-			// Çì´õ »ı¼º
+			// í—¤ë” ìƒì„±
 			//--------------------------------------------------------------------------------------------
 			 sheet.addMergedRegion(new CellRangeAddress(0, 0, 0, columList.size() - 1));
 			 Row row = sheet.createRow(0); 
@@ -760,7 +763,7 @@ public class UtilServiceImpl implements UtilService{
 			 cell.setCellStyle(headerStyle);
 	        
 			//--------------------------------------------------------------------------------------------
-			// ÄÃ·³ »ı¼º
+			// ì»¬ëŸ¼ ìƒì„±
 			//--------------------------------------------------------------------------------------------
 	        Row sr = sheet.createRow(1);
 	        //
@@ -771,7 +774,7 @@ public class UtilServiceImpl implements UtilService{
 	        }
 
 			//--------------------------------------------------------------------------------------------
-			// ³»¿ë »ı¼º
+			// ë‚´ìš© ìƒì„±
 			//--------------------------------------------------------------------------------------------
 	        for(int i=0;i<defaultList.size();i++) {
 		        Row tr = sheet.createRow(i + 2);
@@ -784,17 +787,17 @@ public class UtilServiceImpl implements UtilService{
 		        	rc.setCellValue(colData);
 		        	rc.setCellStyle(bodyStyle);
 		        	
-		        	// ÄÃ·³ »çÀÌÁî ÀÚµ¿ Á¶Á¤
+			// ì»¬ëŸ¼ ì‚¬ì´ì¦ˆ ìë™ ì¡°ì •
 		        	sheet.autoSizeColumn(j);
 		        	
-		        	// Ãß°¡·Î ³Ë³ËÇÏ°Ô ÇÑ±Û º¸Á¤
+			// ì¶”ê°€ë¡œ ë„‰ë„‰í•˜ê²Œ í•œê¸€ ë³´ì •
 		            int currentWidth = sheet.getColumnWidth(j);
-		            sheet.setColumnWidth(j, Math.min(currentWidth + 1024, 255 * 256)); // º¸Á¤Ä¡ Ãß°¡
+		            sheet.setColumnWidth(j, Math.min(currentWidth + 1024, 255 * 256)); // ë³´ì •ì¹˜ ì¶”ê°€
 	        	}
 	        }
 
 			//--------------------------------------------------------------------------------------------
-			// ¿¢¼¿ ´Ù¿î·Îµå
+			// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 		    response.setHeader("Content-Disposition", "attachment; filename=\"data.xlsx\"");
@@ -808,15 +811,15 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ÆäÀÌÂ¡ Ã³¸®
+	// í˜ì´ì§• ì²˜ë¦¬
 	public void setPaging(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		String listPage = (String) paramMap.get("page");
 		String listCnt = "0";
 		//
-		int nowPage = 1; // ÆäÀÌÁö ±âº» °ª (Ã¹ µ¿ÀÛ)
-		Integer page = null; // ÇöÀç ÆäÀÌÁö
+		int nowPage = 1; // í˜ì´ì§€ ê¸°ë³¸ ê°’ (ì²« ë™ì‘)
+		Integer page = null; // í˜„ì¬ í˜ì´ì§€
 		
 		if(!this.isNull(listPage)) {
 			page = Integer.parseInt(listPage);
@@ -824,7 +827,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸ñ·Ï °Ç¼ö Á¶È¸
+			// ëª©ë¡ ê±´ìˆ˜ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = coreDao.coreInqyDao1030(paramMap);
 			//
@@ -832,11 +835,11 @@ public class UtilServiceImpl implements UtilService{
 				listCnt = String.valueOf(defaultList.get(0).get("listCnt"));
 			}
 			
-			// °Ç¼ö ÀúÀå
+			// ê±´ìˆ˜ ì €ì¥
 			paramMap.put("listCnt", listCnt);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			if(page!=null) {
 				nowPage = page;
@@ -845,12 +848,12 @@ public class UtilServiceImpl implements UtilService{
 				nowPage = 1;
 			}
 					
-			// ÆäÀÌÁö Ã¹, ¸¶Áö¸· ÀÎµ¦½º
+			// í˜ì´ì§€ ì²«, ë§ˆì§€ë§‰ ì¸ë±ìŠ¤
 			int sIdx = (nowPage-1)*Const.BLOCKLIST+1;
 			int eIdx = sIdx+Const.BLOCKLIST-1;
 			//
 			//--------------------------------------------------------------------------------------------
-			// ÆäÀÌÁö º¯¼ö ÀúÀå
+			// í˜ì´ì§€ ë³€ìˆ˜ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			paramMap.put("nowPage", nowPage);
 			paramMap.put("sIdx",sIdx);
@@ -858,7 +861,7 @@ public class UtilServiceImpl implements UtilService{
 			paramMap.put("blockList",Const.BLOCKLIST);
 			paramMap.put("blockPage",Const.BLOCKPAGE);
 
-			// ÆäÀÌÁö ¸Ş´º ±¸¼º
+			// í˜ì´ì§€ ë©”ë‰´ êµ¬ì„±
 			String pageMenu = this.setPageMenu(paramMap);
 			model.addAttribute("pageMenu", pageMenu);
 			
@@ -868,10 +871,10 @@ public class UtilServiceImpl implements UtilService{
 		}
 	}
 	
-	// ÆäÀÌÂ¡ ¸Ş´º »ı¼º
+	// í˜ì´ì§• ë©”ë‰´ ìƒì„±
 	public String setPageMenu(HashMap<String, Object> paramMap) throws Exception {
 		//--------------------------------------------------------------------------------------------
-		// º¯¼ö 
+		// ë³€ìˆ˜
 		//--------------------------------------------------------------------------------------------
 		String pageUrl = this.setPageUrl(paramMap);
 		//
@@ -883,53 +886,53 @@ public class UtilServiceImpl implements UtilService{
 		boolean isPrevPage,isNextPage;
 		StringBuffer sb; 
 		//
-		int totalPage,	/* ÀüÃ¼ ÆäÀÌÁö¼ö */
-            startPage,		/* ½ÃÀÛ ÆäÀÌÁö ¹øÈ£ */
-            endPage;		/* ¸¶Áö¸· ÆäÀÌÁö ¹øÈ£ */
+		int totalPage,	/* ì „ì²´ í˜ì´ì§€ìˆ˜ */
+            startPage,		/* ì‹œì‘ í˜ì´ì§€ ë²ˆí˜¸ */
+            endPage;		/* ë§ˆì§€ë§‰ í˜ì´ì§€ ë²ˆí˜¸ */
 		
-		// ÀüÃ¼ ÆäÀÌÁö ¼ö
+		// ì „ì²´ í˜ì´ì§€ ìˆ˜
 		isPrevPage=isNextPage=false;
 		totalPage = (int)(listCnt/blockList);
 		if(listCnt%blockList!=0)totalPage++;
 		
-		// ÇöÀç ÆäÀÌÁö ¼ö°¡ ÀüÃ¼ ÆäÀÌÁö ¼ö¸¦ ÃÊ°úÇÒ °æ¿ì ÇöÀç ÆäÀÌÁö°ªÀ» ÀüÃ¼ ÆäÀÌÁö °ªÀ¸·Î º¯°æ
+		// í˜„ì¬ í˜ì´ì§€ ìˆ˜ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë¥¼ ì´ˆê³¼í•  ê²½ìš° í˜„ì¬ í˜ì´ì§€ê°’ì„ ì „ì²´ í˜ì´ì§€ ê°’ìœ¼ë¡œ ë³€ê²½
 		if(nowPage > totalPage)nowPage = totalPage;
 		
-		// ½ÃÀÛ ÆäÀÌÁö¿Í ¸¶Áö¸· ÆäÀÌÁö
+		// ì‹œì‘ í˜ì´ì§€ì™€ ë§ˆì§€ë§‰ í˜ì´ì§€
 		startPage = (int)(((nowPage-1)/blockPage)*blockPage+1);
 		endPage = startPage + blockPage - 1; 
 		// 
-		if(endPage > totalPage)endPage = totalPage; // ¸¶Áö¸· ÆäÀÌÁö ¼ö°¡ ÀüÃ¼ ÆäÀÌÁö ¼öº¸´Ù Å©¸é ¸¶Áö¸· ÆäÀÌÁö °ªÀ» º¯°æ
-		if(endPage < totalPage)isNextPage = true; // ¸¶Áö¸· ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁöº¸´Ù ÀÛÀ» °æ¿ì ´ÙÀ½ ÆäÀÌÂ¡ÀÌ Àû¿ëÇÒ ¼ö ÀÖµµ·Ï º¯¼ö °ª ¼³Á¤
-		if(startPage > 1)isPrevPage = true; // ½ÃÀÛ ÆäÀÌÁöÀÇ °ªÀÌ 1º¸´Ù ÀÛÀ¸¸é ÀÌÀü ÆäÀÌÁö Àû¿ë
+		if(endPage > totalPage)endPage = totalPage; // ë§ˆì§€ë§‰ í˜ì´ì§€ ìˆ˜ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë³´ë‹¤ í¬ë©´ ë§ˆì§€ë§‰ í˜ì´ì§€ ê°’ì„ ë³€ê²½
+		if(endPage < totalPage)isNextPage = true; // ë§ˆì§€ë§‰ í˜ì´ì§€ê°€ ì „ì²´ í˜ì´ì§€ë³´ë‹¤ ì‘ì„ ê²½ìš° ë‹¤ìŒ í˜ì´ì§•ì´ ì ìš©í•  ìˆ˜ ìˆë„ë¡ ë³€ìˆ˜ ê°’ ì„¤ì •
+		if(startPage > 1)isPrevPage = true; // ì‹œì‘ í˜ì´ì§€ì˜ ê°’ì´ 1ë³´ë‹¤ ì‘ìœ¼ë©´ ì´ì „ í˜ì´ì§€ ì ìš©
 		
-		// HTML ÄÚµå ÀÛ¼º
+		// HTML ì½”ë“œ ì‘ì„±
 		sb = new StringBuffer();
 
 		//--------------------------------------------------------------------------------------------
-		// < (ÀÌÀü) Ç¥½Ã ÆäÀÌÁö Ã³¸®
+		// < (ì´ì „) í‘œì‹œ í˜ì´ì§€ ì²˜ë¦¬
 		//--------------------------------------------------------------------------------------------
 		if(isPrevPage){
 			sb.append("<a class=\"pageBtn _prev\" href='"+pageUrl+"&page=");
 			sb.append( startPage-1 );
-			sb.append("'>ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿</a>");
+			sb.append("'>ì´ì „ í˜ì´ì§€ë¡œ ì´ë™</a>");
 		} else {
-			// < (Å¬¸¯ÀÌ µÇÁö ¾ÊÀ½)
-			sb.append("<a class=\"pageBtn _first\" href=\"#none\">ÀÌÀü ÆäÀÌÁö·Î ÀÌµ¿</a>");
+			// < (í´ë¦­ì´ ë˜ì§€ ì•ŠìŒ)
+			sb.append("<a class=\"pageBtn _first\" href=\"#none\">ì´ì „ í˜ì´ì§€ë¡œ ì´ë™</a>");
 		}
 		//--------------------------------------------------------------------------------------------
-		// ÆäÀÌÁö ¸ñ·Ï Ãâ·Â
+		// í˜ì´ì§€ ëª©ë¡ ì¶œë ¥
 		//--------------------------------------------------------------------------------------------
 		sb.append("&nbsp;");
 		for(int i=startPage; i<= endPage ;i++){
 			if(i>totalPage)break;
-			// ÇöÀç ¼±ÅÃµÈ ÆäÀÌÁö
+			// í˜„ì¬ ì„ íƒëœ í˜ì´ì§€
 			if(i == nowPage){ 
 				sb.append("<li class=\"_active\"><a>");
-				sb.append(i); // ÆäÀÌÁö ¼ıÀÚ
+				sb.append(i); // í˜ì´ì§€ ìˆ«ì
 				sb.append("</a></li>");
 			} else {
-				// ¼±ÅÃµÇÁö ¾ÊÀº ÆäÀÌÁö
+				// ì„ íƒë˜ì§€ ì•Šì€ í˜ì´ì§€
 				sb.append("<li class=\"\"><a href='"+pageUrl+"&page=");
 				sb.append(i);
 				sb.append("'>");
@@ -941,27 +944,27 @@ public class UtilServiceImpl implements UtilService{
 		sb.append("&nbsp;&nbsp;");
 		
 		//--------------------------------------------------------------------------------------------
-		// > (´ÙÀ½) Ç¥½Ã ÆäÀÌÁö Ã³¸®
+		// > (ë‹¤ìŒ) í‘œì‹œ í˜ì´ì§€ ì²˜ë¦¬
 		//--------------------------------------------------------------------------------------------
 		if(isNextPage){
 			sb.append("<a class=\"pageBtn _next\" href='"+pageUrl+"&page=");
 			sb.append(endPage + 1);
-			sb.append("'>´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿</a>"); // Å¬¸¯ÀÌ µÇ´Â È­»ìÇ¥
+			sb.append("'>ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™</a>"); // í´ë¦­ì´ ë˜ëŠ” í™”ì‚´í‘œ
 		} else {
-			sb.append("<a class=\"pageBtn _last\" href=\"#none\">´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿</a>"); // Å¬¸¯ÀÌ ¾ÈµÇ´Â È­»ìÇ¥
+			sb.append("<a class=\"pageBtn _last\" href=\"#none\">ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™</a>"); // í´ë¦­ì´ ì•ˆë˜ëŠ” í™”ì‚´í‘œ
 		}
 		//
 		return sb.toString();
 	}
 
-	// ÆäÀÌÁö Url »ı¼º
+	// í˜ì´ì§€ Url ìƒì„±
 	public String setPageUrl(HashMap<String, Object> paramMap) throws Exception {
 		//
 	    StringBuilder sb = new StringBuilder();
 	    sb.append(paramMap.get("pageUrl")).append("?");
 	    //
 	    for(String key : paramMap.keySet()) {
-	        // ÆäÀÌÂ¡ °è»ê°ª Á¦¿Ü
+	        // í˜ì´ì§• ê³„ì‚°ê°’ ì œì™¸
 	        if("page".equals(key) || "nowPage".equals(key) || "sIdx".equals(key) ||
 	        		"eIdx".equals(key) || "listCnt".equals(key) || "blockList".equals(key) || "blockPage".equals(key)) {
 	            continue;
@@ -971,19 +974,19 @@ public class UtilServiceImpl implements UtilService{
 	        sb.append(key).append("=").append(value == null ? "" : value).append("&");
 	    }
 
-	    // ¸¶Áö¸· & Á¦°Å
+	    // ë§ˆì§€ë§‰ & ì œê±°
 	    if(sb.charAt(sb.length()-1) == '&') sb.deleteCharAt(sb.length()-1);
 	    return sb.toString();
 	}
 	
-	// Null Ã¼Å©
+	// Null ì²´í¬
 	public boolean isNull(String str) throws Exception {
 		//
 		boolean res = false;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Null Ã¼Å©
+			// Null ì²´í¬
 			//--------------------------------------------------------------------------------------------
 			if(str == null || "".equals(str) ||  "null".equals(str)) res = true;
 			
@@ -995,14 +998,14 @@ public class UtilServiceImpl implements UtilService{
 		return res;
 	}
 
-	// Null Ã¼Å©
+	// Null ì²´í¬
 	public String nvlProc(String str) throws Exception {
 		//
 		String res = "";
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Null Ã¼Å©
+			// Null ì²´í¬
 			//--------------------------------------------------------------------------------------------
 			if(str != null && !"".equals(str) &&  !"null".equals(str)) res = str;
 			
@@ -1013,7 +1016,7 @@ public class UtilServiceImpl implements UtilService{
 		return res;
 	}
 	
-	// ¾ÏÈ£È­
+	// ì•”í˜¸í™”
 	public String encryptProc(String plainText) throws Exception {
 		//
 		SecretKey key = null;
@@ -1022,7 +1025,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾ÏÈ£È­
+			// ì•”í˜¸í™”
 			//--------------------------------------------------------------------------------------------
 			key = AESCrypto.getKey();
 			ivParameterSpec = AESCrypto.getIv();
@@ -1035,7 +1038,7 @@ public class UtilServiceImpl implements UtilService{
 		return AESCrypto.encrypt(specName, key, ivParameterSpec, plainText);
 	}
 	
-	// º¹È£È­
+	// ë³µí˜¸í™”
 	public String decryptProc(String plainText) throws Exception {
 		//
 		SecretKey key = null;
@@ -1044,7 +1047,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// º¹È£È­
+			// ë³µí˜¸í™”
 			//--------------------------------------------------------------------------------------------
 			key = AESCrypto.getKey();
 			ivParameterSpec = AESCrypto.getIv();

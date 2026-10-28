@@ -5,21 +5,21 @@ import java.util.HashMap;
 import org.springframework.ui.Model;
 
 public interface RoleService {
-	// ±ÇÇÑ
-	void roleInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ±ÇÇÑ ¸ñ·Ï Á¶È¸
-	void roleInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ±ÇÇÑ »ó¼¼ Á¶È¸
+	// ê¶Œí•œ
+	void roleInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
+	void roleInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 	
-	// ¸Ş´º ±ÇÇÑ
-	void roleInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ë©”ë‰´ ê¶Œí•œ
+	void roleInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	
-	// »ç¿ëÀÚ ±ÇÇÑ
-	void roleInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception;		// »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
-	void roleInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ê¶Œí•œ
+	void roleInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception;		// ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
+	void roleInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	
-	// ±ÇÇÑ
-	String roleProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// µî·Ï
-	String roleProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ¼öÁ¤
-	String roleProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »èÁ¦
-	String roleProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ¸Ş´º ±ÇÇÑ ÀúÀå
-	String roleProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå
+	// ê¶Œí•œ
+	String roleProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ë“±ë¡
+	String roleProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ìˆ˜ì •
+	String roleProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚­ì œ
+	String roleProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ë©”ë‰´ ê¶Œí•œ ì €ì¥
+	String roleProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥
 }

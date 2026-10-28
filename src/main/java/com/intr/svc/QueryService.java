@@ -2,16 +2,16 @@ package com.intr.svc;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 
 public interface QueryService {
-	// Äõ¸®
-	void queryInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;			// ÀÔ·Â Á¶È¸
-	void queryInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// °á°ú Á¶È¸
-	void queryInqyService1030(HashMap<String, Object> paramMap, HttpServletRequest reqeust, HttpServletResponse response) throws Exception;	// ¿¢¼¿ ´Ù¿î·Îµå
+	// ì¿¼ë¦¬
+	void queryInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;			// ìž…ë ¥ ì¡°íšŒ
+	void queryInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception;	// ê²°ê³¼ ì¡°íšŒ
+	void queryInqyService1030(HashMap<String, Object> paramMap, HttpServletRequest reqeust, HttpServletResponse response) throws Exception;	// ì—‘ì…€ ë‹¤ìš´ë¡œë“œ
 	
-	String queryProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ÀÔ·Â Ã³¸®
+	String queryProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ìž…ë ¥ ì²˜ë¦¬
 }

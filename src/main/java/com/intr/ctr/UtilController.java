@@ -2,8 +2,8 @@ package com.intr.ctr;
 
 import java.util.HashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,58 +32,58 @@ public class UtilController {
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
-	// ÆÄÀÏ ´Ù¿î·Îµå
+	// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 	@RequestMapping("/intrFileProc1010.do")
 	public void intrFileProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ´Ù¿î·Îµå
+			// íŒŒì¼ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			utilService.fileDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÆÄÀÏ ´Ù¿î·Îµå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íŒŒì¼ ë‹¤ìš´ë¡œë“œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 	
-	// ¹®¼­ ´Ù¿î·Îµå
+	// ë¬¸ì„œ ë‹¤ìš´ë¡œë“œ
 	@RequestMapping("/intrFileProc1020.do")
 	public void docDown(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¹®¼­ ´Ù¿î·Îµå
+			// ë¬¸ì„œ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			utilService.docDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¹®¼­ ´Ù¿î·Îµå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë¬¸ì„œ ë‹¤ìš´ë¡œë“œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 	
-	// ÀüÃ¼ ´Ù¿î·Îµå
+	// ì „ì²´ ë‹¤ìš´ë¡œë“œ
 	@RequestMapping("/intrFileProc1030.do")
 	public void intrFileProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÀüÃ¼ ´Ù¿î·Îµå
+			// ì „ì²´ ë‹¤ìš´ë¡œë“œ
 			//--------------------------------------------------------------------------------------------
 			utilService.zipDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ÆÄÀÏ ´Ù¿î·Îµå Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : íŒŒì¼ ë‹¤ìš´ë¡œë“œ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 	}
 
-	// ¸ŞÀÏ Àü¼Û
+	// ë©”ì¼ ì „ì†¡
 	@RequestMapping(value="/intrMailProc1010.do")
 	@ResponseBody
 	public String intrMailProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -92,13 +92,13 @@ public class UtilController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸ŞÀÏ Àü¼Û
+			// ë©”ì¼ ì „ì†¡
 			//--------------------------------------------------------------------------------------------
 			defaultStr = utilService.sendMail(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¸ŞÀÏ Àü¼Û Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë©”ì¼ ì „ì†¡ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

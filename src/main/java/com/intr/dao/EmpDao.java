@@ -13,7 +13,7 @@ public class EmpDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// »ç¿ø ÀÎµ¦½º Ã¤¹ø
+	// ì‚¬ì› ì¸ë±ìŠ¤ ì±„ë²ˆ
 	public HashMap<String, Object> empInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class EmpDao {
 		return defaultInfo;
 	}
 	
-	// »ç¿ø ¸ñ·Ï
+	// ì‚¬ì› ëª©ë¡
 	public List<HashMap<String, Object>> empInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -29,7 +29,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// »ç¿ëÀÚ Á¤º¸ Á¶È¸ (Á¤º¸ Ã£±â)
+	// ì‚¬ìš©ì ì •ë³´ ì¡°íšŒ (ì •ë³´ ì°¾ê¸°)
 	public HashMap<String, Object> empInqyDao1030(HashMap<String, Object> paramMap) {
 		HashMap<String, Object> defatulInfo = null;
 		defatulInfo = sqlsession.selectOne("emp.empInqyDao1030", paramMap);
@@ -37,7 +37,7 @@ public class EmpDao {
 		return defatulInfo;
 	}
 	
-	// °ü¸®ÀÚ °èÁ¤ Á¶È¸
+	// ê´€ë¦¬ì ê³„ì • ì¡°íšŒ
 	public HashMap<String, Object> empInqyDao1040() {
 		HashMap<String, Object> defatulInfo = null;
 		defatulInfo = sqlsession.selectOne("emp.empInqyDao1040");
@@ -45,7 +45,7 @@ public class EmpDao {
 		return defatulInfo;
 	}
 	
-	// ºÎ¼­ ¸ñ·Ï Á¶È¸
+	// ë¶€ì„œ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy1021(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -53,7 +53,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// Á÷±Ş ¸ñ·Ï Á¶È¸
+	// ì§ê¸‰ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy1022(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -61,7 +61,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ºÎ¼­ ¸ñ·Ï (ÀüÃ¼) Á¶È¸
+	// ë¶€ì„œ ëª©ë¡ (ì „ì²´) ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy1023(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -69,7 +69,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// »ç¿ø »ó¼¼ Á¶È¸
+	// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> intrEmpInqy1031(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -77,7 +77,7 @@ public class EmpDao {
 		return defaultInfo;
 	}
 	
-	// »ç¿ø ¾ÆÀÌµğ Áßº¹ Á¶È¸
+	// ì‚¬ì› ì•„ì´ë”” ì¤‘ë³µ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy2021(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -85,7 +85,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ºÎ¼­ »ç¿ø Æ®¸® Á¶È¸
+	// ë¶€ì„œ ì‚¬ì› íŠ¸ë¦¬ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy2031(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -93,7 +93,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ºÎ¼­ ÇöÈ²
+	// ë¶€ì„œ í˜„í™©
 	public List<HashMap<String, Object>> intrEmpInqy2041(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -101,7 +101,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ´ã´ç¾÷¹« Á¶È¸
+	// ë‹´ë‹¹ì—…ë¬´ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy3011(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -109,7 +109,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ´ã´ç¾÷¹« µî·Ï Á¶È¸
+	// ë‹´ë‹¹ì—…ë¬´ ë“±ë¡ ì¡°íšŒ
 	public HashMap<String, Object> intrEmpInqy3012(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -117,7 +117,7 @@ public class EmpDao {
 		return defaultInfo;
 	}
 	
-	// ÀÔ»ç ÇöÈ²
+	// ì…ì‚¬ í˜„í™©
 	public List<HashMap<String, Object>> intrEmpInqy4011(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -125,7 +125,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// ÀÎ»çÅë°è ¸ñ·Ï Á¶È¸
+	// ì¸ì‚¬í†µê³„ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy4012(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -133,7 +133,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// Åë°è ¿¬µµ Á¶È¸
+	// í†µê³„ ì—°ë„ ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy4013(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -141,7 +141,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// Åë°è ¿¬¿ù Á¶È¸
+	// í†µê³„ ì—°ì›” ì¡°íšŒ
 	public List<HashMap<String, Object>> intrEmpInqy4014(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -149,7 +149,7 @@ public class EmpDao {
 		return defaultList;
 	}
 	
-	// »ç¿ø µî·Ï
+	// ì‚¬ì› ë“±ë¡
 	public int intrEmpProc1011(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -157,7 +157,7 @@ public class EmpDao {
 		return resInt;
 	}
 	
-	// »ç¿ø ¼öÁ¤
+	// ì‚¬ì› ìˆ˜ì •
 	public int intrEmpProc1021(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -165,7 +165,7 @@ public class EmpDao {
 		return resInt;
 	}
 	
-	// »ç¿ø º¹Á÷, Åğ»ç Ã³¸®
+	// ì‚¬ì› ë³µì§, í‡´ì‚¬ ì²˜ë¦¬
 	public int intrEmpProc1031(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -173,7 +173,7 @@ public class EmpDao {
 		return resInt;
 	}
 	
-	// »ç¿ø »èÁ¦ Ã³¸®
+	// ì‚¬ì› ì‚­ì œ ì²˜ë¦¬
 	public int intrEmpProc1041(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -181,7 +181,7 @@ public class EmpDao {
 		return resInt;
 	}
 	
-	// »ç¿ø  ºñ¹Ğ¹øÈ£ ¼öÁ¤
+	// ì‚¬ì›  ë¹„ë°€ë²ˆí˜¸ ìˆ˜ì •
 	public int intrEmpProc1051(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -189,7 +189,7 @@ public class EmpDao {
 		return resInt;
 	}
 
-	// ´ã´ç¾÷¹« ÀúÀå Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì €ì¥ ì²˜ë¦¬
 	public int intrEmpProc2011(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -197,7 +197,7 @@ public class EmpDao {
 		return resInt;
 	}
 	
-	// ´ã´ç¾÷¹« »èÁ¦ Ã³¸®
+	// ë‹´ë‹¹ì—…ë¬´ ì‚­ì œ ì²˜ë¦¬
 	public int intrEmpProc2021(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

@@ -14,7 +14,7 @@ public class RoleDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> roleInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -22,7 +22,7 @@ public class RoleDao {
 		return defaultList;
 	}
 
-	// ±ÇÇÑ »ó¼¼ Á¶È¸
+	// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> roleInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -31,7 +31,7 @@ public class RoleDao {
 		return defaultInfo;
 	}
 	
-	// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> roleInqyDao2010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -39,7 +39,7 @@ public class RoleDao {
 		return defaultList;
 	}
 	
-	// »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> roleInqyDao3010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -47,7 +47,7 @@ public class RoleDao {
 		return defaultList;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> roleInqyDao4010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -55,7 +55,7 @@ public class RoleDao {
 		return defaultList;
 	}
 	
-	// ·Î±×ÀÎ ±ÇÇÑ »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
+	// ë¡œê·¸ì¸ ê¶Œí•œ ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> roleInqyDao5010(Model model) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -63,7 +63,7 @@ public class RoleDao {
 		return defaultList;
 	}
 	
-	// ±ÇÇÑ µî·Ï
+	// ê¶Œí•œ ë“±ë¡
 	public int roleProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -71,7 +71,7 @@ public class RoleDao {
 		return resInt;
 	}
 	
-	// ±ÇÇÑ ¼öÁ¤
+	// ê¶Œí•œ ìˆ˜ì •
 	public int roleProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -79,7 +79,7 @@ public class RoleDao {
 		return resInt;
 	}
 	
-	// ±ÇÇÑ »èÁ¦ 
+	// ê¶Œí•œ ì‚­ì œ
 	public int roleProcDao1030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -87,7 +87,7 @@ public class RoleDao {
 		return resInt;
 	}
 
-	// ¸Ş´º ±ÇÇÑ »èÁ¦ Ã³¸®
+	// ë©”ë‰´ ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 	public int roleProcDao1040(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -95,7 +95,7 @@ public class RoleDao {
 		return resInt;
 	}
 
-	// ¸Ş´º ±ÇÇÑ ÀúÀå Ã³¸®
+	// ë©”ë‰´ ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	public int roleProcDao1050(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -103,7 +103,7 @@ public class RoleDao {
 		return resInt;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ »èÁ¦ Ã³¸®
+	// ì‚¬ìš©ì ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 	public int roleProcDao1060(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -111,7 +111,7 @@ public class RoleDao {
 		return resInt;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå Ã³¸®
+	// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	public int roleProcDao1070(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

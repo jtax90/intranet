@@ -5,9 +5,9 @@ import java.util.HashMap;
 import org.springframework.ui.Model;
 
 public interface TempService {
-	// ±â¾È¹® ¾ç½Ä 
-	void tempInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ¸ñ·Ï Á¶È¸
-	void tempInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// »ó¼¼ Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹
+	void tempInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ëª©ë¡ ì¡°íšŒ
+	void tempInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 		// ìƒì„¸ ì¡°íšŒ
 	//
-	String tempProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ¼öÁ¤
+	String tempProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ìˆ˜ì •
 }

@@ -13,7 +13,7 @@ public class UtilDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ´Ù°Ç ÆÄÀÏ Á¶È¸
+	// ë‹¤ê±´ íŒŒì¼ ì¡°íšŒ
 	public List<HashMap<String, Object>> fileInqyDao1010(HashMap<String, Object> paramMap) {
 		// 
 		List<HashMap<String, Object>> defaultList = null;
@@ -21,7 +21,7 @@ public class UtilDao {
 		return defaultList;
 	}
 	
-	// ´Ü°Ç ÆÄÀÏ Á¶È¸
+	// ë‹¨ê±´ íŒŒì¼ ì¡°íšŒ
 	public HashMap<String, Object> fileInqyDao1020(HashMap<String, Object> paramMap) {
 		// 
 		HashMap<String, Object> defaultInfo = null;
@@ -29,7 +29,7 @@ public class UtilDao {
 		return defaultInfo;
 	}
 	
-	// ÆÄÀÏ µî·Ï Ã³¸®
+	// íŒŒì¼ ë“±ë¡ ì²˜ë¦¬
 	public int fileProcDao1010(HashMap<String, Object> tempMap) {
 		//
 		int res = 0;
@@ -37,7 +37,7 @@ public class UtilDao {
 		return res;
 	}
 	
-	// ÆÄÀÏ »èÁ¦ Ã³¸® (¼öÁ¤)
+	// íŒŒì¼ ì‚­ì œ ì²˜ë¦¬ (ìˆ˜ì •)
 	public int fileProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int res = 0;
@@ -45,7 +45,7 @@ public class UtilDao {
 		return res;
 	}
 	
-	// ÆÄÀÏ »èÁ¦ Ã³¸® (»èÁ¦)
+	// íŒŒì¼ ì‚­ì œ ì²˜ë¦¬ (ì‚­ì œ)
 	public int fileProcDao1030(HashMap<String, Object> paramMap) {
 		//
 		int res = 0;
@@ -53,7 +53,7 @@ public class UtilDao {
 		return res;
 	}
 	
-	// °øÅëÄÚµå Á¶È¸
+	// ê³µí†µì½”ë“œ ì¡°íšŒ
 	public List<HashMap<String, Object>> codeInqyDao1010(HashMap<String, Object> paramMap) {
 		// 
 		List<HashMap<String, Object>> defaultList = null;

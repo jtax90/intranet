@@ -22,14 +22,14 @@ public class TempServiceImpl implements TempService{
 	@Autowired
 	MainService mainService;
 	
-	// ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 	public void tempInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä ¸ñ·Ï Á¶È¸
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = tempDao.tempInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -40,14 +40,14 @@ public class TempServiceImpl implements TempService{
 		}
 	}
 	
-	// ±â¾È¹® ¾ç½Ä »ó¼¼ Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ ì¡°íšŒ
 	public void tempInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä »ó¼¼ Á¶È¸
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = tempDao.tempInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
@@ -58,7 +58,7 @@ public class TempServiceImpl implements TempService{
 		}
 	}
 
-	// ±â¾È¹® ¾ç½Ä ¼öÁ¤
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì •
 	public String tempProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -67,7 +67,7 @@ public class TempServiceImpl implements TempService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È¹® ¾ç½Ä ¼öÁ¤
+			// ê¸°ì•ˆë¬¸ ì–‘ì‹ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			resInt = tempDao.tempProcDao1010(paramMap);
 			//
@@ -76,7 +76,7 @@ public class TempServiceImpl implements TempService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			

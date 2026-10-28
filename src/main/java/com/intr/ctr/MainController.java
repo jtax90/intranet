@@ -4,9 +4,9 @@ package com.intr.ctr;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -91,26 +91,26 @@ public class MainController {
 	// 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	// ·Î±×ÀÎ È­¸é Á¶È¸
+	// ë¡œê·¸ì¸ í™”ë©´ ì¡°íšŒ
 	@RequestMapping(value={"/","/intrMainInqy1010.do"})
 	public String intrMainInqy1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ·Î±×ÀÎ ±ÇÇÑ Á¶È¸
+			// ë¡œê·¸ì¸ ê¶Œí•œ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mainService.mainInqyService1010(model);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ·Î±×ÀÎ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë¡œê·¸ì¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_LOGIN + Const.INTR_LOGIN_INQY_1010;
 	}
 
-	// »ç¿ëÀÚ ¸ŞÀÎ Á¶È¸
+	// ì‚¬ìš©ì ë©”ì¸ ì¡°íšŒ
 	@RequestMapping("/intrMainInqy1020.do")
 	public String intrMainInqy1020(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
@@ -118,70 +118,70 @@ public class MainController {
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
-			// »ç¹ø ÀúÀå
+			// ì‚¬ë²ˆ ì €ì¥
 			EmpVO emp = (EmpVO)session.getAttribute("empVO");
 			paramMap.put("empIdx", emp.getEmpIdx());
 			
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ¼¼¼Ç ÀúÀå
+			// ë©”ë‰´ ì„¸ì…˜ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1030(Const.USER);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// Ä¶¸°´õ Á¶È¸
+			// ìº˜ë¦°ë” ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService2010(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+			// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			mtgService.mtgInqyService2020(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÁö»çÇ× ¸ñ·Ï Á¶È¸
+			// ê³µì§€ì‚¬í•­ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = boardDao.boardInqyDao1020(paramMap);
 			model.addAttribute("boardList",defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç ¸ñ·Ï Á¶È¸
+			// ê²°ì¬ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao1030(paramMap);
 			model.addAttribute("aprvList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¹è³Ê Á¶È¸
+			// ë°°ë„ˆ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = banrDao.banrInqyDao1030(paramMap);
 			model.addAttribute("banrInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø Á¶È¸
+			// ì‚¬ì› ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = empDao.intrEmpInqy1031(paramMap);
 			model.addAttribute("empInfo", defaultInfo);
 
 			//--------------------------------------------------------------------------------------------
-			// ¿À´ÃÀÇ ÀÏÁ¤ Á¶È¸
+			// ì˜¤ëŠ˜ì˜ ì¼ì • ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao3030(paramMap);
 			model.addAttribute("tldrList", defaultList);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : »ç¿ëÀÚ ¸ŞÀÎ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ì‚¬ìš©ì ë©”ì¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MAIN + Const.INTR_MAIN_INQY_1010;
 	}
 
-	// °ü¸®ÀÚ ¸ŞÀÎ Á¶È¸
+	// ê´€ë¦¬ì ë©”ì¸ ì¡°íšŒ
 	@SuppressWarnings("unchecked")
 	@RequestMapping("/intrMainInqy1030.do")
 	public String intrMainInqy1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -192,17 +192,17 @@ public class MainController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ¼¼¼Ç ÀúÀå
+			// ë©”ë‰´ ì„¸ì…˜ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1030(Const.ADMIN);
 
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ºÎ¼­ ÇöÈ²
+			// ë¶€ì„œ í˜„í™©
 			//--------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy2041(paramMap);
 			//
@@ -217,62 +217,62 @@ public class MainController {
 			model.addAttribute("orgList", jAray.toJSONString());
 			
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ºÎ¿© ÇöÈ²
+			// ê¶Œí•œ ë¶€ì—¬ í˜„í™©
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao5010(model);
 			model.addAttribute("roleList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÀÔ»ç ÇöÈ²
+			// ì…ì‚¬ í˜„í™©
 			//--------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy4011(paramMap);
 			model.addAttribute("empList", defaultList);
 
 			//--------------------------------------------------------------------------------------------
-			// ÇÁ·ÎÁ§Æ® ¸ñ·Ï Á¶È¸
+			// í”„ë¡œì íŠ¸ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = projDao.projInqyDao1020(paramMap);
 			model.addAttribute("projList", defaultList);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : °ü¸®ÀÚ ¸ŞÀÎ È­¸é Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ê´€ë¦¬ì ë©”ì¸ í™”ë©´ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MAIN + Const.INTR_MAIN_INQY_2010;
 	}
 	
-	// ¸¶ÀÌÆäÀÌÁö Á¶È¸
+	// ë§ˆì´í˜ì´ì§€ ì¡°íšŒ
 	@RequestMapping("/intrMainInqy1040.do")
 	public String intrMainInqy1040(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ¼¼¼Ç ÀúÀå
+			// ë©”ë‰´ ì„¸ì…˜ ì €ì¥
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1030((String)paramMap.get("menuType"));
 			
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ø »ó¼¼ Á¶È¸
+			// ì‚¬ì› ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			empService.empInqyService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ¸¶ÀÌÆäÀÌÁö Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë§ˆì´í˜ì´ì§€ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return Const.VIEW_PATH_MYPAGE + Const.INTR_MYPAGE_INQY_1010;
 	}
 	
-	// ·Î±×ÀÎ Ã³¸®
+	// ë¡œê·¸ì¸ ì²˜ë¦¬
 	@RequestMapping("/intrMainProc1010.do")
 	@ResponseBody
 	public String intrMainProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
@@ -281,26 +281,26 @@ public class MainController {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ·Î±×ÀÎ Ã³¸®
+			// ë¡œê·¸ì¸ ì²˜ë¦¬
 			//-------------------------------------------------------------------------------------------
 			defaultStr = mainService.mainProcService1010(model, paramMap);	
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ·Î±×ÀÎ Ã³¸® Á¶È¸ Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë¡œê·¸ì¸ ì²˜ë¦¬ ì¡°íšŒ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//
 		return defaultStr;
 	}
 	
-	// ·Î±×¾Æ¿ô Ã³¸®
+	// ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬
 	@RequestMapping("/intrMainProc1020.do")
 	public String intrMainProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¼¼¼Ç Á¦°Å
+			// ì„¸ì…˜ ì œê±°
 			//--------------------------------------------------------------------------------------------
 			if(session.getAttribute("empVO")!=null) {
 				session.removeAttribute("empVO");
@@ -308,7 +308,7 @@ public class MainController {
 			
 		} catch (Exception e) {
 			//
-			logger.debug("Exception : ·Î±×¾Æ¿ô Ã³¸® Áß ¿¡·¯°¡ ¹ß»ıÇß½À´Ï´Ù. (" + e.getMessage() + ")");
+			logger.debug("Exception : ë¡œê·¸ì•„ì›ƒ ì²˜ë¦¬ ì¤‘ ì—ëŸ¬ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤. (" + e.getMessage() + ")");
 			throw e;
 		}
 		//

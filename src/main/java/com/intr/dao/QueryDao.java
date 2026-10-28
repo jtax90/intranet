@@ -14,7 +14,7 @@ public class QueryDao {
 	@Autowired
 	SqlSession sqlsession;
 
-	// Äõ¸® ÀÔ·Â Á¶È¸
+	// ì¿¼ë¦¬ ìž…ë ¥ ì¡°íšŒ
 	public List<HashMap<String, Object>> queryInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -22,7 +22,7 @@ public class QueryDao {
 		return defaultList;
 	}
 
-	// Äõ¸® ÀÔ·Â Á¶È¸ (¿¢¼¿)
+	// ì¿¼ë¦¬ ìž…ë ¥ ì¡°íšŒ (ì—‘ì…€)
 	public List<Map<String, Object>> queryInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		List<Map<String, Object>> defaultList = null;
@@ -30,7 +30,7 @@ public class QueryDao {
 		return defaultList;
 	}
 	
-	// Äõ¸® ÀÔ·Â Ã³¸®
+	// ì¿¼ë¦¬ ìž…ë ¥ ì²˜ë¦¬
 	public int queryProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

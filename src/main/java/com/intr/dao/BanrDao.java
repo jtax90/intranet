@@ -12,7 +12,7 @@ public class BanrDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// ¹è³Ê Ã¤¹ø
+	// ë°°ë„ˆ ì±„ë²ˆ
 	public HashMap<String, Object> banrInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -20,7 +20,7 @@ public class BanrDao {
 		return defaultInfo;
 	}
 	
-	// ¹è³Ê Á¶È¸
+	// ë°°ë„ˆ ì¡°íšŒ
 	public HashMap<String, Object> banrInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -28,7 +28,7 @@ public class BanrDao {
 		return defaultInfo;
 	}
 	
-	// ¹è³Ê Á¶È¸ (¸ŞÀÎ)
+	// ë°°ë„ˆ ì¡°íšŒ (ë©”ì¸)
 	public HashMap<String, Object> banrInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -36,7 +36,7 @@ public class BanrDao {
 		return defaultInfo;
 	}
 	
-	// ¹è³Ê ÀúÀå (µî·Ï)
+	// ë°°ë„ˆ ì €ì¥ (ë“±ë¡)
 	public int banrProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -44,7 +44,7 @@ public class BanrDao {
 		return resInt;
 	}
 	
-	// ¹è³Ê ÀúÀå (¼öÁ¤)
+	// ë°°ë„ˆ ì €ì¥ (ìˆ˜ì •)
 	public int banrProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -52,7 +52,7 @@ public class BanrDao {
 		return resInt;
 	}
 
-	// ¹è³Ê »èÁ¦ (¼öÁ¤)
+	// ë°°ë„ˆ ì‚­ì œ (ìˆ˜ì •)
 	public int banrProcDao1030(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;

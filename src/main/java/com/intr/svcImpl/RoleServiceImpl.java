@@ -22,14 +22,14 @@ public class RoleServiceImpl implements RoleService{
 	@Autowired
 	MainService mainService;
 	
-	// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public void roleInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
@@ -40,14 +40,14 @@ public class RoleServiceImpl implements RoleService{
 		}
 	}
 	
-	// ±ÇÇÑ »ó¼¼ Á¶È¸
+	// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 	public void roleInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ »ó¼¼ Á¶È¸
+			// ê¶Œí•œ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = roleDao.roleInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
@@ -58,14 +58,14 @@ public class RoleServiceImpl implements RoleService{
 		}
 	}
 	
-	// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public void roleInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ë©”ë‰´ ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao2010(paramMap);
 			model.addAttribute("roleMenuList", defaultList);
@@ -76,14 +76,14 @@ public class RoleServiceImpl implements RoleService{
 		}
 	}
 	
-	// »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
 	public void roleInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ¸ñ·Ï Á¶È¸
+			// ì‚¬ìš©ì ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao3010(paramMap);
 			model.addAttribute("empList", defaultList);
@@ -94,14 +94,14 @@ public class RoleServiceImpl implements RoleService{
 		}
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+	// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 	public void roleInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ±ÇÇÑ ¸ñ·Ï Á¶È¸
+			// ì‚¬ìš©ì ê¶Œí•œ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = roleDao.roleInqyDao4010(paramMap);
 			model.addAttribute("roleEmpList", defaultList);
@@ -112,7 +112,7 @@ public class RoleServiceImpl implements RoleService{
 		}
 	}
 	
-	// ±ÇÇÑ µî·Ï Ã³¸®
+	// ê¶Œí•œ ë“±ë¡ ì²˜ë¦¬
 	public String roleProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -121,7 +121,7 @@ public class RoleServiceImpl implements RoleService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ µî·Ï Ã³¸®
+			// ê¶Œí•œ ë“±ë¡ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = roleDao.roleProcDao1010(paramMap);
 			//
@@ -130,7 +130,7 @@ public class RoleServiceImpl implements RoleService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -142,7 +142,7 @@ public class RoleServiceImpl implements RoleService{
 		return defaultStr;
 	}
 	
-	// ±ÇÇÑ ¼öÁ¤ Ã³¸®
+	// ê¶Œí•œ ìˆ˜ì • ì²˜ë¦¬
 	public String roleProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -151,7 +151,7 @@ public class RoleServiceImpl implements RoleService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ ¼öÁ¤ Ã³¸®
+			// ê¶Œí•œ ìˆ˜ì • ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = roleDao.roleProcDao1020(paramMap);
 			//
@@ -160,7 +160,7 @@ public class RoleServiceImpl implements RoleService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -172,7 +172,7 @@ public class RoleServiceImpl implements RoleService{
 		return defaultStr;
 	}
 	
-	// ±ÇÇÑ »èÁ¦ Ã³¸®
+	// ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 	public String roleProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -181,7 +181,7 @@ public class RoleServiceImpl implements RoleService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±ÇÇÑ »èÁ¦ Ã³¸®
+			// ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = roleDao.roleProcDao1030(paramMap);
 			//
@@ -190,7 +190,7 @@ public class RoleServiceImpl implements RoleService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -202,7 +202,7 @@ public class RoleServiceImpl implements RoleService{
 		return defaultStr;
 	}
 	
-	// ¸Ş´º ±ÇÇÑ ÀúÀå Ã³¸®
+	// ë©”ë‰´ ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	public String roleProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -212,12 +212,12 @@ public class RoleServiceImpl implements RoleService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ±ÇÇÑ »èÁ¦ Ã³¸®
+			// ë©”ë‰´ ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			roleDao.roleProcDao1040(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º ±ÇÇÑ ÀúÀå Ã³¸®
+			// ë©”ë‰´ ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			for(int i=0;i<paramMap.size();i++) {
 				//
@@ -237,7 +237,7 @@ public class RoleServiceImpl implements RoleService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -249,7 +249,7 @@ public class RoleServiceImpl implements RoleService{
 		return defaultStr;
 	}
 	
-	// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå Ã³¸®
+	// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 	public String roleProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -259,12 +259,12 @@ public class RoleServiceImpl implements RoleService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ±ÇÇÑ »èÁ¦ Ã³¸®
+			// ì‚¬ìš©ì ê¶Œí•œ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			roleDao.roleProcDao1060(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// »ç¿ëÀÚ ±ÇÇÑ ÀúÀå Ã³¸®
+			// ì‚¬ìš©ì ê¶Œí•œ ì €ì¥ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			for(int i=0;i<paramMap.size();i++) {
 				//
@@ -284,7 +284,7 @@ public class RoleServiceImpl implements RoleService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			

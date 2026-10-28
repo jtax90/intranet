@@ -3,9 +3,9 @@ package com.intr.svcImpl;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -50,12 +50,12 @@ public class AprvServiceImpl implements AprvService{
 	@Autowired
 	HttpSession session;
 	
-	// ±â¾È ¸ñ·Ï Á¶È¸
+	// ê¸°ì•ˆ ëª©ë¡ ì¡°íšŒ
 	public void aprvInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ¸ñ·Ï Á¶È¸
+			// ê¸°ì•ˆ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 
 		} catch (Exception e) {
@@ -64,30 +64,30 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// ±â¾È µî·Ï ¾ç½Ä Á¶È¸
+	// ê¸°ì•ˆ ë“±ë¡ ì–‘ì‹ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ±â¾È ¾ç½Ä Á¶È¸
+			// ê¸°ì•ˆ ì–‘ì‹ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = tempDao.tempInqyDao1020(paramMap);
 			model.addAttribute("tempInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (ÈŞ°¡ Å¸ÀÔ) Á¶È¸
+			// ê³µí†µì½”ë“œ (íœ´ê°€ íƒ€ì…) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Leav", "leavList");
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (¹İÃâ ±¸ºĞ) Á¶È¸
+			// ê³µí†µì½”ë“œ (ë°˜ì¶œ êµ¬ë¶„) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Req", "reqList");
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (Áö±Ş ¹æ¹ı) Á¶È¸
+			// ê³µí†µì½”ë“œ (ì§€ê¸‰ ë°©ë²•) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Pay", "prepayList");
 			
@@ -99,30 +99,30 @@ public class AprvServiceImpl implements AprvService{
 		return defaultInfo;
 	}
 	
-	// °áÀç ¸ñ·Ï Á¶È¸
+	// ê²°ì¬ ëª©ë¡ ì¡°íšŒ
 	public void aprvInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÆäÀÌÂ¡ Ã³¸®
+			// í˜ì´ì§• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			utilService.setPaging(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// °áÀç ¸ñ·Ï Á¶È¸
+			// ê²°ì¬ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao1030(paramMap);
 			model.addAttribute("defaultList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (°áÀç´Ü°è) Á¶È¸
+			// ê³µí†µì½”ë“œ (ê²°ì¬ë‹¨ê³„) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Step", "stepList");
 
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (±â¾È¹® ¾ç½Ä) Á¶È¸
+			// ê³µí†µì½”ë“œ (ê¸°ì•ˆë¬¸ ì–‘ì‹) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao2030(paramMap);
 			model.addAttribute("tempList",defaultList);
@@ -133,7 +133,7 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// °áÀç »ó¼¼ Á¶È¸
+	// ê²°ì¬ ìƒì„¸ ì¡°íšŒ
 	public void aprvInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -141,34 +141,34 @@ public class AprvServiceImpl implements AprvService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç »ó¼¼ Á¶È¸
+			// ê²°ì¬ ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = aprvDao.aprvInqyDao1040(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç »óÅÂ Á¶È¸
+			// ê²°ì¬ ìƒíƒœ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = aprvDao.aprvInqyDao2010(paramMap);
 			model.addAttribute("aprvInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (ÈŞ°¡ Å¸ÀÔ) Á¶È¸
+			// ê³µí†µì½”ë“œ (íœ´ê°€ íƒ€ì…) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Leav", "leavList");
 
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (¹İÃâ ±¸ºĞ) Á¶È¸
+			// ê³µí†µì½”ë“œ (ë°˜ì¶œ êµ¬ë¶„) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Req", "reqList");
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (Áö±Ş ¹æ¹ı) Á¶È¸
+			// ê³µí†µì½”ë“œ (ì§€ê¸‰ ë°©ë²•) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Pay", "prepayList");
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ Á¤º¸
+			// íŒŒì¼ ì •ë³´
 			//--------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 			model.addAttribute("fileList",defaultList);
@@ -179,20 +179,20 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 
-	// ÀÏÁ¤ °ü¸® Á¶È¸
+	// ì¼ì • ê´€ë¦¬ ì¡°íšŒ
 	public void aprvInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ÀÏÁ¤ °ü¸® Á¶È¸
+			// ì¼ì • ê´€ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao3010(paramMap);
 			model.addAttribute("defaultList", JSONArray.toJSONString(defaultList));
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (ÈŞ°¡ Å¸ÀÔ) Á¶È¸
+			// ê³µí†µì½”ë“œ (íœ´ê°€ íƒ€ì…) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Leav", "leavList");
 			
@@ -202,20 +202,20 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// °áÀç¼± °ü¸® Á¶È¸
+	// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 	public void aprvInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± °ü¸® Á¶È¸
+			// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao4010(paramMap);
 			model.addAttribute("defaultList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// ºÎ¼­ »ç¿ø Æ®¸® Á¶È¸
+			// ë¶€ì„œ ì‚¬ì› íŠ¸ë¦¬ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = empDao.intrEmpInqy2031(paramMap);
 			model.addAttribute("empList",defaultList);
@@ -226,12 +226,12 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// °áÀç¼± µî·Ï Á¶È¸
+	// ê²°ì¬ì„  ë“±ë¡ ì¡°íšŒ
 	public void aprvInqyService4020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (°áÀç¼±) Á¶È¸
+			// ê³µí†µì½”ë“œ (ê²°ì¬ì„ ) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Type", "typeList");
 			
@@ -241,25 +241,25 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// °áÀç¼± »ó¼¼ Á¶È¸
+	// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 	public void aprvInqyService4030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »ó¼¼ Á¶È¸
+			// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao4020(paramMap);
 			model.addAttribute("aprvlineList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// °øÅëÄÚµå (°áÀç¼±) Á¶È¸
+			// ê³µí†µì½”ë“œ (ê²°ì¬ì„ ) ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Type", "typeList");
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç Å¸ÀÔ Á¶È¸
+			// ê²°ì¬ íƒ€ì… ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = aprvDao.aprvInqyDao4030(paramMap);
 			model.addAttribute("aprvtypeList", defaultList);
@@ -270,7 +270,7 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// ±â¾È µî·Ï
+	// ê¸°ì•ˆ ë“±ë¡
 	public String aprvProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -279,28 +279,28 @@ public class AprvServiceImpl implements AprvService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç Ã¤¹ø
+			// ê²°ì¬ ì±„ë²ˆ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = aprvDao.aprvInqyDao1010(paramMap);
 			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
 			
 			//--------------------------------------------------------------------------------------------
-			// ±âº» Á¤º¸ Ã³¸®
+			// ê¸°ë³¸ ì •ë³´ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			this.aprvProcService2010(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ¾ç½Ä À¯Çü Ã³¸®
+			// ì–‘ì‹ ìœ í˜• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			this.aprvProcService2020(model, paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ µî·Ï
+			// íŒŒì¼ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 			
@@ -312,19 +312,19 @@ public class AprvServiceImpl implements AprvService{
 		return defaultStr;
 	}
 	
-	// ±âº» Á¤º¸ Ã³¸®
+	// ê¸°ë³¸ ì •ë³´ ì²˜ë¦¬
 	public void aprvProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç ¸¶½ºÅÍ µî·Ï (APRV_MAST)
+			// ê²°ì¬ ë§ˆìŠ¤í„° ë“±ë¡ (APRV_MAST)
 			//--------------------------------------------------------------------------------------------
 			aprvDao.aprvProcDao1010(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç ÀÌ·Â µî·Ï (APRV_HIST)
+			// ê²°ì¬ ì´ë ¥ ë“±ë¡ (APRV_HIST)
 			//--------------------------------------------------------------------------------------------
 			String jStr = (String)paramMap.get("aprvlineList");
 			JSONParser parser = new JSONParser();
@@ -343,7 +343,7 @@ public class AprvServiceImpl implements AprvService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// ÇöÀç ´Ü°è, ¹øÈ£ ¼öÁ¤ (APRV_HIST)
+			// í˜„ì¬ ë‹¨ê³„, ë²ˆí˜¸ ìˆ˜ì • (APRV_HIST)
 			//--------------------------------------------------------------------------------------------
 			aprvDao.aprvProcDao1030(paramMap);
 			
@@ -353,7 +353,7 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// ¾ç½Ä À¯Çü Ã³¸®
+	// ì–‘ì‹ ìœ í˜• ì²˜ë¦¬
 	public void aprvProcService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -365,20 +365,20 @@ public class AprvServiceImpl implements AprvService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¾ç½Ä À¯Çü Ã³¸®
+			// ì–‘ì‹ ìœ í˜• ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			if(temptypeCd.equals(Const.TEMP_LEAV)) {
-				// ÈŞ°¡ ½ÅÃ»¼­ µî·Ï (APRV_REL_LEAV)
+				// íœ´ê°€ ì‹ ì²­ì„œ ë“±ë¡ (APRV_REL_LEAV)
 				aprvDao.aprvProcDao1040(paramMap);
 			}
 			
 			else if(temptypeCd.equals(Const.TEMP_EXP)) {
-				// °¡Áö±Ş°áÀÇ¼­ µî·Ï (APRV_REL_EXP)
+				// ê°€ì§€ê¸‰ê²°ì˜ì„œ ë“±ë¡ (APRV_REL_EXP)
 				aprvDao.aprvProcDao1050(paramMap);
 			}
 
 			else if(temptypeCd.equals(Const.TEMP_ITEM)) {
-				// ¹°Ç°¹İÃâÀÔ ½ÅÃ»¼­ µî·Ï (APRV_REL_ITEM)
+				// ë¬¼í’ˆë°˜ì¶œì… ì‹ ì²­ì„œ ë“±ë¡ (APRV_REL_ITEM)
 				jStr = (String)paramMap.get("itemlineList");
 				jParser = new JSONParser();
 				jArray = (JSONArray)jParser.parse(jStr);
@@ -402,7 +402,7 @@ public class AprvServiceImpl implements AprvService{
 			}
 			
 			else if(temptypeCd.equals(Const.TEMP_CORP)) {
-				// ¹ıÀÎÄ«µå Á¤»ê¼­ µî·Ï (APRV_REL_CORP)
+				// ë²•ì¸ì¹´ë“œ ì •ì‚°ì„œ ë“±ë¡ (APRV_REL_CORP)
 				jStr = (String)paramMap.get("corplineList");
 				jParser = new JSONParser();
 				jArray = (JSONArray)jParser.parse(jStr);
@@ -431,30 +431,30 @@ public class AprvServiceImpl implements AprvService{
 		}
 	}
 	
-	// °áÀç Ã³¸®
+	// ê²°ì¬ ì²˜ë¦¬
 	public String aprvProcService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
-		String sequenceId = utilService.nvlProc((String)paramMap.get("sequenceId"));			// °áÀç ¾ÆÀÌµğ
-		String currAprvSno = utilService.nvlProc((String)paramMap.get("currAprvSno"));		// ÇöÀç °áÀç ÀÏ·Ã¹øÈ£
-		String rslttypeCd = utilService.nvlProc((String)paramMap.get("rslttypeCd"));				// °áÀç Ã³¸® Å¸ÀÔ
-		String rsltNote = utilService.nvlProc((String)paramMap.get("rsltNote"));					// °áÀç ÀÇ°ß
-		String aprvPwd = utilService.nvlProc((String)paramMap.get("aprvPwd"));					// ÀÔ·ÂÇÑ ºñ¹Ğ¹øÈ£
+		String sequenceId = utilService.nvlProc((String)paramMap.get("sequenceId"));			// ê²°ì¬ ì•„ì´ë””
+		String currAprvSno = utilService.nvlProc((String)paramMap.get("currAprvSno"));		// í˜„ì¬ ê²°ì¬ ì¼ë ¨ë²ˆí˜¸
+		String rslttypeCd = utilService.nvlProc((String)paramMap.get("rslttypeCd"));				// ê²°ì¬ ì²˜ë¦¬ íƒ€ì…
+		String rsltNote = utilService.nvlProc((String)paramMap.get("rsltNote"));					// ê²°ì¬ ì˜ê²¬
+		String aprvPwd = utilService.nvlProc((String)paramMap.get("aprvPwd"));					// ì…ë ¥í•œ ë¹„ë°€ë²ˆí˜¸
 
-		// À¯Àú Á¶È¸
+		// ìœ ì € ì¡°íšŒ
 		EmpVO emp = (EmpVO)session.getAttribute("empVO");
-		String empPwd = utilService.decryptProc(emp.getEmpPwd());		// Á¢¼ÓÀ¯Àú º¹È£È­ÇÑ ºñ¹Ğ¹øÈ£
+		String empPwd = utilService.decryptProc(emp.getEmpPwd());		// ì ‘ì†ìœ ì € ë³µí˜¸í™”í•œ ë¹„ë°€ë²ˆí˜¸
 		//
 		String defaultStr = "";
 		String resStr = "YES";
 		//
 		try {
-			// ÀÔ·ÂÇÑ ºñ¹Ğ¹øÈ£°¡ °°Àº °æ¿ì
+			// ì…ë ¥í•œ ë¹„ë°€ë²ˆí˜¸ê°€ ê°™ì€ ê²½ìš°
 			if(aprvPwd.equals(empPwd)) {
-				// °áÀç ½ÂÀÎ
+				// ê²°ì¬ ìŠ¹ì¸
 				if(rslttypeCd.equals(Const.RSLT_0010)) {
 					//--------------------------------------------------------------------------------------------
-					// ´ÙÀ½ °áÀç Á¶È¸
+					// ë‹¤ìŒ ê²°ì¬ ì¡°íšŒ
 					//--------------------------------------------------------------------------------------------
 					tempMap = aprvDao.aprvInqyDao2020(paramMap);
 					
@@ -464,16 +464,16 @@ public class AprvServiceImpl implements AprvService{
 						tempMap.put("currAprvSno", currAprvSno);
 						tempMap.put("rslttypeCd", rslttypeCd);
 						
-						// APRVSTEP_CD ¼öÁ¤
-						paramMap.put("stepCd", Const.STEP_COMP);		// °áÀç ¿Ï·á
+						// APRVSTEP_CD ìˆ˜ì •
+						paramMap.put("stepCd", Const.STEP_COMP);		// ê²°ì¬ ì™„ë£Œ
 						aprvDao.aprvProcDao2010(paramMap);
 						
 					}  else {
-						// CURR_APRV_SNO ¼öÁ¤
+						// CURR_APRV_SNO ìˆ˜ì •
 						aprvDao.aprvProcDao2030(tempMap);
 					}
 					
-					// RSLT ¼öÁ¤
+					// RSLT ìˆ˜ì •
 					tempMap = new HashMap<String, Object>();
 					tempMap.put("sequenceId", sequenceId);
 					tempMap.put("currAprvSno", currAprvSno);
@@ -484,31 +484,31 @@ public class AprvServiceImpl implements AprvService{
 					
 				} 
 				
-				// °áÀç ¹İ¼Û
+				// ê²°ì¬ ë°˜ì†¡
 				else if(rslttypeCd.equals(Const.RSLT_0020)) {
-					// APRVSTEP_CD ¼öÁ¤
-					paramMap.put("stepCd", Const.STEP_REJT);			// °áÀç¹İ¼Û
+					// APRVSTEP_CD ìˆ˜ì •
+					paramMap.put("stepCd", Const.STEP_REJT);			// ê²°ì¬ë°˜ì†¡
 					aprvDao.aprvProcDao2010(paramMap);
 					
-					// RSLT ¼öÁ¤
+					// RSLT ìˆ˜ì •
 					aprvDao.aprvProcDao2020(paramMap);
 				}
 				
-				// °áÀç Ãë¼Ò
+				// ê²°ì¬ ì·¨ì†Œ
 				else if(rslttypeCd.equals(Const.RSLT_0030)) {
-					// APRVSTEP_CD ¼öÁ¤
-					paramMap.put("stepCd", Const.STEP_CANC);			// °áÀçÃë¼Ò
+					// APRVSTEP_CD ìˆ˜ì •
+					paramMap.put("stepCd", Const.STEP_CANC);			// ê²°ì¬ì·¨ì†Œ
 					aprvDao.aprvProcDao2010(paramMap);
 					
-					// CURR_APRV_SNO ¼öÁ¤
-					paramMap.put("currAprvSno", "0001");						// ±â¾È ´Ü°è ¹øÈ£
+					// CURR_APRV_SNO ìˆ˜ì •
+					paramMap.put("currAprvSno", "0001");						// ê¸°ì•ˆ ë‹¨ê³„ ë²ˆí˜¸
 					aprvDao.aprvProcDao2030(paramMap);
 					
-					// RSLT ¼öÁ¤
+					// RSLT ìˆ˜ì •
 					aprvDao.aprvProcDao2020(paramMap);
 				}
 				
-				// ¿À·ù
+				// ì˜¤ë¥˜
 				else {
 					resStr = "NO";
 				}
@@ -518,7 +518,7 @@ public class AprvServiceImpl implements AprvService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 			
@@ -530,7 +530,7 @@ public class AprvServiceImpl implements AprvService{
 		return defaultStr;
 	}
 	
-	// °áÀç¼± ÀúÀå Ã³¸®
+	// ê²°ì¬ì„  ì €ì¥ ì²˜ë¦¬
 	@SuppressWarnings("unchecked")
 	public String aprvProcService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
@@ -546,33 +546,33 @@ public class AprvServiceImpl implements AprvService{
 			//
 			if("".equals(sequenceId)) {
 				//--------------------------------------------------------------------------------------------
-				// °áÀç Ã¤¹ø
+				// ê²°ì¬ ì±„ë²ˆ
 				//--------------------------------------------------------------------------------------------
 				defaultInfo = aprvDao.aprvInqyDao1020(paramMap);
 				sequenceId = (String)defaultInfo.get("sequenceId");
 				paramMap.put("sequenceId", sequenceId);
 
 				//--------------------------------------------------------------------------------------------
-				// °áÀç¼± ¸¶½ºÅÍ (APRV_LINE_MAST) µî·Ï
+				// ê²°ì¬ì„  ë§ˆìŠ¤í„° (APRV_LINE_MAST) ë“±ë¡
 				//--------------------------------------------------------------------------------------------
 				aprvDao.aprvProcDao2040(paramMap);
 				
 			} else {
 				//--------------------------------------------------------------------------------------------
-				// °áÀç¼± ¸¶½ºÅÍ (APRV_LINE_MAST) ¼öÁ¤
+				// ê²°ì¬ì„  ë§ˆìŠ¤í„° (APRV_LINE_MAST) ìˆ˜ì •
 				//--------------------------------------------------------------------------------------------
 				aprvDao.aprvProcDao2060(paramMap);
 				
 				//--------------------------------------------------------------------------------------------
-				// °áÀç¼± »ó¼¼ (APRV_LINE_DETL) »èÁ¦
+				// ê²°ì¬ì„  ìƒì„¸ (APRV_LINE_DETL) ì‚­ì œ
 				//--------------------------------------------------------------------------------------------
 				aprvDao.aprvProcDao2080(paramMap);
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »ó¼¼ (APRV_LINE_DETL) µî·Ï
+			// ê²°ì¬ì„  ìƒì„¸ (APRV_LINE_DETL) ë“±ë¡
 			//--------------------------------------------------------------------------------------------
-			ObjectMapper objMapper = new ObjectMapper();
+			JsonMapper objMapper = JsonMapper.builder().build();
 			defaultList = objMapper.readValue((String)paramMap.get("aprvlineList"), List.class);
 			//
 			for(HashMap<String, Object> list : defaultList) {
@@ -586,7 +586,7 @@ public class AprvServiceImpl implements AprvService{
 			}
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt == defaultList.size()) {
 				resStr = "YES";
@@ -602,7 +602,7 @@ public class AprvServiceImpl implements AprvService{
 		return defaultStr;
 	}
 	
-	// °áÀç¼± »èÁ¦ Ã³¸®
+	// ê²°ì¬ì„  ì‚­ì œ ì²˜ë¦¬
 	public String aprvProcService4020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -610,17 +610,17 @@ public class AprvServiceImpl implements AprvService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± ¸¶½ºÅÍ (APRV_LINE_MAST) »èÁ¦
+			// ê²°ì¬ì„  ë§ˆìŠ¤í„° (APRV_LINE_MAST) ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			aprvDao.aprvProcDao2070(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °áÀç¼± »ó¼¼ (APRV_LINE_DETL) »èÁ¦
+			// ê²°ì¬ì„  ìƒì„¸ (APRV_LINE_DETL) ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			aprvDao.aprvProcDao2080(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
 			

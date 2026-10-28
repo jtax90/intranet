@@ -33,19 +33,19 @@ public class MtgServiceImpl implements MtgService{
 	@Autowired
 	UtilDao utilDao;
 	
-	// È¸ÀÇ ¸ñ·Ï Á¶È¸
+	// íšŒì˜ ëª©ë¡ ì¡°íšŒ
 	public void mtgInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// ¸Ş´º Á¶È¸
+			// ë©”ë‰´ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			coreService.coreInqyService1010(model, paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ ¸ñ·Ï Á¶È¸
+			// íšŒì˜ ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = mtgDao.mtgInqyDao1020(paramMap);
 			model.addAttribute("defaultList", JSONArray.toJSONString(defaultList));
@@ -56,12 +56,12 @@ public class MtgServiceImpl implements MtgService{
 		}
 	}
 	
-	// È¸ÀÇ µî·Ï Á¶È¸
+	// íšŒì˜ ë“±ë¡ ì¡°íšŒ
 	public void mtgInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ µî·Ï Á¶È¸
+			// íšŒì˜ ë“±ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			
 		} catch (Exception e) {
@@ -70,7 +70,7 @@ public class MtgServiceImpl implements MtgService{
 		}
 	}
 
-	// È¸ÀÇ »ó¼¼È­¸é Á¶È¸
+	// íšŒì˜ ìƒì„¸í™”ë©´ ì¡°íšŒ
 	public void mtgInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -78,13 +78,13 @@ public class MtgServiceImpl implements MtgService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ »ó¼¼ Á¤º¸
+			// íšŒì˜ ìƒì„¸ ì •ë³´
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = mtgDao.mtgInqyDao1030(paramMap);
 			model.addAttribute("defaultInfo",defaultInfo);
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ Á¤º¸
+			// íŒŒì¼ ì •ë³´
 			//--------------------------------------------------------------------------------------------
 			defaultList = utilDao.fileInqyDao1010(paramMap);
 			model.addAttribute("fileList",defaultList);
@@ -95,14 +95,14 @@ public class MtgServiceImpl implements MtgService{
 		}
 	}
 	
-	// È¸ÀÇ Áßº¹ Á¶È¸
+	// íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 	public void mtgInqyService1091(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ Áßº¹ Á¶È¸
+			// íšŒì˜ ì¤‘ë³µ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = mtgDao.mtgInqyDao1040(paramMap);
 			model.addAttribute("bookedList",defaultList);
@@ -113,14 +113,14 @@ public class MtgServiceImpl implements MtgService{
 		}
 	}
 	
-	// Ä¶¸°´õ Á¶È¸
+	// ìº˜ë¦°ë” ì¡°íšŒ
 	public void mtgInqyService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Ä¶¸°´õ Á¶È¸
+			// ìº˜ë¦°ë” ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = mtgDao.mtgInqyDao2010(paramMap);
 			model.addAttribute("calList", JSONArray.toJSONString(defaultList));
@@ -131,14 +131,14 @@ public class MtgServiceImpl implements MtgService{
 		}
 	}
 	
-	// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+	// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 	public void mtgInqyService2020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// Ä¶¸°´õ ¸ñ·Ï Á¶È¸
+			// ìº˜ë¦°ë” ëª©ë¡ ì¡°íšŒ
 			//--------------------------------------------------------------------------------------------
 			defaultList = mtgDao.mtgInqyDao2020(paramMap);
 			model.addAttribute("calInfo", defaultList);
@@ -150,7 +150,7 @@ public class MtgServiceImpl implements MtgService{
 	}
 
 	
-	// È¸ÀÇ µî·Ï Ã³¸®
+	// íšŒì˜ ë“±ë¡ ì²˜ë¦¬
 	public String mtgProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -160,13 +160,13 @@ public class MtgServiceImpl implements MtgService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ Ã¤¹ø
+			// íšŒì˜ ì±„ë²ˆ
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = mtgDao.mtgInqyDao1010(paramMap);
 			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
 			
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ µî·Ï Ã³¸®
+			// íšŒì˜ ë“±ë¡ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			resInt = mtgDao.mtgProcDao1010(paramMap);
 			//
@@ -175,12 +175,12 @@ public class MtgServiceImpl implements MtgService{
 			}
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ µî·Ï
+			// íŒŒì¼ ë“±ë¡
 			//--------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
@@ -192,7 +192,7 @@ public class MtgServiceImpl implements MtgService{
 		return defaultStr;
 	}
 	
-	// È¸ÀÇ »èÁ¦
+	// íšŒì˜ ì‚­ì œ
 	public String mtgProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
@@ -201,17 +201,17 @@ public class MtgServiceImpl implements MtgService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ »èÁ¦
+			// íšŒì˜ ì‚­ì œ
 			//--------------------------------------------------------------------------------------------
 			resInt = mtgDao.mtgProcDao1020(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ »èÁ¦ Ã³¸®
+			// íŒŒì¼ ì‚­ì œ ì²˜ë¦¬
 			//--------------------------------------------------------------------------------------------
 			utilDao.fileProcDao1020(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt>0) {
 				resStr = "YES";
@@ -227,7 +227,7 @@ public class MtgServiceImpl implements MtgService{
 		return defaultStr;
 	}
 	
-	// È¸ÀÇ ¼öÁ¤
+	// íšŒì˜ ìˆ˜ì •
 	public String mtgProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		String defaultStr = "";
@@ -236,17 +236,17 @@ public class MtgServiceImpl implements MtgService{
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// È¸ÀÇ ¼öÁ¤
+			// íšŒì˜ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			resInt = mtgDao.mtgProcDao1030(paramMap);
 			
 			//--------------------------------------------------------------------------------------------
-			// ÆÄÀÏ ¼öÁ¤
+			// íŒŒì¼ ìˆ˜ì •
 			//--------------------------------------------------------------------------------------------
 			resStr = utilService.fileUpload(model, paramMap, request);
 
 			//--------------------------------------------------------------------------------------------
-			// °á°ú ¹İÈ¯
+			// ê²°ê³¼ ë°˜í™˜
 			//--------------------------------------------------------------------------------------------
 			if(resInt>0) {
 				resStr = "YES";

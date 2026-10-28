@@ -4,43 +4,43 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface UtilService {
-	// °øÅë
+	// ê³µí†µ
 	boolean isNull(String param) throws Exception;
 	String nvlProc(String param) throws Exception;
 	
-	// ÆäÀÌÁö
-	void setPaging(Model model, HashMap<String, Object> paramMap) throws Exception; // ÆäÀÌÂ¡ Ã³¸®
-	String setPageMenu(HashMap<String, Object> paramMap) throws Exception; // ÆäÀÌÂ¡ ¸ñ·Ï »ı¼º
-	String setPageUrl(HashMap<String, Object> paramMap) throws Exception; // ÆäÀÌÁö URL »ı¼º
+	// í˜ì´ì§€
+	void setPaging(Model model, HashMap<String, Object> paramMap) throws Exception; // í˜ì´ì§• ì²˜ë¦¬
+	String setPageMenu(HashMap<String, Object> paramMap) throws Exception; // í˜ì´ì§• ëª©ë¡ ìƒì„±
+	String setPageUrl(HashMap<String, Object> paramMap) throws Exception; // í˜ì´ì§€ URL ìƒì„±
 	
-	// ÆÄÀÏ °æ·Î »ı¼º
-	String setFilePath(HashMap<String, Object> paramMap) throws Exception; 	// ÀÏ¹İ °æ·Î
-	String setTempPath(HashMap<String, Object> paramMap) throws Exception; // ÀÓ½Ã °æ·Î
-	String setBasePath(String basePath, String filetypeCd) throws Exception; 	// ±âº» °æ·Î
+	// íŒŒì¼ ê²½ë¡œ ìƒì„±
+	String setFilePath(HashMap<String, Object> paramMap) throws Exception; 	// ì¼ë°˜ ê²½ë¡œ
+	String setTempPath(HashMap<String, Object> paramMap) throws Exception; // ì„ì‹œ ê²½ë¡œ
+	String setBasePath(String basePath, String filetypeCd) throws Exception; 	// ê¸°ë³¸ ê²½ë¡œ
 	
-	// ÆÄÀÏ ¾÷·Îµå
-	String fileUpload(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; // ¾÷·Îµå
+	// íŒŒì¼ ì—…ë¡œë“œ
+	String fileUpload(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; // ì—…ë¡œë“œ
 
-	// ´Ù¿î·Îµå
-	void fileDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ´Ü°Ç
-	void docDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // Âü°í¹®¼­
-	void zipDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ÀüÃ¼
-	void excelDown(List<Map<String, Object>> defaultList, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ¿¢¼¿
+	// ë‹¤ìš´ë¡œë“œ
+	void fileDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ë‹¨ê±´
+	void docDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ì°¸ê³ ë¬¸ì„œ
+	void zipDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ì „ì²´
+	void excelDown(List<Map<String, Object>> defaultList, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception; // ì—‘ì…€
 	
-	// °øÅë ÄÚµå Á¶È¸
+	// ê³µí†µ ì½”ë“œ ì¡°íšŒ
 	void getCodeList(Model model, String groupCd, String modelNm) throws Exception;
 	
-	// ¸ŞÀÏ Àü¼Û
+	// ë©”ì¼ ì „ì†¡
 	String sendMail(Model model, HashMap<String, Object> paramMap) throws Exception;
 	
-	// ¾Ïº¹È£È­
+	// ì•”ë³µí˜¸í™”
 	String encryptProc(String encryptedText) throws Exception;
 	String decryptProc(String encryptedText) throws Exception;
 }

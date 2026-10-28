@@ -13,7 +13,7 @@ public class AprvDao {
 	@Autowired
 	SqlSession sqlsession;
 
-	// ÀüÀÚ°áÀç ½ÃÄö½º Á¶È¸
+	// ì „ìê²°ì¬ ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -21,7 +21,7 @@ public class AprvDao {
 		return defaultInfo;
 	}
 	
-	// °áÀç¼± ½ÃÄö½º Á¶È¸
+	// ê²°ì¬ì„  ì‹œí€€ìŠ¤ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -29,7 +29,7 @@ public class AprvDao {
 		return defaultInfo;
 	}
 	
-	// ±â¾È ¸ñ·Ï Á¶È¸
+	// ê¸°ì•ˆ ëª©ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -37,7 +37,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç »ó¼¼ Á¶È¸
+	// ê²°ì¬ ìƒì„¸ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyDao1040(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -45,7 +45,7 @@ public class AprvDao {
 		return defaultInfo;
 	}
 	
-	// °áÀç¼± Á¶È¸
+	// ê²°ì¬ì„  ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao1050(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -53,7 +53,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// ¹°Ç° µî·Ï Á¶È¸
+	// ë¬¼í’ˆ ë“±ë¡ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao1060(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -61,7 +61,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// Á¤»ê³»¿ª Á¶È¸
+	// ì •ì‚°ë‚´ì—­ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao1070(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -69,7 +69,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç Á¶È¸
+	// ê²°ì¬ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyDao2010(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -77,7 +77,7 @@ public class AprvDao {
 		return defaultInfo;
 	}
 	
-	// ´ÙÀ½ °áÀç Á¶È¸
+	// ë‹¤ìŒ ê²°ì¬ ì¡°íšŒ
 	public HashMap<String, Object> aprvInqyDao2020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
@@ -85,7 +85,7 @@ public class AprvDao {
 		return defaultInfo;
 	}
 
-	// ±â¾È¹® ¾ç½Ä Á¶È¸
+	// ê¸°ì•ˆë¬¸ ì–‘ì‹ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao2030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -93,7 +93,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// ÀÏÁ¤ °ü¸® Á¶È¸
+	// ì¼ì • ê´€ë¦¬ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao3010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -101,7 +101,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç¼± °ü¸® Á¶È¸
+	// ê²°ì¬ì„  ê´€ë¦¬ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao4010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -109,7 +109,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç¼± »ó¼¼ Á¶È¸
+	// ê²°ì¬ì„  ìƒì„¸ ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao4020(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -117,7 +117,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç Å¸ÀÔ Á¶È¸
+	// ê²°ì¬ íƒ€ì… ì¡°íšŒ
 	public List<HashMap<String, Object>> aprvInqyDao4030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -125,7 +125,7 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// °áÀç ¸¶½ºÅÍ µî·Ï (APRV_MAST)
+	// ê²°ì¬ ë§ˆìŠ¤í„° ë“±ë¡ (APRV_MAST)
 	public int aprvProcDao1010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -133,7 +133,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç ÀÌ·Â µî·Ï (APRV_HIST)
+	// ê²°ì¬ ì´ë ¥ ë“±ë¡ (APRV_HIST)
 	public int aprvProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -141,7 +141,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// ÇöÀç ´Ü°è, ¹øÈ£ ¼öÁ¤ (APRV_HIST)
+	// í˜„ì¬ ë‹¨ê³„, ë²ˆí˜¸ ìˆ˜ì • (APRV_HIST)
 	public int aprvProcDao1030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -149,7 +149,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// ÈŞ°¡ ½ÅÃ»¼­ µî·Ï (APRV_REL_LEAV)
+	// íœ´ê°€ ì‹ ì²­ì„œ ë“±ë¡ (APRV_REL_LEAV)
 	public int aprvProcDao1040(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -157,7 +157,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °¡Áö±Ş°áÀÇ¼­ µî·Ï (APRV_REL_EXP)
+	// ê°€ì§€ê¸‰ê²°ì˜ì„œ ë“±ë¡ (APRV_REL_EXP)
 	public int aprvProcDao1050(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -165,7 +165,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// ¹°Ç°¹İÃâÀÔ ½ÅÃ»¼­ µî·Ï (APRV_REL_ITEM)
+	// ë¬¼í’ˆë°˜ì¶œì… ì‹ ì²­ì„œ ë“±ë¡ (APRV_REL_ITEM)
 	public int aprvProcDao1060(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -173,7 +173,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// ¹ıÀÎÄ«µå Á¤»ê¼­ µî·Ï (APRV_REL_CORP)
+	// ë²•ì¸ì¹´ë“œ ì •ì‚°ì„œ ë“±ë¡ (APRV_REL_CORP)
 	public int aprvProcDao1070(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -181,7 +181,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç ´Ü°è ¼öÁ¤
+	// ê²°ì¬ ë‹¨ê³„ ìˆ˜ì •
 	public int aprvProcDao2010(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -189,7 +189,7 @@ public class AprvDao {
 		return resInt;
 	}
 
-	// °áÀç Ã³¸® À¯Çü ¼öÁ¤
+	// ê²°ì¬ ì²˜ë¦¬ ìœ í˜• ìˆ˜ì •
 	public int aprvProcDao2020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -197,7 +197,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç ÀÏ·Ã¹øÈ£ ¼öÁ¤
+	// ê²°ì¬ ì¼ë ¨ë²ˆí˜¸ ìˆ˜ì •
 	public int aprvProcDao2030(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -205,7 +205,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç¼± ¸¶½ºÅÍ µî·Ï
+	// ê²°ì¬ì„  ë§ˆìŠ¤í„° ë“±ë¡
 	public int aprvProcDao2040(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -213,7 +213,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç¼± »ó¼¼ µî·Ï
+	// ê²°ì¬ì„  ìƒì„¸ ë“±ë¡
 	public int aprvProcDao2050(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -221,7 +221,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç¼± ¸¶½ºÅÍ ¼öÁ¤
+	// ê²°ì¬ì„  ë§ˆìŠ¤í„° ìˆ˜ì •
 	public int aprvProcDao2060(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -229,7 +229,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç¼± ¸¶½ºÅÍ »èÁ¦
+	// ê²°ì¬ì„  ë§ˆìŠ¤í„° ì‚­ì œ
 	public int aprvProcDao2070(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
@@ -237,7 +237,7 @@ public class AprvDao {
 		return resInt;
 	}
 	
-	// °áÀç¼± »ó¼¼ »èÁ¦
+	// ê²°ì¬ì„  ìƒì„¸ ì‚­ì œ
 	public int aprvProcDao2080(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;

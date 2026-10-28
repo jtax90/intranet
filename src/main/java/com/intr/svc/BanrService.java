@@ -6,10 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface BanrService {
-	// ¹è³Ê
-	void banrInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ¹è³Ê °ü¸®
+	// ë°°ë„ˆ
+	void banrInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception;	// ë°°ë„ˆ ê´€ë¦¬
 	//
-	String banrProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ÀúÀå
-	String banrProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// »èÁ¦
+	String banrProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception; 	// ì €ìž¥
+	String banrProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception; 	// ì‚­ì œ
 
 }
