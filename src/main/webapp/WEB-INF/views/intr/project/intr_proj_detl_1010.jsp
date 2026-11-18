@@ -45,8 +45,7 @@
 					<div class="content">
 						<div id="sub_content">					
 							<div class="form_area">
-								<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-								<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.projCd}">
+								<input type="hidden" id="projId" name="projId" value="${defaultInfo.projId}">
 								<input type="hidden" id="page" name="page" value="${param.page}">
 								<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 								<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">
@@ -78,34 +77,9 @@
                                             <dd class="form_value">${defaultInfo.statusNm}</dd>
 										</dl>
                                         <dl class="form_row">
-                                            <dt class="form_label">계약금</dt>
-                                            <dd class="form_value">
-												${defaultInfo.deposit}
-												&nbsp; <span id="amtNm">(${defaultInfo.depositNm})</span>
-											</dd>
-                                            <dt class="form_label">태그</dt>
-                                            <dd class="form_value">${defaultInfo.tag}</dd>
-										</dl>
-                                        <dl class="form_row">
                                             <dt class="form_label">설명/개요</dt>
                                             <dd class="post_text form_value form_content">
 												<pre>${defaultInfo.projCont}</pre>
-											</dd>
-										</dl>
-                                        <dl class="post_file form_row">
-                                            <dt class="form_label">첨부파일</dt>
-                                            <dd class="post_file form_value form_attachments">
-												<div class="file_wrap">
-													<ul id="fileUl"> 
-													<c:forEach var="list" items="${fileList}" varStatus="status">
-														<li class="${status.index != 0 ? 'nbsp' : ''}">
-															<img src='resources/images/icon/icon_file.png' width="15" height="15"/>
-															<a href="#" onclick="fileProc('${list.fileId}', '${list.fileSno}');">${list.fileNm}</a>
-															<input type="hidden" id="fileId" name="fileId" value="${list.fileId}">
-														</li>
-													</c:forEach>
-													</ul>
-												</div>
 											</dd>
 										</dl>
 									</div><!-- End post_view -->

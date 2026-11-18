@@ -147,6 +147,12 @@ public class AprvServiceImpl implements AprvService{
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
+			// 파일 정보
+			//--------------------------------------------------------------------------------------------
+			defaultList = utilDao.fileInqyDao1010((String)defaultInfo.get("fileId"));
+			model.addAttribute("fileList",defaultList);
+			
+			//--------------------------------------------------------------------------------------------
 			// 결재 상태 조회
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = aprvDao.aprvInqyDao2010(paramMap);
@@ -166,12 +172,6 @@ public class AprvServiceImpl implements AprvService{
 			// 공통코드 (지급 방법) 조회
 			//--------------------------------------------------------------------------------------------
 			utilService.getCodeList(model, "Pay", "prepayList");
-			
-			//--------------------------------------------------------------------------------------------
-			// 파일 정보
-			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
-			model.addAttribute("fileList",defaultList);
 			
 		} catch (Exception e) {
 			//
@@ -273,19 +273,19 @@ public class AprvServiceImpl implements AprvService{
 	// 기안 등록
 	public String aprvProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
-		HashMap<String, Object> defaultInfo = null;
 		String defaultStr = "";
 		String resStr = "YES";
+		String fileId = "";
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// 결재 채번
+			// 파일 등록
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = aprvDao.aprvInqyDao1010(paramMap);
-			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
+			fileId = utilService.fileUpload(model, paramMap, request);
+			paramMap.put("fileId", fileId);
 			
 			//--------------------------------------------------------------------------------------------
-			// 기본 정보 처리
+			// 결재 마스터, 이력 (APRV_MAST, APRP_HIST) 등록
 			//--------------------------------------------------------------------------------------------
 			this.aprvProcService2010(model, paramMap);
 			
@@ -293,11 +293,6 @@ public class AprvServiceImpl implements AprvService{
 			// 양식 유형 처리
 			//--------------------------------------------------------------------------------------------
 			this.aprvProcService2020(model, paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 파일 등록
-			//--------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
 			
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
@@ -312,7 +307,7 @@ public class AprvServiceImpl implements AprvService{
 		return defaultStr;
 	}
 	
-	// 기본 정보 처리
+	// 결재 마스터, 이력 등록
 	public void aprvProcService2010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
@@ -326,18 +321,16 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 결재 이력 등록 (APRV_HIST)
 			//--------------------------------------------------------------------------------------------
-			String jStr = (String)paramMap.get("aprvlineList");
+			String jStr = (String) paramMap.get("aprvlineList");
 			JSONParser parser = new JSONParser();
-			JSONArray arr = (JSONArray)parser.parse(jStr);
-			JSONObject obj = null; 
+			JSONArray arr = (JSONArray) parser.parse(jStr);
 			
-			for(Object data : arr) {
-				obj = (JSONObject) data;
-				//
+			for (Object data : arr) {
+				JSONObject obj = (JSONObject) data;
 				tempMap = new HashMap<String, Object>();
-				tempMap.put("sequenceId", 	(String)paramMap.get("sequenceId"));
-				tempMap.put("aprvtypeCd", 	utilService.nvlProc((String)obj.get("aprvtypeCd")));
-				tempMap.put("aprvIdx", 		utilService.nvlProc((String)obj.get("aprvIdx")));
+				tempMap.put("aprvId", paramMap.get("aprvId"));
+				tempMap.put("aprvtypeCd", utilService.nvlProc((String) obj.get("aprvtypeCd")));
+				tempMap.put("aprvIdx", utilService.nvlProc((String) obj.get("aprvIdx")));
 				//
 				aprvDao.aprvProcDao1020(tempMap);
 			}
@@ -374,6 +367,7 @@ public class AprvServiceImpl implements AprvService{
 			
 			else if(temptypeCd.equals(Const.TEMP_EXP)) {
 				// 가지급결의서 등록 (APRV_REL_EXP)
+				paramMap.put("prepayAmt", utilService.nvlProc((String)paramMap.get("prepayAmt")).replaceAll("[^0-9]", ""));
 				aprvDao.aprvProcDao1050(paramMap);
 			}
 
@@ -388,7 +382,7 @@ public class AprvServiceImpl implements AprvService{
 					jObj = (JSONObject) data;
 					//
 					tempMap = new HashMap<String, Object>();
-					tempMap.put("sequenceId", 	(String)paramMap.get("sequenceId"));
+					tempMap.put("aprvId", 	(String)paramMap.get("aprvId"));
 					tempMap.put("reqtypeCd", 	utilService.nvlProc((String)paramMap.get("reqtypeCd")));
 					tempMap.put("reqDt", 			utilService.nvlProc((String)paramMap.get("reqDt")));
 					tempMap.put("empIdx", 		utilService.nvlProc((String)jObj.get("empIdx")));
@@ -412,13 +406,13 @@ public class AprvServiceImpl implements AprvService{
 					jObj = (JSONObject) data;
 					//
 					tempMap = new HashMap<String, Object>();
-					tempMap.put("sequenceId", 	(String)paramMap.get("sequenceId"));
+					tempMap.put("aprvId", 		(String)paramMap.get("aprvId"));
 					tempMap.put("cardNm", 		(String)paramMap.get("cardNm"));
 					tempMap.put("cardNo", 		(String)paramMap.get("cardNo"));
 					tempMap.put("cardNm", 		(String)paramMap.get("cardNm"));
-					tempMap.put("useLoc", 			utilService.nvlProc((String)jObj.get("useLoc")));
-					tempMap.put("useAmt", 			utilService.nvlProc((String)jObj.get("useAmt")));
-					tempMap.put("useRsn", 			utilService.nvlProc((String)jObj.get("useRsn")));
+					tempMap.put("useLoc", 		utilService.nvlProc((String)jObj.get("useLoc")));
+					tempMap.put("useAmt", 		utilService.nvlProc((String)jObj.get("useAmt")).replaceAll("[^0-9]", ""));
+					tempMap.put("useRsn", 		utilService.nvlProc((String)jObj.get("useRsn")));
 					tempMap.put("useDt", 			utilService.nvlProc((String)jObj.get("useDt")));
 					//
 					aprvDao.aprvProcDao1070(tempMap);
@@ -435,7 +429,7 @@ public class AprvServiceImpl implements AprvService{
 	public String aprvProcService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
-		String sequenceId = utilService.nvlProc((String)paramMap.get("sequenceId"));			// 결재 아이디
+		String aprvId = utilService.nvlProc((String)paramMap.get("aprvId"));			// 결재 아이디
 		String currAprvSno = utilService.nvlProc((String)paramMap.get("currAprvSno"));		// 현재 결재 일련번호
 		String rslttypeCd = utilService.nvlProc((String)paramMap.get("rslttypeCd"));				// 결재 처리 타입
 		String rsltNote = utilService.nvlProc((String)paramMap.get("rsltNote"));					// 결재 의견
@@ -460,12 +454,12 @@ public class AprvServiceImpl implements AprvService{
 					
 					if(tempMap == null) {
 						tempMap = new HashMap<String, Object>();
-						tempMap.put("sequenceId", sequenceId);
+						tempMap.put("aprvId", aprvId);
 						tempMap.put("currAprvSno", currAprvSno);
 						tempMap.put("rslttypeCd", rslttypeCd);
 						
 						// APRVSTEP_CD 수정
-						paramMap.put("stepCd", Const.STEP_COMP);		// 결재 완료
+						paramMap.put("stepCd", Const.STEP_0020);		// 결재 완료
 						aprvDao.aprvProcDao2010(paramMap);
 						
 					}  else {
@@ -475,7 +469,7 @@ public class AprvServiceImpl implements AprvService{
 					
 					// RSLT 수정
 					tempMap = new HashMap<String, Object>();
-					tempMap.put("sequenceId", sequenceId);
+					tempMap.put("aprvId", aprvId);
 					tempMap.put("currAprvSno", currAprvSno);
 					tempMap.put("rslttypeCd", rslttypeCd);
 					tempMap.put("rsltNote", rsltNote);
@@ -487,7 +481,7 @@ public class AprvServiceImpl implements AprvService{
 				// 결재 반송
 				else if(rslttypeCd.equals(Const.RSLT_0020)) {
 					// APRVSTEP_CD 수정
-					paramMap.put("stepCd", Const.STEP_REJT);			// 결재반송
+					paramMap.put("stepCd", Const.STEP_0030);			// 결재반송
 					aprvDao.aprvProcDao2010(paramMap);
 					
 					// RSLT 수정
@@ -497,7 +491,7 @@ public class AprvServiceImpl implements AprvService{
 				// 결재 취소
 				else if(rslttypeCd.equals(Const.RSLT_0030)) {
 					// APRVSTEP_CD 수정
-					paramMap.put("stepCd", Const.STEP_CANC);			// 결재취소
+					paramMap.put("stepCd", Const.STEP_0040);			// 결재취소
 					aprvDao.aprvProcDao2010(paramMap);
 					
 					// CURR_APRV_SNO 수정
@@ -535,70 +529,48 @@ public class AprvServiceImpl implements AprvService{
 	public String aprvProcService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		HashMap<String, Object> defaultInfo = null;
 		HashMap<String, Object> tempMap = null;
-		String sequenceId = utilService.nvlProc((String)paramMap.get("sequenceId"));
+		String aprvlineId = utilService.nvlProc((String)paramMap.get("aprvlineId"));
 		String defaultStr = "";
 		String resStr = "NO";
 		int resInt = 0;
 		//
 		try {
 			//
-			if("".equals(sequenceId)) {
-				//--------------------------------------------------------------------------------------------
-				// 결재 채번
-				//--------------------------------------------------------------------------------------------
-				defaultInfo = aprvDao.aprvInqyDao1020(paramMap);
-				sequenceId = (String)defaultInfo.get("sequenceId");
-				paramMap.put("sequenceId", sequenceId);
-
-				//--------------------------------------------------------------------------------------------
-				// 결재선 마스터 (APRV_LINE_MAST) 등록
-				//--------------------------------------------------------------------------------------------
+			if(aprvlineId.isEmpty()){
+				// 결재선 마스터 등록
 				aprvDao.aprvProcDao2040(paramMap);
 				
-			} else {
-				//--------------------------------------------------------------------------------------------
-				// 결재선 마스터 (APRV_LINE_MAST) 수정
-				//--------------------------------------------------------------------------------------------
+			}else{
+				// 결재선 마스터 수정
 				aprvDao.aprvProcDao2060(paramMap);
-				
-				//--------------------------------------------------------------------------------------------
-				// 결재선 상세 (APRV_LINE_DETL) 삭제
-				//--------------------------------------------------------------------------------------------
+
+				// 기존 결재선 상세 삭제
 				aprvDao.aprvProcDao2080(paramMap);
 			}
-			
-			//--------------------------------------------------------------------------------------------
-			// 결재선 상세 (APRV_LINE_DETL) 등록
-			//--------------------------------------------------------------------------------------------
+
+			// 결재선 상세 등록
 			JsonMapper objMapper = JsonMapper.builder().build();
 			defaultList = objMapper.readValue((String)paramMap.get("aprvlineList"), List.class);
-			//
-			for(HashMap<String, Object> list : defaultList) {
+
+			for(HashMap<String, Object> list : defaultList){
 				tempMap = new HashMap<String, Object>();
-				//
-				tempMap.put("sequenceId", utilService.nvlProc((String)paramMap.get("sequenceId")));
+				tempMap.put("aprvlineId", paramMap.get("aprvlineId"));
 				tempMap.put("aprvIdx", utilService.nvlProc((String)list.get("aprvIdx")));
 				tempMap.put("aprvtypeCd", utilService.nvlProc((String)list.get("aprvtypeCd")));
-				//
 				resInt += aprvDao.aprvProcDao2050(tempMap);
 			}
-			
-			//--------------------------------------------------------------------------------------------
+
 			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt == defaultList.size()) {
+			if(resInt == defaultList.size()){
 				resStr = "YES";
 			}
-			
 			defaultStr = String.format("[{'res':'%s'}]", resStr);
-			
-		} catch (Exception e) {
-			//
+
+		}catch(Exception e){
 			throw e;
 		}
-		//
+
 		return defaultStr;
 	}
 	

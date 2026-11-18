@@ -22,6 +22,30 @@
 		}
 	});
 	
+	// 프로젝트 선택
+	function taskProjCall(btn){
+		//
+		try {
+			//
+			$("#taskWrap .projId").removeAttr("id");
+			$("#taskWrap .projTitle").removeAttr("id");
+			//
+			var taskArea = $(btn).closest(".taskArea");
+			taskArea.find(".projId").attr("id", "projPcd");
+			taskArea.find(".projTitle").attr("id", "projPnm");
+			//
+			var obj = new Object();
+			obj["mappingId"] = "intrPopupInqy1030.do";
+			obj["areaType"] = "proj";
+			obj["width"] = "550";
+			obj["height"] = "420";
+			ajaxPopup(obj);
+			
+		} catch (error) {
+			console.error("[Error] 프로젝트 선택 : ", error.message);
+		}
+	}
+	
 	// 목록 추가
 	function addTask(isDef) {
 		let html = ``;
@@ -53,7 +77,14 @@
                                     <dt class="form_label">등록자</dt>
                                     <dd class="form_value">` + "${empVO.orgNm}" + " " + "${empVO.empNm}" + `</dd>
 								</dl>
-	
+								<dl class="form_row">
+									<dt class="form_label">&#10003; 프로젝트</dt>
+									<dd class="form_value form_picker">
+										<input type="button" class="btn_blue btn_action" value="선택" onclick="taskProjCall(this);">
+										<input type="hidden" class="projId" value="">
+										<input type="text" class="projTitle form_input" title="프로젝트" readonly="readonly" isRequired="Y">
+									</dd>
+								</dl>
                                 <dl class="form_row">
                                     <dt class="form_label">&#10003; 업무 내용</dt>
                                     <dd class="post_text form_value form_content form_content_short">
@@ -103,10 +134,9 @@
 				$.ajax({
 			    	type : 'post',
 			    	url : "intrTaskInqy1011.do",
-					data : {
-						'empIdx':'${empVO.empIdx}',
-						'srchDt':$('#srchDt').val()
-					},
+			    	data: {
+			    		'srchDt': $('#srchDt').val()
+			    	},
 					dataType : 'text',
 					success : function(data){
 						$("#taskWrap").html("");	// 초기화
@@ -143,6 +173,7 @@
 				var taskHh = $(this).find(".taskHh").val();
 				var taskMm = $(this).find(".taskMm").val();
 				var taskCont = $(this).find(".taskCont").val();
+				var projId = $(this).find(".projId").val();
 				//	
 				if(taskTitle == ''){
 					alert((idx + 1) + "행의 업무제목을 입력해주세요.");
@@ -159,6 +190,11 @@
 					isValidate = false;
 					return false;
 				}
+				if(!projId){
+					alert((idx + 1) + "행의 프로젝트를 선택해주세요.");
+					isValidate = false;
+					return false;
+				}
 			});
 			// 검증
 			if(!isValidate){
@@ -171,11 +207,10 @@
 				$.ajax({
 			    	type : 'post',
 			    	url : "intrTaskProc1010.do",
-					data : {
-						'taskList':JSON.stringify(data),
-						'empIdx':'${empVO.empIdx}',
-						'srchDt':$("#srchDt").val()
-					},
+			    	data: {
+			    		'taskList': JSON.stringify(data),
+			    		'srchDt': $("#srchDt").val()
+			    	},
 					dataType : 'text',
 					success : function(data){
 			    		//
@@ -202,26 +237,16 @@
 	// 전송 데이터 생성
 	function setTaskData(){
 		let jObj = [];
-		//
 		$(".taskArea").each(function(idx) {
-			var taskTitle = $(this).find(".taskTitle").val();
-			var taskHh = $(this).find(".taskHh").val();
-			var taskMm = $(this).find(".taskMm").val();
-			var taskCont = $(this).find(".taskCont").val();
-			var taskDt = $("#srchDt").val();
-			//	
 			var rObj = {
-					'taskTitle':taskTitle,
-					'taskHh':taskHh,
-					'taskMm':taskMm,
-					'taskCont':taskCont,
-					'taskDt':taskDt,
-					'empIdx':'${empVO.empIdx}'
-			}
-			//
+				'taskTitle': $(this).find(".taskTitle").val(),
+				'taskHh': $(this).find(".taskHh").val(),
+				'taskMm': $(this).find(".taskMm").val(),
+				'taskCont': $(this).find(".taskCont").val(),
+				'projId': $(this).find(".projId").val()
+			};
 			jObj.push(rObj);
 		});
-		//
 		return jObj;
 	}
 	
@@ -249,10 +274,9 @@
 				$.ajax({
 			    	type : 'post',
 			    	url : "intrTaskProc1020.do",
-					data : {
-						'empIdx':'${empVO.empIdx}',
-						'srchDt':$("#srchDt").val()
-					},
+			    	data: {
+			    		'srchDt': $("#srchDt").val()
+			    	},
 					dataType : 'text',
 					success : function(data){
 			    		//
@@ -278,6 +302,11 @@
 </script>
 <body id="main">
 <form id="form" name="form" method="POST" onsubmit="return false;">
+	<!-- 프로젝트 선택 팝업 -->
+	<div id="projArea" class="popupArea hide">
+		<c:import url="/WEB-INF/views/intr/comm/popup/intr_popup_inqy_1030.jsp"></c:import>
+	</div>
+
 	<!-- 메뉴 -->
 	<%@ include file="/WEB-INF/views/intr/comm/include/intr_include_1030.jsp" %>
 	
@@ -293,7 +322,6 @@
 							<div class="form_area">
 								<div class="post_wrap">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
-									<input type="hidden" id="empIdx" name="empIdx" value="${empVO.empIdx}">
 											
                                     <h2 class="content_heading">업무일지
 										<span class="float_right">
@@ -344,7 +372,14 @@
                                                         <dt class="form_label">등록자</dt>
                                                         <dd class="form_value">${empVO.orgNm} ${empVO.empNm}</dd>
 													</dl>
-													
+													<dl class="form_row">
+														<dt class="form_label">&#10003; 프로젝트</dt>
+														<dd class="form_value form_picker">
+															<input type="button" class="btn_blue btn_action" value="선택" onclick="taskProjCall(this);">
+															<input type="hidden" class="projId" value="${list.projId}">
+															<input type="text" class="projTitle form_input" title="프로젝트" value="${list.projTitle}" readonly="readonly" isRequired="Y">
+														</dd>
+													</dl>
                                                     <dl class="form_row">
                                                         <dt class="form_label">&#10003; 업무 내용</dt>
                                                         <dd class="post_text form_value form_content form_content_short">

@@ -83,7 +83,7 @@
 						<div id="sub_content">
 							<div class="content_area form_area">
 								<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-								<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.brdId}">
+								<input type="hidden" id="brdId" name="brdId" value="${defaultInfo.brdId}">
 								<input type="hidden" id="page" name="page" value="${param.page}">
 								<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 								<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">

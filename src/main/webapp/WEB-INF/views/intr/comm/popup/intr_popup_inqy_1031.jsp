@@ -12,7 +12,7 @@
 				<c:set var="spanIcon"	value="icon_folder"/>
 				
 				<li class="tree_item li_">
-					<input type="radio" id="projPcd${status.index}" class="tree_radio tree_input projPcd" name="projPcd" value="${list.projCd}" projPnm="${list.projTitle}" projPcd="${list.projCd}" >
+					<input type="radio" id="projPcd${status.index}" class="tree_radio tree_input projPcd" name="projPcd" value="${list.projId}" projPnm="${list.projTitle}" projPcd="${list.projId}">
 					<span class="tree_icon ${spanIcon}"></span>
 					<label for="projPcd${status.index}">${list.projTitle}</label>
 				</li>

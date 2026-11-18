@@ -107,7 +107,7 @@ public class RoleDao {
 	public int roleProcDao1060(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
-		resInt = sqlsession.insert("role.roleProcDao1060", paramMap);
+		resInt = sqlsession.delete("role.roleProcDao1060", paramMap);
 		return resInt;
 	}
 	

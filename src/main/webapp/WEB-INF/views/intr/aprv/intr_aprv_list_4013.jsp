@@ -12,8 +12,8 @@
 		    <c:forEach var="list" items="${typeList}" varStatus="status">
 		    	<c:if test="${status.index > 1}">
 			      {
-			        name: '${list.commcodeNm}',
-			        code: '${list.commcodeCd}'
+			        name: '${list.codeNm}',
+			        code: '${list.codeCd}'
 			      }<c:if test="${!status.last}">,</c:if>
 		      	</c:if>
 		    </c:forEach>
@@ -58,7 +58,7 @@
 		    		type : 'post',
 		        	url : 'intrAprvProc2020.do',
 		            data : {
-		            	sequenceId: aprvlineId
+		            	aprvlineId: aprvlineId
 		            },
 		            success : function(data){
 						alert("<spring:message code="PROC.SUCCESS"/>");

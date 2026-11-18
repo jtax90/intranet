@@ -52,36 +52,35 @@ $(function(){
 
 // 메뉴 이동
 function goMenu(element) {
-	//
-    var mappingId = element.dataset.mappingId;
+    var menuUrl = element.dataset.menuUrl;
     var menuCd = element.dataset.menuCd;
-	var leadMenuCd = element.dataset.leadMenuCd;
-	var menuPos = element.dataset.menuPos;
+    var leadMenuCd = element.dataset.leadMenuCd;
+    var menuPos = element.dataset.menuPos;
     var empIdx = element.dataset.empIdx;
 
     // 동적 폼 생성 및 전송
     var form = document.createElement("form");
     form.setAttribute("method", "post");
-    form.setAttribute("action", mappingId);
+    form.setAttribute("action", menuUrl);
 
     var params = {
         "menuCd": menuCd,
-		"menuPos": menuPos,
-		"leadMenuCd":leadMenuCd,
-        "pageUrl": mappingId,
+        "menuPos": menuPos,
+        "leadMenuCd": leadMenuCd,
+        "pageUrl": menuUrl,
         "empIdx": empIdx
     };
 
     for (var key in params) {
         if (params.hasOwnProperty(key)) {
             var hideField = document.createElement("input");
-            hideField.setAttribute("type", "hide");
+            hideField.setAttribute("type", "hidden");
             hideField.setAttribute("name", key);
             hideField.setAttribute("value", params[key]);
             form.appendChild(hideField);
         }
     }
-	//
+
     document.body.appendChild(form);
     form.submit();
 }

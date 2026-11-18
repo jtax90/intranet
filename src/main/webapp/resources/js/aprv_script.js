@@ -120,7 +120,7 @@ function lineCall(aprvId){
 		
 		obj["mappingId"] = "intrPopupInqy1042.do";
 		obj["areaType"] = "line";
-		obj["sequenceId"] = aprvId;
+		obj["aprvId"] = aprvId;
 		obj["width"] = "1100";
 		obj["height"] = "620";
 		//		
@@ -157,7 +157,7 @@ function itemCall(aprvId){
 
 		obj["mappingId"] = "intrPopupInqy1062.do";
 		obj["areaType"] = "item";
-		obj["sequenceId"] = aprvId;
+		obj["aprvId"] = aprvId;
 		obj["width"] = "1100"
 		obj["height"] = "620";
 		//		
@@ -194,7 +194,7 @@ function corpCall(aprvId){
 		
 		obj["mappingId"] = "intrPopupInqy1072.do";
 		obj["areaType"] = "corp";
-		obj["sequenceId"] = aprvId;
+		obj["aprvId"] = aprvId;
 		obj["width"] = "1100"
 		obj["height"] = "620";
 		//		

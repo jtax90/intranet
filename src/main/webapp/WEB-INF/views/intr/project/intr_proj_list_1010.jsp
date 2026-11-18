@@ -29,10 +29,10 @@
 	}
 	
 	// 상세 화면 조회
-	function detCall(sequenceId) {
+	function detCall(projId) {
 		try {
 			//
-			$("#sequenceId").val(sequenceId);
+			$("#projId").val(projId);
 			formSubmit("intrProjInqy1030.do");
 			
 		} catch (error) {
@@ -105,7 +105,7 @@
 						<div id="sub_content">
 							<div class="form_area">
 								<div class="post_wrap">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
+									<input type="hidden" id="projId" name="projId" value="">
 									<input type="hidden" id="page" name="page" value="${param.page}">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 									
@@ -134,7 +134,7 @@
 													
 														<ul class="sUl select_ul scroll_wrap choice_options">
 															<c:forEach var="list" items="${statList}">
-																<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+																<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 															</c:forEach>
 														</ul>
 													</div>
@@ -202,16 +202,13 @@
 													<tr>
                                                         <td class="table_cell">
 					                                       <span class="check_box">
-                                                                <input type="checkbox"  name="checkBox" class="checkbox_input check_box deleteIdx" id="deleteIdx${status.index}" value="${list.projCd}">
+                                                                <input type="checkbox"  name="checkBox" class="checkbox_input check_box deleteIdx" id="deleteIdx${status.index}" value="${list.projId}">
                                                                 <label class="checkbox_label" for="check_label"><span class="checkbox_mark"></span></label>
 															</span>
 														</td>
                                                         <td class="table_cell">${list.statusNm}</td>
                                                         <td class="_title table_cell">
-															<c:if test="${list.fileYn eq 'Y'}">
-																<img id="fileImg" src='resources/images/icon/icon_file.png' width="15" height="15" />
-															</c:if>
-															<a class="show_view a_title" onclick="detCall('${list.projCd}');">${list.projTitle}</a>
+															<a class="show_view a_title" onclick="detCall('${list.projId}');">${list.projTitle}</a>
 														</td>
                                                         <td class="table_cell">${list.orgNm} ${list.ownerNm} ${list.rankNm}</td>
                                                         <td class="table_cell">

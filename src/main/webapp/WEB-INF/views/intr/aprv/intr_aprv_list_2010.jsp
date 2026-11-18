@@ -6,13 +6,13 @@
 
 <script type="text/javascript">
 	// 양식 선택
-	function detCall(temptypeCd, mappingId, sequenceId){
+	function detCall(temptypeCd, detUrl, aprvId){
 		try {
 				//	
-				$("#sequenceId").val(sequenceId);
+				$("#aprvId").val(aprvId);
 				$("#temptypeCd").val(temptypeCd);
 				//
-				formSubmit(mappingId);
+				formSubmit(detUrl);
 				
 		} catch (error) {
 	        console.error("[Error] 양식 선택 : ", error.message);
@@ -46,7 +46,7 @@
 						<div id="sub_content">
 							<div class="form_area">
 								<div class="post_wrap">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
+									<input type="hidden" id="aprvId" name="aprvId" value="">
 									<input type="hidden" id="page" name="page" value="${param.page}">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 									<input type="hidden" id="temptypeCd" name="temptypeCd" value="">
@@ -72,7 +72,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${stepList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>
@@ -88,7 +88,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${tempList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>
@@ -135,7 +135,7 @@
                                                         <td class="table_cell">${list.tempNm}</td>
                                                         <td class="table_cell">${list.aprvstepNm}</td>
                                                         <td class="_title table_cell">
-															<a class="show_view a_title" onclick="detCall('${list.temptypeCd}', '${list.detMappingId}', '${list.aprvId}');">
+															<a class="show_view a_title" onclick="detCall('${list.temptypeCd}', '${list.detUrl}', '${list.aprvId}');">
 																<script>document.write(isNew('${list.regDt}'))</script>
 																${list.aprvTitle}
 															</a>
@@ -149,9 +149,7 @@
 																<fmt:parseDate value="${list.regDt}" var="parseDt" pattern="yyyyMMdd"/>
 																<fmt:formatDate value="${parseDt}" var="formatDt" pattern="yyyy-MM-dd"/>
 																
-																<fmt:parseDate value="${list.regTm}" var="parseTm" pattern="HHmmss"/>
-																<fmt:formatDate value="${parseTm}" var="formatTm" pattern="HH:mm:ss"/>
-																${formatDt} ${formatTm}
+																${formatDt}
 															</span>
 														</td>
 			                                        </tr>

@@ -18,21 +18,20 @@
 	}
 	
 	// 메세지 조회
-	function popCall(sequenceId){
+	function popCall(logId){
 		try {
 			//
 			var obj = new Object();
-			//
 			obj["mappingId"] = "intrPopupInqy2021.do";
 			obj["areaType"] = "log";
-			obj["sequenceId"] = sequenceId;
-			obj["width"] = "670"
+			obj["logId"] = logId;
+			obj["width"] = "670";
 			obj["height"] = "420";
-			//		
+			//
 			ajaxPopup(obj);
-			
+		
 		} catch (error) {
-	        console.error("[Error] 메세지 조회 : ", error.message);
+			console.error("[Error] 메세지 조회 : ", error.message);
 		}
 	}
 </script>
@@ -57,7 +56,6 @@
 							<div id="sub_content">					
 								<div class="form_area">
 									<div class="post_wrap">
-										<input type="hidden" id="sequenceId" name="sequenceId" value="">
 										<input type="hidden" id="page" name="page" value="${param.page}">
 										<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 			
@@ -70,22 +68,6 @@
 													<input type="text" class="srch_cdt_date srchSdt" id="srchSdt" name="srchSdt" value="${param.srchSdt}" readonly="readonly" />
 													~
 													<input type="text" class="srch_cdt_date srchEdt" id="srchEdt" name="srchEdt" value="${param.srchEdt}" readonly="readonly"/>
-												</div>
-												
-												<!-- 유형 -->
-												<div class="srch_area">
-													<label class="srch_label">유형</label>
-													<div class="select_wrap">
-														<div id="procList" class="sList select_box choice_value">${empty param.srchLogNm ? '전체' : param.srchLogNm}</div>
-														<input type="hidden" name="srchLogCd" value="${param.srchLogCd}">
-														<input type="hidden" name="srchLogNm" value="${param.srchLogNm}">
-													
-														<ul class="sUl select_ul scroll_wrap choice_options">
-															<c:forEach var="list" items="${procList}">
-																<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
-															</c:forEach>
-														</ul>
-													</div>
 												</div>
 												
 												<!-- 요청자 -->
@@ -114,35 +96,26 @@
 												</colgroup>
 												<thead>
 													<tr>
-                                                        <th class="table_header" scope="col">처리</th>
-                                                        <th class="table_header" scope="col">요청 URL</th>
-                                                        <th class="table_header" scope="col">유형</th>
-                                                        <th class="table_header" scope="col">부서</th>
-                                                        <th class="table_header" scope="col">요청자</th>
-                                                        <th class="table_header" scope="col">요청일자</th>
+														<th class="table_header" scope="col">메시지</th>
+														<th class="table_header" scope="col">요청 URI</th>
+														<th class="table_header" scope="col">IP 주소</th>
+														<th class="table_header" scope="col">부서</th>
+														<th class="table_header" scope="col">요청자</th>
+														<th class="table_header" scope="col">요청일자</th>
 													</tr>
 												</thead>
 												<tbody>
 			                                       <c:forEach var="list" items="${defaultList}" varStatus="status"> 
 													<tr>
-                                                        <td class="table_cell">
-															<a class="show_view a_title" onclick="popCall('${list.logId}');">${list.isSucc eq 'Y' ? '성공' : '실패'}</a>
+														<td class="table_cell">
+															<a class="show_view a_title" onclick="popCall('${list.logId}');"><c:out value="${list.logMsg}"/></a>
 														</td>
-                                                        <td class="table_cell">${list.mappingId}</td>
-                                                        <td class="table_cell">${list.logtypeNm}</td>
-                                                        <td class="table_cell">${list.orgNm}</td>
-                                                        <td class="table_cell">${list.empNm} ${list.rankNm}</td>
-                                                        <td class="table_cell">
-															<span class="date">
-																<fmt:parseDate value="${list.regDt}" var="parseDt" pattern="yyyyMMdd"/>
-																<fmt:formatDate value="${parseDt}" var="formatDt" pattern="yyyy-MM-dd"/>
-																
-																<fmt:parseDate value="${list.regTm}" var="parseTm" pattern="HHmmss"/>
-																<fmt:formatDate value="${parseTm}" var="formatTm" pattern="HH:mm:ss"/>
-																${formatDt} ${formatTm}
-															</span>	
-														</td>
-			                                        </tr>
+														<td class="table_cell"><c:out value="${list.requestUri}"/></td>
+														<td class="table_cell"><c:out value="${list.ipAddress}"/></td>
+														<td class="table_cell"><c:out value="${list.orgNm}"/></td>
+														<td class="table_cell"><c:out value="${list.empNm}"/></td>
+														<td class="table_cell"><span class="date">${list.regDt}</span></td>
+													</tr>
 			                                        </c:forEach>
 			                                        
 			                                        <!-- 글이 없는 경우 -->

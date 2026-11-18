@@ -20,6 +20,7 @@ import com.intr.svc.EmpService;
 import com.intr.svc.MainService;
 import com.intr.svc.TaskService;
 import com.intr.svc.UtilService;
+import com.intr.vo.EmpVO;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -47,13 +48,15 @@ public class TaskServiceImpl implements TaskService{
 	public void taskInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
+		EmpVO loginInfo = (EmpVO) session.getAttribute("empVO");
+		paramMap.put("empIdx", loginInfo.getEmpIdx());
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
 			// 업무일지 조회
 			//--------------------------------------------------------------------------------------------
 			defaultList = taskDao.taskInqyDao1020(paramMap);
-			model.addAttribute("defaultList",defaultList);
+			model.addAttribute("defaultList", defaultList);
 			
 		} catch (Exception e) {
 			//
@@ -61,10 +64,12 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// 업무일지 작성 (ajax)
+	// 업무일지 작성 (AJAX)
 	public void taskInqyService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		List<HashMap<String, Object>> defaultList = null;
+		EmpVO loginInfo = (EmpVO) session.getAttribute("empVO");
+		paramMap.put("empIdx", loginInfo.getEmpIdx());
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
@@ -139,52 +144,48 @@ public class TaskServiceImpl implements TaskService{
 	}
 	
 	// 업무일지 저장
-	public String taskProcService1010(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
+	public String taskProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> tempMap = null;
-		HashMap<String, Object> defaultInfo = null;
+		EmpVO loginInfo = (EmpVO) session.getAttribute("empVO");
+		String empIdx = loginInfo.getEmpIdx();
+		String taskId = "";
 		String defaultStr = "";
 		String resStr = "NO";
 		int resInt = 0;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// 업무 일지 전체 삭제
+			// 기존 업무일지 제거
 			//--------------------------------------------------------------------------------------------
 			tempMap = new HashMap<String, Object>();
-			tempMap.put("empIdx", (String)paramMap.get("empIdx"));
-			tempMap.put("srchDt", (String)paramMap.get("srchDt"));
-			//
+			tempMap.put("empIdx", empIdx);
+			tempMap.put("srchDt", paramMap.get("srchDt"));
 			taskDao.taskProcDao1020(tempMap);
 
 			//--------------------------------------------------------------------------------------------
-			// 업무일지 채번
+			// 업무일지 데이터
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = taskDao.taskInqyDao1010(paramMap);
+			String jStr = (String) paramMap.get("taskList");
+			JSONParser parser = new JSONParser();
+			JSONArray arr = (JSONArray) parser.parse(jStr);
 			
 			//--------------------------------------------------------------------------------------------
 			// 업무 일지 등록
 			//--------------------------------------------------------------------------------------------
-			String jStr = (String)paramMap.get("taskList");
-			JSONParser parser = new JSONParser();
-			JSONArray arr = (JSONArray)parser.parse(jStr);
-			JSONObject obj = null; 
-			
-			for(Object data : arr) {
-				obj = (JSONObject) data;
-				// 임시 저장
+			for (Object data : arr) {
+				JSONObject obj = (JSONObject) data;
 				tempMap = new HashMap<String, Object>();
-				
-				tempMap.put("sequenceId", utilService.nvlProc((String)defaultInfo.get("sequenceId")));
-				tempMap.put("taskTitle", utilService.nvlProc((String)obj.get("taskTitle")));
-				tempMap.put("taskCont", utilService.nvlProc((String)obj.get("taskCont")));
-				tempMap.put("taskHh", utilService.nvlProc((String)obj.get("taskHh")));
-				tempMap.put("taskMm", utilService.nvlProc((String)obj.get("taskMm")));
-				tempMap.put("taskDt", utilService.nvlProc((String)obj.get("taskDt")));
-				tempMap.put("empIdx", utilService.nvlProc((String)obj.get("empIdx")));
-				
-				// 등록 처리
+				tempMap.put("taskId", taskId);
+				tempMap.put("taskTitle", utilService.nvlProc((String) obj.get("taskTitle")));
+				tempMap.put("taskCont", utilService.nvlProc((String) obj.get("taskCont")));
+				tempMap.put("taskHh", utilService.nvlProc((String) obj.get("taskHh")));
+				tempMap.put("taskMm", utilService.nvlProc((String) obj.get("taskMm")));
+				tempMap.put("taskDt", paramMap.get("srchDt"));
+				tempMap.put("projId", utilService.nvlProc((String) obj.get("projId")));
+				//
 				resInt += taskDao.taskProcDao1010(tempMap);
+				taskId = (String) tempMap.get("taskId");
 			}
 			
 			//--------------------------------------------------------------------------------------------
@@ -205,9 +206,10 @@ public class TaskServiceImpl implements TaskService{
 	}
 	
 	// 업무일지 삭제
-	public String taskProcService1020(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
+	public String taskProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
-		HashMap<String, Object> tempMap = null;
+		HashMap<String, Object> tempMap = new HashMap<String, Object>();
+		EmpVO loginInfo = (EmpVO) session.getAttribute("empVO");
 		String defaultStr = "";
 		String resStr = "YES";
 		//
@@ -215,12 +217,13 @@ public class TaskServiceImpl implements TaskService{
 			//--------------------------------------------------------------------------------------------
 			// 업무일지 삭제
 			//--------------------------------------------------------------------------------------------
-			tempMap = new HashMap<String, Object>();
-			tempMap.put("empIdx", (String)paramMap.get("empIdx"));
-			tempMap.put("srchDt", (String)paramMap.get("srchDt"));
-			//
+			tempMap.put("empIdx", loginInfo.getEmpIdx());
+			tempMap.put("srchDt", paramMap.get("srchDt"));
 			taskDao.taskProcDao1020(tempMap);
-			//
+			
+			//--------------------------------------------------------------------------------------------
+			// 결과 반환
+			//--------------------------------------------------------------------------------------------
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
 		} catch (Exception e) {

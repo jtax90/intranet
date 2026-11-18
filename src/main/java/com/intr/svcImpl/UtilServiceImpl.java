@@ -149,7 +149,7 @@ public class UtilServiceImpl implements UtilService{
 			//--------------------------------------------------------------------------------------------
 			// 공통 코드 조회
 			//--------------------------------------------------------------------------------------------
-			tempMap.put("commcodeGcd", groupCd);
+			tempMap.put("grpKey", groupCd);
 			defaultList = utilDao.codeInqyDao1010(tempMap);
 			model.addAttribute(modelNm, defaultList);
 			
@@ -264,80 +264,98 @@ public class UtilServiceImpl implements UtilService{
 		return joinCode;
     }
 	
-	// 파일 업로드 & 수정
+	// 파일 업로드, 수정
 	public String fileUpload(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
-		//
-		HashMap<String, Object> tempMap = null;
-		String resStr = "NO";
-		String filePath = "";
-		String isUploadImg = "";
-		MultipartFile file = null;
-		int num = 0;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 파일 업로드
-			//--------------------------------------------------------------------------------------------
-			List<MultipartFile> fileList = request.getFiles("fileList");
-			
-			//--------------------------------------------------------------------------------------------
-			// 경로 조회
-			//--------------------------------------------------------------------------------------------
-			filePath = this.setFilePath(paramMap);
-			paramMap.put("filePath", filePath);
+	    //
+	    HashMap<String, Object> tempMap = null;
+	    String fileId = this.nvlProc((String) paramMap.get("fileId"));
+	    String filePath = "";
+	    String isUploadImg = this.nvlProc((String) paramMap.get("isUploadImg"));
+	    MultipartFile file = null;
+	    int num = 0;
+	    //
+	    try {
+	        // 파일 목록
+	        List<MultipartFile> fileList = request.getFiles("fileList");
 
-			//--------------------------------------------------------------------------------------------
-			// DB, 파일 등록 및 수정
-			//--------------------------------------------------------------------------------------------
-			for (String key : paramMap.keySet()) {
-				String saveFileNm = "";
-				//
-				if(key.contains("insert")) {
-					// 등록
-					if(!fileList.isEmpty()) {
-						num = Integer.parseInt(key.replace("insert",""));
-						file = fileList.get(num);
-						saveFileNm = this.intrFileProc1010(paramMap, file);
-					}
-					
-					// file 저장
-					this.saveFile(filePath, saveFileNm, file);
-					
-				} else if(key.contains("delete")) {
-					// 삭제
-					num = Integer.parseInt(key.replace("delete",""));
-					this.intrFileProc1020(paramMap, num);
-					
-				} else if(key.contains("isUploadImg")) {
-					isUploadImg = this.nvlProc((String)paramMap.get(key));
-					// 이미지 (프로필, 배너)
-					if(isUploadImg != null && isUploadImg != "") {
-						// 삭제
-						tempMap = new HashMap<String, Object>();
-						tempMap.put("fileId", 		this.nvlProc((String)paramMap.get("sequenceId")));
-						tempMap.put("fileSno", 	"");
-						//
-						utilDao.fileProcDao1020(tempMap);
-						
-						// 등록
-						if(isUploadImg.equals("Y")) {
-							file = fileList.get(0);
-							saveFileNm = this.intrFileProc1010(paramMap, file);	// 등록
-							this.saveFile(filePath, saveFileNm, file);
-						} 
-					}
-				}
-			}
-			
-			// 결과 조회
-			resStr = "YES";
-			
-		} catch (Exception e) {
-			//
-			resStr = "NO";
-			throw e;
-		}
-		return resStr;
+	        // 신규 파일 여부 확인
+	        boolean hasNewFile = false;
+
+	        if ("Y".equals(isUploadImg)) {
+	            hasNewFile = !fileList.isEmpty() && !fileList.get(0).isEmpty();
+	            
+	        } else if (isUploadImg.isEmpty()) {
+	            for (int i = 0; i < fileList.size(); i++) {
+	                if (paramMap.containsKey("insert" + i)
+	                        && !fileList.get(i).isEmpty()) {
+	                    hasNewFile = true;
+	                    break;
+	                }
+	            }
+	        }
+
+	        // FILE_ID 채번
+	        if (fileId.isEmpty() && hasNewFile) {
+	            tempMap = utilDao.fileInqyDao1011(paramMap);
+	            fileId = (String) tempMap.get("fileId");
+	        }
+	        //
+	        if (fileId.isEmpty()) {
+	            return null;
+	        }
+	        paramMap.put("fileId", fileId);
+
+	        // 경로 조회
+	        filePath = this.setFilePath(paramMap);
+	        paramMap.put("filePath", filePath);
+
+	        // 일반 첨부 등록 — 0, 1, 2 순서대로 저장
+	        if (isUploadImg.isEmpty()) {
+	            for (int i = 0; i < fileList.size(); i++) {
+	                if (!paramMap.containsKey("insert" + i)) {
+	                    continue;
+	                }
+	                file = fileList.get(i);
+	                //
+	                if (!file.isEmpty()) {
+	                    String saveFileNm = this.intrFileProc1010(paramMap, file);
+	                    this.saveFile(filePath, saveFileNm, file);
+	                }
+	            }
+	        }
+
+	        // 일반 첨부 삭제
+	        for (String key : paramMap.keySet()) {
+	            if (key.matches("delete\\d+")) {
+	                num = Integer.parseInt(key.replace("delete", ""));
+	                this.intrFileProc1020(paramMap, num);
+	            }
+	        }
+
+	        // 프로필·배너 이미지 교체 또는 삭제
+	        if ("Y".equals(isUploadImg) || "N".equals(isUploadImg)) {
+	            tempMap = new HashMap<String, Object>();
+	            tempMap.put("fileId", fileId);
+	            tempMap.put("fileSno", "");
+	            //
+	            utilDao.fileProcDao1020(tempMap);
+	            //
+	            if ("Y".equals(isUploadImg)) {
+	                if (fileList.isEmpty() || fileList.get(0).isEmpty()) {
+	                    throw new IllegalArgumentException("Exception : 업로드할 이미지가 없습니다.");
+	                }
+	                //
+	                file = fileList.get(0);
+	                String saveFileNm = this.intrFileProc1010(paramMap, file);
+	                this.saveFile(filePath, saveFileNm, file);
+	            }
+	        }
+
+	    } catch (Exception e) {
+	        throw e;
+	    }
+
+	    return fileId;
 	}
 
 	// 파일 DB 저장
@@ -350,12 +368,12 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//
-			tempMap.put("fileId", 				this.nvlProc((String)paramMap.get("sequenceId")));
-			tempMap.put("fileNm", 				file.getOriginalFilename());
-			tempMap.put("saveFileNm",  		saveFileNm);
+			tempMap.put("fileId", 				this.nvlProc((String)paramMap.get("fileId")));
+			tempMap.put("fileNm", 			file.getOriginalFilename());
+			tempMap.put("saveFileNm",  	saveFileNm);
 			tempMap.put("filePath", 			this.nvlProc((String)paramMap.get("filePath")));
 			tempMap.put("filetypeCd", 		this.nvlProc((String)paramMap.get("filetypeCd")));
-			tempMap.put("fileExt", 				fileExt);
+			tempMap.put("fileExt", 			fileExt);
 			tempMap.put("fileSize", 			file.getSize());
 			//
 			utilDao.fileProcDao1010(tempMap);
@@ -388,7 +406,7 @@ public class UtilServiceImpl implements UtilService{
 		//
 		try {
 			//
-			tempMap.put("fileId", 		this.nvlProc((String)paramMap.get("sequenceId")));
+			tempMap.put("fileId", 		this.nvlProc((String)paramMap.get("fileId")));
 			tempMap.put("fileSno", 	paramMap.get("delete" + num));
 			//
 			utilDao.fileProcDao1020(tempMap);
@@ -552,7 +570,7 @@ public class UtilServiceImpl implements UtilService{
 			//--------------------------------------------------------------------------------------------
 			// 명칭 및 경로 조회
 			//--------------------------------------------------------------------------------------------
-			fileNm = (docCd.equals("ppt")) ? Const.MANU_PPT : (docCd.equals("word")) ? Const.MANU_WORD : Const.MANU_EXCEL;
+			fileNm = (docCd.equals("ppt")) ? Const.INTR_PPT : (docCd.equals("word")) ? Const.INTR_WORD : Const.INTR_EXCEL;
 			saveFileNm = fileNm;
 
 			//--------------------------------------------------------------------------------------------
@@ -575,7 +593,7 @@ public class UtilServiceImpl implements UtilService{
 	public void zipDown(Model model, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		String tempPath = "";
-		String fileNm = (String)paramMap.get("sequenceId") + ".zip";
+		String fileNm = (String)paramMap.get("fileId") + ".zip";
 		String saveFileNm = fileNm;
 		fileNm = fileNm.replaceAll(" ", "");
 		//
@@ -608,7 +626,8 @@ public class UtilServiceImpl implements UtilService{
 		//
 		String tempPath = "";
 		String filePath = "";
-		String contentNm = this.nvlProc((String)paramMap.get("sequenceId")).replaceAll(" ", "");
+		String fileId = (String)paramMap.get("fileId");
+		String contentNm = this.nvlProc(fileId).replaceAll(" ", "");
 		//
 		FileOutputStream fos = null;
 		FileInputStream fis = null;
@@ -623,7 +642,7 @@ public class UtilServiceImpl implements UtilService{
 			//--------------------------------------------------------------------------------------------
 			// 압축 파일 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
+			defaultList = utilDao.fileInqyDao1010(fileId);
 					
 			if(defaultList!=null && !defaultList.isEmpty()) {
 				//
@@ -711,6 +730,7 @@ public class UtilServiceImpl implements UtilService{
 	}
 
 	// 엑셀 다운로드
+	@SuppressWarnings("resource")
 	public void excelDown(List<Map<String, Object>> defaultList, HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		Set<String> allKeys = new HashSet<String>();

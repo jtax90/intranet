@@ -16,6 +16,10 @@
 	<typeHandlers>
         <typeHandler handler="com.intr.utils.TypeHandler" jdbcType="CLOB" javaType="java.lang.String"/>
     </typeHandlers>
+    
+    <plugins>
+	    <plugin interceptor="com.intr.utils.AuditPlugin"/>
+	</plugins>
 	
 	<mappers>
 		<mapper resource="config/mybatis/mapper/Aprv_Sql.xml" />

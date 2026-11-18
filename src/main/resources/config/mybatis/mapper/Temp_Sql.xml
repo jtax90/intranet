@@ -7,8 +7,8 @@
 				T.TEMP_CD
 	        ,   T.TEMP_NM
 	        ,	T.TEMPTYPE_CD
-	        ,	T.REG_MAPPING_ID
-	        ,	T.DET_MAPPING_ID
+	        , 	T.REG_URL
+			, 	T.DET_URL
 	        ,   T.DISP_ORDER
 	        ,   T.REMARK
 	        ,	'1' AS LV
@@ -40,7 +40,7 @@
 		/* tempProcDao1010 : 기안문 양식 수정 처리 */
 		UPDATE TEMPLATE
 			SET		TEMP_NM = #{tempNm, jdbcType=VARCHAR}
-					,	TEMP_CONT = #{tempCont, jdbcType=VARCHAR}
+					, 	TEMP_CONT = #{tempCont, jdbcType=CLOB}
 					,	USE_YN = #{useYn, jdbcType=VARCHAR}
 		WHERE TEMP_CD = #{tempCd, jdbcType=VARCHAR}
 	</update>

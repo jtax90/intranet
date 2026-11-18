@@ -82,7 +82,7 @@
                                             <dd class="form_value form_picker project_picker">
                                                 <input type="button" class="btn_blue vertical_top btn_action" value="선택" onclick="projCall();">
                                                 <input type="text" id="projPnm" class="form_input field_input" title="프로젝트명" name="projPnm" readonly="readonly" isRequired="Y">
-												<input type="hidden" id="projPcd" name="projPcd" value="">
+												<input type="hidden" id="projPcd" name="projId" value="">
 											</dd>
 										</dl>
                                         <dl class="form_row">
@@ -95,23 +95,23 @@
                                             <dt class="form_label">&#10003; 휴가 타입</dt>
                                             <dd class="form_value form_pair">
 									        	<div class="select_wrap">
-													<div id="leavList" class="sList select_box choice_value">${leavList[1].commcodeNm}</div>
-													<input type="hidden" id="leavtypeCd" name="leavtypeCd" value="${leavList[1].commcodeCd}">
-													<input type="hidden" id="leavtypeNm" name="leavtypeNm" value="${leavList[1].commcodeNm}">
+													<div id="leavList" class="sList select_box choice_value">${leavList[1].codeNm}</div>
+													<input type="hidden" id="leavtypeCd" name="leavtypeCd" value="${leavList[1].codeCd}">
+													<input type="hidden" id="leavtypeNm" name="leavtypeNm" value="${leavList[1].codeNm}">
 											
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${leavList}">
-															<c:if test="${list.commcodeCd != null and  list.commcodeCd != ''}">
-																<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<c:if test="${list.codeCd != null and list.codeCd != ''}">
+																<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 															</c:if>
 														</c:forEach>
 													</ul>
 												</div>
 									    	</dd>
-                                            <dt class="form_label">&#10003; 대직자</dt>
+                                            <dt class="form_label">대직자</dt>
                                             <dd class="form_value">
-                                                <input type="button" class="btn_blue vertical_top btn_action" value="선택" onclick="empCall();">
-                                                <input type="text" id="empPnm" class="w30per form_input" name="leavSubst" title="대직자" value="" readonly="readonly" isRequired="Y">
+                                                <input type="hidden" id="empPcd" name="substIdx" value="">
+												<input type="text" id="empPnm" class="w30per form_input" title="대직자" value="" readonly="readonly">
 											</dd>
 										</dl>
                                         <dl class="form_row">

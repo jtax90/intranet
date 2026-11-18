@@ -65,7 +65,8 @@
 							<div class="form_area">
 								<input type="hidden" id="page" name="page" value="${param.page}">
 								<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
-								<input type="hidden" id="sequenceId" name="sequenceId" value="${param.sequenceId}">
+								<input type="hidden" id="aprvId" name="aprvId" value="${defaultInfo.aprvId}">
+								<input type="hidden" id="fileId" name="fileId" value="${defaultInfo.fileId}">
 								<input type="hidden" id="currAprvSno" name="currAprvSno" value="${defaultInfo.currAprvSno}">
 								<input type="hidden" id="empIdx" name="empIdx" value="${empVO.empIdx}">
 								<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">

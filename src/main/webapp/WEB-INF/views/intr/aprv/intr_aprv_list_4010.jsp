@@ -75,7 +75,7 @@
 	function detCall(aprvlineId){
 		try {
 			// 결재선 지정
-			$(".aprvlineId").val(aprvlineId);
+			$("#aprvlineId").val(aprvlineId);
 			var param = $("#form").serialize();
 			//
 			$.ajax({
@@ -198,9 +198,8 @@
 		    		type : 'post',
 		        	url : 'intrAprvProc2010.do',
 		            data : {
-		            	sequenceId: aprvlineId,
+		            	aprvlineId: aprvlineId,
 		            	aprvlineNm: $("#aprvlineNm").val(),
-		            	regIdx: "${empVO.empIdx}",
 		            	aprvlineList: JSON.stringify(aprvlineList)
 		            },
 		            success : function(data){

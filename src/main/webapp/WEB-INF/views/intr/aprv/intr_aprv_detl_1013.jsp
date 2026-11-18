@@ -81,7 +81,7 @@
                                             <dd class="form_value form_picker project_picker">
                                                 <input type="button" class="btn_blue vertical_top btn_action" value="선택" onclick="projCall();">
                                                 <input type="text" id="projPnm" class="form_input field_input" title="프로젝트명" name="projPnm" readonly="readonly" isRequired="Y">
-												<input type="hidden" id="projPcd" name="projPcd" value="">
+												<input type="hidden" id="projPcd" name="projId" value="">
 											</dd>
 										</dl>
                                         <dl class="form_row">

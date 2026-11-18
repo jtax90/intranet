@@ -106,39 +106,58 @@
 	}
 	
 	// 저장 처리
-	function regProc(){
-		try {
-			// 권한 코드 지정
-			$("#roleCd").val($("#roleTree .list_bg").attr('id'));
+	function regProc() {
+		//
+	    try {
+	    	//
+	        var roleCd = $("#roleTree .list_bg").attr("id");
+	        if (!roleCd) {
+	            alert("권한을 선택해주세요.");
+	            return;
+	        }
+			//	
+	        if (!confirm("저장하시겠습니까?")) {
+	            return;
+	        }
 			
-			// 권한 사용자 지정
-			$("input[name=roleEmpIdx]").each(function(idx) {
-				$(this).attr("name","empIdx"+idx);
-			});
+			// 변수 저장
+	        var param = [
+	            {
+	                name: "roleCd",
+	                value: roleCd
+	            }
+	        ];
 			//
-			var param = $("#form").serialize();
-			if(confirm("저장하시겠습니까?")){
-				//
-				$.ajax({
-		    		type : 'post',
-		        	url : 'intrRoleProc3010.do',
-		            data : param,
-		            dataType : 'html',
-		            success : function(data){
-		            	//
-						alert("<spring:message code="PROC.SUCCESS"/>");
-		            	setListCall();
-		            },
-		            error : function(data){
-		            	//
-						alert("<spring:message code="PROC.ERROR"/>");
-		            }
-		      	});
-			}
+	        $(".roleEmpTbl input[name='roleEmpIdx']").each(function(idx) {
+	            param.push({
+	                name: "empIdx" + idx,
+	                value: $(this).val()
+	            });
+	        });
+			//	
+	        $.ajax({
+	            type: "post",
+	            url: "intrRoleProc3010.do",
+	            data: $.param(param),
+	            dataType: "html",
+	            success: function(data) {
+	                var json = eval(data);
+	
+	                if (json[0].res === "YES") {
+	                    alert("<spring:message code="PROC.SUCCESS"/>");
+	                    setListCall();
+	                } else {
+	                    alert("<spring:message code="PROC.FAIL"/>");
+	                }
+	            },
+	            error: function() {
+	                alert("<spring:message code="PROC.ERROR"/>");
+	            }
+	        });
 			
-		} catch (error) {
-	        console.error("[Error] 저장 처리 : ", error.message);
-		}
+	    } catch (error) {
+	        console.error("[Error] 저장 처리 :", error.message);
+	    }
 	}
 </script>
 
@@ -185,6 +204,6 @@
 <div class="btn_center form_actions">
     <button type="button" class="btn_gray_thin float_left btn_action action_compact" onclick="delCall();">삭제</button>
 
-    <button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc(this.form);">저장</button>
+    <button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc();">저장</button>
     <button type="button" class="btn_blue_thin float_right btn_action action_compact" onclick="setListCall();">새로고침</button>
 </div>

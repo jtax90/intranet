@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.svc.CoreService;
 import com.intr.svc.ProjService;
@@ -126,7 +125,7 @@ public class ProjController {
 	// 프로젝트 등록 처리
 	@RequestMapping("/intrProjProc1010.do")
 	@ResponseBody
-	public String intrProjProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String intrProjProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
 		//
@@ -134,7 +133,7 @@ public class ProjController {
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 등록
 			//--------------------------------------------------------------------------------------------
-			defaultStr = projService.projProcService1010(model, paramMap, request);
+			defaultStr = projService.projProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
@@ -170,7 +169,7 @@ public class ProjController {
 	// 프로젝트 수정 처리
 	@RequestMapping("/intrProjProc1030.do")
 	@ResponseBody
-	public String intrProjProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String intrProjProc1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
 		//
@@ -178,7 +177,7 @@ public class ProjController {
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 수정
 			//--------------------------------------------------------------------------------------------
-			defaultStr = projService.projProcService1030(model, paramMap, request);
+			defaultStr = projService.projProcService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//

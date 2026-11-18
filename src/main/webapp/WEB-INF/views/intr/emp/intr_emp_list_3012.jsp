@@ -29,9 +29,13 @@
 	// 담당업무 저장 처리
 	function saveProc(){
 		//
-		if($("#dutyTitle").val() == ''){
-			alert("<spring:message code="DUTY.TITLE.NONE"/>");
-			return;
+		if (!$("#dutyTitle").val().trim()) {
+		    alert("<spring:message code="DUTY.TITLE.NONE"/>");
+		    return;
+		}
+		if (!$("#dutyCont").val().trim()) {
+		    alert("업무 내용을 입력해주세요.");
+		    return;
 		}
 		//
 		try {

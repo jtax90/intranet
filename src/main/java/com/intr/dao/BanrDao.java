@@ -48,7 +48,7 @@ public class BanrDao {
 	public int banrProcDao1020(HashMap<String, Object> paramMap) {
 		//
 		int resInt = 0;
-		resInt = sqlsession.insert("banr.banrProcDao1020", paramMap);
+		resInt = sqlsession.update("banr.banrProcDao1020", paramMap);
 		return resInt;
 	}
 

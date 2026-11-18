@@ -27,7 +27,7 @@
 				<tr>
                     <td class='table_cell'>${list.useDt}</td>
                      <td class="table_cell">${list.useLoc}</td>
-                     <td class="table_cell">${list.useAmt}</td>
+                     <td class="table_cell">₩<fmt:formatNumber value="${list.useAmt}" pattern="#,##0"/></td>
                      <td class="table_cell">${list.useRsn}</td>
 			    </tr>
 			</c:forEach>

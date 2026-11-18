@@ -14,22 +14,20 @@
         <dd class="form_value">${defaultInfo.orgNm} ${defaultInfo.empNm} ${defaultInfo.rankNm}</dd>
 	</dl>
     <dl class="post_info form_row">
-        <dt class="form_label">회의 일자</dt>
-        <dd class="form_value">
+		<dt class="form_label">회의일자</dt>
+		<dd class="form_value">
 			<span class="date">
-				<fmt:parseDate value="${defaultInfo.mtgDt}" var="parseDt" pattern="yyyyMMdd"/>
+				<fmt:parseDate value="${defaultInfo.mtgSdt}" var="parseDt" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<fmt:formatDate value="${parseDt}" var="formatDt" pattern="yyyy-MM-dd"/>
 				${formatDt}
 			</span>
 		</dd>
-
-        <dt class="form_label">회의 시간</dt>
-        <dd class="form_value">
+		<dt class="form_label">회의 시간</dt>
+		<dd class="form_value">
 			<span class="date">
-				<fmt:parseDate value="${defaultInfo.mtgStm}" var="parseStm" pattern="HHmm"/>
+				<fmt:parseDate value="${defaultInfo.mtgSdt}" var="parseStm" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<fmt:formatDate value="${parseStm}" var="formatStm" pattern="HH:mm"/>
-				
-				<fmt:parseDate value="${defaultInfo.mtgEtm}" var="parseEtm" pattern="HHmm"/>
+				<fmt:parseDate value="${defaultInfo.mtgEdt}" var="parseEtm" pattern="yyyy-MM-dd HH:mm:ss"/>
 				<fmt:formatDate value="${parseEtm}" var="formatEtm" pattern="HH:mm"/>
 				${formatStm} ~ ${formatEtm}
 			</span>

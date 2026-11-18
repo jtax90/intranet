@@ -33,9 +33,10 @@
 						    ,   M.MENU_NM
 						    ,   M.UPPR_MENU_CD
 						    ,   UM.MENU_NM AS UPPR_MENU_NM
-						    ,   CASE WHEN M.UPPR_MENU_CD IS NULL
-						    		THEN LEAD(M.MAPPING_ID) OVER(ORDER BY M.MENU_CD ASC) 
-						    		ELSE M.MAPPING_ID END AS MAPPING_ID
+						    , CASE WHEN M.UPPR_MENU_CD IS NULL
+						    		THEN LEAD(M.MENU_URL) OVER(ORDER BY M.MENU_CD ASC)
+						    		ELSE M.MENU_URL
+						  		END AS MENU_URL
 					  		,	CASE WHEN M.UPPR_MENU_CD IS NULL
 						    		THEN LEAD(M.MENU_CD) OVER(ORDER BY M.MENU_CD ASC)
 						    		ELSE M.MENU_CD END AS LEAD_MENU_CD
@@ -73,7 +74,7 @@
 				    ,   M.MENU_NM
 				    ,   M.UPPR_MENU_CD
 				    ,   UM.MENU_NM AS UPPR_MENU_NM
-				    ,   M.MAPPING_ID
+				    , 	M.MENU_URL
 				    ,   M.USE_YN
 				    ,   M.DISP_ORDER
 				    ,   M.REMARK
@@ -104,18 +105,15 @@
 		     	  	AND R.USE_YN = 'Y'
 				WHERE 1 = 1
 					AND B.USE_YN = 'Y'
-					<if test="useYn != null and useYn != ''">
-						AND B.USE_YN = #{useYn, jdbcType=VARCHAR}
-					</if>
 				    <if test="srchNm != null and srchNm != ''">
 				    	AND REGEXP_REPLACE(LOWER(B.BRD_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 				    </if>
-				    <if test="srchSdt != null and srchSdt !=''">
-				    	AND B.REG_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="srchEdt != null and srchEdt !=''">
-				    	AND B.REG_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
-				    </if>
+				    <if test="srchSdt != null and srchSdt != ''">
+					    AND B.REG_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+					</if>
+					<if test="srchEdt != null and srchEdt != ''">
+					    AND B.REG_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+					</if>
 				    <if test="orgNm != null and orgNm != ''">
 				    	AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 					</if>
@@ -128,10 +126,10 @@
 			</when>
 			<when test="pageUrl.contains('Mtg')">
 				SELECT
-						COUNT(M.MTG_CD) AS LIST_CNT
+						COUNT(M.MTG_ID) AS LIST_CNT
 				FROM MEETING M
 				LEFT OUTER JOIN EMP_INFO E
-	            	ON M.MTG_IDX = E.EMP_IDX
+	            	ON M.REG_IDX = E.EMP_IDX
 				LEFT OUTER JOIN ORG O
 					ON O.ORG_CD = E.ORG_CD
 				LEFT OUTER JOIN RANK R
@@ -140,9 +138,10 @@
 		            <if test="srchNm != null and srchNm != ''">
 		            	AND REGEXP_REPLACE(LOWER(M.MTG_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 		            </if>
-		            <if test="srchDt != null and srchDt !=''">
-		            	AND M.MTG_DT = REPLACE(#{srchDt, jdbcType=VARCHAR},'-','')
-		            </if>
+		            <if test="srchDt != null and srchDt != ''">
+						AND M.MTG_SDT &gt;= TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+						AND M.MTG_SDT &lt; TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+					</if>
 		  			<if test="orgNm != null and orgNm != ''">
 		  				AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 					</if>
@@ -166,10 +165,10 @@
 				    	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 				    </if>
 				    <if test="srchSdt != null and srchSdt !=''">
-				    	AND E.HIRE_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
+				    	AND E.HIRE_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
 				    </if>
 				    <if test="srchEdt != null and srchEdt !=''">
-				    	AND E.HIRE_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
+				    	AND E.HIRE_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
 				    </if>
 					<if test="orgNm != null and orgNm != ''">
 		  				AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
@@ -200,107 +199,108 @@
 		            AND R.USE_YN = 'Y'
 		        LEFT OUTER JOIN TEMPLATE T
 		        	ON T.TEMP_CD = A.TEMP_CD
-		        LEFT OUTER JOIN COMMCODE CC_STEP
-	       			ON CC_STEP.COMMCODE_CD = A.APRVSTEP_CD
+		        LEFT OUTER JOIN CODE CC_STEP
+					ON CC_STEP.CODE_CD = A.APRVSTEP_CD
 				WHERE 1=1
-				<if test="srchNm != null and srchNm != ''">
-		           	AND REGEXP_REPLACE(LOWER(A.APRV_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-		           </if>
-		           <if test="srchSdt != null and srchSdt !=''">
-		           	AND A.REG_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
-		           </if>
-		           <if test="srchEdt != null and srchEdt !=''">
-		           	AND A.REG_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
-		           </if>
+					<if test="srchNm != null and srchNm != ''">
+			        	AND REGEXP_REPLACE(LOWER(A.APRV_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+					</if>
+					<if test="srchSdt != null and srchSdt !=''">
+		           		AND A.REG_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+		           	</if>
+		           	<if test="srchEdt != null and srchEdt !=''">
+		           		AND A.REG_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+		           	</if>
 		 			<if test="orgNm != null and orgNm != ''">
 		 				AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				</if>
-				<if test="rankNm != null and rankNm != ''">
-		           	AND REGEXP_REPLACE(LOWER(R.RANK_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{rankNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				</if>
-				<if test="srchIdx != null and srchIdx != ''">
-		           	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchIdx, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				</if>
-				<if test="srchStepCd != null and srchStepCd != ''">
+					</if>
+					<if test="rankNm != null and rankNm != ''">
+		           		AND REGEXP_REPLACE(LOWER(R.RANK_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{rankNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+					</if>
+					<if test="srchIdx != null and srchIdx != ''">
+		           		AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchIdx, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+					</if>
+					<if test="srchStepCd != null and srchStepCd != ''">
 			        	AND A.APRVSTEP_CD = #{srchStepCd, jdbcType=VARCHAR}
 					</if>
 			</when>
 			<when test="pageUrl.contains('Proj')">
-				SELECT 
-					COUNT(P.PROJ_CD) AS LIST_CNT 
+				SELECT
+					COUNT(P.PROJ_ID) AS LIST_CNT
 				FROM PROJECT P
 				LEFT OUTER JOIN EMP_INFO E
-					ON P.OWNER = E.EMP_IDX
+					ON P.OWNER_IDX = E.EMP_IDX
 				LEFT OUTER JOIN ORG O
 					ON O.ORG_CD = E.ORG_CD
+					AND O.USE_YN = 'Y'
 				LEFT OUTER JOIN RANK R
 					ON R.RANK_CD = E.RANK_CD
-				WHERE 1 = 1
+					AND R.USE_YN = 'Y'
+				WHERE P.USE_YN = 'Y'
 					<if test="srchNm != null and srchNm != ''">
-				    	AND REGEXP_REPLACE(LOWER(P.PROJ_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				    </if>
-				    <if test="srchDt != null and srchDt !=''">
-				    	AND P.REG_DT &gt;= REPLACE(#{srchDt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="orgNm != null and orgNm != ''">
-				    	AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+						AND REGEXP_REPLACE(LOWER(P.PROJ_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+					</if>
+					<if test="srchSdt != null and srchSdt != ''">
+						AND P.PROJ_EDT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+					</if>
+					<if test="srchEdt != null and srchEdt != ''">
+						AND P.PROJ_SDT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+					</if>
+					<if test="orgNm != null and orgNm != ''">
+						AND REGEXP_REPLACE(LOWER(O.ORG_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{orgNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 					</if>
 					<if test="rankNm != null and rankNm != ''">
 						AND REGEXP_REPLACE(LOWER(R.RANK_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{rankNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 					</if>
 					<if test="srchIdx != null and srchIdx != ''">
-		            	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchIdx, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+						AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchIdx, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
 					</if>
 					<if test="srchStatCd != null and srchStatCd != ''">
-						AND P.STATUS = #{srchStatCd, jdbcType=VARCHAR}
+						AND P.STATUS_CD = #{srchStatCd, jdbcType=VARCHAR}
 					</if>
 			</when>
 			<when test="pageUrl.contains('Task')">
-				SELECT 
-					COUNT(T.TASK_ID) AS LIST_CNT 
+				SELECT
+					COUNT(T.TASK_ID) AS LIST_CNT
 				FROM TASK T
-				LEFT OUTER JOIN EMP_INFO E
-					ON T.EMP_IDX = E.EMP_IDX
-				LEFT OUTER JOIN ORG O
+				INNER JOIN EMP_INFO E
+					ON E.EMP_IDX = T.REG_IDX
+				INNER JOIN ORG O
 					ON O.ORG_CD = E.ORG_CD
-				LEFT OUTER JOIN RANK R
+				INNER JOIN RANK R
 					ON R.RANK_CD = E.RANK_CD
-				WHERE 1 = 1
+				WHERE T.USE_YN = 'Y'
+					<if test="orgCd != null and orgCd != ''">
+						AND O.ORG_CD = #{orgCd, jdbcType=VARCHAR}
+					</if>
 					<if test="srchNm != null and srchNm != ''">
-				    	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				    </if>
-				    <if test="srchSdt != null and srchSdt !=''">
-				    	AND T.REG_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="srchEdt != null and srchEdt !=''">
-				    	AND T.REG_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="srchDt != null and srchDt !=''">
-				    	AND T.REG_DT = REPLACE(#{srchDt, jdbcType=VARCHAR},'-','')
-				    </if>
+						AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+					</if>
+					<if test="srchSdt != null and srchSdt != ''">
+						AND T.TASK_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+					</if>
+					<if test="srchEdt != null and srchEdt != ''">
+						AND T.TASK_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+					</if>
 			</when>
 			<when test="pageUrl.contains('Log')">
 				SELECT 
-					COUNT(L.LOG_ID) AS LIST_CNT 
+					COUNT(L.LOG_ID) AS LIST_CNT
 				FROM LOG L
 				LEFT OUTER JOIN EMP_INFO E
-					ON L.EMP_IDX = E.EMP_IDX
+					ON E.EMP_IDX = L.REG_IDX
 				LEFT OUTER JOIN ORG O
 					ON O.ORG_CD = E.ORG_CD
-				LEFT OUTER JOIN RANK R
-					ON R.RANK_CD = E.RANK_CD
-				WHERE 1 = 1
-					 <if test="srchNm != null and srchNm != ''">
-				    	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				    </if>
-				    <if test="srchSdt != null and srchSdt !=''">
-				    	AND L.REG_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="srchEdt != null and srchEdt !=''">
-				    	AND L.REG_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
-				    </if>
-					<if test="srchLogCd != null and srchLogCd != ''">
-						AND L.LOGTYPE_CD = #{srchLogCd, jdbcType=VARCHAR}
+					AND O.USE_YN = 'Y'
+				WHERE 1=1
+					<if test="srchNm != null and srchNm != ''">
+						AND REGEXP_REPLACE(LOWER(E.EMP_NM), '[^0-9가-힣A-Za-z]', '') LIKE '%' || REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}), '[^0-9가-힣A-Za-z]', '') || '%'
+					</if>
+					<if test="srchSdt != null and srchSdt != ''">
+						AND L.REG_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+					</if>
+					<if test="srchEdt != null and srchEdt != ''">
+						AND L.REG_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
 					</if>
 			</when>
 		</choose>

@@ -81,7 +81,6 @@
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 									<input type="hidden" id="tabCd" name="tabCd" value="${param.tabCd}">
 									<input type="hidden" id="empIdx" name="empIdx" value="${empVO.empIdx}">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
                                     <h2 class="content_heading" id="title">담당업무 조회</h2>
 
 									<!-- 탭 목록 -->

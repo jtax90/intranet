@@ -8,14 +8,10 @@
 <head>
 	<script type="text/javascript">
 	// 전역 변수 설정
-		let fileCnt = "${defaultList.size()}" != null && "${defaultList.size()}" != "" ? "${defaultList.size()}" : 0;
 		let mtgStm = null;
     	let mtgEtm = null;
 		
     	$(document).ready(function() {
-	    	// 오늘 선택 
-	    	$('#mtgDt').val(getDateStamp(new Date()));
-	    	
 	    	// 시간 선택
 			$(document).on('click', '.mtg_btn', function() {
 				// 예약된 값은 무시
@@ -90,7 +86,7 @@
 	    function refreshMtgTm() {
 	        let mtgDt = $('#mtgDt').val();
 	        let mtgLoc = $('#mtgLoc').val();
-	        let sequenceId = $('#sequenceId').val();
+	        let mtgId = $('#mtgId').val();
 
 	        if (!mtgDt || !mtgLoc) return;
 
@@ -100,7 +96,7 @@
 	            data: {
 	                mtgDt: mtgDt,
 	                mtgLoc: mtgLoc,
-	                sequenceId: sequenceId
+	                mtgId: mtgId
 	            },
 	            dataType: "json",
 	            success: function(bookedList) {
@@ -169,38 +165,32 @@
 			    let finalEtm = hour.toString().padStart(2, '0') + min.toString().padStart(2, '0');
 				//
 				if(confirm("수정하시겠습니까?")){
-					//
-					$('#mtgStm').val(finalStm);
-				    $('#mtgEtm').val(finalEtm);
-				    //
-					var fileList = setFormData();
-					// 
-		   			$.ajax({
-						url:"intrMtgProc1030.do",
-						processData : false,
-						contentType : false,
-						data: fileList,
-						type : 'POST',
-		   				success : function(data){
-		   						var json = eval(data);
-		   						
-		   						if(json[0].res=='YES'){
-		   							alert("<spring:message code="PROC.SUCCESS"/>");
-			   						location.href = "intrMtgInqy1010.do?pageUrl=Mtg";
-			   						
-		   						}else if(json[0].res=='NO'){
-		   							alert("<spring:message code="PROC.FAIL"/>");
-									return;
-									
-		   						}else{
-		   							alert("<spring:message code="PROC.EXISTS"/>");
-									return;	   							
-		   						}
-		   				},
-		   				error : function(res, status, error){
-		   					alert("<spring:message code="PROC.ERROR"/>");
-		   				}
-		   			});
+					$('#mtgStm').val(finalStm.slice(0, 2) + ":" + finalStm.slice(2));
+					$('#mtgEtm').val(finalEtm.slice(0, 2) + ":" + finalEtm.slice(2));
+
+					var param = $("#form").serialize();
+					$.ajax({
+						type: 'post',
+						url: 'intrMtgProc1030.do',
+						data: param,
+						dataType: 'html',
+						success: function(data){
+							var json = eval(data);
+							if(json[0].res == 'YES'){
+								alert("<spring:message code="PROC.SUCCESS"/>");
+								location.href = "intrMtgInqy1010.do?pageUrl=Mtg";
+							}else if(json[0].res == 'NO'){
+								alert("<spring:message code="PROC.FAIL"/>");
+								return;
+							}else{
+								alert("<spring:message code="PROC.EXISTS"/>");
+								return;
+							}
+						},
+						error: function(res, status, error){
+							alert("<spring:message code="PROC.ERROR"/>");
+						}
+					});
 				}
 				
 			} catch (error) {
@@ -211,7 +201,7 @@
 </head>
 
 <body id="main">
-<form id="form" method="POST" enctype="multipart/form-data">
+<form id="form" method="POST">
 	<!-- 메뉴 -->
 	<%@ include file="/WEB-INF/views/intr/comm/include/intr_include_1030.jsp" %>
 	
@@ -225,8 +215,7 @@
 				<div class="content">
 					<div class="sub_content">					
                         <div class="form_area">
-							<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-							<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.mtgCd}">
+							<input type="hidden" id="mtgId" name="mtgId" value="${defaultInfo.mtgId}">
 							<input type="hidden" id="page" name="page" value="${param.page}">
 							<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 							<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">
@@ -234,7 +223,6 @@
 							<input type="hidden" id="orgNm" name="orgNm" value="${param.orgNm}">
 							<input type="hidden" id="rankNm" name="rankNm" value="${param.rankNm}">
 							<input type="hidden" id="srchIdx" name="srchIdx" value="${param.srchIdx}">
-							<input type="hidden" id="filetypeCd" name="filetypeCd" value="MTG">
 							<input type="hidden" id="mtgStm" name="mtgStm" value="">
 							<input type="hidden" id="mtgEtm" name="mtgEtm" value="">
 								
@@ -248,9 +236,9 @@
                                         <dd class="form_value">
                                             <input class="form_input" type="text" id="mtgTitle" title="회의명" name="mtgTitle" value="${defaultInfo.mtgTitle}" isRequired="Y">
 										</dd>
-                                        <dt class="form_label">&#10003; 회의 일자</dt>
+                                        <dt class="form_label">&#10003; 회의일자</dt>
                                         <dd class="form_value">
-                                            <input type="text" class="srch_cdt_date srchSdt form_input" id="mtgDt" name="mtgDt" title="회의 일자" value="${fn:substring(defaultInfo.mtgDt, 0, 4)}-${fn:substring(defaultInfo.mtgDt, 4, 6)}-${fn:substring(defaultInfo.mtgDt, 6, 8)}" readonly="readonly" isRequired="Y" />
+                                            <input type="text" class="srch_cdt_date srchSdt form_input" id="mtgDt" name="mtgDt" title="회의일자" value="${fn:substring(defaultInfo.mtgSdt, 0, 10)}" readonly="readonly" isRequired="Y" />
 										</dd>
                                         <dt class="form_label">&#10003; 회의장소</dt>
                                         <dd class="form_value form_pair">
@@ -261,8 +249,8 @@
 											
 												<ul class="sUl select_ul scroll_wrap choice_options">
 													<c:forEach var="list" items="${locList}">
-														<c:if test="${list.commcodeCd != null and  list.commcodeCd != ''}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+														<c:if test="${list.codeCd != null and list.codeCd != ''}">
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:if>
 													</c:forEach>
 												</ul>
@@ -303,30 +291,9 @@
                                             <textarea class="form_textarea" id="projCont" title="회의 개요" name="mtgCont" isRequired="Y">${defaultInfo.mtgCont}</textarea>
 										</dd>
 									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label">회의자료</dt>
-                                        <dd class="form_value">
-                                            <div class="file_box form_upload">
-                                                <label class="upload_label" for="fileUpd">업로드</label>
-												<h4 class="file_text">업로드할 파일을 선택해주세요.</h4>
-                                                <input type="file" id="fileUpd" name="fileUpd" class="btn_blue btn_action upload_input" multiple="multiple">
-											</div>
-										</dd>
-									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label"></dt>
-                                        <dd class="post_file form_value form_attachments">
-											<div class="file_wrap">
-												<!-- 파일 목록 -->
-												<c:import url="/WEB-INF/views/intr/comm/include/intr_include_1040.jsp">
-													<c:param name="fileNm"></c:param>
-												</c:import>
-											</div>
-										</dd>
-									</dl>
 								</div><!-- End post_write -->
                                 <div class="btn_right btn_wrap">
-									<c:if test="${empVO.empIdx eq defaultInfo.mtgIdx}">
+									<c:if test="${empVO.empIdx eq defaultInfo.regIdx}">
                                         <button type="button" class="btn_navy_thin btn_action action_compact" onclick="modProc(this.form);">수정완료</button>
                                         <button type="button" class="btn_gray_thin btn_action action_compact" onclick="detCall();">취소</button>
 									</c:if>

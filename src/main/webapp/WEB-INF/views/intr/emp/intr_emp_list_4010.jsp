@@ -41,13 +41,13 @@
 											<div class="srch_area">
 												<label class="srch_label">연도</label>
 												<div class="select_wrap">
-													<div id="yearList" class="sList select_box choice_value">${empty param.srchYearNm ? yearList[0].commcodeNm : param.srchYearNm}</div>
+													<div id="yearList" class="sList select_box choice_value">${empty param.srchYearNm ? yearList[0].codeNm : param.srchYearNm}</div>
 													<input type="hidden" name="srchYearCd" value="${param.srchYearCd}">
 													<input type="hidden" name="srchYearNm" value="${param.srchYearNm}">
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${yearList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>
@@ -63,7 +63,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${hireList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>

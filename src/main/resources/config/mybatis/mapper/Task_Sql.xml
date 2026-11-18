@@ -8,98 +8,113 @@
 
 	<select id="taskInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* taskInqyDao1020 : 업무일지 조회 */
-		SELECT 
-			    T.TASK_ID
-			,   T.EMP_IDX
+		SELECT
+				T.TASK_ID
+			,	T.TASK_SNO
 			,	T.TASK_TITLE
 			,	T.TASK_CONT
-			,   T.TASK_DT
+			,	TO_CHAR(T.TASK_DT, 'YYYYMMDD') AS TASK_DT
 			,	T.TASK_HH
 			,	T.TASK_MM
+			,	T.PROJ_ID
+			,	P.PROJ_TITLE
+			,	T.REG_IDX
 			,	E.EMP_NM
 			,	O.ORG_NM
 			,	R.RANK_NM
 		FROM TASK T
 		LEFT OUTER JOIN EMP_INFO E
-			ON E.EMP_IDX = T.EMP_IDX
+			ON E.EMP_IDX = T.REG_IDX
 		LEFT OUTER JOIN ORG O
 			ON O.ORG_CD = E.ORG_CD
 		LEFT OUTER JOIN RANK R
 			ON R.RANK_CD = E.RANK_CD
-		WHERE 1=1 
-            	AND T.EMP_IDX = #{empIdx, jdbcType=VARCHAR}
-				AND T.TASK_DT = CASE WHEN REPLACE(#{srchDt, jdbcType=VARCHAR},'-','') IS NULL
-												THEN TO_CHAR(SYSDATE,'YYYYMMDD') ELSE REPLACE(#{srchDt, jdbcType=VARCHAR},'-','') END 
+		LEFT OUTER JOIN PROJECT P
+			ON P.PROJ_ID = T.PROJ_ID
+		WHERE T.REG_IDX = #{empIdx, jdbcType=VARCHAR}
+			AND T.USE_YN = 'Y'
+			AND T.TASK_DT &gt;= NVL(TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD'), TRUNC(SYSDATE))
+			AND T.TASK_DT &lt; NVL(TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD'), TRUNC(SYSDATE)) + 1
 		ORDER BY T.TASK_SNO ASC
 	</select>
 	
 	<select id="taskInqyDao2010" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* taskInqyDao2010 : 업무일지 목록 조회 */
+		SELECT
+			RESULT.*
+		FROM (
 			SELECT
-				RESULT.*
-			FROM (
-				SELECT
-						T.TASK_ID
-					,	T.TASK_SNO
-					,	T.TASK_TITLE
-					,	T.TASK_DT
-					,	T.EMP_IDX
-					,	T.REG_DT
-					,	T.REG_TM
-					,	E.EMP_NM
-					,	E.ORG_CD
-					,	O.ORG_NM
-					,	R.RANK_NM
-					,	E.RANK_CD
-					,	COUNT(T.TASK_ID) OVER(PARTITION BY T.TASK_ID) AS ROW_CNT
-					,	ROW_NUMBER() OVER(PARTITION BY T.TASK_ID ORDER BY T.TASK_ID ASC, T.TASK_SNO ASC) AS ROW_NUM
-					,   COUNT(T.TASK_ID) OVER() AS LIST_CNT
-				FROM TASK T
-				INNER JOIN EMP_INFO E
-					ON E.EMP_IDX = T.EMP_IDX
-				INNER JOIN ORG O
-					ON O.ORG_CD = E.ORG_CD
-				INNER JOIN RANK R
-					ON R.RANK_CD = E.RANK_CD
-				WHERE 1=1
-					<if test="orgCd != null and orgCd != ''">
-				    	AND O.ORG_CD = #{orgCd, jdbcType=VARCHAR}
-				    </if>
-					<if test="srchNm != null and srchNm != ''">
-				    	AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
-				    </if>
-				    <if test="srchSdt != null and srchSdt !=''">
-				    	AND T.REG_DT &gt;= REPLACE(#{srchSdt, jdbcType=VARCHAR},'-','')
-				    </if>
-				    <if test="srchEdt != null and srchEdt !=''">
-				    	AND T.REG_DT &lt;= REPLACE(#{srchEdt, jdbcType=VARCHAR},'-','')
-				    </if>
-			) RESULT
-			ORDER BY RESULT.ROW_NUM ASC
+					T.TASK_ID
+				,	T.TASK_SNO
+				,	T.TASK_TITLE
+				,	TO_CHAR(T.TASK_DT, 'YYYYMMDD') AS TASK_DT
+				,	T.TASK_HH
+				,	T.TASK_MM
+				,	T.PROJ_ID
+				,	P.PROJ_TITLE
+				,	T.REG_IDX
+				,	TO_CHAR(T.REG_DT, 'YYYYMMDD') AS REG_DT
+				,	E.EMP_NM
+				,	E.ORG_CD
+				,	O.ORG_NM
+				,	R.RANK_NM
+				,	E.RANK_CD
+				,	COUNT(*) OVER(PARTITION BY T.TASK_ID) AS ROW_CNT
+				,	ROW_NUMBER() OVER(PARTITION BY T.TASK_ID ORDER BY T.TASK_SNO ASC) AS ROW_NUM
+				,	COUNT(*) OVER() AS LIST_CNT
+			FROM TASK T
+			INNER JOIN EMP_INFO E
+				ON E.EMP_IDX = T.REG_IDX
+			INNER JOIN ORG O
+				ON O.ORG_CD = E.ORG_CD
+			INNER JOIN RANK R
+				ON R.RANK_CD = E.RANK_CD
+			LEFT OUTER JOIN PROJECT P
+				ON P.PROJ_ID = T.PROJ_ID
+			WHERE T.USE_YN = 'Y'
+				<if test="orgCd != null and orgCd != ''">
+					AND O.ORG_CD = #{orgCd, jdbcType=VARCHAR}
+				</if>
+				<if test="srchNm != null and srchNm != ''">
+					AND REGEXP_REPLACE(LOWER(E.EMP_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
+				</if>
+				<if test="srchSdt != null and srchSdt != ''">
+					AND T.TASK_DT &gt;= TO_DATE(#{srchSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+				</if>
+				<if test="srchEdt != null and srchEdt != ''">
+					AND T.TASK_DT &lt; TO_DATE(#{srchEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
+				</if>
+		) RESULT
+		ORDER BY RESULT.TASK_ID DESC, RESULT.TASK_SNO ASC
 	</select>
 	
 	<select id="taskInqyDao2020" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* taskInqyDao2020 : 업무일지 상세 조회 */
-		SELECT 
-			    T.TASK_ID
-			,   T.EMP_IDX
+		SELECT
+				T.TASK_ID
+			,	T.TASK_SNO
 			,	T.TASK_TITLE
 			,	T.TASK_CONT
-			,   T.TASK_DT
+			,	TO_CHAR(T.TASK_DT, 'YYYYMMDD') AS TASK_DT
 			,	T.TASK_HH
 			,	T.TASK_MM
+			,	T.PROJ_ID
+			,	P.PROJ_TITLE
+			,	T.REG_IDX
 			,	E.EMP_NM
 			,	O.ORG_NM
 			,	R.RANK_NM
 		FROM TASK T
 		LEFT OUTER JOIN EMP_INFO E
-			ON E.EMP_IDX = T.EMP_IDX
+			ON E.EMP_IDX = T.REG_IDX
 		LEFT OUTER JOIN ORG O
 			ON O.ORG_CD = E.ORG_CD
 		LEFT OUTER JOIN RANK R
 			ON R.RANK_CD = E.RANK_CD
-		WHERE 1=1 
-            	AND T.TASK_ID = #{taskId, jdbcType=VARCHAR}
+		LEFT OUTER JOIN PROJECT P
+			ON P.PROJ_ID = T.PROJ_ID
+		WHERE T.TASK_ID = #{taskId, jdbcType=VARCHAR}
+			AND T.USE_YN = 'Y'
 		ORDER BY T.TASK_SNO ASC
 	</select>
 	
@@ -153,6 +168,16 @@
 	
 	<insert id="taskProcDao1010" parameterType="java.util.HashMap">
 		/* taskProcDao1010 : 업무일지 등록 처리 */
+		<selectKey keyProperty="taskId" resultType="java.lang.String" order="BEFORE">
+			<choose>
+				<when test="taskId != null and taskId != ''">
+					SELECT #{taskId, jdbcType=VARCHAR} FROM DUAL
+				</when>
+				<otherwise>
+					SELECT 'TASK_' || LPAD(NVL(MAX(TO_NUMBER(REPLACE(TASK_ID, 'TASK_', ''))), 0) + 1, 4, '0') FROM TASK
+				</otherwise>
+			</choose>
+		</selectKey>
 		INSERT INTO TASK
 		(
 				TASK_ID
@@ -162,38 +187,27 @@
 			,	TASK_HH
 			,	TASK_MM
 			,	TASK_DT
-			,	EMP_IDX
+			,	PROJ_ID
+			,	REG_IDX
 			,	REG_DT
-			,	REG_TM
 			,	USE_YN
 			,	DISP_ORDER
 			,	REMARK
 		)
 		VALUES
 		(
-				#{sequenceId, jdbcType=VARCHAR}
-			,	(
-					SELECT 
-                        LPAD(NVL(MAX(TASK_SNO),0) + 1,4,0)
-					FROM TASK 
-					WHERE TASK_DT = REPLACE(#{taskDt, jdbcType=VARCHAR},'-','')
-						AND EMP_IDX = #{empIdx, jdbcType=VARCHAR}
-				)
+				#{taskId, jdbcType=VARCHAR}
+			,	(SELECT LPAD(NVL(MAX(TO_NUMBER(TASK_SNO)), 0) + 1, 4, '0') FROM TASK WHERE TASK_ID = #{taskId, jdbcType=VARCHAR})
 			,	#{taskTitle, jdbcType=VARCHAR}
 			,	#{taskCont, jdbcType=VARCHAR}
-			,	#{taskHh, jdbcType=VARCHAR}
-			,	#{taskMm, jdbcType=VARCHAR}
-			,	REPLACE(#{taskDt, jdbcType=VARCHAR},'-','')
-			,	#{empIdx, jdbcType=VARCHAR}
-			,	TO_CHAR(SYSDATE, 'YYYYMMDD')
-			,	TO_CHAR(SYSDATE, 'HHMMSS')
+			,	#{taskHh, jdbcType=NUMERIC}
+			,	#{taskMm, jdbcType=NUMERIC}
+			,	TO_DATE(#{taskDt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+			,	#{projId, jdbcType=VARCHAR}
+			,	#{regIdx, jdbcType=VARCHAR}
+			,	SYSDATE
 			,	'Y'
-			,	(
-					SELECT 
-						NVL(MAX(DISP_ORDER),0) + 1 
-					FROM TASK
-					WHERE TASK_ID = #{sequenceId, jdbcType=VARCHAR}
-				)
+			,	(SELECT NVL(MAX(DISP_ORDER), 0) + 1 FROM TASK WHERE TASK_ID = #{taskId, jdbcType=VARCHAR})
 			,	NULL
 		)
 	</insert>
@@ -201,8 +215,9 @@
 	<delete id="taskProcDao1020" parameterType="java.util.HashMap">
 		/* taskProcDao1020 : 업무일지 삭제 처리 */
 		DELETE FROM TASK
-			WHERE EMP_IDX = #{empIdx, jdbcType=VARCHAR}
-				AND TASK_DT = REPLACE(#{srchDt, jdbcType=VARCHAR},'-','')
+		WHERE REG_IDX = #{empIdx, jdbcType=VARCHAR}
+			AND TASK_DT &gt;= TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+			AND TASK_DT &lt; TO_DATE(#{srchDt, jdbcType=VARCHAR}, 'YYYY-MM-DD') + 1
 	</delete>
 	
 	<insert id="taskProcDao2010" parameterType="java.util.HashMap">

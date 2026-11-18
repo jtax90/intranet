@@ -81,7 +81,7 @@
                                             <dd class="form_value form_picker project_picker">
                                                 <input type="button" class="btn_blue vertical_top btn_action" value="선택" onclick="projCall();">
                                                 <input type="text" id="projPnm" class="form_input field_input" title="프로젝트명" name="projPnm" readonly="readonly" isRequired="Y">
-												<input type="hidden" id="projPcd" name="projPcd" value="">
+												<input type="hidden" id="projPcd" name="projId" value="">
 											</dd>
 										</dl>
                                         <dl class="form_row">
@@ -92,14 +92,14 @@
                                             <dt class="form_label">&#10003; 반출 구분</dt>
                                             <dd class="form_value form_pair">
 									        	<div class="select_wrap">
-													<div id="reqList" class="sList select_box choice_value">${reqList[1].commcodeNm}</div>
-													<input type="hidden" id="reqtypeCd" name="reqtypeCd" value="${reqList[1].commcodeCd}">
-													<input type="hidden" id="reqtypeNm" name="reqtypeNm" value="${reqList[1].commcodeNm}">
+													<div id="reqList" class="sList select_box choice_value">${reqList[1].codeNm}</div>
+													<input type="hidden" id="reqtypeCd" name="reqtypeCd" value="${reqList[1].codeCd}">
+													<input type="hidden" id="reqtypeNm" name="reqtypeNm" value="${reqList[1].codeNm}">
 											
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${reqList}">
-															<c:if test="${list.commcodeCd != null and  list.commcodeCd != ''}">
-																<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<c:if test="${list.codeCd != null and list.codeCd != ''}">
+																<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 															</c:if>
 														</c:forEach>
 													</ul>

@@ -1,5 +1,6 @@
 package com.intr.svcImpl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -94,7 +95,7 @@ public class BoardServiceImpl implements BoardService{
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
+			defaultList = utilDao.fileInqyDao1010((String)defaultInfo.get("fileId"));
 			model.addAttribute("fileList",defaultList);
 
 			//--------------------------------------------------------------------------------------------
@@ -117,17 +118,17 @@ public class BoardServiceImpl implements BoardService{
 	// 공지사항 등록
 	public String boardProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
-		HashMap<String, Object> defaultInfo = null;
 		String defaultStr = "";
 		String resStr = "NO";
+		String fileId = "";
 		int resInt = 0;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// 공지사항 채번
+			// 파일 등록
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = boardDao.boardInqyDao1010(paramMap);
-			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
+		    fileId = utilService.fileUpload(model, paramMap, request);
+		    paramMap.put("fileId", fileId);
 			
 			//--------------------------------------------------------------------------------------------
 			// 공지사항 등록
@@ -138,11 +139,6 @@ public class BoardServiceImpl implements BoardService{
 				resStr = "YES";
 			}
 
-			//--------------------------------------------------------------------------------------------
-			// 파일 등록
-			//--------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
-			
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------
@@ -159,76 +155,86 @@ public class BoardServiceImpl implements BoardService{
 	// 공지사항 삭제
 	public String boardProcService1020(Model model, String [] deleteList) throws Exception {
 		//
-		String defaultStr = "";
-		String resStr = "NO";
-		int resInt = 0;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 값 세팅
-			//--------------------------------------------------------------------------------------------
-			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("deleteList", deleteList);
+	    String defaultStr = "";
+	    String resStr = "NO";
+	    int resInt = 0;
+	    //
+	    try {
+	        // 값 세팅
+	        HashMap<String, Object> paramMap = new HashMap<String, Object>();
+	        paramMap.put("deleteList", deleteList);
 
-			//--------------------------------------------------------------------------------------------
-			// 공지사항 삭제
-			//--------------------------------------------------------------------------------------------
-			resInt = boardDao.boardProcDao1020(paramMap);
+	        // 게시글 삭제 전 파일 ID 조회
+	        List<String> fileIds = new ArrayList<String>();
 
-			//--------------------------------------------------------------------------------------------
-			// 파일 삭제 처리 (삭제)
-			//--------------------------------------------------------------------------------------------
-			utilDao.fileProcDao1030(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt>0) {
-				resStr = "YES";
-			}
-			//
-			defaultStr = String.format("[{'res':'%s'}]", resStr);			
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-		
-		return defaultStr;
+	        for (String brdId : deleteList) {
+	            HashMap<String, Object> tempMap = new HashMap<String, Object>();
+	            tempMap.put("brdId", brdId);
+	            //
+	            HashMap<String, Object> boardInfo = boardDao.boardInqyDao1030(tempMap);
+	            String fileId = (String) boardInfo.get("fileId");
+	            
+	            if (fileId != null && !fileId.isEmpty() && !fileIds.contains(fileId)) {
+	                fileIds.add(fileId);
+	            }
+	        }
+
+	        // 공지사항 DB 삭제
+	        resInt = boardDao.boardProcDao1020(paramMap);
+
+	        // 파일 DB 삭제
+	        for (String fileId : fileIds) {
+	            HashMap<String, Object> fileMap = new HashMap<String, Object>();
+	            fileMap.put("fileId", fileId);
+	            utilDao.fileProcDao1030(fileMap);
+	        }
+
+	        // 결과 반환
+	        if (resInt > 0) {
+	            resStr = "YES";
+	        }
+	        defaultStr = String.format("[{'res':'%s'}]", resStr);
+
+	    } catch (Exception e) {
+	        throw e;
+	    }
+	    //
+	    return defaultStr;
 	}
 	
 	// 공지사항 수정
 	public String boardProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
-		String defaultStr = "";
-		String resStr = "NO";
-		int resInt = 0;
-		//
-		try {
+	    HashMap<String, Object> defaultInfo = null;
+	    String defaultStr = "";
+	    String resStr = "NO";
+	    String fileId = "";
+	    int resInt = 0;
+	    //
+	    try {
+	    	//--------------------------------------------------------------------------------------------
+			// 공지사항
 			//--------------------------------------------------------------------------------------------
-			// 공지사항 수정
-			//--------------------------------------------------------------------------------------------
-			resInt = boardDao.boardProcDao1040(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 파일 수정
-			//--------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
+	        defaultInfo = boardDao.boardInqyDao1030(paramMap);
+	        paramMap.put("fileId", defaultInfo.get("fileId"));
 
-			//--------------------------------------------------------------------------------------------
-			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt>0) {
-				resStr = "YES";
-			}
-			//
-			defaultStr = String.format("[{'res':'%s'}]", resStr);			
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-		
-		return defaultStr;
+	        // 파일 수정
+	        fileId = utilService.fileUpload(model, paramMap, request);
+	        paramMap.put("fileId", fileId);
+
+	        // 공지사항 수정
+	        resInt = boardDao.boardProcDao1040(paramMap);
+	        if (resInt > 0) {
+	            resStr = "YES";
+	        }
+
+	        // 결과 반환
+	        defaultStr = String.format("[{'res':'%s'}]", resStr);
+	        
+	    } catch (Exception e) {
+	        throw e;
+	    }
+	    //
+	    return defaultStr;
 	}
 }

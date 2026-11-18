@@ -9,15 +9,17 @@
 	<select id="banrInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* banrInqyDao1020 : 배너 조회 */
 		SELECT
-				B.BANR_CD
-			,	B.BANR_SDT
-			,	B.BANR_EDT
-			,	B.BANR_IDX
-			,	B.WIDTH
-			,	B.HEIGHT
+				B.BANR_ID
+			,	B.BANR_NM
+			,	TO_CHAR(B.BANR_SDT, 'YYYYMMDD') AS BANR_SDT
+			,	TO_CHAR(B.BANR_EDT, 'YYYYMMDD') AS BANR_EDT
 			,	B.BANR_URL
 			,	B.USE_YN
-			,	F.FILE_ID
+			,	B.FILE_ID
+			,	B.REG_IDX
+			,	TO_CHAR(B.REG_DT, 'YYYYMMDD') AS REG_DT
+			,	B.DISP_ORDER
+			,	B.REMARK
 			,	F.FILE_SNO
 			,	F.FILE_NM
 			,	F.SAVE_FILE_NM
@@ -26,32 +28,34 @@
 			,	F.FILE_EXT
 			,	F.FILE_SIZE
 			,	E.EMP_NM
-			,	E.EMP_IDX
-			,	O.ORG_CD
+			,	E.ORG_CD
 			,	O.ORG_NM
 		FROM BANR B
-		INNER JOIN FILE_INFO F
-			ON B.BANR_CD = F.FILE_ID
-		INNER JOIN EMP_INFO E
-			ON B.BANR_IDX = E.EMP_IDX
-		INNER JOIN ORG O
-			ON O.ORG_CD = E.ORG_CD
-		WHERE F.FILETYPE_CD = 'BANR'
+		LEFT OUTER JOIN FILE_INFO F
+			ON F.FILE_ID = B.FILE_ID
+			AND F.FILETYPE_CD = 'BANR'
 			AND F.USE_YN = 'Y'
+		LEFT OUTER JOIN EMP_INFO E
+			ON E.EMP_IDX = B.REG_IDX
+		LEFT OUTER JOIN ORG O
+			ON O.ORG_CD = E.ORG_CD
+		WHERE 1=1
+		<if test="banrId != null and banrId != ''">
+			AND B.BANR_ID = #{banrId, jdbcType=VARCHAR}
+		</if>
 	</select>
 	
 	<select id="banrInqyDao1030" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* banrInqyDao1030 : 배너 조회 (메인) */
-SELECT
-				B.BANR_CD
-			,	B.BANR_SDT
-			,	B.BANR_EDT
-			,	B.BANR_IDX
-			,	B.WIDTH
-			,	B.HEIGHT
+		SELECT
+				B.BANR_ID
+			,	B.BANR_NM
+			,	TO_CHAR(B.BANR_SDT, 'YYYYMMDD') AS BANR_SDT
+			,	TO_CHAR(B.BANR_EDT, 'YYYYMMDD') AS BANR_EDT
 			,	B.BANR_URL
 			,	B.USE_YN
-			,	F.FILE_ID
+			,	B.FILE_ID
+			,	B.DISP_ORDER
 			,	F.FILE_SNO
 			,	F.FILE_NM
 			,	F.SAVE_FILE_NM
@@ -61,67 +65,66 @@ SELECT
 			,	F.FILE_SIZE
 		FROM BANR B
 		INNER JOIN FILE_INFO F
-			ON B.BANR_CD = F.FILE_ID
-		WHERE F.FILETYPE_CD = 'BANR'
+			ON F.FILE_ID = B.FILE_ID
+			AND F.FILETYPE_CD = 'BANR'
 			AND F.USE_YN = 'Y'
-			AND B.USE_YN = 'Y'
-			AND TRUNC(SYSDATE) BETWEEN TO_DATE(BANR_SDT, 'YYYY-MM-DD') AND TO_DATE(BANR_EDT, 'YYYY-MM-DD')
+		WHERE B.USE_YN = 'Y'
+			AND TRUNC(SYSDATE) BETWEEN TRUNC(B.BANR_SDT) AND TRUNC(B.BANR_EDT)
+		ORDER BY B.DISP_ORDER ASC, B.BANR_ID ASC
 	</select>
 	
 	<insert id="banrProcDao1010" parameterType="java.util.HashMap" useGeneratedKeys="false">
 		/* banrProcDao1010 : 배너 저장 (등록) 처리 */
 		INSERT INTO BANR
 		(
-				BANR_CD
+				BANR_ID
+			,	BANR_NM
 			,	BANR_SDT
 			,	BANR_EDT
-			,	BANR_IDX
-			,	WIDTH
-			,	HEIGHT
 			,	BANR_URL
+			,	FILE_ID
+			,	REG_IDX
 			,	REG_DT
-			,	REG_TM
 			,	USE_YN
 			,	DISP_ORDER
 			,	REMARK
 		)
 		VALUES
 		(
-				#{sequenceId, jdbcType=VARCHAR}
-			,	REPLACE(#{banrSdt, jdbcType=VARCHAR}, '-', '')
-			,	REPLACE(#{banrEdt, jdbcType=VARCHAR}, '-', '')
-			,	#{banrIdx, jdbcType=VARCHAR}
-			,	#{width, jdbcType=VARCHAR}
-			,	#{height, jdbcType=VARCHAR}
+				(SELECT 'BANR_' || LPAD(NVL(MAX(TO_NUMBER(REPLACE(BANR_ID, 'BANR_', ''))), 0) + 1, 4, '0') FROM BANR)
+			,	#{banrNm, jdbcType=VARCHAR}
+			,	TO_DATE(#{banrSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+			,	TO_DATE(#{banrEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
 			,	#{banrUrl, jdbcType=VARCHAR}
-			,	TO_CHAR(SYSDATE,'YYYYMMDD')
-			,	TO_CHAR(SYSDATE,'HH24MISS')
+			,	#{fileId, jdbcType=VARCHAR}
+			,	#{regIdx, jdbcType=VARCHAR}
+			,	SYSDATE
 			,	#{useYn, jdbcType=VARCHAR}
-			,	(
-					SELECT 
-						NVL(MAX(DISP_ORDER),0) + 1 
-					FROM BANR
-				)
+			,	(SELECT NVL(MAX(DISP_ORDER), 0) + 1 FROM BANR)
 			,	NULL
-			)
+		)
 	</insert>
 	
-	<insert id="banrProcDao1020" parameterType="java.util.HashMap" useGeneratedKeys="false">
+	<update id="banrProcDao1020" parameterType="java.util.HashMap">
 		/* banrProcDao1020 : 배너 저장 (수정) 처리 */
 		UPDATE BANR
-			SET	BANR_SDT = REPLACE(#{banrSdt, jdbcType=VARCHAR}, '-', '')
-				,	BANR_EDT = REPLACE(#{banrEdt, jdbcType=VARCHAR}, '-', '')
-				,	BANR_IDX = #{banrIdx, jdbcType=VARCHAR}
-				,	WIDTH = #{width, jdbcType=VARCHAR}
-				,	HEIGHT = #{height, jdbcType=VARCHAR}
+			SET BANR_NM = #{banrNm, jdbcType=VARCHAR}
+				,	BANR_SDT = TO_DATE(#{banrSdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
+				,	BANR_EDT = TO_DATE(#{banrEdt, jdbcType=VARCHAR}, 'YYYY-MM-DD')
 				,	BANR_URL = #{banrUrl, jdbcType=VARCHAR}
-		WHERE BANR_CD =  #{sequenceId, jdbcType=VARCHAR}
-	</insert>
+				,	FILE_ID = #{fileId, jdbcType=VARCHAR}
+				,	USE_YN = #{useYn, jdbcType=VARCHAR}
+				,	MOD_IDX = #{modIdx, jdbcType=VARCHAR}
+				,	MOD_DT = SYSDATE
+		WHERE BANR_ID = #{banrId, jdbcType=VARCHAR}
+	</update>
 	
 	<update id="banrProcDao1030" parameterType="java.util.HashMap">
 		/* banrProcDao1030 : 배너 삭제 처리 (수정)  */
 		UPDATE BANR
 			SET USE_YN = 'N'
-		WHERE 1=1
+				,	MOD_IDX = #{modIdx, jdbcType=VARCHAR}
+				,	MOD_DT = SYSDATE
+		WHERE BANR_ID = #{banrId, jdbcType=VARCHAR}
 	</update>
 </mapper>

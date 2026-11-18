@@ -35,7 +35,7 @@
 							<div class="sub_content">
 								<div class="form_area">
 									<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.brdId}">
+									<input type="hidden" id="brdId" name="brdId" value="${defaultInfo.brdId}">
 									<input type="hidden" id="page" name="page" value="${param.page}">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 									<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">
@@ -78,11 +78,11 @@
                                                 <dd class="post_file form_value form_attachments">
 													<div class="file_wrap">
 														<ul id="fileUl"> 
+															<input type="hidden" id="fileId" name="fileId" value="${defaultInfo.fileId}">
 															<c:forEach var="list" items="${fileList}" varStatus="status">
 																<li class="fileLi${status.index}">
 																	<img src='resources/images/icon/icon_file.png' width="20" height="20" />
 																	<a href="javascript:#" onclick="fileProc('${list.fileId}', '${list.fileSno}');">${list.fileNm}&nbsp;</a>
-																	<input type="hidden" id="fileId" name="fileId" value="${list.fileId}">
 																</li>
 															</c:forEach>
 														</ul>

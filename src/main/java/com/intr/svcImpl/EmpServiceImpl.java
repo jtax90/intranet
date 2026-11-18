@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.EmpDao;
@@ -312,23 +311,22 @@ public class EmpServiceImpl implements EmpService {
 	// 사원 등록
 	public String empProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
-		List<MultipartFile> fileList = request.getFiles("fileList");
-		HashMap<String, Object> defaultInfo = null;
 		String defaultStr = "";
 		String resStr = "NO";
+		String fileId = "";
 		int resInt = 0;
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
-			// 사원 인덱스 채번
-			// --------------------------------------------------------------------------------------------
-			defaultInfo = empDao.empInqyDao1010(paramMap);
-			paramMap.put("sequenceId", defaultInfo.get("sequenceId"));
-
-			// --------------------------------------------------------------------------------------------
 			// 비밀번호 암호화
 			// --------------------------------------------------------------------------------------------
 			paramMap.put("empPwd", utilService.encryptProc((String) paramMap.get("empPwd")));
+			
+			// --------------------------------------------------------------------------------------------
+			// 파일 등록
+			// --------------------------------------------------------------------------------------------
+			fileId = utilService.fileUpload(model, paramMap, request);
+			paramMap.put("fileId", fileId);
 
 			// --------------------------------------------------------------------------------------------
 			// 사원 등록
@@ -337,13 +335,6 @@ public class EmpServiceImpl implements EmpService {
 			//
 			if (resInt > 0) {
 				resStr = "YES";
-			}
-
-			// --------------------------------------------------------------------------------------------
-			// 파일 등록
-			// --------------------------------------------------------------------------------------------
-			if (fileList != null) {
-				resStr = utilService.fileUpload(model, paramMap, request);
 			}
 
 			// --------------------------------------------------------------------------------------------
@@ -362,18 +353,32 @@ public class EmpServiceImpl implements EmpService {
 	// 사원 수정
 	public String empProcService1020(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
+		HashMap<String, Object> defaultInfo = null;
 		String defaultStr = "";
 		String resStr = "NO";
+		String fileId = "";
 		int resInt = 0;
 		String empPwd = utilService.nvlProc((String) paramMap.get("empPwd"));
 		//
 		try {
 			// --------------------------------------------------------------------------------------------
+			// 기존 사원 정보 조회
+			// --------------------------------------------------------------------------------------------
+			defaultInfo = empDao.intrEmpInqy1031(paramMap);
+			paramMap.put("fileId", defaultInfo.get("fileId"));
+			
+			// --------------------------------------------------------------------------------------------
 			// 비밀번호 암호화
 			// --------------------------------------------------------------------------------------------
-			if (empPwd != "") {
+			if (!empPwd.isEmpty()) {
 				paramMap.put("empPwd", utilService.encryptProc((String) paramMap.get("empPwd")));
 			}
+			
+			// --------------------------------------------------------------------------------------------
+			// 이미지 수정
+			// --------------------------------------------------------------------------------------------
+			fileId = utilService.fileUpload(model, paramMap, request);
+			paramMap.put("fileId", fileId);
 
 			// --------------------------------------------------------------------------------------------
 			// 사원 수정
@@ -383,11 +388,6 @@ public class EmpServiceImpl implements EmpService {
 			if (resInt > 0) {
 				resStr = "YES";
 			}
-
-			// --------------------------------------------------------------------------------------------
-			// 파일 등록
-			// --------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
 
 			// --------------------------------------------------------------------------------------------
 			// 결과 반환
@@ -435,17 +435,31 @@ public class EmpServiceImpl implements EmpService {
 	// 사원 삭제
 	public String empProcService1040(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
+		HashMap<String, Object> defaultInfo = null;
+		HashMap<String, Object> fileMap = new HashMap<String, Object>();
 		String defaultStr = "";
 		String resStr = "NO";
+		String fileId = "";
 		int resInt = 0;
 		//
 		try {
+			// --------------------------------------------------------------------------------------------
+			// 기존 사원 정보 조회
+			// --------------------------------------------------------------------------------------------
+			defaultInfo = empDao.intrEmpInqy1031(paramMap);
+			fileId = utilService.nvlProc((String) defaultInfo.get("fileId"));
+			
 			// --------------------------------------------------------------------------------------------
 			// 사원 삭제
 			// --------------------------------------------------------------------------------------------
 			resInt = empDao.intrEmpProc1041(paramMap);
 			//
 			if (resInt > 0) {
+				// 이미지 삭제
+				if (!fileId.isEmpty()) {
+					fileMap.put("fileId", fileId);
+					utilDao.fileProcDao1030(fileMap);
+				}
 				resStr = "YES";
 			}
 

@@ -7,24 +7,24 @@ public class Const {
 	public static final String USER 	= "0"; 			// 사용자
 	public static final String ADMIN 	= "1"; 			// 관리자
 	
-	public static final String STEP_PROG 		= "STEP_0010"; 		// 결재진행중
-	public static final String STEP_COMP 		= "STEP_0020"; 		// 결재완료
-	public static final String STEP_REJT 		= "STEP_0030"; 		// 결재반송
-	public static final String STEP_CANC 		= "STEP_0040"; 		// 결재취소
+	public static final String STEP_0010 		= "STEP_0010"; 		// 결재진행중
+	public static final String STEP_0020 		= "STEP_0020"; 		// 결재완료
+	public static final String STEP_0030 		= "STEP_0030"; 		// 결재반송
+	public static final String STEP_0040 		= "STEP_0040"; 		// 결재취소
 	
-	public static final String TYPE_DRFT 		= "TYPE_0010"; 		// 기안
-	public static final String TYPE_APRV 		= "TYPE_0020"; 		// 결재
-	public static final String TYPE_REFR 		= "TYPE_0030"; 		// 참조
+	public static final String TYPE_0010 		= "TYPE_0010"; 		// 기안
+	public static final String TYPE_0020 		= "TYPE_0020"; 		// 결재
+	public static final String TYPE_0030 		= "TYPE_0030"; 		// 참조
 	
 	public static final String RSLT_0010 		= "RSLT_0010"; 		// 승인
 	public static final String RSLT_0020 		= "RSLT_0020"; 		// 반송
 	public static final String RSLT_0030 		= "RSLT_0030"; 		// 취소
 	
-	public static final String LOG_INQY 		= "PROC_0010"; 		// 조회
-	public static final String LOG_PROC 		= "PROC_0020"; 		// 처리
+	public static final String PROC_0010 			= "PROC_0010"; 		// 조회
+	public static final String PROC_0020 		= "PROC_0020"; 	// 처리
 
-	public static final String LOG_SUCC 		= "Y"; 				// 성공
-	public static final String LOG_FAIL 		= "N"; 				// 실패
+	public static final String SUCCESS 		= "Y"; 				// 성공
+	public static final String FAIL 				= "N"; 				// 실패
 	
 	public static final String TEMP_LEAV 		= "Leav"; 			// 휴가 신청서
 	public static final String TEMP_EXP 		= "Exp"; 			// 가지급결의서
@@ -34,16 +34,16 @@ public class Const {
 	//--------------------------------------------------------------------------------------------
 	// 매뉴얼
 	//--------------------------------------------------------------------------------------------
-	public static final String MANU_WORD  = "intr_table.docx"; 		// WORD
-	public static final String MANU_EXCEL  = "intr_data.xlsx"; 		// EXCEL
-	public static final String MANU_PPT  = "intr_project.pptx"; 	// PPT
+	public static final String INTR_WORD  = "intr_table.docx"; 		// WORD
+	public static final String INTR_EXCEL  = "intr_data.xlsx"; 		// EXCEL
+	public static final String INTR_PPT  = "intr_project.pptx"; 	// PPT
 	
 	//--------------------------------------------------------------------------------------------
 	// 내부규정
 	//--------------------------------------------------------------------------------------------
 	public static final String TAB_CORP  = "corp"; 		// 사규 (탭)
-	public static final String TAB_HRM  = "hrm"; 		// 인사관리 (탭)
-	public static final String TAB_WEL  = "wel"; 		// 복리후생 (탭)
+	public static final String TAB_HRM  = "hrm"; 			// 인사관리 (탭)
+	public static final String TAB_WEL  = "wel"; 			// 복리후생 (탭)
 	
 	public static final String RULE_CORP  = "RULE_CORP.pdf"; 	// 사규
 	public static final String RULE_HRM  = "RULE_HRM.pdf";		// 인사관리
@@ -58,7 +58,7 @@ public class Const {
 	//--------------------------------------------------------------------------------------------
 	// 폴더 경로
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_PATH  			= "/WEB-INF/views/intr";				// 프로젝트
+	public static final String INTR_PATH  					= "/WEB-INF/views/intr";				// 프로젝트
 	public static final String VIEW_PATH_POPUP 		= INTR_PATH + "/comm/popup/"; 			// 팝업
 	public static final String VIEW_PATH_MAIN 		= INTR_PATH + "/main/"; 				// 메인
 	public static final String VIEW_PATH_LOGIN 		= INTR_PATH + "/login/"; 				// 로그인
@@ -79,10 +79,10 @@ public class Const {
 	//--------------------------------------------------------------------------------------------
 	// 파일 다운로드 경로
 	//--------------------------------------------------------------------------------------------
-	public static final String FILE_PATH = "intr\\file"; 			// 파일
-	public static final String TEMP_PATH = "intr\\temp"; 			// 임시
-	public static final String MANU_PATH  = "intr\\manual"; 		// 매뉴얼
-	public static final String REGS_PATH  = "intr\\regs"; 			// 내부규정
+	public static final String FILE_PATH = "INTR\\FILE"; 			// 파일
+	public static final String TEMP_PATH = "INTR\\TEMP"; 			// 임시
+	public static final String MANU_PATH  = "INTR\\MANUAL"; 		// 매뉴얼
+	public static final String REGS_PATH  = "INTR\\REGS"; 			// 내부규정
 	
 	//--------------------------------------------------------------------------------------------
 	// 로그인

@@ -31,7 +31,14 @@
                 <dt class="form_label">등록자</dt>
                 <dd class="form_value">${empVO.orgNm} ${empVO.empNm}</dd>
 			</dl>
-			
+			<dl class="form_row">
+				<dt class="form_label">&#10003; 프로젝트</dt>
+				<dd class="form_value form_picker">
+					<input type="button" class="btn_blue btn_action" value="선택" onclick="taskProjCall(this);">
+					<input type="hidden" class="projId" value="${list.projId}">
+					<input type="text" class="projTitle form_input" title="프로젝트" value="${list.projTitle}" readonly="readonly" isRequired="Y">
+				</dd>
+			</dl>
             <dl class="form_row">
                 <dt class="form_label">&#10003; 업무 내용</dt>
                 <dd class="post_text form_value form_content form_content_short">

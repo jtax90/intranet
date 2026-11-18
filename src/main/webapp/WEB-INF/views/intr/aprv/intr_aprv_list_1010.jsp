@@ -76,7 +76,7 @@
 													<tr>
                                                         <td class="table_cell">${list.num}</td>
                                                         <td class="_title table_cell">
-															<a class="show_view a_title" onclick="detCall('${list.tempCd}','${list.temptypeCd}', '${list.regMappingId}');">${list.tempNm}</a>
+															<a class="show_view a_title" onclick="detCall('${list.tempCd}','${list.temptypeCd}', '${list.regUrl}');">${list.tempNm}</a>
 														</td>
 			                                        </tr>
 		                                        </c:forEach>

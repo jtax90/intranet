@@ -87,13 +87,13 @@
 	}
 	
 	// 회의 조회 팝업
-	function mtgCall(sequenceId){
+	function mtgCall(mtgId){
 		try {
 			//
 			var obj = new Object();
 			
 			obj["mappingId"] = "intrPopupInqy1091.do";
-			obj["sequenceId"] = sequenceId;
+			obj["mtgId"] = mtgId;
 			obj["areaType"] = "mtg";
 			obj["width"] = "700";
 			obj["height"] = "500";
@@ -109,7 +109,7 @@
 		// 배너 생성
 		var banrPop = $('#banrPop');
 	    if (banrPop.length > 0) {
-	        var banrCd = "${banrInfo.banrCd}";
+	    	var banrId = "${banrInfo.banrId}";
 
 	        // 쿠키 조회
 	        function getCookie(name) {
@@ -135,7 +135,7 @@
 	        }
 
 	        // 오늘 하루 보지 않기 미 체크 시, 배너 표시
-	        if (getCookie(banrCd) !== 'done') {
+	        if (getCookie(banrId) !== 'done') {
 	            banrPop.show(); // 쿠키가 없으면 배너 표시
 	        }
 
@@ -145,7 +145,7 @@
 	            
 	            if (noMoreToday) {
 	                // '오늘 하루 보지 않기' 체크 시 쿠키 설정
-	                setCookie(banrCd, 'done');
+	            	setCookie(banrId, 'done');
 	            }
 	            
 	            // 팝업 숨김
@@ -155,14 +155,14 @@
 	});
 	
 	// 업무 캘린더 (메인) 상세
-	function tldrCall(sequenceId){
+	function tldrCall(mtgId){
 		try {
 			//
 			var obj = new Object();
 			//
 			obj["mappingId"] = "intrPopupInqy1123.do";
 			obj["areaType"] = "tldr";
-			obj["sequenceId"] = sequenceId;
+			obj["mtgId"] = mtgId;
 			obj["width"] = "700"
 			obj["height"] = "460";
 			//		
@@ -197,7 +197,7 @@
 	<c:if test="${not empty banrInfo}">
         <div id="banrPop" class="banr_popup">
             <a href="${banrInfo.banrUrl}" target="_blank">
-                <img id="banrImg" class="banr_img" width="${banrInfo.width}" height="${banrInfo.height}" src="intrBanrInqy1099.do?saveFileNm=${banrInfo.saveFileNm}&sequenceId=${banrInfo.banrCd}">
+                <img id="banrImg" class="banr_img" src="intrBanrInqy1099.do?fileId=${banrInfo.fileId}">
             </a>
             
             <div class="banr_close">
@@ -237,7 +237,7 @@
                                         <ul class="dashboard_feed scroll_wrap meeting_agenda">
 											<c:forEach var="list" items="${calInfo}">
                                                 <li class="dashboard_item meeting_agenda_item">
-                                                    <a href="javascript:mtgCall('${list.mtgCd}');" class="bold dashboard_link">
+                                                    <a href="javascript:mtgCall('${list.mtgId}');" class="bold dashboard_link">
 														<fmt:parseDate value="${list.mtgStm}" var="parseStm" pattern="HHmm"/>
 														<fmt:formatDate value="${parseStm}" var="formatStm" pattern="HH:mm"/>
 														
@@ -267,7 +267,7 @@
 									<div class="emp_profile">
                                        	<c:choose>
                                        		<c:when test="${empInfo.profileYn eq 'Y'}">
-                                        <img id="empImg" class="emp_img profile_photo" width="250" height="250" src="intrEmpInqy1099.do?sequenceId=${empVO.empIdx}">
+                                        <img id="empImg" class="emp_img profile_photo" width="250" height="250" src="intrEmpInqy1099.do?sequenceId=${defaultInfo.empIdx}">
                                        		</c:when>
                                        		<c:otherwise>
 	                                        	<img id="empImg" class="emp_img" width="250" height="250" src="resources/images/icon/icon_profile.png">

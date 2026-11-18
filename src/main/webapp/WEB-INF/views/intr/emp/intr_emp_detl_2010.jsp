@@ -41,7 +41,6 @@
 									<input type="hidden" id="rankNm" name="rankNm" value="${param.rankNm}">
 									<input type="hidden" id="srchEdt" name="srchEdt" value="${param.srchEdt}">
 									<input type="hidden" id="empIdx" name="empIdx" value="${param.empIdx}">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="${param.empIdx}">
 		
                                     <h2 class="content_heading">사원 상세</h2>
                                     <div class="form_panel">
@@ -52,7 +51,7 @@
 	                                        	<div class="emp_profile">
 	                                        		<c:choose>
 														<c:when test="${defaultInfo.profileYn eq 'Y'}">
-                                 							<img id="empImg" class="emp_img" width="200" height="200" src="intrEmpInqy1099.do?sequenceId=${defaultInfo.empIdx}">
+                                 							<img id="empImg" class="emp_img" width="200" height="200" src="intrEmpInqy1099.do?fileId=${defaultInfo.fileId}">
 	                                        			</c:when>
 	                                        			<c:otherwise>
 			                                        		<img class="emp_img" id="empImg" width="200" height="200" src="resources/images/icon/icon_profile.png">

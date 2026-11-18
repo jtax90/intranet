@@ -13,7 +13,7 @@
 	}
 
 	// 수정 처리
-	function modProc(f){
+	function modProc(){
 		try {
 			// 유효성 검증
 			if(!requiredProc()){return;};
@@ -96,7 +96,6 @@
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 									<input type="hidden" id="orgNm" name="orgNm" value="${param.orgNm}">
 									<input type="hidden" id="rankNm" name="rankNm" value="${param.rankNm}">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="${param.empIdx}">
 									<input type="hidden" id="hireCd" name="hireCd" value="${param.hireCd}">
 									<input type="hidden" id="hireNm" name="hireNm" value="${param.hireNm}">
 									<input type="hidden" id="filetypeCd" name="filetypeCd" value="EMP">
@@ -110,7 +109,7 @@
 
 		                                        		<c:choose>
 															<c:when test="${defaultInfo.profileYn eq 'Y'}">
-                                 								<img id="empImg" class="emp_img" width="200" height="200" src="intrEmpInqy1099.do?sequenceId=${empVO.empIdx}">
+                                 								<img id="empImg" class="emp_img" width="200" height="200" src="intrEmpInqy1099.do?fileId=${defaultInfo.fileId}">
 		                                        			</c:when>
 		                                        			<c:otherwise>
 				                                        		<img class="emp_img" id="empImg" width="200" height="200" src="resources/images/icon/icon_profile.png">
@@ -232,7 +231,7 @@
 		                                
                                     <div class="btn_right btn_wrap">
 										<div class="float_right">
-                                            <button type="button" class="btn_navy_thin btn_action action_compact" onclick="modProc('${empInfo.empIdx}')">수정완료</button>
+                                            <button type="button" class="btn_navy_thin btn_action action_compact" onclick="modProc()">수정완료</button>
                                             <button type="button" class="btn_gray_thin btn_action action_compact" onclick="detCall();">취소</button>
 										</div>
 									</div>

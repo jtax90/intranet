@@ -78,14 +78,7 @@
 										</td>
                                 <td class="table_cell">${list.rslttypeNm}</td>
                                 <td class="table_cell">
-									<span class="date">
-										<fmt:parseDate value="${list.rsltDt}" var="parseDt" pattern="yyyyMMdd"/>
-										<fmt:formatDate value="${parseDt}" var="formatDt" pattern="yyyy-MM-dd"/>
-										
-										<fmt:parseDate value="${list.rsltTm}" var="parseTm" pattern="HHmmss"/>
-										<fmt:formatDate value="${parseTm}" var="formatTm" pattern="HH:mm:ss"/>
-										${formatDt} ${formatTm}
-									</span>
+									<span class="date">${list.rsltDt}</span>
 								</td>
 							</tr>
 						</c:forEach>

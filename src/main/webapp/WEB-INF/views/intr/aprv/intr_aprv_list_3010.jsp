@@ -34,7 +34,7 @@
 				//
 				obj["mappingId"] = "intrPopupInqy1081.do";
 				obj["areaType"] = "leav";
-				obj["sequenceId"] = info.event.id;
+				obj["aprvId"] = info.event.id;
 				obj["width"] = "700"
 				obj["height"] = "460";
 				//		
@@ -94,7 +94,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${leavList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>

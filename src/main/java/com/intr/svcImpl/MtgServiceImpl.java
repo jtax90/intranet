@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.MtgDao;
-import com.intr.dao.UtilDao;
 import com.intr.svc.CoreService;
 import com.intr.svc.MtgService;
 import com.intr.svc.UtilService;
@@ -29,9 +27,6 @@ public class MtgServiceImpl implements MtgService{
 	
 	@Autowired
 	MtgDao mtgDao;
-	
-	@Autowired
-	UtilDao utilDao;
 	
 	// 회의 목록 조회
 	public void mtgInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
@@ -74,7 +69,6 @@ public class MtgServiceImpl implements MtgService{
 	public void mtgInqyService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
-		List<HashMap<String, Object>> defaultList = null;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
@@ -82,12 +76,6 @@ public class MtgServiceImpl implements MtgService{
 			//--------------------------------------------------------------------------------------------
 			defaultInfo = mtgDao.mtgInqyDao1030(paramMap);
 			model.addAttribute("defaultInfo",defaultInfo);
-
-			//--------------------------------------------------------------------------------------------
-			// 파일 정보
-			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
-			model.addAttribute("fileList",defaultList);
 
 		} catch (Exception e) {
 			//
@@ -151,20 +139,13 @@ public class MtgServiceImpl implements MtgService{
 
 	
 	// 회의 등록 처리
-	public String mtgProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String mtgProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
-		HashMap<String, Object> defaultInfo = null;
 		String defaultStr = "";
 		String resStr = "NO";
 		int resInt = 0;
 		//
 		try {
-			//--------------------------------------------------------------------------------------------
-			// 회의 채번
-			//--------------------------------------------------------------------------------------------
-			defaultInfo = mtgDao.mtgInqyDao1010(paramMap);
-			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
-			
 			//--------------------------------------------------------------------------------------------
 			// 회의 등록 처리
 			//--------------------------------------------------------------------------------------------
@@ -173,11 +154,6 @@ public class MtgServiceImpl implements MtgService{
 			if(resInt>0) {
 				resStr = "YES";
 			}
-
-			//--------------------------------------------------------------------------------------------
-			// 파일 등록
-			//--------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
 			
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
@@ -206,11 +182,6 @@ public class MtgServiceImpl implements MtgService{
 			resInt = mtgDao.mtgProcDao1020(paramMap);
 
 			//--------------------------------------------------------------------------------------------
-			// 파일 삭제 처리
-			//--------------------------------------------------------------------------------------------
-			utilDao.fileProcDao1020(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------
 			if(resInt>0) {
@@ -228,7 +199,7 @@ public class MtgServiceImpl implements MtgService{
 	}
 	
 	// 회의 수정
-	public String mtgProcService1030(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String mtgProcService1030(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
 		String resStr = "NO";
@@ -240,11 +211,6 @@ public class MtgServiceImpl implements MtgService{
 			//--------------------------------------------------------------------------------------------
 			resInt = mtgDao.mtgProcDao1030(paramMap);
 			
-			//--------------------------------------------------------------------------------------------
-			// 파일 수정
-			//--------------------------------------------------------------------------------------------
-			resStr = utilService.fileUpload(model, paramMap, request);
-
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------

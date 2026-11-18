@@ -31,10 +31,8 @@
 	// 사원 상세보기
 	function detCall(empIdx){
 		try {
-			// 시퀀스, 사원 번호 지정
-			$("#sequenceId").val(empIdx);
-			$("#empIdx").val(empIdx);
 			//
+			$("#empIdx").val(empIdx);
 			formSubmit("intrEmpInqy1030.do");
 			
 		} catch (error) {
@@ -61,7 +59,6 @@
 								<div class="post_wrap">
 									<input type="hidden" id="page" name="page" value="${param.page}">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
 									<input type="hidden" id="empIdx" name="empIdx" value="">
 
                                     <h2 class="content_heading">사원 조회
@@ -102,7 +99,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${hireList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>

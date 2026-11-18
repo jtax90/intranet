@@ -12,9 +12,9 @@
 		var calendar = document.getElementById('calendar');
 	    var mtgCont = new FullCalendar.Calendar(calendar, {
 	    	//
-	        locale: 'en',  							// 언어
+	        locale: 'en',  								// 언어
 			eventLimit: true,						// 이벤트 내용 초과 시, MORE로 표현
-			displayEventTime: false, 			// 이벤트 시간 여부
+			displayEventTime: false, 		// 이벤트 시간 여부
 			navLinks: false, 						// 날짜 선택할 경우 상세 데이터 조회 
 			selectable: false,						// 네모 선택 여부
 			headerToolbar: {
@@ -29,7 +29,7 @@
 			// 회의 선택 시
 			eventClick: function(info) {
 				//
-				$("#sequenceId").val(info.event.id);
+				$("#mtgId").val(info.event.id);
 				formSubmit("intrMtgInqy1030.do");
 			},
 			// 데이터
@@ -78,7 +78,7 @@
 						<div id="sub_content">
 							<div class="form_area">
 								<div class="post_wrap">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
+									<input type="hidden" id="mtgId" name="mtgId" value="">
                                     <h2 class="content_heading">회의 관리
 										<span class="float_right">
                                             <input type="button" class="btn_blue_thin btn_action action_compact" value="등록" onclick="regCall();">
@@ -97,7 +97,7 @@
 												
 													<ul class="sUl select_ul scroll_wrap choice_options">
 														<c:forEach var="list" items="${locList}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:forEach>
 													</ul>
 												</div>

@@ -1,5 +1,7 @@
 package com.intr.utils;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.HashMap;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -56,37 +58,37 @@ public class Interceptor implements HandlerInterceptor {
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception exception) throws Exception {
 		//
 		try {
+			//
+			String requestUri = request.getRequestURI().substring(request.getContextPath().length());
+			if (isExcludeUri(requestUri) || exception == null) {
+				return;
+			}
+
 			// 세션 확인
 			HttpSession session = request.getSession(false);
-			EmpVO loginInfo = null;
-	        if (session != null) loginInfo = (EmpVO) session.getAttribute("empVO");
-	
-			String mappingId = request.getRequestURI().substring(request.getContextPath().length());					// 요청 URI
-			String logtypeCd = mappingId.contains(Const.LOG_PROC) ? Const.LOG_PROC : Const.LOG_INQY;		// 처리 구분
-			String ipAddr = request.getRemoteAddr();																							// 요청자 IP
-			String empIdx = (loginInfo == null) ? "" : loginInfo.getEmpIdx();														// 요청자 IDX
-			String isSucc = (exception == null) ? Const.LOG_SUCC : Const.LOG_FAIL;										// 성공 여부
-			String logMsg = (exception == null) ? "" : exception.toString();															// 오류 메세지
-			
-			// 리소스 요청 혹은 정상인 경우 로그 미 등록
-			if (isExcludeUri(mappingId)
-				|| exception == null) {
-	            return;
-	        }
-			//
+			EmpVO loginInfo = session == null ? null : (EmpVO) session.getAttribute("empVO");
+
+			// 처리 내용
+			String logMsg = "정상 처리";
+			String logCont = request.getMethod() + " " + requestUri;
+			if (exception != null) {
+				StringWriter writer = new StringWriter();
+				exception.printStackTrace(new PrintWriter(writer));
+				logMsg = exception.toString();
+				logCont = writer.toString();
+			}
+
+			// 로그 정보
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("mappingId", mappingId);
-			paramMap.put("logtypeCd", logtypeCd);
-			paramMap.put("empIdx", empIdx);
-			paramMap.put("ipAddr", ipAddr);
-			paramMap.put("isSucc", isSucc);
 			paramMap.put("logMsg", logMsg);
-	
-			//--------------------------------------------------------------------------------------------
+			paramMap.put("logCont", logCont);
+			paramMap.put("requestUri", requestUri);
+			paramMap.put("ipAddress", request.getRemoteAddr());
+			paramMap.put("regIdx", loginInfo == null ? null : loginInfo.getEmpIdx());
+
 			// 로그 등록
-			//--------------------------------------------------------------------------------------------
 			logService.logProcService1010(null, paramMap);
-			
+	
 		} catch (Exception e) {
 			logger.debug("Exception : 접속 로그 저장 중 에러가 발생했습니다. (" + e.getMessage() + ")");
 	    }

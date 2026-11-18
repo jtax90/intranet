@@ -250,10 +250,11 @@ public class RoleServiceImpl implements RoleService{
 	}
 	
 	// 사용자 권한 저장 처리
+	@SuppressWarnings("unused")
 	public String roleProcService1050(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
-		String resStr = "NO";
+		String resStr = "YES";
 		int resInt = 0;
 		HashMap<String, Object> tempMap = null;
 		//
@@ -277,12 +278,7 @@ public class RoleServiceImpl implements RoleService{
 					resInt += roleDao.roleProcDao1070(tempMap);
 				}
 			}
-			
-			//
-			if(resInt>0) {
-				resStr = "YES";
-			}
-			
+
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------

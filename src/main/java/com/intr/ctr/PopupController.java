@@ -368,7 +368,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
+			defaultList = utilDao.fileInqyDao1010((String)paramMap.get("fileId"));
 			model.addAttribute("fileList",defaultList);
 			
 		} catch (Exception e) {

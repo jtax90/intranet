@@ -138,6 +138,7 @@ public class EmpController {
 	}
 	
 	// 사원 프로필 사진 조회
+	@SuppressWarnings("deprecation")
 	@RequestMapping("/intrEmpInqy1099.do")
 	public void intrEmpInqy1099(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception {
 		//
@@ -147,7 +148,7 @@ public class EmpController {
 			//--------------------------------------------------------------------------------------------
 			// 사원 이미지 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010(paramMap);
+			defaultList = utilDao.fileInqyDao1010((String)paramMap.get("fileId"));
 			
 			//--------------------------------------------------------------------------------------------
 			// URL객체 생성 (예외사항 추가)

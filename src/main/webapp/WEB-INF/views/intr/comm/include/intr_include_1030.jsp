@@ -42,7 +42,7 @@
 						<c:if test="${list.lv eq 1}">
                             <li class="nav_item li_1">
                                 <a class="nav_link a_1" onclick="goMenu(this);"
-								   data-mapping-id="${list.mappingId}"
+								   data-menu-url="${list.menuUrl}"
 								   data-menu-pos="top"
 								   data-menu-cd="${list.menuCd}"
 								   data-lead-menu-cd="${list.leadMenuCd}"

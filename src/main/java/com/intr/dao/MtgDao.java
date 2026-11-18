@@ -73,7 +73,7 @@ public class MtgDao {
 	public int mtgProcDao1020(HashMap<String,Object> paramMap) {
 		//
 		int resInt = 0;
-		resInt = sqlsession.update("mtg.mtgProcDao1020", paramMap);
+		resInt = sqlsession.delete("mtg.mtgProcDao1020", paramMap);
 		return resInt;
 	}
 	

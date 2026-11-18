@@ -8,7 +8,7 @@
 			<label for="post-title">권한명</label>
 		</dt>
         <dd class="form_value">
-            <input class="form_input" type="text" id="roleNm" title="권한명" name="roleNm" value="${defaultInfo.roleNm}">
+            <input class="form_input" type="text" id="roleNm" title="권한명" name="roleNm" value="${defaultInfo.roleNm}" isRequired="Y">
 			<input type="hidden" class="roleCd" id="roleCd" name="roleCd" value="${defaultInfo.roleCd}">
 		</dd>
 	</dl>

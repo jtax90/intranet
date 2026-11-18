@@ -155,37 +155,32 @@
 			    let finalEtm = hour.toString().padStart(2, '0') + min.toString().padStart(2, '0');
 				//
 				if(confirm("등록하시겠습니까?")){
+					$('#mtgStm').val(finalStm.slice(0, 2) + ":" + finalStm.slice(2));
+					$('#mtgEtm').val(finalEtm.slice(0, 2) + ":" + finalEtm.slice(2));
 					//
-					$('#mtgStm').val(finalStm);
-				    $('#mtgEtm').val(finalEtm);
-					//
-					var fileList = setFormData();
-		   			$.ajax({
-						url:"intrMtgProc1010.do",
-						processData : false,
-						contentType : false,
-						data: fileList,
-						type : 'post',
-		   				success : function(data){
-		   						var json = eval(data);
-		   						
-		   						if(json[0].res=='YES'){
-		   							alert("<spring:message code="PROC.SUCCESS"/>");
-			   						location.href = "intrMtgInqy1010.do?pageUrl=Mtg";
-			   						
-		   						}else if(json[0].res=='NO'){
-		   							alert("<spring:message code="PROC.FAIL"/>");
-									return;
-									
-		   						}else{
-		   							alert("<spring:message code="PROC.EXISTS"/>");
-									return;	   							
-		   						}
-		   				},
-		   				error : function(res, status, error){
-		   					alert("<spring:message code="PROC.ERROR"/>");
-		   				}
-		   			});
+					var param = $("#form").serialize();
+					$.ajax({
+						type: 'post',
+						url: 'intrMtgProc1010.do',
+						data: param,
+						dataType: 'html',
+						success: function(data){
+							var json = eval(data);
+							if(json[0].res == 'YES'){
+								alert("<spring:message code="PROC.SUCCESS"/>");
+								location.href = "intrMtgInqy1010.do?pageUrl=Mtg";
+							}else if(json[0].res == 'NO'){
+								alert("<spring:message code="PROC.FAIL"/>");
+								return;
+							}else{
+								alert("<spring:message code="PROC.EXISTS"/>");
+								return;
+							}
+						},
+						error: function(res, status, error){
+							alert("<spring:message code="PROC.ERROR"/>");
+						}
+					});
 				}
 				
 			} catch (error) {
@@ -207,7 +202,7 @@
 </head>
 
 <body id="main">
-<form id="form" method="POST" enctype="multipart/form-data">
+<form id="form" method="POST">
 	<!-- 메뉴 -->
 	<%@ include file="/WEB-INF/views/intr/comm/include/intr_include_1030.jsp" %>
 	
@@ -221,8 +216,6 @@
 				<div class="content">
 					<div class="sub_content">					
                         <div class="form_area">
-							<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-							<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.mtgCd}">
 							<input type="hidden" id="page" name="page" value="${param.page}">
 							<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 							<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">
@@ -230,7 +223,6 @@
 							<input type="hidden" id="orgNm" name="orgNm" value="${param.orgNm}">
 							<input type="hidden" id="rankNm" name="rankNm" value="${param.rankNm}">
 							<input type="hidden" id="srchIdx" name="srchIdx" value="${param.srchIdx}">
-							<input type="hidden" id="filetypeCd" name="filetypeCd" value="MTG">
 							<input type="hidden" id="mtgStm" name="mtgStm" value="">
 							<input type="hidden" id="mtgEtm" name="mtgEtm" value="">
 								
@@ -244,23 +236,23 @@
                                         <dd class="form_value form_lead_value">
                                             <input class="form_input" type="text" id="mtgTitle" title="회의명" name="mtgTitle">
 										</dd>
-                                        <dt class="form_label">&#10003; 회의 일자</dt>
+                                        <dt class="form_label">&#10003; 회의일자</dt>
                                         <dd class="form_value">
-                                            <input type="text" class="srch_cdt_date srchSdt form_input" id="mtgDt" name="mtgDt" title="회의 일자" readonly="readonly" isRequired="Y" />
+                                            <input type="text" class="srch_cdt_date srchSdt form_input" id="mtgDt" name="mtgDt" title="회의일자" readonly="readonly" isRequired="Y" />
 										</dd>
                                         <dt class="form_label">
 											<label for="post-title">&#10003; 회의장소</label>
 										</dt>
                                         <dd class="form_value form_pair">
                                         	<div class="select_wrap">
-												<div id="locList" class="sList select_box choice_value">${locList[1].commcodeNm}</div>
-												<input type="hidden" id="mtgLoc" name="mtgLoc" value="${locList[1].commcodeCd}">
-												<input type="hidden" id="mtgLocNm" name="mtgLocNm" value="${locList[1].commcodeNm}">
+												<div id="locList" class="sList select_box choice_value">${locList[1].codeNm}</div>
+												<input type="hidden" id="mtgLoc" name="mtgLoc" value="${locList[1].codeCd}">
+												<input type="hidden" id="mtgLocNm" name="mtgLocNm" value="${locList[1].codeNm}">
 											
 												<ul class="sUl select_ul scroll_wrap choice_options">
 													<c:forEach var="list" items="${locList}">
-														<c:if test="${list.commcodeCd != null and  list.commcodeCd != ''}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+														<c:if test="${list.codeCd != null and list.codeCd != ''}">
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:if>
 													</c:forEach>
 												</ul>
@@ -299,27 +291,6 @@
                                         <dt class="form_label"><label for="post_text">&#10003; 회의 개요</label></dt>
                                         <dd class="post_text form_value form_content">
                                             <textarea class="form_textarea" id="projCont" title="회의 개요" name="mtgCont" isRequired="Y"></textarea>
-										</dd>
-									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label">회의자료</dt>
-                                        <dd class="form_value">
-                                            <div class="file_box form_upload">
-                                                <label class="upload_label" for="fileUpd">업로드</label>
-												<h4 class="file_text">업로드할 파일을 선택해주세요.</h4>
-                                                <input type="file" id="fileUpd" name="fileUpd" class="btn_blue btn_action upload_input" multiple="multiple">
-											</div>
-										</dd>
-									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label"></dt>
-                                        <dd class="post_file form_value form_attachments">
-											<div class="file_wrap">
-												<!-- 파일 목록 -->
-												<c:import url="/WEB-INF/views/intr/comm/include/intr_include_1040.jsp">
-													<c:param name="fileNm"></c:param>
-												</c:import>
-											</div>
 										</dd>
 									</dl>
 								</div><!-- End post_write -->

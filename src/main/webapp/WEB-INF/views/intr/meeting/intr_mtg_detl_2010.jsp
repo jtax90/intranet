@@ -6,7 +6,7 @@
 <ul class="scroll_wrap meeting_agenda">
 	<c:forEach var="list" items="${calInfo}">
 		<li class="meeting_agenda_item meeting_agenda_card">
-			<a href="javascript:mtgCall('${list.mtgCd}');" class="bold">
+			<a href="javascript:mtgCall('${list.mtgId}');" class="bold">
 				<fmt:parseDate value="${list.mtgStm}" var="parseStm" pattern="HHmm"/>
 				<fmt:formatDate value="${parseStm}" var="formatStm" pattern="HH:mm"/>
 				

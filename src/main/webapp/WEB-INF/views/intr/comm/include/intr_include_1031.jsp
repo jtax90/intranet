@@ -22,7 +22,7 @@
 										</c:forEach>
 											<img class="mr5" src='resources/images/icon/icon_tree_arrow.png' width="13" height="13" />
 											<a class="a_title fs_16 cursor c_000000 ${setMenu eq list.menuCd ? 'list_bg' : ''}" onclick="goMenu(this);"
-											   data-mapping-id="${list.mappingId}"
+											   data-menu-url="${list.menuUrl}"
 											   data-menu-cd="${list.menuCd}"
 											   data-lead-menu-cd="${list.leadMenuCd}"
 											   data-menu-pos="left"

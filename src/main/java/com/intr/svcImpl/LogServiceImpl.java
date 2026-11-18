@@ -43,11 +43,6 @@ public class LogServiceImpl implements LogService {
 			defaultList = logDao.logInqyDao1020(paramMap);
 			model.addAttribute("defaultList",defaultList);
 			
-			//--------------------------------------------------------------------------------------------
-			// 공통코드 (유형) 조회
-			//--------------------------------------------------------------------------------------------
-			utilService.getCodeList(model, "Proc", "procList");
-			
 		} catch (Exception e) {
 			//
 			throw e;
@@ -57,15 +52,7 @@ public class LogServiceImpl implements LogService {
 	@Override
 	public void logProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
-		HashMap<String, Object> defaultInfo = null;
-		//
 		try {
-			//--------------------------------------------------------------------------------------------
-			// 로그 채번
-			//--------------------------------------------------------------------------------------------
-			defaultInfo = logDao.logInqyDao1010(paramMap);
-			paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
-			
 			//--------------------------------------------------------------------------------------------
 			// 로그 등록
 			//--------------------------------------------------------------------------------------------

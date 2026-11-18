@@ -20,7 +20,7 @@
 	function detCall(brdId) {
 		try {
 			//
-			$("#sequenceId").val(brdId);
+			$("#brdId").val(brdId);
 			formSubmit("intrBoardInqy2020.do");
 			
 		} catch (error) {
@@ -44,7 +44,7 @@
 						<div class="sub_content">
 							<div class="form_area">
 								<div class="post_wrap">
-									<input type="hidden" id="sequenceId" name="sequenceId" value="">
+									<input type="hidden" id="brdId" name="brdId" value="">
 									<input type="hidden" id="page" name="page" value="${param.page}">
 									<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 								

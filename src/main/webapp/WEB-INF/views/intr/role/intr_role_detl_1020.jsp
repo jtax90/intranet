@@ -10,7 +10,7 @@
 			<label for="post-title">권한명</label>
 		</dt>
         <dd class="form_value">
-            <input type="text" id="roleNm" class="roleNm form_input" title="권한명" name="roleNm">
+            <input type="text" id="roleNm" class="roleNm form_input" title="권한명" name="roleNm" isRequired="Y" maxlength="100">
 		</dd>
 	</dl>
     <dl class="form_row">

@@ -71,7 +71,10 @@
                                                         <dt class="form_label">등록자</dt>
                                                         <dd class="form_value">${list.orgNm} ${list.empNm}</dd>
 													</dl>
-													
+													<dl class="form_row">
+														<dt class="form_label">프로젝트</dt>
+														<dd class="form_value">${list.projTitle}</dd>
+													</dl>
                                                     <dl class="form_row">
                                                         <dt class="form_label">업무 내용</dt>
                                                         <dd class="post_text form_value form_content form_content_short">

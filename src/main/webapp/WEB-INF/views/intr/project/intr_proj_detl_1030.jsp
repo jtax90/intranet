@@ -4,113 +4,102 @@
 
 <%@ include file="/WEB-INF/views/intr/comm/include/intr_include_1010.jsp" %>
 
-<head>
-	<script type="text/javascript">
-		// 첨부파일 수
-		var fileCnt = "${defaultList.size()}" != null && "${defaultList.size()}" != "" ? "${defaultList.size()}" : 0;
+<script type="text/javascript">
+	// 담당자 선택
+	function popCall(){
+		try {
+			//
+			var obj = new Object();
+			
+			obj["mappingId"] = "intrPopupInqy1011.do";
+   			obj["areaType"] = "emp";
+   			obj["width"] = "550"
+   			obj["height"] = "420";
+   			//		
+   			ajaxPopup(obj);
+   			
+		} catch (error) {
+	        console.error("[Error] 담당자 선택 : ", error.message);
+		}
+	}
 	
-		// 담당자 선택
-		function popCall(){
-			try {
-				//
-				var obj = new Object();
-				
-				obj["mappingId"] = "intrPopupInqy1011.do";
-	   			obj["areaType"] = "emp";
-	   			obj["width"] = "550"
-	   			obj["height"] = "420";
-	   			//		
-	   			ajaxPopup(obj);
-	   			
-			} catch (error) {
-		        console.error("[Error] 담당자 선택 : ", error.message);
-			}
+	// 취소
+	function detCall() {
+		try {
+			//
+			formSubmit('intrProjInqy1030.do');
+			
+		} catch (error) {
+	        console.error("[Error] 취소 : ", error.message);
 		}
-		
-		// 취소
-		function detCall() {
-			try {
-				//
-				formSubmit('intrProjInqy1030.do');
-				
-			} catch (error) {
-		        console.error("[Error] 취소 : ", error.message);
+	}
+	
+	// 수정 처리
+	function modProc(f){
+		try {
+			// 유효성 검증
+			if(!requiredProc()){return;};
+			//
+			var projSdt = $("input[name=projSdt]").val().replaceAll("-","")
+			var projEdt = $("input[name=projEdt]").val().replaceAll("-","");
+			var status = $("#statList").text();
+			
+			// 계약기간
+			if(projSdt == ''){
+				alert("<spring:message code="PROJ.SDT.NONE"/>");
+				$("#projSdt").focus();
+				return;
 			}
+			if(projEdt == ''){
+				alert("<spring:message code="PROJ.EDT.NONE"/>");
+				$("#projEdt").focus();
+				return;
+			}
+			if(projSdt > projEdt){
+				alert("<spring:message code="PROJ.DT.PAST"/>");
+				$("#projSdt").focus();
+				return;
+			}
+			// 진행상태
+			if(status == ''){
+				alert("<spring:message code="PROJ.STAT.NONE"/>");
+				return;
+			}
+			//
+			if(confirm("수정하시겠습니까?")){
+				var param = $("#form").serialize();
+				$.ajax({
+					type: 'post',
+					url: 'intrProjProc1030.do',
+					data: param,
+					dataType: 'html',
+					success: function(data){
+						var json = eval(data);
+						if(json[0].res == 'YES'){
+							alert("<spring:message code="PROC.SUCCESS"/>");
+							location.href = "intrProjInqy1010.do?pageUrl=Proj";
+						}else if(json[0].res == 'NO'){
+							alert("<spring:message code="PROC.FAIL"/>");
+							return;
+						}else{
+							alert("<spring:message code="PROC.EXISTS"/>");
+							return;
+						}
+					},
+					error: function(res, status, error){
+						alert("<spring:message code="PROC.ERROR"/>");
+					}
+				});
+			}
+			
+		} catch (error) {
+	        console.error("[Error] 수정 처리 : ", error.message);
 		}
-		
-		// 수정 처리
-		function modProc(f){
-			try {
-				// 유효성 검증
-				if(!requiredProc()){return;};
-				//
-				var projSdt = $("input[name=projSdt]").val().replaceAll("-","")
-				var projEdt = $("input[name=projEdt]").val().replaceAll("-","");
-				var status = $("#statList").text();
-				
-				// 계약기간
-				if(projSdt == ''){
-					alert("<spring:message code="PROJ.SDT.NONE"/>");
-					$("#projSdt").focus();
-					return;
-				}
-				if(projEdt == ''){
-					alert("<spring:message code="PROJ.EDT.NONE"/>");
-					$("#projEdt").focus();
-					return;
-				}
-				if(projSdt > projEdt){
-					alert("<spring:message code="PROJ.DT.PAST"/>");
-					$("#projSdt").focus();
-					return;
-				}
-				// 진행상태
-				if(status == ''){
-					alert("<spring:message code="PROJ.STAT.NONE"/>");
-					return;
-				}
-				//
-				var fileList = setFormData();
-				//
-				if(confirm("수정하시겠습니까?")){
-					// 
-		   			$.ajax({
-						url:"intrProjProc1030.do",
-						processData : false,
-						contentType : false,
-						data: fileList,
-						type : 'POST',
-		   				success : function(data){
-		   						var json = eval(data);
-		   						
-		   						if(json[0].res=='YES'){
-		   							alert("<spring:message code="PROC.SUCCESS"/>");
-			   						location.href = "intrProjInqy1010.do?pageUrl=Proj";
-			   						
-		   						}else if(json[0].res=='NO'){
-		   							alert("<spring:message code="PROC.FAIL"/>");
-									return;
-									
-		   						}else{
-		   							alert("<spring:message code="PROC.EXISTS"/>");
-									return;	   							
-		   						}
-		   				},
-		   				error : function(res, status, error){
-		   					alert("<spring:message code="PROC.ERROR"/>");
-		   				}
-		   			});
-				}
-				
-			} catch (error) {
-		        console.error("[Error] 수정 처리 : ", error.message);
-			}
-		}	
-	</script>
-</head>
+	}	
+</script>
 
 <body id="main">
-<form id="form" method="POST" enctype="multipart/form-data">
+<form id="form" method="POST">
 	<!-- 메뉴 -->
 	<%@ include file="/WEB-INF/views/intr/comm/include/intr_include_1030.jsp" %>
 	
@@ -129,8 +118,7 @@
 				<div class="content">
 					<div class="sub_content">					
                         <div class="form_area">
-							<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-							<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.projCd}">
+							<input type="hidden" id="projId" name="projId" value="${defaultInfo.projId}">
 							<input type="hidden" id="page" name="page" value="${param.page}">
 							<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 							<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}">
@@ -141,8 +129,7 @@
 							<input type="hidden" id="srchStatNm" name="srchStatNm" value="${param.srchStatNm}">
 							<input type="hidden" id="srchStatCd" name="srchStatCd" value="${param.srchStatCd}">					
 							<input type="hidden" id="srchIdx" name="srchIdx" value="${param.srchIdx}">
-							<input type="hidden" id="empPcd" name="empPcd" value="${defaultInfo.owner}">
-							<input type="hidden" id="filetypeCd" name="filetypeCd" value="PROJ">
+							<input type="hidden" id="empPcd" name="ownerIdx" value="${defaultInfo.ownerIdx}">
 								
 							<div class="post_wrap">
                                 <h2 class="content_heading">프로젝트 수정</h2>
@@ -171,13 +158,13 @@
                                         <dd class="form_value form_pair">
                                         	<div class="select_wrap">
 												<div id="statList" class="sList select_box choice_value">${empty defaultInfo.statusNm ? '' : defaultInfo.statusNm}</div>
-												<input type="hidden" id="status" name="status" value="${defaultInfo.status}">
+												<input type="hidden" id="statusCd" name="statusCd" value="${defaultInfo.statusCd}">
 												<input type="hidden" id="statusNm" name="statusNm" value="${defaultInfo.statusNm}">
 											
 												<ul class="sUl select_ul scroll_wrap choice_options">
 													<c:forEach var="list" items="${statList}">
-														<c:if test="${list.commcodeCd != null and  list.commcodeCd != ''}">
-															<li class="choice_item" setNm="${list.commcodeNm}" setCd="${list.commcodeCd}">${list.commcodeNm}</li>
+														<c:if test="${list.codeCd != null and list.codeCd != ''}">
+															<li class="choice_item" setNm="${list.codeNm}" setCd="${list.codeCd}">${list.codeNm}</li>
 														</c:if>
 													</c:forEach>
 												</ul>
@@ -185,41 +172,9 @@
                                         </dd>
 									</dl>
                                     <dl class="form_row">
-                                        <dt class="form_label">&#10003; 계약금</dt>
-                                        <dd class="form_value">
-                                            <input type="text" id="deposit" class="w50per form_input" name="deposit" title="계약금" placeholder="₩0" oninput="amtProc(this);" value="${defaultInfo.deposit}" isRequired="Y">
-											&nbsp; <span id="amtNm">${defaultInfo.depositNm}</span>
-										</dd>
-                                        <dt class="form_label">태그</dt>
-                                        <dd class="form_value">
-                                            <input class="form_input" type="text" id="tag" title="태그" name="tag" placeholder="#SI, #SM, #운영 등.." value="${defaultInfo.tag}">
-										</dd>
-									</dl>
-                                    <dl class="form_row">
                                         <dt class="form_label"><label for="post_text">&#10003; 개요/설명</label></dt>
                                         <dd class="post_text form_value form_content">
                                             <textarea class="form_textarea" id="projCont" title="개요/설명" name="projCont" isRequired="Y">${defaultInfo.projCont}</textarea>
-										</dd>
-									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label">계약문서</dt>
-                                        <dd class="form_value">
-                                            <div class="file_box form_upload">
-                                                <label class="upload_label" for="fileUpd">업로드</label>
-												<h4 class="file_text">업로드할 파일을 선택해주세요.</h4>
-                                                <input type="file" id="fileUpd" name="fileUpd" class="btn_blue btn_action upload_input" multiple="multiple">
-											</div>
-										</dd>
-									</dl>
-                                    <dl class="post_info form_row">
-                                        <dt class="form_label"></dt>
-                                        <dd class="post_file form_value form_attachments">
-											<div class="file_wrap">
-												<!-- 파일 목록 -->
-												<c:import url="/WEB-INF/views/intr/comm/include/intr_include_1040.jsp">
-													<c:param name="fileNm"></c:param>
-												</c:import>
-											</div>
 										</dd>
 									</dl>
 								</div><!-- End post_write -->

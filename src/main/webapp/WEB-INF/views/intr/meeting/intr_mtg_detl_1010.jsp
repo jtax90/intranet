@@ -30,7 +30,7 @@
 		}
 		
 		// 삭제 처리
-		function delProc(sequenceId) {
+		function delProc(mtgId) {
 			try {
 				//
 				if(confirm('삭제하시겠습니까?')){
@@ -40,7 +40,7 @@
 		   				traditional: true,
 		   				url:	"intrMtgProc1020.do",
 		   				data:	{
-		   					"sequenceId" : sequenceId
+		   					"mtgId" : mtgId
 		   				},
 		   				success : function(data){
 		   					var json = eval(data);
@@ -82,7 +82,7 @@
 						<div id="sub_content">					
 							<div class="form_area">
 								<input type="hidden" id="empIdx" name="empIdx"  value="${empVO.empIdx}">
-								<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.mtgCd}">
+								<input type="hidden" id="mtgId" name="mtgId" value="${defaultInfo.mtgId}">
 								<input type="hidden" id="page" name="page" value="${param.page}">
 								<input type="hidden" id="pageUrl" name="pageUrl" value="${param.pageUrl}">
 								<input type="hidden" id="srchNm" name="srchNm" value="${param.srchNm}"> 
@@ -101,10 +101,10 @@
                                         <dl class="form_row">
                                             <dt class="form_label">회의명</dt>
                                             <dd class="form_value">${defaultInfo.mtgTitle}</dd>
-                                            <dt class="form_label">회의 일자</dt>
+                                            <dt class="form_label">회의일자</dt>
                                             <dd class="form_value">
 												<span class="date">
-													<fmt:parseDate value="${defaultInfo.mtgDt}" var="parseDt" pattern="yyyyMMdd"/>
+													<fmt:parseDate value="${defaultInfo.mtgSdt}" var="parseDt" pattern="yyyy-MM-dd HH:mm:ss"/>
 													<fmt:formatDate value="${parseDt}" var="fomatDt" pattern="yyyy-MM-dd"/>
 													${fomatDt} 
 												</span>	
@@ -116,10 +116,10 @@
 											
                                             <dt class="form_label">회의시간</dt>
                                             <dd class="form_value">
-												<fmt:parseDate value="${defaultInfo.mtgStm}" var="parseStm" pattern="HHmm"/>
+												<fmt:parseDate value="${defaultInfo.mtgSdt}" var="parseStm" pattern="yyyy-MM-dd HH:mm:ss"/>
 												<fmt:formatDate value="${parseStm}" var="formatStm" pattern="HH:mm"/>
 
-												<fmt:parseDate value="${defaultInfo.mtgEtm}" var="parseEtm" pattern="HHmm"/>
+												<fmt:parseDate value="${defaultInfo.mtgEdt}" var="parseEtm" pattern="yyyy-MM-dd HH:mm:ss"/>
 												<fmt:formatDate value="${parseEtm}" var="formatEtm" pattern="HH:mm"/>
 												${formatStm} ~ ${formatEtm}
 											</dd>
@@ -130,29 +130,13 @@
 												<pre>${defaultInfo.mtgCont}</pre>
 											</dd>
 										</dl>
-                                        <dl class="post_file form_row">
-                                            <dt class="form_label">회의자료</dt>
-                                            <dd class="post_file form_value form_attachments">
-												<div class="file_wrap">
-													<ul id="fileUl"> 
-													<c:forEach var="list" items="${fileList}" varStatus="status">
-														<li class="${status.index != 0 ? 'nbsp' : ''}">
-															<img src='resources/images/icon/icon_file.png' width="15" height="15"/>
-															<a href="#" onclick="fileProc('${list.fileId}', '${list.fileSno}');">${list.fileNm}</a>
-															<input type="hidden" id="fileId" name="fileId" value="${list.fileId}">
-														</li>
-													</c:forEach>
-													</ul>
-												</div>
-											</dd>
-										</dl>
 									</div><!-- End post_view -->
 		
                                     <div class="btn_right btn_wrap">
 										<div class="float_right">
-											<c:if test="${empVO.empIdx eq defaultInfo.mtgIdx}">
+											<c:if test="${empVO.empIdx eq defaultInfo.regIdx}">
                                                 <button type="button" class="btn_navy_thin btn_action action_compact" onclick="modCall();">수정</button>
-                                                <button type="button" class="btn_gray_thin btn_action action_compact" onclick="delProc('${defaultInfo.mtgCd}');">삭제</button>
+                                                <button type="button" class="btn_gray_thin btn_action action_compact" onclick="delProc('${defaultInfo.mtgId}');">삭제</button>
 											</c:if>
 										</div>
 									</div>

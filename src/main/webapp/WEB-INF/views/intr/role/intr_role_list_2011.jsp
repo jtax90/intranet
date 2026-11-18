@@ -119,37 +119,51 @@
 	}
 	
 	// 권한 저장 처리
-	function regProc(){
-		try {
-			// 권한 메뉴 추가
-			$("input[name=roleMenuCd]").each(function(idx) {
-				$(this).attr("name","menuCd"+idx);
-			});
+	function regProc() {
+		//
+	    try {
+	    	//
+	        if (!confirm("저장하시겠습니까?")) {
+	            return;
+	        }
+	    	
+			// 변수 저장	
+	        var param = [
+	            {
+	                name: "roleCd",
+	                value: $("#roleCd").val()
+	            }
+	        ];
 			//
-			var param = $("#form").serialize();
-			//
-			if(confirm("저장하시겠습니까?")){
-				//
-				$.ajax({
-		    		type : 'post',
-		        	url : 'intrRoleProc2010.do',
-		            data : param,
-		            dataType : 'html',
-		            success : function(data){
-		            	//
-						alert("<spring:message code="PROC.SUCCESS"/>");
-		            	setListCall();
-		            },
-		            error : function(data){
-		            	//
-						alert("<spring:message code="PROC.ERROR"/>");
-		            }
-		      	});
-			}
-			
-		} catch (error) {
-	        console.error("[Error] 권한 저장 처리 : ", error.message);
-		}
+	        $(".roleMenuTbl input[name='roleMenuCd']").each(function(idx) {
+	            param.push({
+	                name: "menuCd" + idx,
+	                value: $(this).val()
+	            });
+	        });
+			//	
+	        $.ajax({
+	            type: "post",
+	            url: "intrRoleProc2010.do",
+	            data: $.param(param),
+	            dataType: "html",
+	            success: function(data) {
+	                var json = eval(data);
+	
+	                if (json[0].res === "YES") {
+	                    alert("<spring:message code="PROC.SUCCESS"/>");
+	                    setListCall();
+	                } else {
+	                    alert("<spring:message code="PROC.FAIL"/>");
+	                }
+	            },
+	            error: function() {
+	                alert("<spring:message code="PROC.ERROR"/>");
+	            }
+	        });
+	    } catch (error) {
+	        console.error("[Error] 권한 저장 처리 :", error.message);
+	    }
 	}
 </script>
 <div class="list_panel list_panel_fill role_editor">

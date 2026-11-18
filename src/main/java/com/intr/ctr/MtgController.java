@@ -11,10 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.MtgDao;
-import com.intr.dao.UtilDao;
 import com.intr.svc.CoreService;
 import com.intr.svc.MtgService;
 import com.intr.svc.UtilService;
@@ -31,9 +29,6 @@ public class MtgController {
 	
 	@Autowired
 	MtgService mtgService;
-	
-	@Autowired
-	UtilDao utilDao;
 	
 	@Autowired
 	MtgDao mtgDao;
@@ -205,7 +200,7 @@ public class MtgController {
 	// 회의 등록 처리
 	@RequestMapping("/intrMtgProc1010.do")
 	@ResponseBody
-	public String intrMtgProc1010(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String intrMtgProc1010(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
 		//
@@ -213,7 +208,7 @@ public class MtgController {
 			//--------------------------------------------------------------------------------------------
 			// 회의 등록
 			//--------------------------------------------------------------------------------------------
-			defaultStr = mtgService.mtgProcService1010(model, paramMap, request);
+			defaultStr = mtgService.mtgProcService1010(model, paramMap);
 			
 		} catch (Exception e) {
 			//
@@ -227,10 +222,9 @@ public class MtgController {
 	// 회의 삭제 처리
 	@RequestMapping("/intrMtgProc1020.do")
 	@ResponseBody
-	public String intrMtgProc1020(Model model, @RequestParam String sequenceId, HashMap<String, Object> paramMap) throws Exception {
+	public String intrMtgProc1020(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
-		paramMap.put("sequenceId", sequenceId);
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
@@ -250,7 +244,7 @@ public class MtgController {
 	// 회의 수정 처리
 	@RequestMapping("/intrMtgProc1030.do")
 	@ResponseBody
-	public String intrMtgProc1030(Model model, @RequestParam HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
+	public String intrMtgProc1030(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
 		//
 		String defaultStr = "";
 		//
@@ -258,7 +252,7 @@ public class MtgController {
 			//--------------------------------------------------------------------------------------------
 			// 회의 수정
 			//--------------------------------------------------------------------------------------------
-			defaultStr = mtgService.mtgProcService1030(model, paramMap, request);
+			defaultStr = mtgService.mtgProcService1030(model, paramMap);
 			
 		} catch (Exception e) {
 			//

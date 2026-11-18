@@ -48,40 +48,45 @@ public class BanrServiceImpl implements BanrService {
 	public String banrProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
 		HashMap<String, Object> defaultInfo = null;
+		String banrId = utilService.nvlProc((String)paramMap.get("banrId"));
 		String defaultStr = "";
-		String resStr = "YES";
-		String sequenceId = utilService.nvlProc((String)paramMap.get("sequenceId"));
+		String resStr = "NO";
+		int resInt = 0;
 		//
 		try {
 			// 수정
-			if(!sequenceId.equals("")) {
+			if(!banrId.isEmpty()){
 				//--------------------------------------------------------------------------------------------
 				// 배너 저장 (수정) 처리
 				//--------------------------------------------------------------------------------------------
-				banrDao.banrProcDao1020(paramMap);				
-			
-			} else {
-				//--------------------------------------------------------------------------------------------
-				// 배너 채번
-				//--------------------------------------------------------------------------------------------
-				defaultInfo = banrDao.banrInqyDao1010(paramMap);
-				paramMap.put("sequenceId", (String)defaultInfo.get("sequenceId"));
+				defaultInfo = banrDao.banrInqyDao1020(paramMap);		
+				paramMap.put("fileId", defaultInfo.get("fileId"));
 				
-				//--------------------------------------------------------------------------------------------
-				// 사용 중지 처리
-				//--------------------------------------------------------------------------------------------
-				banrDao.banrProcDao1030(paramMap);
-				
-				//--------------------------------------------------------------------------------------------
-				// 배너 저장 (등록) 처리
-				//--------------------------------------------------------------------------------------------
-				banrDao.banrProcDao1010(paramMap);
-			} 
+			}
 			
 			//--------------------------------------------------------------------------------------------
 			// 파일 등록
 			//--------------------------------------------------------------------------------------------
 			utilService.fileUpload(model, paramMap, request);
+			
+			// 배너 저장, 수정
+			if(banrId.isEmpty()){
+				//--------------------------------------------------------------------------------------------
+				// 배너 저장 (등록) 처리
+				//--------------------------------------------------------------------------------------------
+				resInt = banrDao.banrProcDao1010(paramMap);
+				
+			}else{
+				//--------------------------------------------------------------------------------------------
+				// 배너 저장 (수정) 처리
+				//--------------------------------------------------------------------------------------------
+				resInt = banrDao.banrProcDao1020(paramMap);
+			}
+
+			// 결과 반환
+			if(resInt > 0){
+				resStr = "YES";
+			}
 			
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
@@ -99,21 +104,36 @@ public class BanrServiceImpl implements BanrService {
 	// 배너 삭제
 	public String banrProcService1020(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
+		HashMap<String, Object> defaultInfo = null;
+		HashMap<String, Object> fileMap = new HashMap<String, Object>();
+		String fileId = "";
 		String defaultStr = "";
 		String resStr = "NO";
 		int resInt = 0;
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
-			// 배너 삭제
+			// 기존 배너 정보 조회
+			//--------------------------------------------------------------------------------------------
+			defaultInfo = banrDao.banrInqyDao1020(paramMap);
+			fileId = utilService.nvlProc((String)defaultInfo.get("fileId"));
+			
+			//--------------------------------------------------------------------------------------------
+			// 배너 사용 중지
 			//--------------------------------------------------------------------------------------------
 			resInt = banrDao.banrProcDao1030(paramMap);
-
-			//--------------------------------------------------------------------------------------------
-			// 파일 삭제 처리 (삭제)
-			//--------------------------------------------------------------------------------------------
-			utilDao.fileProcDao1020(paramMap);
 			
+			if(resInt > 0){
+				if(!fileId.isEmpty()){
+					//--------------------------------------------------------------------------------------------
+					// 파일 삭제 처리 (삭제)
+					//--------------------------------------------------------------------------------------------
+					fileMap.put("fileId", fileId);
+					utilDao.fileProcDao1020(fileMap);
+				}
+				resStr = "YES";
+			}
+
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------

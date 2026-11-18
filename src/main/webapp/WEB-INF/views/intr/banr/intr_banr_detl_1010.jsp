@@ -142,10 +142,9 @@
 					<div class="content">
 						<div id="sub_content">					
 							<div class="form_area">
-								<input type="hidden" id="sequenceId" name="sequenceId" value="${defaultInfo.banrCd}">
-								<input type="hidden" id="banrIdx" name="banrIdx" value="${empVO.empIdx}">
-								<input type="hidden" id="filetypeCd" name="filetypeCd" value="BANR">
+								<input type="hidden" id="banrId" name="banrId" value="${defaultInfo.banrId}">
 								<input type="hidden" id="fileId" name="fileId" value="${defaultInfo.fileId}">
+								<input type="hidden" id="filetypeCd" name="filetypeCd" value="BANR">
 								
 								<div class="post_wrap">
                                     <h2 class="content_heading">배너 관리</h2>
@@ -154,7 +153,7 @@
                                             <dt class="form_label">&#10003; 첨부 파일</dt>
                                             <dd class="form_value">
                                                 <div class="file_box form_upload">
-                                                    <input type="text" id="fileNm" class="w80per form_input" title="첨부 파일" placeholder="이미지 파일은 jpg, jpeg, png 확장자만 지원됩니다." readonly="readonly" value="${defaultInfo.fileNm}">
+                                                    <input type="text" id="fileNm" class="w80per form_input" title="첨부 파일" placeholder="이미지 파일은 jpg, jpeg, png 확장자만 지원됩니다." readonly="readonly" value="${defaultInfo.fileNm}" isRequired="Y">
                                                     <label for="fileUpd" class="mb5 upload_label">업로드</label>
                                                     <input class="upload_input" type="file" id="fileUpd" name="fileUpd" title="첨부파일" accept=".jpg,.jpeg,.png" onchange="fileUpload(this);">
 													<input type="hidden" id="isUploadImg" name="isUploadImg" value="">
@@ -164,6 +163,11 @@
                                             <dd class="form_value"></dd>
 										</dl>
                                         <dl class="post_info form_row">
+                                            <dt class="form_label">&#10003; 배너명</dt>
+											<dd class="form_value">
+											    <input type="text" id="banrNm" name="banrNm" class="form_input" title="배너명" value="${defaultInfo.banrNm}" isRequired="Y">
+											</dd>
+                                            
                                             <dt class="form_label">&#10003; 게시일자</dt>
                                             <dd class="form_value">
 												<fmt:parseDate value="${defaultInfo.banrSdt}" var="parseSdt" pattern="yyyyMMdd"/>
@@ -173,12 +177,6 @@
 												<fmt:parseDate value="${defaultInfo.banrEdt}" var="parseEdt" pattern="yyyyMMdd"/>
 												<fmt:formatDate value="${parseEdt}" var="fomatEdt" pattern="yyyy-MM-dd"/>
                                                 <input type="text" class="srch_cdt_date srchEdt form_input" id="srchEdt" name="banrEdt" value="${fomatEdt}" title="게시일자 (종료)" readonly="readonly" isRequired="Y" />
-											</dd>
-                                            <dt class="form_label">&#10003; 사이즈</dt>
-                                            <dd class="form_value">
-                                                <input type="text" id="width" name="width" class="w10per form_input" title="가로" value="${defaultInfo.width}" isRequired="Y">
-												x
-                                                <input type="text" id="height" name="height" class="w10per form_input" title="세로" value="${defaultInfo.height}" isRequired="Y">
 											</dd>
 										</dl>
 										
@@ -207,7 +205,7 @@
                                             <dd class="post_text form_value form_content">
 												<c:choose>
 													<c:when test="${not empty defaultInfo}">
-														<img id="banrImg" class="banr_img" width="480" height="380" src="intrBanrInqy1099.do?saveFileNm=${defaultInfo.saveFileNm}&sequenceId=${defaultInfo.banrCd}">
+														<img id="banrImg" class="banr_img" width="480" height="380" src="intrBanrInqy1099.do?fileId=${defaultInfo.fileId}">
 													</c:when>
 													<c:otherwise>
 														등록된 배너가 없습니다.													
