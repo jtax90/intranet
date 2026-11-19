@@ -13,14 +13,6 @@ public class MtgDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// 회의 시퀀스 조회
-	public HashMap<String, Object> mtgInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("mtg.mtgInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
 	// 회의 목록 조회
 	public List<HashMap<String, Object>> mtgInqyDao1020(HashMap<String, Object> paramMap) {
 		//

@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="task">
-	<select id="taskInqyDao1010" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* taskInqyDao1010 : 업무 시퀀스 조회 */
-		SELECT 'TASK_' || LPAD(NVL(MAX(REPLACE(TASK_ID,'TASK_')),0) + 1,4,0) AS SEQUENCE_ID FROM TASK
-	</select>
-
 	<select id="taskInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* taskInqyDao1020 : 업무일지 조회 */
 		SELECT
@@ -148,7 +143,7 @@
 			,	SUBSTR(TC.TLDR_EDT,0,4) || '-' || SUBSTR(TC.TLDR_EDT,5,2) || '-' || SUBSTR(TC.TLDR_EDT,7) AS TLDR_EDT
 		FROM TASK_CALENDAR TC
 		WHERE 1=1 
-			AND TC.TLDR_ID = #{sequenceId, jdbcType=VARCHAR}  
+			AND TC.TLDR_ID = #{tldrId, jdbcType=VARCHAR}  
 	</select>
 	
 	<select id="taskInqyDao3030" resultType="CamelHashMap" parameterType="java.util.HashMap">

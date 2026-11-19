@@ -13,14 +13,6 @@ public class EmpDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// 사원 인덱스 채번
-	public HashMap<String, Object> empInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("emp.empInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
 	// 사원 목록
 	public List<HashMap<String, Object>> empInqyDao1020(HashMap<String, Object> paramMap) {
 		//

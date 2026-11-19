@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mtg">
-	<select id="mtgInqyDao1010" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* mtgInqyDao1010 : 회의 시퀀스 조회 */
-		SELECT 'MTG_' || LPAD(NVL(MAX(REPLACE(MTG_CD,'MTG_')),0) + 1,4,0) AS SEQUENCE_ID FROM MEETING
-	</select>
-	
 	<select id="mtgInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* mtgInqyDao1020 : 회의 목록 조회 */
 		SELECT

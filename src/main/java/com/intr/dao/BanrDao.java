@@ -12,14 +12,6 @@ public class BanrDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// 배너 채번
-	public HashMap<String, Object> banrInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("banr.banrInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
 	// 배너 조회
 	public HashMap<String, Object> banrInqyDao1020(HashMap<String, Object> paramMap) {
 		//

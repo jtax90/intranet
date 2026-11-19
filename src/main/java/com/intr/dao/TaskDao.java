@@ -12,14 +12,6 @@ public class TaskDao {
 	//
 	@Autowired
 	SqlSession sqlsession;
-
-	// 업무일지 시퀀스 조회
-	public HashMap<String, Object> taskInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("task.taskInqyDao1010", paramMap);
-		return defaultInfo;
-	}
 	
 	// 업무일지 작성 조회
 	public List<HashMap<String, Object>> taskInqyDao1020(HashMap<String, Object> paramMap) {

@@ -12,22 +12,6 @@ public class AprvDao {
 	//
 	@Autowired
 	SqlSession sqlsession;
-
-	// 전자결재 시퀀스 조회
-	public HashMap<String, Object> aprvInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("aprv.aprvInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
-	// 결재선 시퀀스 조회
-	public HashMap<String, Object> aprvInqyDao1020(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("aprv.aprvInqyDao1020", paramMap);
-		return defaultInfo;
-	}
 	
 	// 기안 목록 조회
 	public List<HashMap<String, Object>> aprvInqyDao1030(HashMap<String, Object> paramMap) {

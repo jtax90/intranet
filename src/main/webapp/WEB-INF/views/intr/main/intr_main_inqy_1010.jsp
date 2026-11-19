@@ -267,7 +267,7 @@
 									<div class="emp_profile">
                                        	<c:choose>
                                        		<c:when test="${empInfo.profileYn eq 'Y'}">
-                                        <img id="empImg" class="emp_img profile_photo" width="250" height="250" src="intrEmpInqy1099.do?sequenceId=${defaultInfo.empIdx}">
+                                        <img id="empImg" class="emp_img profile_photo" width="250" height="250" src="intrEmpInqy1099.do?fileId=${defaultInfo.fileId}">
                                        		</c:when>
                                        		<c:otherwise>
 	                                        	<img id="empImg" class="emp_img" width="250" height="250" src="resources/images/icon/icon_profile.png">
@@ -314,7 +314,7 @@
                                         <ul class="dashboard_feed">
 											<c:forEach var="list" items="${boardList}" begin="0" end="2">
                                                 <li class="pl20 dashboard_item">
-                                                    <a class="dashboard_link" href="intrBoardInqy2020.do?sequenceId=${list.brdId}&pageUrl=Board">
+                                                    <a class="dashboard_link" href="intrBoardInqy2020.do?brdId=${list.brdId}&pageUrl=Board">
 														<script>document.write(isNew('${list.regDt}'))</script>
 														${list.brdTitle}
 													</a>
@@ -349,7 +349,7 @@
                                         <ul class="dashboard_feed">
 											<c:forEach var="list" items="${aprvList}" begin="0" end="2">
                                                 <li class="pl20 dashboard_item">
-                                                    <a class="dashboard_link" href="intrAprvInqy2020.do?sequenceId=${list.aprvId}&temptypeCd=${list.temptypeCd}&returnUrl=${list.returnUrl}&pageUrl=Aprv">
+                                                    <a class="dashboard_link" href="intrAprvInqy2020.do?aprvId=${list.aprvId}&temptypeCd=${list.temptypeCd}&returnUrl=${list.returnUrl}&pageUrl=Aprv">
 														<script>document.write(isNew('${list.regDt}'))</script>	
 														${list.aprvTitle}
 													</a>

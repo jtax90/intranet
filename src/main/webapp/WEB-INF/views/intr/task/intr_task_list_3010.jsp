@@ -35,7 +35,7 @@
 				//
 				obj["mappingId"] = "intrPopupInqy1122.do";
 				obj["areaType"] = "tldr";
-				obj["sequenceId"] = info.event.id;
+				obj["tldrId"] = info.event.id;
 				obj["width"] = "700"
 				obj["height"] = "460";
 				//		

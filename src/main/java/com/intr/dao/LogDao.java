@@ -12,15 +12,7 @@ public class LogDao {
 	//
 	@Autowired
 	SqlSession sqlsession;
-	
-	// 로그 시퀀스 조회
-	public HashMap<String, Object> logInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("log.logInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
+
 	// 로그 목록
 	public List<HashMap<String, Object>> logInqyDao1020(HashMap<String, Object> paramMap) {
 		//

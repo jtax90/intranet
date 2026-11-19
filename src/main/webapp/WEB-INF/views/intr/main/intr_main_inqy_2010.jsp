@@ -187,7 +187,7 @@
                                         <ul class="dashboard_feed">
 											<c:forEach var="list" items="${projList}" begin="0" end="2">
                                                 <li class="pl20 dashboard_item">
-                                                    <a class="dashboard_link" href="intrProjInqy1030.do?sequenceId=${list.projCd}&pageUrl=Proj">${list.projTitle}</a>
+                                                    <a class="dashboard_link" href="intrProjInqy1030.do?projId=${list.projId}&pageUrl=Proj">${list.projTitle}</a>
 													<span class="dashboard_date">${list.orgNm} ${list.ownerNm}</span>
 												</li>
 											</c:forEach>
