@@ -199,8 +199,8 @@
 		            AND R.USE_YN = 'Y'
 		        LEFT OUTER JOIN TEMPLATE T
 		        	ON T.TEMP_CD = A.TEMP_CD
-		        LEFT OUTER JOIN CODE CC_STEP
-					ON CC_STEP.CODE_CD = A.APRVSTEP_CD
+		        LEFT OUTER JOIN CODE C_STEP
+					ON C_STEP.CODE_CD = A.APRVSTEP_CD
 				WHERE 1=1
 					<if test="srchNm != null and srchNm != ''">
 			        	AND REGEXP_REPLACE(LOWER(A.APRV_TITLE),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
