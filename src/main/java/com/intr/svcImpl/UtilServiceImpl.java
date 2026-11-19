@@ -171,7 +171,7 @@ public class UtilServiceImpl implements UtilService{
 			//--------------------------------------------------------------------------------------------
 			// 사용자 정보 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = empDao.empInqyDao1030(paramMap);
+			defaultInfo = empDao.empInqyDao1020(paramMap);
 			//
 			if(defaultInfo != null) {
 				//--------------------------------------------------------------------------------------------
@@ -232,7 +232,7 @@ public class UtilServiceImpl implements UtilService{
             //--------------------------------------------------------------------------------------------
 			// 관리자 메일 조회
 			//--------------------------------------------------------------------------------------------
-            defaultInfo = empDao.empInqyDao1040();
+            defaultInfo = empDao.empInqyDao1030();
             //
             sender 		= String.valueOf(defaultInfo.get("email"));
             receiver 	= String.valueOf(paramMap.get("findEmail"));

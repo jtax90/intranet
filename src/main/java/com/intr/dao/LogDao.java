@@ -14,10 +14,10 @@ public class LogDao {
 	SqlSession sqlsession;
 
 	// 로그 목록
-	public List<HashMap<String, Object>> logInqyDao1020(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> logInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("log.logInqyDao1020", paramMap);
+		defaultList = sqlsession.selectList("log.logInqyDao1010", paramMap);
 		return defaultList;
 	}
 	
@@ -30,10 +30,10 @@ public class LogDao {
 	}
 	
 	// 로그 상세 조회
-	public HashMap<String, Object> logInqyDao1030(HashMap<String, Object> paramMap) {
+	public HashMap<String, Object> logInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("log.logInqyDao1030", paramMap);
+		defaultInfo = sqlsession.selectOne("log.logInqyDao1020", paramMap);
 		return defaultInfo;
 	}
 }

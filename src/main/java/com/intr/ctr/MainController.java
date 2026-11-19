@@ -145,25 +145,25 @@ public class MainController {
 			//--------------------------------------------------------------------------------------------
 			// 공지사항 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = boardDao.boardInqyDao1020(paramMap);
+			defaultList = boardDao.boardInqyDao1010(paramMap);
 			model.addAttribute("boardList",defaultList);
 			
 			//--------------------------------------------------------------------------------------------
 			// 결재 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = aprvDao.aprvInqyDao1030(paramMap);
+			defaultList = aprvDao.aprvInqyDao1010(paramMap);
 			model.addAttribute("aprvList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
 			// 배너 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = banrDao.banrInqyDao1030(paramMap);
+			defaultInfo = banrDao.banrInqyDao1020(paramMap);
 			model.addAttribute("banrInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
 			// 사원 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = empDao.intrEmpInqy1031(paramMap);
+			defaultInfo = empDao.intrEmpInqyDao1070(paramMap);
 			model.addAttribute("empInfo", defaultInfo);
 
 			//--------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ public class MainController {
 			//--------------------------------------------------------------------------------------------
 			// 부서 현황
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy2041(paramMap);
+			defaultList = empDao.intrEmpInqyDao2010(paramMap);
 			//
 			for (int i=0;i<defaultList.size();i++) {
 				//
@@ -225,13 +225,13 @@ public class MainController {
 			//--------------------------------------------------------------------------------------------
 			// 입사 현황
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy4011(paramMap);
+			defaultList = empDao.intrEmpInqyDao3010(paramMap);
 			model.addAttribute("empList", defaultList);
 
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = projDao.projInqyDao1020(paramMap);
+			defaultList = projDao.projInqyDao1010(paramMap);
 			model.addAttribute("projList", defaultList);
 			
 		} catch (Exception e) {

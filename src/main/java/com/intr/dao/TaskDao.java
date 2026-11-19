@@ -14,10 +14,10 @@ public class TaskDao {
 	SqlSession sqlsession;
 	
 	// 업무일지 작성 조회
-	public List<HashMap<String, Object>> taskInqyDao1020(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> taskInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("task.taskInqyDao1020", paramMap);
+		defaultList = sqlsession.selectList("task.taskInqyDao1010", paramMap);
 		return defaultList;
 	}
 

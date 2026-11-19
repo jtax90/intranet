@@ -14,6 +14,22 @@ public class AprvDao {
 	SqlSession sqlsession;
 	
 	// 기안 목록 조회
+	public List<HashMap<String, Object>> aprvInqyDao1010(HashMap<String, Object> paramMap) {
+		//
+		List<HashMap<String, Object>> defaultList = null;
+		defaultList = sqlsession.selectList("aprv.aprvInqyDao1010", paramMap);
+		return defaultList;
+	}
+	
+	// 결재 상세 조회
+	public HashMap<String, Object> aprvInqyDao1020(HashMap<String, Object> paramMap) {
+		//
+		HashMap<String, Object> defaultInfo = null;
+		defaultInfo = sqlsession.selectOne("aprv.aprvInqyDao1020", paramMap);
+		return defaultInfo;
+	}
+	
+	// 결재선 조회
 	public List<HashMap<String, Object>> aprvInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
@@ -21,35 +37,19 @@ public class AprvDao {
 		return defaultList;
 	}
 	
-	// 결재 상세 조회
-	public HashMap<String, Object> aprvInqyDao1040(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("aprv.aprvInqyDao1040", paramMap);
-		return defaultInfo;
-	}
-	
-	// 결재선 조회
-	public List<HashMap<String, Object>> aprvInqyDao1050(HashMap<String, Object> paramMap) {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("aprv.aprvInqyDao1050", paramMap);
-		return defaultList;
-	}
-	
 	// 물품 등록 조회
-	public List<HashMap<String, Object>> aprvInqyDao1060(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> aprvInqyDao1040(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("aprv.aprvInqyDao1060", paramMap);
+		defaultList = sqlsession.selectList("aprv.aprvInqyDao1040", paramMap);
 		return defaultList;
 	}
 	
 	// 정산내역 조회
-	public List<HashMap<String, Object>> aprvInqyDao1070(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> aprvInqyDao1050(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("aprv.aprvInqyDao1070", paramMap);
+		defaultList = sqlsession.selectList("aprv.aprvInqyDao1050", paramMap);
 		return defaultList;
 	}
 	

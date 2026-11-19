@@ -13,27 +13,19 @@ public class BoardDao {
 	@Autowired
 	SqlSession sqlsession;
 	
-	// 공지사항 시퀀스 조회
-	public HashMap<String, Object> boardInqyDao1010(HashMap<String, Object> paramMap) {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("board.boardInqyDao1010", paramMap);
-		return defaultInfo;
-	}
-	
 	// 공지사항 목록
-	public List<HashMap<String, Object>> boardInqyDao1020(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> boardInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("board.boardInqyDao1020", paramMap);
+		defaultList = sqlsession.selectList("board.boardInqyDao1010", paramMap);
 		return defaultList;
 	}
 	
 	// 공지사항 상세 조회
-	public HashMap<String, Object> boardInqyDao1030(HashMap<String, Object> paramMap) {
+	public HashMap<String, Object> boardInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("board.boardInqyDao1030", paramMap);
+		defaultInfo = sqlsession.selectOne("board.boardInqyDao1020", paramMap);
 		return defaultInfo;
 	}
 	

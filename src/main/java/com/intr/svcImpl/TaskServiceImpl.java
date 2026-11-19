@@ -55,7 +55,7 @@ public class TaskServiceImpl implements TaskService{
 			//--------------------------------------------------------------------------------------------
 			// 업무일지 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = taskDao.taskInqyDao1020(paramMap);
+			defaultList = taskDao.taskInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
 			
 		} catch (Exception e) {
@@ -75,7 +75,7 @@ public class TaskServiceImpl implements TaskService{
 			//--------------------------------------------------------------------------------------------
 			// 업무일지 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = taskDao.taskInqyDao1020(paramMap);
+			defaultList = taskDao.taskInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
 			
 		} catch (Exception e) {

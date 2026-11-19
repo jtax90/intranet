@@ -14,18 +14,18 @@ public class ProjDao {
 	SqlSession sqlsession;
 
 	// 프로젝트 목록 조회
-	public List<HashMap<String, Object>> projInqyDao1020(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> projInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("proj.projInqyDao1020", paramMap);
+		defaultList = sqlsession.selectList("proj.projInqyDao1010", paramMap);
 		return defaultList;
 	}
 	
 	// 프로젝트 상세 조회
-	public HashMap<String, Object> projInqyDao1030(HashMap<String, Object> paramMap) {
+	public HashMap<String, Object> projInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("proj.projInqyDao1030", paramMap);
+		defaultInfo = sqlsession.selectOne("proj.projInqyDao1020", paramMap);
 		return defaultInfo;
 	}
 	

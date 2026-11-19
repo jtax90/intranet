@@ -14,26 +14,26 @@ public class MtgDao {
 	SqlSession sqlsession;
 	
 	// 회의 목록 조회
-	public List<HashMap<String, Object>> mtgInqyDao1020(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> mtgInqyDao1010(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("mtg.mtgInqyDao1020", paramMap);
+		defaultList = sqlsession.selectList("mtg.mtgInqyDao1010", paramMap);
 		return defaultList;
 	}
 	
 	// 회의 상세 조회
-	public HashMap<String, Object> mtgInqyDao1030(HashMap<String, Object> paramMap) {
+	public HashMap<String, Object> mtgInqyDao1020(HashMap<String, Object> paramMap) {
 		//
 		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("mtg.mtgInqyDao1030", paramMap);
+		defaultInfo = sqlsession.selectOne("mtg.mtgInqyDao1020", paramMap);
 		return defaultInfo;
 	}
 	
 	// 회의 중복 조회
-	public List<HashMap<String, Object>> mtgInqyDao1040(HashMap<String, Object> paramMap) {
+	public List<HashMap<String, Object>> mtgInqyDao1030(HashMap<String, Object> paramMap) {
 		//
 		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("mtg.mtgInqyDao1040", paramMap);
+		defaultList = sqlsession.selectList("mtg.mtgInqyDao1030", paramMap);
 		return defaultList;
 	}
 	

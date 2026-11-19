@@ -124,7 +124,7 @@ public class PopupController {
 		//
 		try {
 			// 사원 아이디 저장
-			defaultInfo = empDao.empInqyDao1030(paramMap);
+			defaultInfo = empDao.empInqyDao1020(paramMap);
 			
 			if(defaultInfo != null) {
 				defaultStr = String.format("[{'findId':'%s', 'findEmail':'%s'}]", (String)defaultInfo.get("empId"), (String)defaultInfo.get("email"));		
@@ -149,7 +149,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = projDao.projInqyDao1020(paramMap);
+			defaultList = projDao.projInqyDao1010(paramMap);
 			model.addAttribute("projList", defaultList);
 			
 		} catch (Exception e) {
@@ -171,7 +171,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 부서 사원 트리 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy2031(paramMap);
+			defaultList = empDao.intrEmpInqyDao1090(paramMap);
 			model.addAttribute("empList",defaultList);
 
 			//--------------------------------------------------------------------------------------------
@@ -204,7 +204,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 결재선 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = aprvDao.aprvInqyDao1050(paramMap);
+			defaultList = aprvDao.aprvInqyDao1030(paramMap);
 			model.addAttribute("lineList", defaultList);
 			
 		} catch (Exception e) {
@@ -281,7 +281,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 물품 조회 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = aprvDao.aprvInqyDao1060(paramMap);
+			defaultList = aprvDao.aprvInqyDao1040(paramMap);
 			model.addAttribute("itemList", defaultList);
 			
 		} catch (Exception e) {
@@ -319,7 +319,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 정산내역 조회 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = aprvDao.aprvInqyDao1070(paramMap);
+			defaultList = aprvDao.aprvInqyDao1050(paramMap);
 			model.addAttribute("corpList", defaultList);
 			
 		} catch (Exception e) {
@@ -340,7 +340,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 일정 관리 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = aprvDao.aprvInqyDao1040(paramMap);
+			defaultInfo = aprvDao.aprvInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 		} catch (Exception e) {
@@ -362,7 +362,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 회의 상세 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = mtgDao.mtgInqyDao1030(paramMap);
+			defaultInfo = mtgDao.mtgInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
@@ -389,7 +389,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 조직도 팝업 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy2031(paramMap);
+			defaultList = empDao.intrEmpInqyDao1090(paramMap);
 			model.addAttribute("empList", defaultList);
 			
 		} catch (Exception e) {
@@ -410,7 +410,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 조직도 트리 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy2031(paramMap);
+			defaultList = empDao.intrEmpInqyDao1090(paramMap);
 			model.addAttribute("empList", defaultList);
 			
 		} catch (Exception e) {
@@ -432,7 +432,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 조직도 트리 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = empDao.intrEmpInqy1031(paramMap);
+			defaultInfo = empDao.intrEmpInqyDao1070(paramMap);
 			
 		} catch (Exception e) {
 			//
@@ -570,7 +570,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 로그 메세지 상세
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = logDao.logInqyDao1030(paramMap);
+			defaultInfo = logDao.logInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 		} catch (Exception e) {

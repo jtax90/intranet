@@ -42,7 +42,7 @@ public class MtgServiceImpl implements MtgService{
 			//--------------------------------------------------------------------------------------------
 			// 회의 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = mtgDao.mtgInqyDao1020(paramMap);
+			defaultList = mtgDao.mtgInqyDao1010(paramMap);
 			model.addAttribute("defaultList", JSONArray.toJSONString(defaultList));
 			
 		} catch (Exception e) {
@@ -74,7 +74,7 @@ public class MtgServiceImpl implements MtgService{
 			//--------------------------------------------------------------------------------------------
 			// 회의 상세 정보
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = mtgDao.mtgInqyDao1030(paramMap);
+			defaultInfo = mtgDao.mtgInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo",defaultInfo);
 
 		} catch (Exception e) {
@@ -92,7 +92,7 @@ public class MtgServiceImpl implements MtgService{
 			//--------------------------------------------------------------------------------------------
 			// 회의 중복 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = mtgDao.mtgInqyDao1040(paramMap);
+			defaultList = mtgDao.mtgInqyDao1030(paramMap);
 			model.addAttribute("bookedList",defaultList);
 			
 		} catch (Exception e) {

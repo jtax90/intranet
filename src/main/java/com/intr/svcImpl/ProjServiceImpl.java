@@ -48,7 +48,7 @@ public class ProjServiceImpl implements ProjService{
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = projDao.projInqyDao1020(paramMap);
+			defaultList = projDao.projInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
 
 			//--------------------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ public class ProjServiceImpl implements ProjService{
 			//--------------------------------------------------------------------------------------------
 			// 프로젝트 상세 정보
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = projDao.projInqyDao1030(paramMap);
+			defaultInfo = projDao.projInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 
 			//--------------------------------------------------------------------------------------------

@@ -35,7 +35,7 @@ public class BanrServiceImpl implements BanrService {
 			//--------------------------------------------------------------------------------------------
 			// 배너 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = banrDao.banrInqyDao1020(paramMap);
+			defaultList = banrDao.banrInqyDao1010(paramMap);
 			model.addAttribute("defaultInfo",defaultList);
 			
 		} catch (Exception e) {
@@ -59,7 +59,7 @@ public class BanrServiceImpl implements BanrService {
 				//--------------------------------------------------------------------------------------------
 				// 배너 저장 (수정) 처리
 				//--------------------------------------------------------------------------------------------
-				defaultInfo = banrDao.banrInqyDao1020(paramMap);		
+				defaultInfo = banrDao.banrInqyDao1010(paramMap);		
 				paramMap.put("fileId", defaultInfo.get("fileId"));
 				
 			}
@@ -115,7 +115,7 @@ public class BanrServiceImpl implements BanrService {
 			//--------------------------------------------------------------------------------------------
 			// 기존 배너 정보 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = banrDao.banrInqyDao1020(paramMap);
+			defaultInfo = banrDao.banrInqyDao1010(paramMap);
 			fileId = utilService.nvlProc((String)defaultInfo.get("fileId"));
 			
 			//--------------------------------------------------------------------------------------------

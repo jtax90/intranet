@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="emp"> 
-	<select id="empInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* empInqyDao1020 : 사원 목록 조회 */
+	<select id="empInqyDao1010" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* empInqyDao1010 : 사원 목록 조회 */
 		SELECT 
 		            SUB_DATA.*
 		FROM (
@@ -64,8 +64,8 @@
         ORDER BY SUB_DATA.EMP_IDX ASC
 	</select>
 	
-	<select id="empInqyDao1030" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* empInqyDao1030 : 사용자 정보 찾기 */
+	<select id="empInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* empInqyDao1020 : 사용자 정보 찾기 */
 		SELECT 
 				EMP_IDX
 			,	ORG_CD
@@ -91,8 +91,8 @@
 			</if>
 	</select>
 	
-	<select id="empInqyDao1040" resultType="CamelHashMap">
-		/* empInqyDao1040 : 관리자 계정 조회 */
+	<select id="empInqyDao1030" resultType="CamelHashMap">
+		/* empInqyDao1030 : 관리자 계정 조회 */
 		SELECT 
 				EMP_IDX
 			,	ORG_CD
@@ -111,8 +111,8 @@
 		WHERE UPPER(EMP_ID) = 'ADMIN'
 	</select>
 	
-	<select id="intrEmpInqy1021" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy1021 : 부서 목록 조회 */
+	<select id="intrEmpInqyDao1040" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao1040 : 부서 목록 조회 */
 		SELECT
 					ORG_CD
 				,	ORG_NM
@@ -128,8 +128,8 @@
 		ORDER BY DISP_ORDER ASC
 	</select>
 	
-	<select id="intrEmpInqy1022" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy1022 : 직급 목록 조회 */
+	<select id="intrEmpInqyDao1050" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao1050 : 직급 목록 조회 */
 		SELECT
 					RANK_CD
 				,	RANK_NM
@@ -140,8 +140,8 @@
 		ORDER BY DISP_ORDER ASC
 	</select>
 	
-	<select id="intrEmpInqy1023" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy1023 : 부서 목록 (전체) 조회 */
+	<select id="intrEmpInqyDao1060" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao1060 : 부서 목록 (전체) 조회 */
 		SELECT
 			DATA.*
 		FROM (
@@ -167,8 +167,8 @@
 		ORDER BY DATA.DISP_ORDER ASC
 	</select>
 	
-	<select id="intrEmpInqy1031" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy1031 : 사원 상세 조회 */
+	<select id="intrEmpInqyDao1070" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao1070 : 사원 상세 조회 */
 		SELECT
 					E.EMP_IDX
 				,	E.ORG_CD
@@ -205,8 +205,8 @@
 		WHERE E.EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 	</select>
 	
-	<select id="intrEmpInqy2021" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy2021 : 사원 아이디 중복 조회 */
+	<select id="intrEmpInqyDao1080" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao1080 : 사원 아이디 중복 조회 */
 		SELECT
 					EMP_IDX
 				,	ORG_CD
@@ -225,8 +225,8 @@
 		WHERE UPPER(EMP_ID) = UPPER(#{empId, jdbcType=VARCHAR})
 	</select>
 	
-	<select id="intrEmpInqy2031" resultType="CamelHashMap">
-		/* intrEmpInqy2031 : 부서 사원 트리 조회 */
+	<select id="intrEmpInqyDao1090" resultType="CamelHashMap">
+		/* intrEmpInqyDao1090 : 부서 사원 트리 조회 */
 		SELECT 
 				    SUB_DATA.*
 				,   CASE WHEN SUB_DATA.EMP_NM IS NULL
@@ -278,8 +278,8 @@
    		    ORDER BY SUB_DATA.ORG_CD ASC , SUB_DATA.LV ASC
 	</select>
 	
-	<select id="intrEmpInqy2041" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy2041 : 부서 사원 수 조회 */
+	<select id="intrEmpInqyDao2010" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao2010 : 부서 사원 수 조회 */
 		SELECT 
                   	O.ORG_NM
                 ,   COUNT(E.EMP_NM) AS ORG_CNT
@@ -292,8 +292,8 @@
         ORDER BY ORG_NM ASC
 	</select>
 	
-	<select id="intrEmpInqy3011" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy3011 : 담당업무 조회 */
+	<select id="intrEmpInqyDao2020" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao2020 : 담당업무 조회 */
 		SELECT 
 		            SUB_DATA.*
 		FROM (
@@ -347,8 +347,8 @@
         ORDER BY SUB_DATA.EMP_IDX ASC
 	</select>
 	
-	<select id="intrEmpInqy3012" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy3012 : 담당업무 상세 조회 */
+	<select id="intrEmpInqyDao2030" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao2030 : 담당업무 상세 조회 */
 		SELECT
 				E.EMP_IDX
 			,	ED.DUTY_ID
@@ -378,8 +378,8 @@
 			AND E.EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 	</select>
 	
-	<select id="intrEmpInqy4011" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy4011 : 입사 현황 */
+	<select id="intrEmpInqyDao3010" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao3010 : 입사 현황 */
 		SELECT
 	        (
 	            SELECT COUNT(*) || '명'
@@ -404,8 +404,8 @@
 	    FROM DUAL
 	</select>
 
-	<select id="intrEmpInqy4012" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy4012 : 인사통계 목록 조회 */
+	<select id="intrEmpInqyDao3020" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao3020 : 인사통계 목록 조회 */
 		    SELECT
 		        	CASE WHEN G_ORG = 1 THEN '전체 합계' ELSE ORG_NM END AS ORG_NM
 		        , 	CASE WHEN G_YM = 1 THEN '연간 소계' ELSE YEAR_MM END AS YEAR_MM
@@ -459,8 +459,8 @@
 		    ORDER BY G_ORG, ORG_CD, G_YM, YEAR_MM
 	</select>
 
-	<select id="intrEmpInqy4013" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy4013 : 통계 연도 조회 */
+	<select id="intrEmpInqyDao3030" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao3030 : 통계 연도 조회 */
 		SELECT
 				(TO_CHAR(SYSDATE, 'YYYY') - LEVEL + 1) AS CODE_CD
 			,	(TO_CHAR(SYSDATE, 'YYYY') - LEVEL + 1) || '년' AS CODE_NM
@@ -468,8 +468,8 @@
 		CONNECT BY LEVEL &lt;= 5
 	</select>
 	
-	<select id="intrEmpInqy4014" resultType="CamelHashMap" parameterType="java.util.HashMap">
-		/* intrEmpInqy4014 : 통계 연월 조회 */
+	<select id="intrEmpInqyDao3040" resultType="CamelHashMap" parameterType="java.util.HashMap">
+		/* intrEmpInqyDao3040 : 통계 연월 조회 */
 		SELECT
 				NVL(#{srchYearCd, jdbcType=VARCHAR}, TO_CHAR(SYSDATE, 'YYYY')) || LPAD(LEVEL, 2, '0') AS YEAR_MM 
 			,	NVL(#{srchYearCd, jdbcType=VARCHAR}, TO_CHAR(SYSDATE, 'YYYY')) || '.' || LPAD(LEVEL, 2, '0') AS YEAR_NM 
@@ -477,8 +477,8 @@
 		CONNECT BY LEVEL &lt;= 12
 	</select>
 	
-	<insert id="intrEmpProc1011" parameterType="java.util.HashMap">
-		/* intrEmpProc1011 : 사원 등록 처리 */
+	<insert id="intrEmpProcDao1010" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1010 : 사원 등록 처리 */
 		INSERT INTO EMP_INFO
 	    (
 	        	EMP_IDX
@@ -519,8 +519,8 @@
 	    )
 	</insert>
 	
-	<update id="intrEmpProc1021" parameterType="java.util.HashMap">
-		/* intrEmpProc1021 : 사원 수정 처리 */
+	<update id="intrEmpProcDao1020" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1020 : 사원 수정 처리 */
 		UPDATE EMP_INFO
 			SET 	ORG_CD = #{setOrgCd, jdbcType=VARCHAR}
 				,	RANK_CD = #{setRankCd, jdbcType=VARCHAR}
@@ -538,8 +538,8 @@
 		WHERE EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 	</update>
 	
-	<update id="intrEmpProc1031" parameterType="java.util.HashMap">
-		/* "intrEmpProc1031" : 사원 복직, 퇴사 처리 */
+	<update id="intrEmpProcDao1030" parameterType="java.util.HashMap">
+		/* "intrEmpProcDao1030" : 사원 복직, 퇴사 처리 */
 		UPDATE EMP_INFO
 			SET LEAV_DT =
 				CASE WHEN LEAV_DT IS NULL
@@ -550,14 +550,14 @@
 		WHERE EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 	</update>
 	
-	<update id="intrEmpProc1041" parameterType="java.util.HashMap">
-		/* intrEmpProc1041 : 사원 삭제 처리 */
+	<update id="intrEmpProcDao1040" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1040 : 사원 삭제 처리 */
 		DELETE FROM EMP_INFO
 			WHERE EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 	</update>
 	
-	<update id="intrEmpProc1051" parameterType="java.util.HashMap">
-		/* intrEmpProc1051 : 사원 비밀번호 수정 처리 */
+	<update id="intrEmpProcDao1050" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1050 : 사원 비밀번호 수정 처리 */
 		UPDATE EMP_INFO
 			SET 	EMP_PWD = #{chngPwd, jdbcType=VARCHAR}
 				,	MOD_IDX = #{modIdx, jdbcType=VARCHAR}
@@ -565,8 +565,8 @@
 		WHERE EMP_ID = #{chngPwdId, jdbcType=VARCHAR}
 	</update>
 	
-	<update id="intrEmpProc2011" parameterType="java.util.HashMap">
-		/* intrEmpProc2011 : 담당업무 저장 처리 */
+	<update id="intrEmpProcDao1060" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1060 : 담당업무 저장 처리 */
 		MERGE INTO EMP_DUTY ED1
 	    USING (
 	        SELECT
@@ -610,8 +610,8 @@
 	        )
 	</update>
 	
-	<delete id="intrEmpProc2021" parameterType="java.util.HashMap">
-		/* intrEmpProc2021 : 담당업무 삭제 처리 */
+	<delete id="intrEmpProcDao1070" parameterType="java.util.HashMap">
+		/* intrEmpProcDao1070 : 담당업무 삭제 처리 */
 		DELETE FROM EMP_DUTY
 			WHERE EMP_IDX = #{empIdx, jdbcType=VARCHAR}
 				AND DUTY_ID = #{dutyId, jdbcType=VARCHAR}

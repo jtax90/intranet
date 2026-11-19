@@ -128,7 +128,7 @@ public class MtgController {
 			//--------------------------------------------------------------------------------------------
 			// 회의 중복 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = mtgDao.mtgInqyDao1040(paramMap);
+			defaultList = mtgDao.mtgInqyDao1030(paramMap);
 			
 		} catch (Exception e) {
 			//

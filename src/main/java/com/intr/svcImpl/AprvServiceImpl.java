@@ -113,7 +113,7 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 결재 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = aprvDao.aprvInqyDao1030(paramMap);
+			defaultList = aprvDao.aprvInqyDao1010(paramMap);
 			model.addAttribute("defaultList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 결재 상세 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = aprvDao.aprvInqyDao1040(paramMap);
+			defaultInfo = aprvDao.aprvInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo", defaultInfo);
 			
 			//--------------------------------------------------------------------------------------------
@@ -217,7 +217,7 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 부서 사원 트리 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqy2031(paramMap);
+			defaultList = empDao.intrEmpInqyDao1090(paramMap);
 			model.addAttribute("empList",defaultList);
 			
 		} catch (Exception e) {

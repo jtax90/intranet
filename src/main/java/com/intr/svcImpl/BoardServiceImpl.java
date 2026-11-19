@@ -60,7 +60,7 @@ public class BoardServiceImpl implements BoardService{
 			//--------------------------------------------------------------------------------------------
 			// 공지사항 목록
 			//--------------------------------------------------------------------------------------------
-			defaultList = boardDao.boardInqyDao1020(paramMap);
+			defaultList = boardDao.boardInqyDao1010(paramMap);
 			model.addAttribute("defaultList",defaultList);
 			
 			//--------------------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ public class BoardServiceImpl implements BoardService{
 			//--------------------------------------------------------------------------------------------
 			// 공지사항 상세 정보
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = boardDao.boardInqyDao1030(paramMap);
+			defaultInfo = boardDao.boardInqyDao1020(paramMap);
 			model.addAttribute("defaultInfo",defaultInfo);
 
 			//--------------------------------------------------------------------------------------------
@@ -171,7 +171,7 @@ public class BoardServiceImpl implements BoardService{
 	            HashMap<String, Object> tempMap = new HashMap<String, Object>();
 	            tempMap.put("brdId", brdId);
 	            //
-	            HashMap<String, Object> boardInfo = boardDao.boardInqyDao1030(tempMap);
+	            HashMap<String, Object> boardInfo = boardDao.boardInqyDao1020(tempMap);
 	            String fileId = (String) boardInfo.get("fileId");
 	            
 	            if (fileId != null && !fileId.isEmpty() && !fileIds.contains(fileId)) {
@@ -215,7 +215,7 @@ public class BoardServiceImpl implements BoardService{
 	    	//--------------------------------------------------------------------------------------------
 			// 공지사항
 			//--------------------------------------------------------------------------------------------
-	        defaultInfo = boardDao.boardInqyDao1030(paramMap);
+	        defaultInfo = boardDao.boardInqyDao1020(paramMap);
 	        paramMap.put("fileId", defaultInfo.get("fileId"));
 
 	        // 파일 수정

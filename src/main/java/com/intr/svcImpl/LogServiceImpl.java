@@ -40,7 +40,7 @@ public class LogServiceImpl implements LogService {
 			//--------------------------------------------------------------------------------------------
 			// 로그 목록 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = logDao.logInqyDao1020(paramMap);
+			defaultList = logDao.logInqyDao1010(paramMap);
 			model.addAttribute("defaultList",defaultList);
 			
 		} catch (Exception e) {

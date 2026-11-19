@@ -116,7 +116,7 @@ Intranet/
 ### 3.3 주요 구현 특징
 * **요청 라우팅**: Controller는 `@RequestMapping`을 통해 `.do` URL을 처리하며, 일반 조회 요청은 JSP 경로를 반환하고 등록·수정·삭제 요청은 주로 `@ResponseBody`를 통해 JSON 결과를 반환합니다.
 * **선언적 트랜잭션**: 모든 `svcImpl` 클래스에 `@Transactional(rollbackFor = Exception.class)`을 적용하여 비즈니스 로직 전반의 트랜잭션 무결성을 보장합니다.
-* **SQL 매핑 표준화**: DAO는 `SqlSessionTemplate`을 사용하여 `namespace.statementId` 형식(예: `board.boardInqyDao1020`)으로 MyBatis Mapper를 호출합니다.
+* **SQL 매핑 표준화**: DAO는 `SqlSessionTemplate`을 사용하여 `namespace.statementId` 형식(예: `board.boardInqyDao1010`)으로 MyBatis Mapper를 호출합니다.
 * **데이터 컨테이너 및 변환**:
   * 요청 및 조회 결과 데이터는 주로 `HashMap<String, Object>` 형태로 처리합니다.
   * `CamelHashMap`을 도입하여 조회 결과 컬럼명을 `lowerCamelCase`로 자동 매핑하고 Oracle CLOB 데이터를 문자열로 일괄 변환 처리합니다.
@@ -129,8 +129,8 @@ Intranet/
 2. `BoardController.intrBoardInqy1010`이 요청을 수신합니다.
    * 공통 메뉴 정보 조회를 위해 `CoreService.coreInqyService1010` 호출
    * 공지사항 목록 조회를 위해 `BoardService.boardInqyService1010` 호출
-3. `BoardServiceImpl`이 `BoardDao.boardInqyDao1020`을 호출합니다.
-4. `BoardDao`가 `Board_Sql.xml`의 `boardInqyDao1020` Mapper를 MyBatis를 통해 실행합니다.
+3. `BoardServiceImpl`이 `BoardDao.boardInqyDao1010`을 호출합니다.
+4. `BoardDao`가 `Board_Sql.xml`의 `boardInqyDao1010` Mapper를 MyBatis를 통해 실행합니다.
 5. 조회 결과를 Model의 `defaultList`에 담고, `WEB-INF/views/intr/board/intr_board_list_1010.jsp`를 렌더링하여 브라우저에 반환합니다.
 
 > **[참고]** `MainController`와 `PopupController`의 경우 단순 조회 및 집계 목적에 따라 Service 계층 없이 여러 DAO를 직접 주입받아 처리하는 흐름도 포함되어 있습니다.
