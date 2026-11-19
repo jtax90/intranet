@@ -22,7 +22,7 @@
 		try {
 			//
 			var obj = new Object();
-			obj["mappingId"] = "intrPopupInqy2021.do";
+			obj["menuUrl"] = "intrPopupInqy2021.do";
 			obj["areaType"] = "log";
 			obj["logId"] = logId;
 			obj["width"] = "670";

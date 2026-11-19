@@ -12,14 +12,14 @@
 	}
 
 	// 양식 선택
-	function detCall(tempCd, temptypeCd, mappingId){
+	function detCall(tempCd, temptypeCd, menuUrl){
 		//
 		try {
 			//
 			$("#tempCd").val(tempCd);
         	$("#temptypeCd").val(temptypeCd);
 			//
-			formSubmit(mappingId);
+			formSubmit(menuUrl);
 			
 		} catch (error) {
 	        console.error("[Error] 양식 선택 : ", error.message);

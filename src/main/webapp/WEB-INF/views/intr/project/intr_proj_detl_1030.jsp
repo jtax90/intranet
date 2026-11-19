@@ -11,7 +11,7 @@
 			//
 			var obj = new Object();
 			
-			obj["mappingId"] = "intrPopupInqy1011.do";
+			obj["menuUrl"] = "intrPopupInqy1011.do";
    			obj["areaType"] = "emp";
    			obj["width"] = "550"
    			obj["height"] = "420";

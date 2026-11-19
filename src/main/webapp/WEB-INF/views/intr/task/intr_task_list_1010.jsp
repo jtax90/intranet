@@ -35,7 +35,7 @@
 			taskArea.find(".projTitle").attr("id", "projPnm");
 			//
 			var obj = new Object();
-			obj["mappingId"] = "intrPopupInqy1030.do";
+			obj["menuUrl"] = "intrPopupInqy1030.do";
 			obj["areaType"] = "proj";
 			obj["width"] = "550";
 			obj["height"] = "420";

@@ -20,7 +20,7 @@ function ajaxPopup(obj){
 		// 동작 제어
 		$.ajax({
 			type:	"POST" , 
-			url:	obj["mappingId"],
+			url:	obj["menuUrl"],
 			data:	obj,
 			dataType:	"text" ,
 			success : function(data){
@@ -46,12 +46,12 @@ function ajaxPopup(obj){
 var mailChkYn = false; 	// 인증 여부 체크
 
 // 정보 찾기 팝업
-function chgPopup(mappingId){
+function chgPopup(menuUrl){
 	try {
 		// 화면 전환
 		$.ajax({
 			type:	"POST" , 
-			url:	mappingId,
+			url:	menuUrl,
 			dataType:	"text" ,
 			success : function(data){
 				//

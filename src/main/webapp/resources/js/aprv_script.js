@@ -45,7 +45,7 @@ function projCall(){
 	try {
 		//
 		var obj = new Object();
-		obj["mappingId"] = "intrPopupInqy1030.do";
+		obj["menuUrl"] = "intrPopupInqy1030.do";
 		obj["areaType"] = "proj";
 		obj["width"] = "600"
 		obj["height"] = "370";
@@ -62,7 +62,7 @@ function empCall(){
 	try {
 		//
 		var obj = new Object();
-		obj["mappingId"] = "intrPopupInqy1011.do";
+		obj["menuUrl"] = "intrPopupInqy1011.do";
 		obj["areaType"] = "emp";
 		obj["width"] = "550"
 		obj["height"] = "420";
@@ -99,7 +99,7 @@ function lineReg(){
 		//
 		var obj = new Object();
 
-		obj["mappingId"] = "intrPopupInqy1041.do";
+		obj["menuUrl"] = "intrPopupInqy1041.do";
 		obj["empIdx"] = $("#empIdx").val();
 		obj["areaType"] = "line";
 		obj["width"] = "1100";
@@ -118,7 +118,7 @@ function lineCall(aprvId){
 		//
 		var obj = new Object();
 		
-		obj["mappingId"] = "intrPopupInqy1042.do";
+		obj["menuUrl"] = "intrPopupInqy1042.do";
 		obj["areaType"] = "line";
 		obj["aprvId"] = aprvId;
 		obj["width"] = "1100";
@@ -137,7 +137,7 @@ function itemReg(){
 		//
 		var obj = new Object();
 		
-		obj["mappingId"] = "intrPopupInqy1061.do";
+		obj["menuUrl"] = "intrPopupInqy1061.do";
 		obj["areaType"] = "item";
 		obj["width"] = "1100"
 		obj["height"] = "620";
@@ -155,7 +155,7 @@ function itemCall(aprvId){
 		//
 		var obj = new Object();
 
-		obj["mappingId"] = "intrPopupInqy1062.do";
+		obj["menuUrl"] = "intrPopupInqy1062.do";
 		obj["areaType"] = "item";
 		obj["aprvId"] = aprvId;
 		obj["width"] = "1100"
@@ -174,7 +174,7 @@ function corpReg(){
 		//
 		var obj = new Object();
 
-		obj["mappingId"] = "intrPopupInqy1071.do";
+		obj["menuUrl"] = "intrPopupInqy1071.do";
 		obj["areaType"] = "corp";
 		obj["width"] = "1100"
 		obj["height"] = "620";
@@ -192,7 +192,7 @@ function corpCall(aprvId){
 		//
 		var obj = new Object();
 		
-		obj["mappingId"] = "intrPopupInqy1072.do";
+		obj["menuUrl"] = "intrPopupInqy1072.do";
 		obj["areaType"] = "corp";
 		obj["aprvId"] = aprvId;
 		obj["width"] = "1100"
@@ -211,7 +211,7 @@ function opinCall(method){
 		//
 		var obj = new Object();
 		
-		obj["mappingId"] = "intrPopupInqy1050.do";
+		obj["menuUrl"] = "intrPopupInqy1050.do";
 		obj["areaType"] = "opin";
 		obj["width"] = "550";
 		obj["height"] = "330";

@@ -106,11 +106,11 @@ function initCall() {
 }
 
 // 폼 태그 동작
-function formSubmit(mappingId){
+function formSubmit(menuUrl){
 	try {
 		//
 		var f = document.getElementById('form');
-		f.action = mappingId;
+		f.action = menuUrl;
 		f.submit();
 	
 	} catch (error) {

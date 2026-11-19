@@ -92,7 +92,7 @@
 			//
 			var obj = new Object();
 			
-			obj["mappingId"] = "intrPopupInqy1091.do";
+			obj["menuUrl"] = "intrPopupInqy1091.do";
 			obj["mtgId"] = mtgId;
 			obj["areaType"] = "mtg";
 			obj["width"] = "700";
@@ -160,7 +160,7 @@
 			//
 			var obj = new Object();
 			//
-			obj["mappingId"] = "intrPopupInqy1123.do";
+			obj["menuUrl"] = "intrPopupInqy1123.do";
 			obj["areaType"] = "tldr";
 			obj["mtgId"] = mtgId;
 			obj["width"] = "700"

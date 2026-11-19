@@ -32,7 +32,7 @@
 			eventClick: function(info) {
 				var obj = new Object();
 				//
-				obj["mappingId"] = "intrPopupInqy1081.do";
+				obj["menuUrl"] = "intrPopupInqy1081.do";
 				obj["areaType"] = "leav";
 				obj["aprvId"] = info.event.id;
 				obj["width"] = "700"

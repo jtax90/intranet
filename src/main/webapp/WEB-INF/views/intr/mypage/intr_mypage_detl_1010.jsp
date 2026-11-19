@@ -74,7 +74,7 @@
    			// 비밀번호 변경 팝업
    			var obj = new Object();
    			//
-   			obj["mappingId"] = "intrPopupInqy2011.do";
+   			obj["menuUrl"] = "intrPopupInqy2011.do";
    			obj["areaType"] = "pwd";
    			obj["width"] = "650"
    			obj["height"] = "365";

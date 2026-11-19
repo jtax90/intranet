@@ -33,7 +33,7 @@
 			eventClick: function(info) {
 				var obj = new Object();
 				//
-				obj["mappingId"] = "intrPopupInqy1122.do";
+				obj["menuUrl"] = "intrPopupInqy1122.do";
 				obj["areaType"] = "tldr";
 				obj["tldrId"] = info.event.id;
 				obj["width"] = "700"
@@ -66,7 +66,7 @@
 			//
 			var obj = new Object();
 			//
-			obj["mappingId"] = "intrPopupInqy1121.do";
+			obj["menuUrl"] = "intrPopupInqy1121.do";
 			obj["areaType"] = "tldr";
 			obj["width"] = "700"
 			obj["height"] = "460";

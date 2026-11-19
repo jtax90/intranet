@@ -64,7 +64,7 @@
 			//
 			var obj = new Object();
 			
-			obj["mappingId"] = "intrPopupInqy1101.do";
+			obj["menuUrl"] = "intrPopupInqy1101.do";
 			obj["areaType"] = "org";
 			obj["width"] = "700";
 			obj["height"] = "550";

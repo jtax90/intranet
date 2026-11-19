@@ -14,7 +14,7 @@
    	   			// 정보 찾기 팝업
    	   			var obj = new Object();
    	   			//
-   	   			obj["mappingId"] = "intrPopupInqy1021.do";
+   	   			obj["menuUrl"] = "intrPopupInqy1021.do";
    	   			obj["areaType"] = "find";
    	   			obj["width"] = "650"
    	   			obj["height"] = "365";

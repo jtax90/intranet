@@ -160,7 +160,7 @@
 				// 팝업 요청
 				var obj = new Object();
 				//
-				obj["mappingId"] = "intrPopupInqy1111.do";
+				obj["menuUrl"] = "intrPopupInqy1111.do";
 				obj["areaType"] = "qry";
 				obj["width"] = "700";
 				obj["height"] = "670";

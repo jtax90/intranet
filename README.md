@@ -149,7 +149,7 @@ Intranet/
   * `date_script.js`: 날짜 선택 및 캘린더 연동 UI
   * `file_script.js`: FormData 기반 파일 업로드/다운로드 처리
   * `aprv_script.js`: 전자결재선 지정 및 기안 클라이언트 유효성 검증
-* **동적 메뉴 체계**: DB의 `mappingId`를 기준으로 사용자 권한(`EMP_ROLE`, `MENU_ROLE`)에 맞는 메뉴 목록을 `CoreService`에서 조회하여 동적으로 Left Menu와 헤더를 구성합니다.
+* **동적 메뉴 체계**: DB의 `menuUrl`를 기준으로 사용자 권한(`EMP_ROLE`, `MENU_ROLE`)에 맞는 메뉴 목록을 `CoreService`에서 조회하여 동적으로 Left Menu와 헤더를 구성합니다.
 
 ---
 
