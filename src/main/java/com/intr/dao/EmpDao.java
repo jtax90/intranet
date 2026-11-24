@@ -109,38 +109,6 @@ public class EmpDao {
 		return defaultInfo;
 	}
 	
-	// 입사 현황
-	public List<HashMap<String, Object>> intrEmpInqyDao3010(HashMap<String, Object> paramMap) {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("emp.intrEmpInqyDao3010", paramMap);
-		return defaultList;
-	}
-	
-	// 인사통계 목록 조회
-	public List<HashMap<String, Object>> intrEmpInqyDao3020(HashMap<String, Object> paramMap) {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("emp.intrEmpInqyDao3020", paramMap);
-		return defaultList;
-	}
-	
-	// 통계 연도 조회
-	public List<HashMap<String, Object>> intrEmpInqyDao3030(HashMap<String, Object> paramMap) {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("emp.intrEmpInqyDao3030", paramMap);
-		return defaultList;
-	}
-	
-	// 통계 연월 조회
-	public List<HashMap<String, Object>> intrEmpInqyDao3040(HashMap<String, Object> paramMap) {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		defaultList = sqlsession.selectList("emp.intrEmpInqyDao3040", paramMap);
-		return defaultList;
-	}
-	
 	// 사원 등록
 	public int intrEmpProcDao1010(HashMap<String, Object> paramMap) {
 		//

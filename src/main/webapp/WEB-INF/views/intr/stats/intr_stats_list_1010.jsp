@@ -10,10 +10,10 @@
 	function listCall(f){
 		try {
 			//
-			formSubmit("intrEmpInqy4010.do");
+			formSubmit("intrStatsInqy1010.do");
 			
 		} catch (error) {
-	        console.error("[Error] 인사 통계 조회 : ", error.message);
+	        console.error("[Error] 입·퇴사 현황 조회 : ", error.message);
 		}
 	}
 </script>
@@ -34,7 +34,7 @@
 						<div class="sub_content">					
 							<div class="form_area">
 								<div class="post_wrap">
-                                    <h2 class="content_heading">인사 통계</h2>
+                                    <h2 class="content_heading">입·퇴사 현황</h2>
 									<div class="srch_wrap">
 										<div class="right_srch_area">
 											<!-- 연도 -->
@@ -82,7 +82,7 @@
 									</div>
 									<div class="post_table_wrap scroll_wrap employee_statistics">
 										<table class="post_table data_table">
-										    <caption>인사통계 목록페이지 입니다.</caption>
+										    <caption>입·퇴사 현황 목록</caption>
 										    <colgroup>
 										        <col class="w30per">
 										        <c:forEach var="col" begin="1" end="12">

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.intr.dao.AprvDao;
 import com.intr.dao.RoleDao;
+import com.intr.dao.StatsDao;
 import com.intr.dao.BanrDao;
 import com.intr.dao.BoardDao;
 import com.intr.dao.EmpDao;
@@ -84,6 +85,9 @@ public class MainController {
 	
 	@Autowired
 	TaskDao taskDao;
+	
+	@Autowired
+	StatsDao statsDao;
 	
 	@Autowired
 	HttpSession session;
@@ -223,9 +227,9 @@ public class MainController {
 			model.addAttribute("roleList", defaultList);
 			
 			//--------------------------------------------------------------------------------------------
-			// 입사 현황
+			// 입·퇴사 현황
 			//--------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqyDao3010(paramMap);
+			defaultList = statsDao.statsInqyDao1010(paramMap);
 			model.addAttribute("empList", defaultList);
 
 			//--------------------------------------------------------------------------------------------

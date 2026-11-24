@@ -138,18 +138,18 @@
 					<div class="bottom_box">
 						<div class="wrap dashboard_canvas">
                             <div class="bottom_wrap dashboard_row">
-								<!-- 입사 현황 -->
+								<!-- 입·퇴사 현황 -->
                                 <div class="bottom_area dashboard_card dashboard_secondary">
 							    	<div class="area_title">
                                         <h3 class="dashboard_heading">
 											<img src='resources/images/icon/icon_temp.png' width="20" height="20"/>
-											입사 현황 (${empList[0].currYear}년)
-                                        </h3><a href="intrEmpInqy4010.do" class="dashboard_heading_action">전체보기</a>
+											입·퇴사 현황 (${empList[0].currYear}년)
+                                        </h3><a href="intrStatsInqy1010.do" class="dashboard_heading_action">전체보기</a>
 									</div>
 									
 									<div class="area_content">
 										<table class="post_table mt10">
-											<caption>입사 현황</caption>
+											<caption>입·퇴사 현황</caption>
 											<colgroup>
 												<col class="auto">
 												<col class="auto">
@@ -172,7 +172,7 @@
 										</table>
 									</div>
 								</div>
-								<!-- 입사 현황 -->
+								<!-- 입·퇴사 현황 -->
 								
 								<!-- 프로젝트 관리 -->
                                 <div class="bottom_area dashboard_card dashboard_secondary">

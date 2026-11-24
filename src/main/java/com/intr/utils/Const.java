@@ -47,22 +47,23 @@ public class Const {
 	//--------------------------------------------------------------------------------------------
 	// 폴더 경로
 	//--------------------------------------------------------------------------------------------
-	public static final String INTR_PATH  					= "/WEB-INF/views/intr";							// 프로젝트
-	public static final String VIEW_PATH_POPUP 		= INTR_PATH + "/comm/popup/"; 	// 팝업
-	public static final String VIEW_PATH_MAIN 		= INTR_PATH + "/main/"; 						// 메인
-	public static final String VIEW_PATH_LOGIN 		= INTR_PATH + "/login/"; 					// 로그인
-	public static final String VIEW_PATH_MYPAGE 	= INTR_PATH + "/mypage/"; 				// 내 정보
-	public static final String VIEW_PATH_BOARD 		= INTR_PATH + "/board/"; 					// 공지사항
-	public static final String VIEW_PATH_TASK 		= INTR_PATH + "/task/"; 						// 업무
-	public static final String VIEW_PATH_EMP 		= INTR_PATH + "/emp/";	 						// 사원
-	public static final String VIEW_PATH_TEMP 		= INTR_PATH + "/temp/";	 					// 기안문 양식
-	public static final String VIEW_PATH_ROLE 		= INTR_PATH + "/role/";	 						// 권한
-	public static final String VIEW_PATH_APRV 		= INTR_PATH + "/aprv/";	 						// 결재
-	public static final String VIEW_PATH_QUERY 		= INTR_PATH + "/query/";	 				// 쿼리
-	public static final String VIEW_PATH_PROJ 		= INTR_PATH + "/project/"; 					// 프로젝트
-	public static final String VIEW_PATH_MTG 		= INTR_PATH + "/meeting/";	 				// 회의
-	public static final String VIEW_PATH_BANR 		= INTR_PATH + "/banr/"; 						// 배너
-	public static final String VIEW_PATH_LOG 		= INTR_PATH + "/log/"; 							// 로그
+	public static final String INTR_PATH  						= "/WEB-INF/views/intr";							// 프로젝트
+	public static final String VIEW_PATH_POPUP 		= INTR_PATH + "/comm/popup/"; 		// 팝업
+	public static final String VIEW_PATH_MAIN 			= INTR_PATH + "/main/"; 						// 메인
+	public static final String VIEW_PATH_LOGIN 		= INTR_PATH + "/login/"; 						// 로그인
+	public static final String VIEW_PATH_MYPAGE 	= INTR_PATH + "/mypage/"; 					// 내 정보
+	public static final String VIEW_PATH_BOARD 		= INTR_PATH + "/board/"; 						// 공지사항
+	public static final String VIEW_PATH_TASK 			= INTR_PATH + "/task/"; 						// 업무
+	public static final String VIEW_PATH_EMP 			= INTR_PATH + "/emp/";	 						// 사원
+	public static final String VIEW_PATH_TEMP 			= INTR_PATH + "/temp/";	 					// 기안문 양식
+	public static final String VIEW_PATH_ROLE 			= INTR_PATH + "/role/";	 						// 권한
+	public static final String VIEW_PATH_APRV 			= INTR_PATH + "/aprv/";	 						// 결재
+	public static final String VIEW_PATH_QUERY 		= INTR_PATH + "/query/";	 					// 쿼리
+	public static final String VIEW_PATH_PROJ 			= INTR_PATH + "/project/"; 					// 프로젝트
+	public static final String VIEW_PATH_MTG 			= INTR_PATH + "/meeting/";	 				// 회의
+	public static final String VIEW_PATH_BANR 			= INTR_PATH + "/banr/"; 						// 배너
+	public static final String VIEW_PATH_LOG 			= INTR_PATH + "/log/"; 							// 로그
+	public static final String VIEW_PATH_STATS 		= INTR_PATH + "/stats/"; 						// 통계
 	
 	//--------------------------------------------------------------------------------------------
 	// 파일 다운로드 경로
@@ -169,7 +170,6 @@ public class Const {
 	public static final String INTR_EMP_LIST_3010 = "intr_emp_list_3010.jsp";					// 담당업무 조회
 	public static final String INTR_EMP_LIST_3011 = "intr_emp_list_3011.jsp";					// 담당업무 조회 (AJAX)
 	public static final String INTR_EMP_LIST_3012 = "intr_emp_list_3012.jsp";					// 담당업무 등록 (AJAX)
-	public static final String INTR_EMP_LIST_4010 = "intr_emp_list_4010.jsp";					// 인사통계 조회
 	public static final String INTR_EMP_DETL_1010 = "intr_emp_detl_1010.jsp";				// 사원 등록
 	public static final String INTR_EMP_DETL_1020 = "intr_emp_detl_1020.jsp";				// 사원 수정
 	public static final String INTR_EMP_DETL_1030 = "intr_emp_detl_1030.jsp";				// 사원 상세
@@ -253,4 +253,9 @@ public class Const {
 	// 로그
 	//--------------------------------------------------------------------------------------------
 	public static final String INTR_LOG_LIST_1010 = "intr_log_list_1010.jsp"; 					// 로그 목록 조회
+	
+	//--------------------------------------------------------------------------------------------
+	// 통계
+	//--------------------------------------------------------------------------------------------
+	public static final String INTR_STATS_LIST_1010 = "intr_stats_list_1010.jsp"; 			// 입·퇴사 현황
 }

@@ -262,56 +262,6 @@ public class EmpServiceImpl implements EmpService {
 		}
 	}
 
-	// 인사통계 목록 조회
-	public void empInqyService4010(Model model, HashMap<String, Object> paramMap) throws Exception {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		HashMap<String, Object> statList = new HashMap<String, Object>();
-		String key = "";
-		//
-		try {
-			// --------------------------------------------------------------------------------------------
-			// 인사통계 목록 조회
-			// --------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqyDao3020(paramMap);
-			//
-			for (HashMap<String, Object> row : defaultList) {
-				// [예시]: "관리팀_202501", "관리팀_연간 소계", "전체 합계_202501"
-				key = row.get("orgNm") + "_" + row.get("yearMm");
-				statList.put(key, row);
-			}
-			//
-			model.addAttribute("statList", statList);
-
-			// --------------------------------------------------------------------------------------------
-			// 통계 연도 조회
-			// --------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqyDao3030(paramMap);
-			model.addAttribute("yearList", defaultList);
-
-			// --------------------------------------------------------------------------------------------
-			// 공통코드 (재직여부) 조회
-			// --------------------------------------------------------------------------------------------
-			utilService.getCodeList(model, "Hire", "hireList");
-
-			// --------------------------------------------------------------------------------------------
-			// 통계 연월 조회
-			// --------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqyDao3040(paramMap);
-			model.addAttribute("ymList", defaultList);
-
-			// --------------------------------------------------------------------------------------------
-			// 부서 조회
-			// --------------------------------------------------------------------------------------------
-			defaultList = empDao.intrEmpInqyDao1040(paramMap);
-			model.addAttribute("orgList", defaultList);
-
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-	}
-
 	// 사원 등록
 	public String empProcService1010(Model model, HashMap<String, Object> paramMap, MultipartHttpServletRequest request) throws Exception {
 		//
