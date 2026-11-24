@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.intr.dao.UtilDao;
+import com.intr.dao.FileDao;
 import com.intr.svc.CoreService;
 import com.intr.svc.EmpService;
 import com.intr.utils.Const;
@@ -32,7 +32,7 @@ public class EmpController {
 	EmpService empService;
 	
 	@Autowired
-	UtilDao utilDao;
+	FileDao fileDao;
 	// 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
@@ -148,7 +148,7 @@ public class EmpController {
 			//--------------------------------------------------------------------------------------------
 			// 사원 이미지 조회
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010((String)paramMap.get("fileId"));
+			defaultList = fileDao.fileInqyDao1020((String)paramMap.get("fileId"));
 			
 			//--------------------------------------------------------------------------------------------
 			// URL객체 생성 (예외사항 추가)

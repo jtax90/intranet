@@ -14,10 +14,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.BoardDao;
-import com.intr.dao.UtilDao;
+import com.intr.dao.FileDao;
 import com.intr.svc.BoardService;
 import com.intr.svc.CoreService;
 import com.intr.svc.EmpService;
+import com.intr.svc.FileService;
 import com.intr.svc.MainService;
 import com.intr.svc.UtilService;
 
@@ -41,10 +42,13 @@ public class BoardServiceImpl implements BoardService{
 	UtilService utilService;
 	
 	@Autowired
+	FileService fileService;
+	
+	@Autowired
 	BoardDao boardDao;
 	
 	@Autowired
-	UtilDao utilDao;
+	FileDao fileDao;
 	
 	// 공지사항 목록 조회
 	public void boardInqyService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
@@ -95,7 +99,7 @@ public class BoardServiceImpl implements BoardService{
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010((String)defaultInfo.get("fileId"));
+			defaultList = fileDao.fileInqyDao1020((String)defaultInfo.get("fileId"));
 			model.addAttribute("fileList",defaultList);
 
 			//--------------------------------------------------------------------------------------------
@@ -127,7 +131,7 @@ public class BoardServiceImpl implements BoardService{
 			//--------------------------------------------------------------------------------------------
 			// 파일 등록
 			//--------------------------------------------------------------------------------------------
-		    fileId = utilService.fileUpload(model, paramMap, request);
+		    fileId = fileService.fileUpload(model, paramMap, request);
 		    paramMap.put("fileId", fileId);
 			
 			//--------------------------------------------------------------------------------------------
@@ -186,7 +190,7 @@ public class BoardServiceImpl implements BoardService{
 	        for (String fileId : fileIds) {
 	            HashMap<String, Object> fileMap = new HashMap<String, Object>();
 	            fileMap.put("fileId", fileId);
-	            utilDao.fileProcDao1030(fileMap);
+	            fileDao.fileProcDao1030(fileMap);
 	        }
 
 	        // 결과 반환
@@ -219,7 +223,7 @@ public class BoardServiceImpl implements BoardService{
 	        paramMap.put("fileId", defaultInfo.get("fileId"));
 
 	        // 파일 수정
-	        fileId = utilService.fileUpload(model, paramMap, request);
+	        fileId = fileService.fileUpload(model, paramMap, request);
 	        paramMap.put("fileId", fileId);
 
 	        // 공지사항 수정

@@ -18,9 +18,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.intr.dao.AprvDao;
 import com.intr.dao.CoreDao;
 import com.intr.dao.EmpDao;
+import com.intr.dao.FileDao;
 import com.intr.dao.TempDao;
-import com.intr.dao.UtilDao;
 import com.intr.svc.AprvService;
+import com.intr.svc.FileService;
 import com.intr.svc.UtilService;
 import com.intr.utils.Const;
 import com.intr.vo.EmpVO;
@@ -29,6 +30,12 @@ import com.intr.vo.EmpVO;
 @Transactional(rollbackFor = Exception.class)
 public class AprvServiceImpl implements AprvService{
 	//
+	@Autowired
+	UtilService utilService;
+	
+	@Autowired
+	FileService fileService;
+	
 	@Autowired
 	AprvDao aprvDao;
 	
@@ -42,10 +49,7 @@ public class AprvServiceImpl implements AprvService{
 	EmpDao empDao;
 	
 	@Autowired
-	UtilDao utilDao;
-	
-	@Autowired
-	UtilService utilService;
+	FileDao fileDao;
 	
 	@Autowired
 	HttpSession session;
@@ -149,7 +153,7 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010((String)defaultInfo.get("fileId"));
+			defaultList = fileDao.fileInqyDao1020((String)defaultInfo.get("fileId"));
 			model.addAttribute("fileList",defaultList);
 			
 			//--------------------------------------------------------------------------------------------
@@ -281,7 +285,7 @@ public class AprvServiceImpl implements AprvService{
 			//--------------------------------------------------------------------------------------------
 			// 파일 등록
 			//--------------------------------------------------------------------------------------------
-			fileId = utilService.fileUpload(model, paramMap, request);
+			fileId = fileService.fileUpload(model, paramMap, request);
 			paramMap.put("fileId", fileId);
 			
 			//--------------------------------------------------------------------------------------------

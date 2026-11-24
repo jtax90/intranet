@@ -28,14 +28,15 @@
 		<mapper resource="config/mybatis/mapper/Core_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Emp_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Main_Sql.xml" />
+		<mapper resource="config/mybatis/mapper/File_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Query_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Task_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Temp_Sql.xml" />
-		<mapper resource="config/mybatis/mapper/Util_Sql.xml" />		
 		<mapper resource="config/mybatis/mapper/Proj_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Mtg_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Banr_Sql.xml" />
 		<mapper resource="config/mybatis/mapper/Log_Sql.xml" />
+		<mapper resource="config/mybatis/mapper/Util_Sql.xml" />
 	</mappers>
 	
 </configuration>

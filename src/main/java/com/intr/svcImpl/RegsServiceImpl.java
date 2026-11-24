@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 
 import com.intr.dao.RegsDao;
 import com.intr.dao.UtilDao;
+import com.intr.svc.FileService;
 import com.intr.svc.RegsService;
 import com.intr.svc.UtilService;
 import com.intr.utils.Const;
@@ -25,6 +26,9 @@ public class RegsServiceImpl implements RegsService {
 	//
 	@Autowired
 	UtilService utilService;
+	
+	@Autowired
+	FileService fileService;
 	
 	@Autowired
 	UtilDao utilDao;
@@ -52,7 +56,7 @@ public class RegsServiceImpl implements RegsService {
 	@Override
     public void regsInqyService1011(Model model, HashMap<String, Object> paramMap, HttpServletResponse response) throws Exception {
         // 물리 경로 설정
-		 String filePath = utilService.setBasePath(Const.REGS_PATH, null);
+		 String filePath = fileService.getBasePath(Const.REGS_PATH, null);
 		
 		// 파일명 설정
 		String tabCd = (String)paramMap.get("tabCd");

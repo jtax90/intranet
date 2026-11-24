@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import com.intr.dao.QueryDao;
+import com.intr.svc.FileService;
 import com.intr.svc.QueryService;
 import com.intr.svc.UtilService;
 
@@ -23,6 +24,9 @@ public class QueryServiceImpl implements QueryService{
 	//
 	@Autowired
 	UtilService utilService;
+	
+	@Autowired
+	FileService fileService;
 	
 	@Autowired
 	QueryDao queryDao;
@@ -79,7 +83,7 @@ public class QueryServiceImpl implements QueryService{
 			// 엑셀 다운로드
 			//--------------------------------------------------------------------------------------------
 			defaultList = queryDao.queryInqyDao1020(paramMap);
-			utilService.excelDown(defaultList, paramMap, request, response);
+			fileService.excelDown(defaultList, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//

@@ -12,9 +12,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.EmpDao;
+import com.intr.dao.FileDao;
 import com.intr.dao.MainDao;
-import com.intr.dao.UtilDao;
 import com.intr.svc.EmpService;
+import com.intr.svc.FileService;
 import com.intr.svc.MainService;
 import com.intr.svc.UtilService;
 
@@ -23,20 +24,23 @@ import com.intr.svc.UtilService;
 public class EmpServiceImpl implements EmpService {
 	//
 	@Autowired
+	MainService mainService;
+
+	@Autowired
+	UtilService utilService;
+
+	@Autowired
+	FileService fileService;
+	
+	@Autowired
 	MainDao mainDao;
 
 	@Autowired
 	EmpDao empDao;
 
 	@Autowired
-	UtilDao utilDao;
-
-	@Autowired
-	MainService mainService;
-
-	@Autowired
-	UtilService utilService;
-
+	FileDao fileDao;
+	
 	@Autowired
 	HttpServletRequest request;
 
@@ -325,7 +329,7 @@ public class EmpServiceImpl implements EmpService {
 			// --------------------------------------------------------------------------------------------
 			// 파일 등록
 			// --------------------------------------------------------------------------------------------
-			fileId = utilService.fileUpload(model, paramMap, request);
+			fileId = fileService.fileUpload(model, paramMap, request);
 			paramMap.put("fileId", fileId);
 
 			// --------------------------------------------------------------------------------------------
@@ -377,7 +381,7 @@ public class EmpServiceImpl implements EmpService {
 			// --------------------------------------------------------------------------------------------
 			// 이미지 수정
 			// --------------------------------------------------------------------------------------------
-			fileId = utilService.fileUpload(model, paramMap, request);
+			fileId = fileService.fileUpload(model, paramMap, request);
 			paramMap.put("fileId", fileId);
 
 			// --------------------------------------------------------------------------------------------
@@ -458,7 +462,7 @@ public class EmpServiceImpl implements EmpService {
 				// 이미지 삭제
 				if (!fileId.isEmpty()) {
 					fileMap.put("fileId", fileId);
-					utilDao.fileProcDao1030(fileMap);
+					fileDao.fileProcDao1030(fileMap);
 				}
 				resStr = "YES";
 			}

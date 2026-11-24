@@ -9,8 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.intr.dao.BanrDao;
-import com.intr.dao.UtilDao;
+import com.intr.dao.FileDao;
 import com.intr.svc.BanrService;
+import com.intr.svc.FileService;
 import com.intr.svc.UtilService;
 
 @Service
@@ -21,7 +22,10 @@ public class BanrServiceImpl implements BanrService {
 	UtilService utilService;
 	
 	@Autowired
-	UtilDao utilDao;
+	FileService fileService;
+	
+	@Autowired
+	FileDao fileDao;
 	
 	@Autowired
 	BanrDao banrDao;
@@ -67,7 +71,7 @@ public class BanrServiceImpl implements BanrService {
 			//--------------------------------------------------------------------------------------------
 			// 파일 등록
 			//--------------------------------------------------------------------------------------------
-			utilService.fileUpload(model, paramMap, request);
+			fileService.fileUpload(model, paramMap, request);
 			
 			// 배너 저장, 수정
 			if(banrId.isEmpty()){
@@ -129,7 +133,7 @@ public class BanrServiceImpl implements BanrService {
 					// 파일 삭제 처리 (삭제)
 					//--------------------------------------------------------------------------------------------
 					fileMap.put("fileId", fileId);
-					utilDao.fileProcDao1020(fileMap);
+					fileDao.fileProcDao1020(fileMap);
 				}
 				resStr = "YES";
 			}

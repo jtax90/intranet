@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.intr.dao.AprvDao;
 import com.intr.dao.RoleDao;
 import com.intr.dao.EmpDao;
+import com.intr.dao.FileDao;
 import com.intr.dao.LogDao;
 import com.intr.dao.MtgDao;
 import com.intr.dao.ProjDao;
 import com.intr.dao.QueryDao;
 import com.intr.dao.TaskDao;
-import com.intr.dao.UtilDao;
 import com.intr.svc.UtilService;
 import com.intr.utils.Const;
 
@@ -36,7 +36,7 @@ public class PopupController {
 	RoleDao roleDao;
 	
 	@Autowired
-	UtilDao utilDao;
+	FileDao fileDao;
 	
 	@Autowired
 	EmpDao empDao;
@@ -368,7 +368,7 @@ public class PopupController {
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보
 			//--------------------------------------------------------------------------------------------
-			defaultList = utilDao.fileInqyDao1010((String)paramMap.get("fileId"));
+			defaultList = fileDao.fileInqyDao1020((String)paramMap.get("fileId"));
 			model.addAttribute("fileList",defaultList);
 			
 		} catch (Exception e) {

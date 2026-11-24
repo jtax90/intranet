@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.intr.svc.FileService;
+import com.intr.svc.MailService;
 import com.intr.svc.MainService;
 import com.intr.svc.TempService;
 import com.intr.svc.UtilService;
@@ -29,6 +31,13 @@ public class UtilController {
 	
 	@Autowired
 	UtilService utilService;
+	
+	@Autowired
+	FileService fileService;
+	
+	@Autowired
+	MailService mailService;
+	
 	//
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -40,7 +49,7 @@ public class UtilController {
 			//--------------------------------------------------------------------------------------------
 			// 파일 다운로드
 			//--------------------------------------------------------------------------------------------
-			utilService.fileDown(model, paramMap, request, response);
+			fileService.fileDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
@@ -51,13 +60,13 @@ public class UtilController {
 	
 	// 문서 다운로드
 	@RequestMapping("/intrFileProc1020.do")
-	public void docDown(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public void intrFileProc1020(Model model, @RequestParam HashMap<String, Object> paramMap, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//
 		try {
 			//--------------------------------------------------------------------------------------------
 			// 문서 다운로드
 			//--------------------------------------------------------------------------------------------
-			utilService.docDown(model, paramMap, request, response);
+			fileService.manualDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
@@ -74,7 +83,7 @@ public class UtilController {
 			//--------------------------------------------------------------------------------------------
 			// 전체 다운로드
 			//--------------------------------------------------------------------------------------------
-			utilService.zipDown(model, paramMap, request, response);
+			fileService.zipDown(model, paramMap, request, response);
 			
 		} catch (Exception e) {
 			//
@@ -94,7 +103,7 @@ public class UtilController {
 			//--------------------------------------------------------------------------------------------
 			// 메일 전송
 			//--------------------------------------------------------------------------------------------
-			defaultStr = utilService.sendMail(model, paramMap);
+			defaultStr = mailService.sendMail(model, paramMap);
 			
 		} catch (Exception e) {
 			//
