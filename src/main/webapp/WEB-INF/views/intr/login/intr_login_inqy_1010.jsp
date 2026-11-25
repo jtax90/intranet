@@ -90,6 +90,7 @@
 					<input class="login_input" type="text" placeholder="아이디" title="아이디" id="empId" name="empId" onkeydown="enterLoginCall(this.form);" value="${defaultList[0].empId}">
 					<input class="login_input" type="password" id="empPwd" name="empPwd" placeholder="비밀번호" title="비밀번호" onkeydown="enterLoginCall(this.form);" value="${defaultList[0].decpwd}">
 					<input type="button" class="login_btn" value="로그인" onclick="loginProc(this.form);">
+                    <input type="button" class="btn_find" value="아이디/비밀번호 찾기" onclick="popCall();">
 				</div>
 					
 				<div class="role_area">

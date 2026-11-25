@@ -23,7 +23,7 @@
 			displayEventTime: false, 			// 이벤트 시간 여부
 			navLinks: false, 						// 날짜 선택할 경우 상세 데이터 조회 
 			selectable: false,						// 네모 선택 여부
-			height: 430,
+			height: '100%',
 			headerToolbar: {
 				start: 'prev,next today',
 				center: 'title',

@@ -21,13 +21,16 @@
 .nav_item.hidden { margin: 0; }
 
 /* ========================================== Footer ========================================== */
-.footer_wrap { overflow: hidden; border-top: 1px solid #ccc; text-align:center; height: 50px; width: 100%; }
+.footer_wrap { overflow: hidden; border-top: 1px solid #ccc; text-align:center; height: 50px; width: 100%; box-sizing: border-box; flex-shrink: 0; }
 .footer_info { margin-top: 20px; }
 .footer_address, .footer_copy { display: inline-block; }
 
 
 /* ========================================== Body ========================================== */
-.body { height: 894px; display: flex; justify-content: center; align-items: center; background: url("../images/bg/bg_login.jpg") center center no-repeat; background-size: cover; }
+body#main, body#sub { display: flex; flex-direction: column; min-height: 100vh; height: auto; }
+body#main > form, body#sub > form { display: flex; flex-direction: column; flex: 1 0 auto; }
+.site_header { flex-shrink: 0; }
+.body { flex: 1 0 auto; display: flex; justify-content: center; align-items: center; padding: 25px 0; box-sizing: border-box; background: url("../images/bg/bg_login.jpg") center center no-repeat; background-size: cover; }
 
 
 /* ========================================== Login ========================================== */
@@ -46,9 +49,10 @@
 /* ========================================== Page Layout ========================================== */
 .wrap { width: 1130px; box-sizing: border-box; margin: 0 auto; }
 .post_wrap { height: 100%; }
-.main_wrap { display: flex; min-height: 100%; }
+.main_wrap { display: flex; flex: 1 0 auto; min-height: 0; }
 .content_wrap { width: 1600px; }
-.side_wrap { width: 300px; min-height: 756px; padding-top: 35px; overflow: auto; border-right: 1px solid #d6d6d6; }
+.side_wrap { width: 300px; min-height: 0; padding-top: 35px; overflow: auto; border-right: 1px solid #d6d6d6; }
+.main_wrap .sub_article { height: auto; }
 
 /* ========================================== List Panels ========================================== */
 .list_panel { display: flex; flex-direction: column; }
@@ -143,11 +147,12 @@
 
 
 /* ========================================== Dashboard Cards ========================================== */
-.top_box { background-color: #214b97; padding: 50px 0; height: 400px; }
-.bottom_box { background-color: #d3d3d3; padding: 50px 0; height: 192px; }
+body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
+.top_box { background-color: #214b97; padding: 10px 0; }
+.bottom_box { background-color: #d3d3d3; padding: 10px 0; }
 .dashboard_canvas { width: 1630px; }
 
-.dashboard_row { margin-top: -40px; display: flex; justify-content: space-between; align-items: flex-start; }
+.dashboard_row { display: flex; justify-content: space-between; align-items: flex-start; }
 .dashboard_card { overflow: hidden; width: calc(33.3% - 10px); background-color: #fff; border: 1px solid #d2d2d2; position: relative; padding: 30px; box-sizing: border-box; margin: 0 auto; border-radius: 10px; }
 .department_dashboard { --featured_width: 1070px; }
 .dashboard_featured { width: var(--featured_width); }
@@ -168,9 +173,9 @@
 .reference_item:first-child::before { display: none; }
 .reference_label { display: block; text-align: center; }
 
-.dashboard_primary { height: 480px; }
-.dashboard_secondary { height: 260px; display: inline-block; }
-.dashboard_heading { float: left; color: #214b97; font-size: 1.8rem; }
+.dashboard_primary { height: clamp(360px, calc(var(--dashboard_content_height) * 0.65), 480px); }
+.dashboard_secondary { height: clamp(180px, calc(var(--dashboard_content_height) * 0.35), 260px); display: inline-block; }
+.dashboard_heading { float: left; font-size: 1.5rem; }
 .dashboard_feed { width: 100%; display: block; }
 .dashboard_feed .dashboard_item { margin-right: 15px; line-height: 30px; }
 .dashboard_heading_action { float: inline-end; }
