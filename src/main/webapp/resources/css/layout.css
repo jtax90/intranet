@@ -185,7 +185,7 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .dashboard_date { float: inline-end; }
 .meeting_agenda { width: 100%; height: 360px; }
 .meeting_empty { margin-right: 15px; line-height: 30px; }
-.employee_statistics { height: 550px; }
+.employee_statistics { height: clamp(200px, calc(100vh - 420px), 550px); overflow: auto; }
 
 .meeting_agenda .meeting_agenda_item { margin-right: 20px; line-height: 30px; border-bottom: 2px solid #f6f6f6; }
 .meeting_agenda_card { border: 2px solid #f6f6f6; }
@@ -264,7 +264,9 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .approval_workspace { --navigation_height: 475px; }
 
 .template_workspace { --navigation_width: 715px; --navigation_height: 746px; }
-.permission_workspace { --detail_width: 1120px; }
+.permission_workspace { --detail_width: 1120px; --navigation_height: clamp(200px, calc(100vh - 420px), 525px); }
+.permission_workspace .tree_navigation { box-sizing: border-box; }
+.permission_workspace + .tree_detail { height: clamp(200px, calc(100vh - 420px), 525px); overflow: auto; box-sizing: border-box; }
 .member_assignment { --detail_width: 646px; }
 .menu_assignment { --menu_width: 500px; --detail_width: 550px; --detail_height: 525px; }
 .approval_picker { --member_content_width: 640px; --member_content_height: 425px; --navigation_width: 350px; --navigation_height: 445px; }
