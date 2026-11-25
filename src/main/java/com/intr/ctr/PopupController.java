@@ -22,7 +22,6 @@ import com.intr.dao.LogDao;
 import com.intr.dao.MtgDao;
 import com.intr.dao.ProjDao;
 import com.intr.dao.QueryDao;
-import com.intr.dao.TaskDao;
 import com.intr.svc.UtilService;
 import com.intr.utils.Const;
 
@@ -52,9 +51,6 @@ public class PopupController {
 	
 	@Autowired
 	QueryDao queryDao;
-	
-	@Autowired
-	TaskDao taskDao;
 	
 	@Autowired
 	LogDao logDao;
@@ -486,63 +482,6 @@ public class PopupController {
 		}
 		//
 		return Const.VIEW_PATH_POPUP + Const.INTR_POPUP_INQY_1111;
-	}
-	
-	// 업무 캘린더 등록
-	@RequestMapping("/intrPopupInqy1121.do")
-	public String intrPopupInqy1121(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		//
-		try {
-			//
-			
-		} catch (Exception e) {
-			//
-			logger.debug("Exception : 업무 캘린더 등록 조회 중 에러가 발생했습니다. (" + e.getMessage() + ")");
-		}
-		//
-		return Const.VIEW_PATH_POPUP + Const.INTR_POPUP_INQY_1121;
-	}
-	
-	// 업무 캘린더 상세
-	@RequestMapping("/intrPopupInqy1122.do")
-	public String intrPopupInqy1122(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 상세
-			//--------------------------------------------------------------------------------------------
-			defaultInfo = taskDao.taskInqyDao3020(paramMap);
-			model.addAttribute("defaultInfo", defaultInfo);
-			
-		} catch (Exception e) {
-			//
-			logger.debug("Exception : 업무 캘린더 상세 조회 중 에러가 발생했습니다. (" + e.getMessage() + ")");
-		}
-		//
-		return Const.VIEW_PATH_POPUP + Const.INTR_POPUP_INQY_1122;
-	}
-	
-	// 업무 캘린더 상세 (메인)
-	@RequestMapping("/intrPopupInqy1123.do")
-	public String intrPopupInqy1123(Model model, @RequestParam HashMap<String, Object> paramMap) throws Exception {
-		//
-		HashMap<String, Object> defaultInfo = null;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 상세
-			//--------------------------------------------------------------------------------------------
-			defaultInfo = taskDao.taskInqyDao3020(paramMap);
-			model.addAttribute("defaultInfo", defaultInfo);
-			
-		} catch (Exception e) {
-			//
-			logger.debug("Exception : 업무 캘린더 상세 (메인) 조회 중 에러가 발생했습니다. (" + e.getMessage() + ")");
-		}
-		//
-		return Const.VIEW_PATH_POPUP + Const.INTR_POPUP_INQY_1123;
 	}
 	
 	// 비밀번호 변경 팝업 조회 (마이페이지)

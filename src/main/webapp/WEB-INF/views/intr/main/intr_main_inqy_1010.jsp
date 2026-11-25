@@ -153,25 +153,6 @@
 	        });
 	    }
 	});
-	
-	// 업무 캘린더 (메인) 상세
-	function tldrCall(mtgId){
-		try {
-			//
-			var obj = new Object();
-			//
-			obj["menuUrl"] = "intrPopupInqy1123.do";
-			obj["areaType"] = "tldr";
-			obj["mtgId"] = mtgId;
-			obj["width"] = "700"
-			obj["height"] = "460";
-			//		
-			ajaxPopup(obj);
-			
-		} catch (error) {
-			console.error("[Error] 업무 캘린더 상세 (메인) : ", error.message);
-		}
-	}
 </script>
 
 <style>
@@ -188,11 +169,6 @@
 		<c:import url="/WEB-INF/views/intr/comm/popup/intr_popup_inqy_1090.jsp"></c:import>	
 	</div>
 	
-	<!-- 업무 캘린더 팝업 -->
- 	<div id="tldrArea" class="popupArea hide">
-		<c:import url="/WEB-INF/views/intr/comm/popup/intr_popup_inqy_1120.jsp"></c:import>	
-	</div>
-
 	<!-- 배너 -->
 	<c:if test="${not empty banrInfo}">
         <div id="banrPop" class="banr_popup">
@@ -371,37 +347,17 @@
 								</div>
 								<!-- 결재 조회 -->
 								
-								<!-- 오늘의 일정 -->	
-                                <div class="bottom_area dashboard_card dashboard_secondary">
-						    		<div class="area_title">
-                                        <h3 class="dashboard_heading">
-							    			<img src='resources/images/icon/icon_note.png' width="20" height="20"/>
-							    			오늘의 일정
-                                        </h3><a href="intrTaskInqy3010.do?empIdx=${empVO.empIdx}" class="dashboard_heading_action">전체보기</a>
+								<!-- 업무 현황 -->
+								<div class="bottom_area dashboard_card dashboard_secondary">
+									<div class="area_title">
+										<h3 class="dashboard_heading">
+											<img src="resources/images/icon/icon_note.png" width="20" height="20"/>
+											업무 현황
+										</h3>
 									</div>
-
-									<div class="area_content">
-                                        <ul class="dashboard_feed">
-											<c:forEach var="list" items="${tldrList}" begin="0" end="2">
-                                                <li class="pl20 dashboard_item">
-                                                    <a class="dashboard_link" href="javascript:void(0);" onclick="tldrCall('${list.tldrId}');">
-														${list.tldrTitle}
-													</a>
-													<span class="date dashboard_date">
-														${list.tldrSdt} ~ ${list.tldrEdt} 
-													</span>
-												</li>
-											</c:forEach>
-											
-											<c:if test="${empty tldrList}">
-                                                <li class="pl20 dashboard_item">
-													등록된 일정이 없습니다.
-												</li>	
-											</c:if>
-										</ul>
-									</div>
+									<div class="area_content"></div>
 								</div>
-								<!-- 오늘의 일정 -->	
+								<!-- 업무 현황 -->
 							</div>
 						</div>
 					</div>

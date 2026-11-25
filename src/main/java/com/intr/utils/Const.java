@@ -131,11 +131,6 @@ public class Const {
 	public static final String INTR_POPUP_INQY_1110 = "intr_popup_inqy_1110.jsp";			// API 팝업
 	public static final String INTR_POPUP_INQY_1111 = "intr_popup_inqy_1111.jsp";				// API 조회
 
-	public static final String INTR_POPUP_INQY_1120 = "intr_popup_inqy_1120.jsp";			// 업무 캘린더 팝업
-	public static final String INTR_POPUP_INQY_1121 = "intr_popup_inqy_1121.jsp";			// 업무 캘린더 등록
-	public static final String INTR_POPUP_INQY_1122 = "intr_popup_inqy_1122.jsp";			// 업무 캘린더 상세
-	public static final String INTR_POPUP_INQY_1123 = "intr_popup_inqy_1123.jsp";			// 업무 캘린더 상세 (메인)
-	
 	public static final String INTR_POPUP_INQY_2010 = "intr_popup_inqy_2010.jsp";			// 비밀번호 변경 팝업 (마이페이지)
 	public static final String INTR_POPUP_INQY_2011 = "intr_popup_inqy_2011.jsp";			// 비밀번호 변경 (마이페이지)
 
@@ -159,7 +154,6 @@ public class Const {
 	public static final String INTR_TASK_LIST_1011 = "intr_task_list_1011.jsp";					// 업무 작성 (AJAX)
 	public static final String INTR_TASK_LIST_2010 = "intr_task_list_2010.jsp";				// 업무 조회
 	public static final String INTR_TASK_LIST_2011 = "intr_task_list_2011.jsp";				// 업무 조회 (AJAX)
-	public static final String INTR_TASK_LIST_3010 = "intr_task_list_3010.jsp";				// 업무 캘린더 조회
 	public static final String INTR_TASK_DETL_1010 = "intr_task_detl_1010.jsp";				// 업무 상세
 	
 	//--------------------------------------------------------------------------------------------

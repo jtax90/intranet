@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.intr.dao.TaskDao;
 import com.intr.dao.UtilDao;
@@ -125,24 +124,6 @@ public class TaskServiceImpl implements TaskService{
 		}
 	}
 	
-	// 업무 캘린더 조회
-	public void taskInqyService3010(Model model, HashMap<String, Object> paramMap) throws Exception {
-		//
-		List<HashMap<String, Object>> defaultList = null;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 목록 조회
-			//--------------------------------------------------------------------------------------------
-			defaultList = taskDao.taskInqyDao3010(paramMap);
-			model.addAttribute("defaultList", JSONArray.toJSONString(defaultList));
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-	}
-	
 	// 업무일지 저장
 	public String taskProcService1010(Model model, HashMap<String, Object> paramMap) throws Exception {
 		//
@@ -224,96 +205,6 @@ public class TaskServiceImpl implements TaskService{
 			//--------------------------------------------------------------------------------------------
 			// 결과 반환
 			//--------------------------------------------------------------------------------------------
-			defaultStr = String.format("[{'res':'%s'}]", resStr);			
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-		//
-		return defaultStr;
-	}
-	
-	// 업무 캘린더 등록 처리
-	public String taskProcService2010(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
-		//
-		String defaultStr = "";
-		String resStr = "NO";
-		int resInt = 0;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 등록 처리
-			//--------------------------------------------------------------------------------------------
-			resInt = taskDao.taskProcDao2010(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt > 0) {
-				resStr = "YES";
-			}
-			
-			defaultStr = String.format("[{'res':'%s'}]", resStr);			
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-		//
-		return defaultStr;
-	}
-	
-	// 업무 캘린더 수정 처리
-	public String taskProcService2020(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
-		//
-		String defaultStr = "";
-		String resStr = "NO";
-		int resInt = 0;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 수정 처리
-			//--------------------------------------------------------------------------------------------
-			resInt = taskDao.taskProcDao2020(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt > 0) {
-				resStr = "YES";
-			}
-			
-			defaultStr = String.format("[{'res':'%s'}]", resStr);			
-			
-		} catch (Exception e) {
-			//
-			throw e;
-		}
-		//
-		return defaultStr;
-	}
-	
-	// 업무 캘린더 삭제 처리
-	public String taskProcService2030(Model model, @RequestBody HashMap<String, Object> paramMap) throws Exception {
-		//
-		String defaultStr = "";
-		String resStr = "NO";
-		int resInt = 0;
-		//
-		try {
-			//--------------------------------------------------------------------------------------------
-			// 업무 캘린더 삭제 처리
-			//--------------------------------------------------------------------------------------------
-			resInt = taskDao.taskProcDao2030(paramMap);
-			
-			//--------------------------------------------------------------------------------------------
-			// 결과 반환
-			//--------------------------------------------------------------------------------------------
-			if(resInt > 0) {
-				resStr = "YES";
-			}
-			
 			defaultStr = String.format("[{'res':'%s'}]", resStr);			
 			
 		} catch (Exception e) {
