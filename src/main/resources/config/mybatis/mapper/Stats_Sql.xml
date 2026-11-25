@@ -4,27 +4,10 @@
 	<select id="statsInqyDao1010" resultType="CamelHashMap" parameterType="java.util.HashMap">
 		/* statsInqyDao1010 : 입·퇴사 현황 (메인) */
 		SELECT
-	        (
-	            SELECT COUNT(*) || '명'
-	            FROM EMP_INFO E
-	            WHERE E.LEAV_DT IS NULL
-	                AND E.HIRE_DT &gt;= TRUNC(SYSDATE, 'YYYY')
-	                AND E.HIRE_DT &lt; ADD_MONTHS(TRUNC(SYSDATE, 'YYYY'), 12)
-	        ) AS NEW_CNT
-	        , (
-	            SELECT COUNT(*) || '명'
-	            FROM EMP_INFO E
-	            WHERE E.LEAV_DT &gt;= TRUNC(SYSDATE, 'YYYY')
-	                AND E.LEAV_DT &lt; ADD_MONTHS(TRUNC(SYSDATE, 'YYYY'), 12)
-	        ) AS LEAV_CNT
-	        , (
-	            SELECT COUNT(*) || '명'
-	            FROM EMP_INFO E
-	            WHERE E.HIRE_DT &gt;= TRUNC(SYSDATE, 'YYYY')
-	                AND E.HIRE_DT &lt; ADD_MONTHS(TRUNC(SYSDATE, 'YYYY'), 12)
-	        ) AS EMP_CNT
-	        , TO_CHAR(SYSDATE, 'YYYY') AS CURR_YEAR
-	    FROM DUAL
+				(SELECT COUNT(*) || '명' FROM EMP_INFO) AS NEW_CNT
+			,	(SELECT COUNT(*) || '명' FROM EMP_INFO WHERE LEAV_DT IS NOT NULL) AS LEAV_CNT
+			,	(SELECT COUNT(*) || '명' FROM EMP_INFO WHERE LEAV_DT IS NULL) AS EMP_CNT
+		FROM DUAL
 	</select>
 
 	<select id="statsInqyDao1020" resultType="CamelHashMap" parameterType="java.util.HashMap">

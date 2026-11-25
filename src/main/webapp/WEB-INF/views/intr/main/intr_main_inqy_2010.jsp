@@ -143,7 +143,7 @@
 							    	<div class="area_title">
                                         <h3 class="dashboard_heading">
 											<img src='resources/images/icon/icon_temp.png' width="20" height="20"/>
-											입·퇴사 현황 (${empList[0].currYear}년)
+											입·퇴사 현황
                                         </h3><a href="intrStatsInqy1010.do" class="dashboard_heading_action">전체보기</a>
 									</div>
 									
