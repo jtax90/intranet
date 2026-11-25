@@ -315,7 +315,7 @@ public class FileServiceImpl implements FileService {
 			//--------------------------------------------------------------------------------------------
 			// 파일 정보 조회
 			//--------------------------------------------------------------------------------------------
-			defaultInfo = fileDao.fileInqyDao1020(paramMap);
+			defaultInfo = fileDao.fileInqyDao1030(paramMap);
 			
 			fileNm = utilService.nvlProc((String)defaultInfo.get("fileNm"));
 			filePath = utilService.nvlProc((String)defaultInfo.get("filePath"));

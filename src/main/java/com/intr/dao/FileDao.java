@@ -30,10 +30,10 @@ public class FileDao {
 	}
 	
 	// 단건 파일 조회
-	public HashMap<String, Object> fileInqyDao1020(HashMap<String, Object> paramMap) {
+	public HashMap<String, Object> fileInqyDao1030(HashMap<String, Object> paramMap) {
 		// 
 		HashMap<String, Object> defaultInfo = null;
-		defaultInfo = sqlsession.selectOne("file.fileInqyDao1020",paramMap);
+		defaultInfo = sqlsession.selectOne("file.fileInqyDao1030",paramMap);
 		return defaultInfo;
 	}
 	
