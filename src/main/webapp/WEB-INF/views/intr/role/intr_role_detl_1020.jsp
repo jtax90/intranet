@@ -35,7 +35,7 @@
 			<label for="post-title">비고</label>
 		</dt>
         <dd class="form_value">
-            <textarea class="form_textarea" rows="10" cols="30" title="비고" id="remark" name="remark"></textarea>
+            <textarea class="form_textarea" rows="5" cols="30" title="비고" id="remark" name="remark"></textarea>
 		</dd>
 	</dl>
 </div>

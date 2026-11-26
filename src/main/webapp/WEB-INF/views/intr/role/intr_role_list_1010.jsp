@@ -33,7 +33,7 @@
 	            dataType : 'html',
 	            success : function(data){
 	            	//
-	            	$(".tree").html(data);
+                $("#roleTree").html(data);
 	            	$(".tree_info").html("");
 	            },
 	            error : function(data){
@@ -94,7 +94,7 @@
 		    				alert("<spring:message code="PROC.SUCCESS"/>"); // ALERT
 		    				
 		    				// 재 조회
-		            		$("#listCall").trigger("click");	
+                        listCall();
 		            },
 		            error : function(data){
 		            	//
@@ -181,7 +181,7 @@
 		    				alert("<spring:message code="PROC.SUCCESS"/>");
 		    				
 		    				// 재 조회
-		            		$(".listCall").trigger("click");	
+                        listCall();
 		            },
 		            error : function(data){
 		            	//
@@ -215,7 +215,7 @@
 		    				alert("<spring:message code="PROC.SUCCESS"/>");
 		    				
 		    				// 재 조회
-		            		$(".listCall").trigger("click");	
+                        listCall();
 		            },
 		            error : function(data){
 		            	//
@@ -244,15 +244,20 @@
 					<div class="content">
 						<div id="sub_content">					
 							<div class="form_area">
-								<div class="post_wrap">
+									<div class="post_wrap role_workspace">
 								<input type="hidden" id="roleCd" name="roleCd" value="0">
-								<input type="button" id="listCall" class="hide" onclick="listCall(this.form);">
 								
-                                    <h2 class="content_heading">권한 관리
-										<span class="float_right">
-                                            <input type="button" class="btn_blue_thin btn_action action_compact" value="등록" onclick="regCall();">
-										</span>
-									</h2>
+                                    <h2 class="content_heading">권한 관리</h2>
+									<div class="tab_container">
+										<div class="tab_wrapper tab_wrapper_with_action">
+											<ul class="tab_list">
+												<li class="tab_item active"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy1010.do" aria-current="page">권한 관리</a></li>
+												<li class="tab_item"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy2010.do">메뉴 권한 부여</a></li>
+												<li class="tab_item"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy3010.do">사용자 권한 부여</a></li>
+											</ul>
+											<input type="button" class="btn_blue_thin btn_action action_compact" value="등록" onclick="regCall();">
+										</div>
+									</div>
 									
 		                            <div class="srch_wrap">
 		                            	<div class="right_srch_area">

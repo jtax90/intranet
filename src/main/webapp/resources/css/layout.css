@@ -60,6 +60,7 @@ body#main > form, body#sub > form { display: flex; flex-direction: column; flex:
 .list_panel_fill { height: 100%; }
 .list_panel_fill > .list_body { flex: 1; }
 .role_editor { height: 490px; }
+.role_editor > .form_actions { flex-shrink: 0; margin-top: 10px; }
 .role_members { --list_body_max_height: 480px; }
 
 /* ========================================== Approval Lines ========================================== */
@@ -264,9 +265,7 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .approval_workspace { --navigation_height: 475px; }
 
 .template_workspace { --navigation_width: 715px; --navigation_height: 746px; }
-.permission_workspace { --detail_width: 1120px; --navigation_height: clamp(200px, calc(100vh - 420px), 525px); }
-.permission_workspace .tree_navigation { box-sizing: border-box; }
-.permission_workspace + .tree_detail { height: clamp(200px, calc(100vh - 420px), 525px); overflow: auto; box-sizing: border-box; }
+.permission_workspace { --detail_width: 1120px; }
 .member_assignment { --detail_width: 646px; }
 .menu_assignment { --menu_width: 500px; --detail_width: 550px; --detail_height: 525px; }
 .approval_picker { --member_content_width: 640px; --member_content_height: 425px; --navigation_width: 350px; --navigation_height: 445px; }
@@ -278,6 +277,14 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .tree_wrap { display: inline-flex; }
 .tree_workspace .tree_navigation { height: var(--navigation_height, 420px); position: relative; border: solid 2px #f6f6f6; }
 .tree_workspace .tree_radio { margin: 3px; }
+
+.role_workspace { --role_panel_height: clamp(200px, calc(100vh - 480px), 525px); }
+.role_workspace .tree_workspace { --navigation_height: var(--role_panel_height); }
+.role_workspace .tree_navigation { box-sizing: border-box; }
+.role_workspace .menu_assignment { --detail_height: var(--role_panel_height); }
+.role_workspace .role_editor { height: var(--role_panel_height); }
+.role_workspace .role_members { --list_body_max_height: calc(var(--role_panel_height) - 45px); }
+.role_workspace .tree_arrow { top: 0; align-self: center; }
 
 .icon_folder { background: url("../images/icon/icon_folder.png"); background-size: cover; width: 15px; height: 15px; display: inline-block; vertical-align: middle; }
 .tree .icon_list { background: url("../images/icon/icon_file.png"); background-size: cover; width: 15px; height: 15px; display: inline-block; vertical-align: middle; }
@@ -336,6 +343,8 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .tab_content_area { border: none; background-color: #fff; }
 .tab_scroll_controls { flex-shrink: 0; padding: 0 5px; height: 40px; display: flex; align-items: flex-end; }
 .tab_wrapper {  border-left: 1px solid #d6d6d6;	border-bottom: 1px solid #d6d6d6; flex-grow: 1; overflow-x: hidden; white-space: nowrap; margin: 0; }
+.tab_wrapper_with_action { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tab_wrapper_with_action > .btn_action { flex-shrink: 0; }
 
 
 /* ========================================== Loading Bar ========================================== */

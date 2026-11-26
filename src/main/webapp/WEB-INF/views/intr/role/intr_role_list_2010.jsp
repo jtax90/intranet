@@ -88,10 +88,19 @@
 					<div class="content">
 						<div id="sub_content">					
 							<div class="form_area">
-								<div class="post_wrap">
+									<div class="post_wrap role_workspace">
 									<input type="hidden" id="roleCd" class="roleCd" name="roleCd" value="">
 								
                                     <h2 class="content_heading">메뉴 권한 부여</h2>
+									<div class="tab_container">
+										<div class="tab_wrapper">
+											<ul class="tab_list">
+												<li class="tab_item"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy1010.do">권한 관리</a></li>
+												<li class="tab_item active"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy2010.do" aria-current="page">메뉴 권한 부여</a></li>
+												<li class="tab_item"><a class="tab_link" href="${pageContext.request.contextPath}/intrRoleInqy3010.do">사용자 권한 부여</a></li>
+											</ul>
+										</div>
+									</div>
 	                                <div class="srch_wrap">
 										<div class="right_srch_area">
 											<!-- 제목 -->

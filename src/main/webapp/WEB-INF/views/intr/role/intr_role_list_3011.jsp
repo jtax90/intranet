@@ -15,14 +15,15 @@
 	// 목록 이동
 	function moveBtn(f) {
 		try {
+			var checkedEmployees = $("#empInfo input.empIdx:checked");
 			// 체크한 건이 없는 경우
-			if($("input[name=empIdx]:checked").length==0){
+			if(checkedEmployees.length==0){
 				alert("<spring:message code="CHECK.NONE"/>");
 				return;
 			}
 
 			// 체크한 값 이동
-			$("input[class=empIdx]:checked").each(function() {
+			checkedEmployees.each(function() {
 				// 중복 여부 값
 				var dupeYn = 'N';
 				// 사용자 관련 변수
@@ -61,11 +62,12 @@
 					$(".roleEmpTbl").append(str);
 				}
 				
-				// 체크 해제
-				$("input[id='empIdx']").prop("checked", false);
-				$(".empChk").prop("checked", false);
-				$(".totalIdx").prop("checked", false);
 			});
+
+			// 체크 해제
+			checkedEmployees.prop("checked", false);
+			$(".empChk").prop("checked", false);
+			$(".totalIdx").prop("checked", false);
 			
 		} catch (error) {
 	        console.error("[Error] 목록 이동 : ", error.message);

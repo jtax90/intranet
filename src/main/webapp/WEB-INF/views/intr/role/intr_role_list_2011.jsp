@@ -204,11 +204,9 @@
 			</tbody>
 		</table>
 	</div>
-</div> <!-- End post_wrap -->
-
-<div class="btn_center form_actions">
-    <button type="button" class="btn_gray_thin float_left btn_action action_compact" onclick="delCall();">삭제</button>
-	
-    <button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc(this.form);">저장</button>
-    <button type="button" class="btn_blue_thin float_right btn_action action_compact" onclick="setListCall();">새로고침</button>
+	<div class="btn_center form_actions">
+		<button type="button" class="btn_gray_thin float_left btn_action action_compact" onclick="delCall();">삭제</button>
+		<button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc(this.form);">저장</button>
+		<button type="button" class="btn_blue_thin float_right btn_action action_compact" onclick="setListCall();">새로고침</button>
+	</div>
 </div>

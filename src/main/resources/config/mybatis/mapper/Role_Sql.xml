@@ -9,7 +9,7 @@
 				,	USE_YN
 				,	DISP_ORDER
 				,	REMARK
-		FROM role
+		FROM ROLE
 		WHERE 1=1
 			<if test="srchNm != null and srchNm != ''">
 				AND REGEXP_REPLACE(LOWER(ROLE_NM),'[^0-9가-힣A-Za-z]','') LIKE '%'||REGEXP_REPLACE(LOWER(#{srchNm, jdbcType=VARCHAR}),'[^0-9가-힣A-Za-z]','')||'%'
@@ -25,7 +25,7 @@
 				,	USE_YN
 				,	DISP_ORDER
 				,	REMARK
-		FROM role
+		FROM ROLE
 		WHERE ROLE_CD = #{roleCd, jdbcType=VARCHAR}
 	</select>
 	
@@ -173,13 +173,13 @@
 		)
 		VALUES
 		(
-				(SELECT 'ROLE_' || LPAD(NVL(MAX(SUBSTR(ROLE_CD,LENGTH(ROLE_CD)-3,LENGTH(ROLE_CD))),0) + 1,4,0) AS ROLE_CD FROM role)
+				(SELECT 'ROLE_' || LPAD(NVL(MAX(SUBSTR(ROLE_CD,LENGTH(ROLE_CD)-3,LENGTH(ROLE_CD))),0) + 1,4,0) AS ROLE_CD FROM ROLE)
 			,	#{roleNm, jdbcType=VARCHAR}
 			,	#{useYn, jdbcType=VARCHAR}
 			,	(
 					SELECT 
 						NVL(MAX(DISP_ORDER),0) + 1 
-					FROM role
+					FROM ROLE
 				)
 			,	#{remark, jdbcType=VARCHAR}
 		)
@@ -187,7 +187,7 @@
 
 	<update id="roleProcDao1020" parameterType="java.util.HashMap">
 		/* roleProcDao1020 : 권한 수정 처리 */
-		UPDATE role
+		UPDATE ROLE
 			SET		ROLE_NM = #{roleNm, jdbcType=VARCHAR}
 				,	USE_YN = #{useYn, jdbcType=VARCHAR}
 				,	REMARK = #{remark, jdbcType=VARCHAR}
@@ -196,7 +196,7 @@
 	
 	<delete id="roleProcDao1030" parameterType="java.util.HashMap">
 		/* roleProcDao1030 : 권한 삭제 처리 */
-		DELETE FROM role
+		DELETE FROM ROLE
 			WHERE ROLE_CD = #{roleCd, jdbcType=VARCHAR}
 	</delete>
 	
