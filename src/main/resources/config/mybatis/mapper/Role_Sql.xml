@@ -6,6 +6,7 @@
 		SELECT 
 					ROLE_CD
 				,	ROLE_NM
+				,	ROLE_DESC
 				,	USE_YN
 				,	DISP_ORDER
 				,	REMARK
@@ -22,6 +23,7 @@
 		SELECT 
 					ROLE_CD
 				,	ROLE_NM
+				,	ROLE_DESC
 				,	USE_YN
 				,	DISP_ORDER
 				,	REMARK
@@ -167,6 +169,7 @@
 		(
 					ROLE_CD
 				,	ROLE_NM
+				,	ROLE_DESC
 				,	USE_YN
 				,	DISP_ORDER
 				,	REMARK
@@ -175,6 +178,7 @@
 		(
 				(SELECT 'ROLE_' || LPAD(NVL(MAX(SUBSTR(ROLE_CD,LENGTH(ROLE_CD)-3,LENGTH(ROLE_CD))),0) + 1,4,0) AS ROLE_CD FROM ROLE)
 			,	#{roleNm, jdbcType=VARCHAR}
+			,	#{roleDesc, jdbcType=VARCHAR}
 			,	#{useYn, jdbcType=VARCHAR}
 			,	(
 					SELECT 
@@ -189,6 +193,7 @@
 		/* roleProcDao1020 : 권한 수정 처리 */
 		UPDATE ROLE
 			SET		ROLE_NM = #{roleNm, jdbcType=VARCHAR}
+				,	ROLE_DESC = #{roleDesc, jdbcType=VARCHAR}
 				,	USE_YN = #{useYn, jdbcType=VARCHAR}
 				,	REMARK = #{remark, jdbcType=VARCHAR}
 		WHERE ROLE_CD = #{roleCd, jdbcType=VARCHAR}

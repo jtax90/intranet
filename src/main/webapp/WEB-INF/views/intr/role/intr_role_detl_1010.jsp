@@ -4,13 +4,23 @@
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<div class="mg0 form_panel">
+<div class="role_detail_panel">
+	<h3 class="role_list_heading">권한 상세</h3>
+	<div class="mg0 form_panel">
     <dl class="form_row">
         <dt class="form_label">
 			<label for="post-title">권한명</label>
 		</dt>
         <dd class="form_value">
 			${defaultInfo.roleNm} 
+		</dd>
+	</dl>
+    <dl class="form_row">
+        <dt class="form_label">
+			권한 설명
+		</dt>
+		<dd class="form_value">
+			<c:out value="${defaultInfo.roleDesc}"/>
 		</dd>
 	</dl>
     <dl class="form_row">
@@ -27,13 +37,12 @@
 			<label for="post-title">비고</label>
 		</dt>
         <dd class="form_value">
-			${defaultInfo.remark}
+			<div class="role_remark_display">${defaultInfo.remark}</div>
 		</dd>
 	</dl>
+	</div>
 </div>
-
-<div class="btn_right btn_center form_actions">
-    <button type="button" class="btn_navy_thin btn_action action_compact" onclick="modCall(this.form);">수정</button>
-    <button type="button" class="btn_gray_thin btn_action action_compact" onclick="delProc(this.form);">삭제</button>
+<div class="role_detail_actions">
+	<button type="button" class="btn_navy_thin btn_action action_compact" onclick="modCall(this.form);">수정</button>
+	<button type="button" class="btn_gray_thin btn_action action_compact" onclick="delProc(this.form);">삭제</button>
 </div>
-	

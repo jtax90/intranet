@@ -13,7 +13,7 @@
 	
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/font/font.css" media="all">
  	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/common.css" media="all">	
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/layout.css" media="all">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/layout.css?v=20261128-22" media="all">
     <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/sementic.css" media="all">
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 

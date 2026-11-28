@@ -52,6 +52,7 @@ body#main > form, body#sub > form { display: flex; flex-direction: column; flex:
 .main_wrap { display: flex; flex: 1 0 auto; min-height: 0; }
 .content_wrap { width: 1600px; }
 .side_wrap { width: 300px; min-height: 0; padding-top: 35px; overflow: auto; border-right: 1px solid #d6d6d6; }
+.side_wrap .a_title.list_bg { font-weight: 600; }
 .main_wrap .sub_article { height: auto; }
 
 /* ========================================== List Panels ========================================== */
@@ -61,7 +62,14 @@ body#main > form, body#sub > form { display: flex; flex-direction: column; flex:
 .list_panel_fill > .list_body { flex: 1; }
 .role_editor { height: 490px; }
 .role_editor > .form_actions { flex-shrink: 0; margin-top: 10px; }
-.role_members { --list_body_max_height: 480px; }
+.role_members { box-sizing: border-box; border: 1px solid #d6d6d6; background: #fff; }
+.role_members_selection_col { width: 44px; }
+.role_members .data_table .table_cell { border-inline: 0; padding-block: 9px; }
+.role_members .data_table .role_member_summary { text-align: left; padding-inline: 0 12px; }
+.role_member_summary > span { display: block; margin-top: 4px; color: #727272; font-size: 1.3rem; }
+.role_members .data_table tbody tr:has(input:checked) { background: #edf2fb; }
+.role_members_actions { display: flex; gap: 5px; margin-top: var(--role_action_gap); }
+.role_members_actions > :first-child { margin-right: auto; }
 
 /* ========================================== Approval Lines ========================================== */
 .approval_document { --member_content_width: 623px; --member_content_height: 390px; --title_width: 410px; }
@@ -278,13 +286,66 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 .tree_workspace .tree_navigation { height: var(--navigation_height, 420px); position: relative; border: solid 2px #f6f6f6; }
 .tree_workspace .tree_radio { margin: 3px; }
 
-.role_workspace { --role_panel_height: clamp(200px, calc(100vh - 480px), 525px); }
+.role_workspace { --role_panel_height: clamp(200px, calc(100vh - 480px), 525px); --role_action_gap: 20px; --role_panel_with_actions_height: calc(var(--role_panel_height) - var(--role_action_gap) - 35px); }
 .role_workspace .tree_workspace { --navigation_height: var(--role_panel_height); }
 .role_workspace .tree_navigation { box-sizing: border-box; }
 .role_workspace .menu_assignment { --detail_height: var(--role_panel_height); }
 .role_workspace .role_editor { height: var(--role_panel_height); }
-.role_workspace .role_members { --list_body_max_height: calc(var(--role_panel_height) - 45px); }
+.role_workspace .role_members { height: var(--role_panel_height); }
+.role_workspace :is(#roleInfo, #empTree) > .role_members { height: var(--role_panel_with_actions_height); }
+.role_member_workspace { display: flex; width: 100%; }
+.role_member_workspace .tree_navigation { flex-shrink: 0; }
+.role_member_workspace > .member_assignment { --detail_width: 616px; flex: 1; min-width: 0; column-gap: 5px; }
+.role_member_workspace > .menu_assignment { --menu_width: 475px; flex: 1; min-width: 0; column-gap: 5px; }
+.role_member_workspace .menu_assignment > .tree_choices { flex-shrink: 0; }
+.role_member_workspace .menu_assignment > .tree_detail { min-width: 0; }
+.role_members .data_table .role_menu_name { text-align: left; padding-inline: 0 12px; }
+.role_menu_parent .role_menu_name { font-weight: 700; }
+.role_menu_parent .role_menu_name::before { content: ""; display: inline-block; width: 15px; height: 15px; margin-inline-end: 6px; vertical-align: middle; background: url("../images/icon/icon_folder.png") center / contain no-repeat; }
+.role_members .data_table .role_menu_child .role_menu_name { padding-inline-start: 16px; }
+.role_menu_child .table_cell > .check_box { inset-inline-start: 16px; }
+.role_member_add { flex: 0 0 95px; align-self: center; margin-inline: auto; }
 .role_workspace .tree_arrow { top: 0; align-self: center; }
+
+.tree_workspace .role_list_panel { border: 1px solid #d6d6d6; background: #fff; }
+.role_list_heading { color: #333; margin: 0; padding: 12px 14px; font-size: 1.5rem; font-weight: 700; }
+.role_selection_heading { border-bottom: 1px solid #d6d6d6; }
+.role_selection_heading > label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+.role_selection_heading .checkbox_input:indeterminate + .checkbox_label .checkbox_mark { background: #fff linear-gradient(#214b97, #214b97) center / 8px 2px no-repeat; }
+.role_employee_tree { margin: 0; padding: 4px 0; list-style: none; }
+.role_employee_row, .role_employee_department { display: flex; align-items: center; gap: 8px; width: 100%; box-sizing: border-box; padding: 7px 14px 7px calc(14px + (var(--employee-level, 1) - 1) * 16px); }
+.role_employee_department { border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
+.role_employee_department::before { content: ""; width: 6px; height: 6px; margin-right: 3px; flex-shrink: 0; }
+button.role_employee_department { cursor: pointer; }
+button.role_employee_department::before { border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(-45deg); }
+button.role_employee_department[aria-expanded="true"]::before { transform: rotate(45deg); }
+button.role_employee_department:hover, .role_employee_row:hover { background: #f3f6f8; }
+.role_employee_row:has(input:checked) { background: #edf2fb; }
+.role_list_columns, .role_card { display: grid; grid-template-columns: minmax(0, 1fr) 55px; align-items: center; gap: 8px; padding-inline: 13px; }
+.role_list_columns { padding-block: 6px; background: #f3f6f8; color: #555; font-size: 1.2rem; }
+.role_list_columns > :last-child, .role_card_status { text-align: center; }
+.role_card_item { list-style: none; border-top: 1px solid #d6d6d6; }
+.role_card_item:last-child { border-bottom: 1px solid #d6d6d6; }
+.role_card { padding-block: 10px; background: #fff; color: #333; }
+.role_card:hover, .role_card:focus-visible { background: #f3f6f8; color: #333; text-decoration: none; }
+.role_card.list_bg { background: #edf2fb; }
+.role_card.list_bg .role_card_name { color: #214b97; }
+.role_card_name, .role_card_description { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.role_card_status { color: #555; font-size: 1.2rem; }
+.role_card_status_enabled { color: #214b97; }
+.role_card_description { margin-top: 5px; color: #555; font-size: 1.3rem; }
+.role_remark_display { line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; overflow: auto; }
+.role_detail_panel { display: flex; flex-direction: column; height: var(--role_panel_with_actions_height); box-sizing: border-box; border: 1px solid #d6d6d6; background: #fff; }
+.role_detail_panel > .role_list_heading { border-bottom: 1px solid #d6d6d6; }
+.role_detail_panel > .form_panel { display: grid; flex: 1; min-height: 0; grid-template-rows: repeat(3, minmax(64px, auto)) minmax(98px, 1fr); border: 0; overflow: auto; }
+.role_detail_panel .form_row { display: grid; grid-template-columns: 130px minmax(0, 1fr); min-height: 0; }
+.role_detail_panel .form_label, .role_detail_panel .form_value { display: grid; width: auto; height: auto; }
+.role_detail_panel .form_value { align-content: center; }
+.role_detail_panel .form_row:last-child > .form_value { align-content: stretch; min-height: 0; }
+.role_detail_panel .radio_input { opacity: 0; }
+.role_detail_panel .radio_input:focus-visible + .radio_label .radio_mark { outline: 2px solid #214b97; outline-offset: 2px; }
+.role_detail_panel .form_textarea { display: block; height: 100%; line-height: 1.5; }
+.role_detail_actions { display: flex; justify-content: flex-end; gap: 5px; margin-top: var(--role_action_gap); }
 
 .icon_folder { background: url("../images/icon/icon_folder.png"); background-size: cover; width: 15px; height: 15px; display: inline-block; vertical-align: middle; }
 .tree .icon_list { background: url("../images/icon/icon_file.png"); background-size: cover; width: 15px; height: 15px; display: inline-block; vertical-align: middle; }
@@ -360,7 +421,7 @@ body#main { --dashboard_content_height: calc(100vh - 101px - 50px - 40px); }
 }
 
 .list_bg {
-    background-color: #ced9ea;
+    background-color: #edf2fb;
 }
 
 .title {

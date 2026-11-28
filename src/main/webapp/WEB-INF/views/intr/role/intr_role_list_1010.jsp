@@ -28,7 +28,7 @@
 			
 			$.ajax({
 	    		type : 'post',
-	        	url : 'intrRoleInqy1011.do',
+                url : 'intrRoleInqy1011.do',
 	            data : param,
 	            dataType : 'html',
 	            success : function(data){
@@ -273,26 +273,10 @@
 		                            </div>
 									
 									<div class="tree_wrap tree_workspace permission_workspace">
-										<div id="tree_area" class="scroll_wrap tree_area tree_navigation">
+										<div id="tree_area" class="scroll_wrap tree_area tree_navigation role_list_panel">
+											<h3 class="role_list_heading">권한 목록</h3>
 											<div id="roleTree" class="tree">
-												<c:if test="${not empty defaultList}">
-													<ul class="ul_1">
-														<c:forEach var="list" items="${defaultList}" varStatus="status">
-						           						   	<c:set var="spanIcon" 	value="icon_list"/> 
-				
-                                                            <li class="tree_item li_1">
-															<span class="tree_icon ${spanIcon}"></span>
-															<a class="a_btn" id="${list.roleCd}" href="#" onclick="detCall('${list.roleCd}');">${list.roleNm}</a>
-														</c:forEach>
-													</ul>
-												</c:if>
-												<c:if test="${empty defaultList}">
-													<ul class="ul_1">
-                                                        <li class="tree_item li_1">
-															등록된 권한이 없습니다.
-														</li>
-													</ul>
-												</c:if>
+												<jsp:include page="intr_role_list_1011.jsp"/>
 											</div>	
 										</div>
 										<div id="tree_info" class="tree_info tree_detail pl20"></div>

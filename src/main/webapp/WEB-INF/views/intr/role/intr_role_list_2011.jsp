@@ -3,24 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <script type="text/javascript">
-	// 전체 메뉴 목록 전체 체크
-	$('.menuChk').click(function() {
-		if($(".menuChk").is(":checked")){
-			$("input[name=menuCd]").prop("checked", true);
-	    } else {
-	    	$("input[name=menuCd]").prop("checked", false);	
-	    }
-	});
-	
-	// 메뉴 부여 목록 전체 체크
-	$('.roleChk').click(function() {
-		if($(".roleChk").is(":checked")){
-			$("input[id=roleMenuCd]").prop("checked", true);
-	    } else {
-	    	$("input[id=roleMenuCd]").prop("checked", false);	
-	    }
-	});
-	
 	// 목록 이동
 	function moveBtn(f) {
 		try {
@@ -64,21 +46,20 @@
 					str += "		<input type='hidden' name='roleMenuCd' value='" + menuCd + "'/>"
 					str += "	</td>";
 					//
-					if(menuLv!=1){
-                        str += "	<td class='table_cell' style='text-align: left;'>&nbsp; <img src='resources/images/icon/icon_tree_arrow.png' width='13' height='13' style='margin-right: 5px;'/> " + menuNm + "</td>";
-					} else {
-                        str += "	<td class='table_cell' style='text-align: left;'>" + menuNm + "</td>";
-					}
+					str += "<td class='table_cell role_menu_name'></td>";
 					//
 					str += "</tr>";
 					
-					$(".roleMenuTbl").append(str);
+					var row = $(str);
+					row.addClass(menuLv == 1 ? "role_menu_parent" : "role_menu_child");
+					row.find(".role_menu_name").text(menuNm);
+					$(".roleMenuTbl tbody").append(row);
 				}
 				
-				// 체크 해제
-				$("input[id='menuCd']").prop("checked", false);
-				$(".menuChk").prop("checked", false);
 			});
+			$("#menuInfo input[name=menuCd]").prop("checked", false);
+			syncMenuSelection($("#menuInfo .role_members"));
+			syncMenuSelection($("#roleInfo .role_members"));
 			
 		} catch (error) {
 	        console.error("[Error] 목록 이동 : ", error.message);
@@ -100,7 +81,7 @@
 			});
 			
 			// 권한 목록 체크 초기화
-			$(".roleChk").prop("checked", false);			
+			syncMenuSelection($("#roleInfo .role_members"));
 			
 		} catch (error) {
 	        console.error("[Error] 권한 목록 화면 상 제거 : ", error.message);
@@ -166,47 +147,43 @@
 	    }
 	}
 </script>
-<div class="list_panel list_panel_fill role_editor">
+<div class="list_panel list_panel_fill role_members">
+	<h3 class="role_list_heading role_selection_heading">
+		<label>
+			<span class="check_box" title="전체 선택">
+				<input type="checkbox" class="checkbox_input roleChk">
+				<span class="checkbox_label"><span class="checkbox_mark"></span></span>
+			</span>
+			메뉴 부여
+		</label>
+	</h3>
 	<div class="scroll_wrap list_body">
 		<table class="post_table data_table roleMenuTbl">
 			<caption>권한 목록 테이블</caption>
 			<colgroup>
-				<col class="w5per">
-				<col class="w30per">
+				<col class="role_members_selection_col">
+				<col>
 			</colgroup>
-			<thead>
-				<tr>
-                    <th class="table_header" scope="col">
-						<span class="check_box"> 
-                        <input type="checkbox" class="checkbox_input check_box roleChk">
-                        <label class="checkbox_label_lead checkbox_label" for="chk-yes"><span class="checkbox_mark"></span></label></span>
-					</th>
-                    <th class="table_header" scope="col">메뉴 부여</th>
-				</tr>
-			</thead>
 			<tbody>
 				<c:forEach var="list" items="${roleMenuList}" varStatus="status">
-					<tr>
+					<tr class="${list.lv eq 1 ? 'role_menu_parent' : 'role_menu_child'}">
                         <td class="table_cell">
 							<span class="check_box"> 
                             <input type="checkbox" class="checkbox_input check_box" id="roleMenuCd" value="${list.menuCd}">
                             <label class="checkbox_label_lead checkbox_label" for="chk-yes"><span class="checkbox_mark"></span></label></span>
 							<input type="hidden" name="roleMenuCd" value="${list.menuCd}">
 						</td>
-                        <td class="align_left table_cell">
-							<c:if test="${list.lv ne '1'}">
-								&nbsp; <img class="mr5" src='resources/images/icon/icon_tree_arrow.png' width="13" height="13" />
-							</c:if>
-							${list.menuNm}
+                        <td class="table_cell role_menu_name">
+                            <c:out value="${list.menuNm}"/>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-	<div class="btn_center form_actions">
-		<button type="button" class="btn_gray_thin float_left btn_action action_compact" onclick="delCall();">삭제</button>
-		<button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc(this.form);">저장</button>
-		<button type="button" class="btn_blue_thin float_right btn_action action_compact" onclick="setListCall();">새로고침</button>
-	</div>
+</div>
+<div class="role_members_actions">
+	<button type="button" class="btn_gray_thin btn_action action_compact" onclick="delCall();">선택 제거</button>
+	<button type="button" class="btn_blue_thin btn_action action_compact" onclick="setListCall();">새로고침</button>
+	<button type="button" class="btn_navy_thin btn_action action_compact" onclick="regProc(this.form);">저장</button>
 </div>

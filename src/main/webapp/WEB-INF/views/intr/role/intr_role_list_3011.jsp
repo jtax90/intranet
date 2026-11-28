@@ -3,15 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <script type="text/javascript">
-	// 사용자 권한 목록 전체 체크
-	$('.empChk').click(function() {
-		if($(".empChk").is(":checked")){
-			$("input[id=roleEmpIdx]").prop("checked", true);
-	    } else {
-	    	$("input[id=roleEmpIdx]").prop("checked", false);	
-	    }
-	});
-	
 	// 목록 이동
 	function moveBtn(f) {
 		try {
@@ -55,19 +46,23 @@
                     str += "		<label class='checkbox_label' for='chk_local'><span class='checkbox_mark'></span></label></span>";
 					str += "		<input type='hidden' name='roleEmpIdx' value='" + empIdx + "'/>"
 					str += "	</td>";
-                    str += "	<td class='table_cell'>" + orgNm + "</td>";
-                    str += "	<td class='table_cell'>" + empNm + "</td>";
+					str += "<td class='table_cell role_member_summary'></td>";
 					str += "</tr>";
 					
-					$(".roleEmpTbl").append(str);
+					var row = $(str);
+					row.find(".role_member_summary").append(
+						$("<strong>").text(empNm),
+						$("<span>").text(orgNm)
+					);
+					$(".roleEmpTbl tbody").append(row);
 				}
 				
 			});
 
 			// 체크 해제
 			checkedEmployees.prop("checked", false);
-			$(".empChk").prop("checked", false);
-			$(".totalIdx").prop("checked", false);
+			syncRoleSelection($("#empInfo"));
+			syncRoleSelection($("#empTree .role_members"));
 			
 		} catch (error) {
 	        console.error("[Error] 목록 이동 : ", error.message);
@@ -89,7 +84,7 @@
 			});
 			
 			// 권한 사용자 체크 초기화
-			$(".empChk").prop("checked", false);
+			syncRoleSelection($("#empTree .role_members"));
 			
 		} catch (error) {
 	        console.error("[Error] 권한 목록 화면 상 제거 : ", error.message);
@@ -163,28 +158,25 @@
 	}
 </script>
 
-<div class="list_panel role_members">
+<div class="list_panel list_panel_fill role_members">
+	<h3 class="role_list_heading role_selection_heading">
+		<label>
+			<span class="check_box" title="전체 선택">
+				<input type="checkbox" class="checkbox_input empChk">
+				<span class="checkbox_label"><span class="checkbox_mark"></span></span>
+			</span>
+			권한 사용자
+		</label>
+	</h3>
 	<input type="hidden" id="roleCd" name="roleCd" value="">
 	
 	<div class="scroll_wrap list_body">
 		<table class="post_table data_table roleEmpTbl">
-			<caption>사용자 목록 테이블</caption>
+			<caption>권한 사용자 목록</caption>
 			<colgroup>
-				<col class="w5per">
-				<col class="w10per">
-				<col class="w20per">
+				<col class="role_members_selection_col">
+				<col>
 			</colgroup>
-			<thead>
-				<tr>
-                    <th class="table_header" scope="col">
-						<span class="check_box"> 
-                        <input type="checkbox" class="checkbox_input check_box empChk">
-                        <label class="checkbox_label_lead checkbox_label" for="chk-yes"><span class="checkbox_mark"></span></label></span>
-					</th>
-                    <th class="table_header" scope="col">부서</th>
-                    <th class="table_header" scope="col">사용자</th>
-				</tr>
-			</thead>
 			<tbody>
 				<c:forEach var="list" items="${roleEmpList}" varStatus="status">
 					<tr>
@@ -194,18 +186,18 @@
                             <label class="checkbox_label_lead checkbox_label" for="chk-yes"><span class="checkbox_mark"></span></label></span>
 							<input type="hidden" name="roleEmpIdx" value="${list.empIdx}">
 						</td>
-                        <td class="table_cell">${list.orgNm}</td>
-                        <td class="table_cell">${list.empNm}</td>
+                        <td class="table_cell role_member_summary">
+							<strong><c:out value="${list.empNm}"/></strong>
+							<span><c:out value="${list.orgNm}"/></span>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
-</div> <!-- End post_wrap -->
-
-<div class="btn_center form_actions">
-    <button type="button" class="btn_gray_thin float_left btn_action action_compact" onclick="delCall();">삭제</button>
-
-    <button type="button" class="btn_navy_thin float_right ml5 btn_action action_compact" onclick="regProc();">저장</button>
-    <button type="button" class="btn_blue_thin float_right btn_action action_compact" onclick="setListCall();">새로고침</button>
+</div>
+<div class="role_members_actions">
+	<button type="button" class="btn_gray_thin btn_action action_compact" onclick="delCall();">선택 제거</button>
+	<button type="button" class="btn_blue_thin btn_action action_compact" onclick="setListCall();">새로고침</button>
+	<button type="button" class="btn_navy_thin btn_action action_compact" onclick="regProc();">저장</button>
 </div>
