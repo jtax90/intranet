@@ -87,6 +87,7 @@
 		            		} else {
 		            			// SELECT 처리
 		            			$("#queryResult").html(data);
+								$("#queryResults").prop("hidden", false);
 		            		}
 		            		
 		            	} else {
@@ -223,25 +224,27 @@
 								<div class="post_wrap">
 									<input type="hidden" id="headTit" name="headTit" value="쿼리 조회 목록">
 		                            
-                                    <h2 class="content_heading">쿼리 조회
-										<span class="float_right">
-                                            <input type="button" class="btn_navy_thin btn_action action_compact" value="API 조회" onclick="apiCall();">
-                                            <input type="button" class="btn_green_thin btn_action action_compact" value="Excel" onclick="excelDown();">
-                                            <input type="button" class="btn_blue_thin listCall btn_action action_compact" value="조회" onclick="listCall();">
-										</span>
-									</h2>
-                                    <span class="float_right bold">
-										<label for="dmlProc" class="form_option"><input type="checkbox" id="dmlProc" class="dmlProc form_option_input" name="dmlProc">DML 처리</label>
-									</span><br>
-									
-									<!-- 쿼리 입력 -->
-									<div id="queryInput" class="query_input">
-										<textarea id="query" class="query" name="query" ></textarea>
-									</div>
-									
-									<!-- 결과 조회 -->
-									<div id="queryResult" class="post_table_wrap">
-										
+									<h2 class="content_heading">쿼리 조회</h2>
+									<section id="queryInput" class="query_input">
+										<div class="query_panel_heading">
+											<h3><label for="query">SQL 입력</label></h3>
+											<div class="query_actions">
+												<label for="dmlProc" class="form_option query_dml_option bold">
+													<span class="check_box">
+														<input type="checkbox" id="dmlProc" class="dmlProc checkbox_input" name="dmlProc">
+														<span class="checkbox_label"><span class="checkbox_mark"></span></span>
+													</span>
+													DML 처리
+												</label>
+												<input type="button" class="btn_navy_thin btn_action action_compact" value="API 조회" onclick="apiCall();">
+												<input type="button" class="btn_green_thin btn_action action_compact" value="Excel" onclick="excelDown();">
+												<input type="button" class="btn_blue_thin listCall btn_action action_compact" value="조회" onclick="listCall();">
+											</div>
+										</div>
+										<textarea id="query" class="query" name="query" rows="10" spellcheck="false"></textarea>
+									</section>
+									<div id="queryResults" class="query_results" hidden>
+										<div id="queryResult" class="post_table_wrap"></div>
 									</div>
 								</div><!-- End post_wrap -->
 							</div><!-- End form_area -->

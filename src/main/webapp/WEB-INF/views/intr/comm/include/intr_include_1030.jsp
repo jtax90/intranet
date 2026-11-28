@@ -32,10 +32,6 @@
 		</div>
 			
 		<div class="menu_wrap">
-			<div class="logo">
-				<img class="logo cursor" src="${pageContext.request.contextPath }/resources/images/icon/icon_logo.png" onclick="location.href='${menuType eq '0' ? 'intrMainInqy1020.do' : 'intrMainInqy1030.do'}'">
-			</div>
-			
 			<nav class="nav">
 				<ul class="ul_1">
 					<c:forEach var="list" items="${menuList}" varStatus="status">

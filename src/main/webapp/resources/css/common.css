@@ -30,6 +30,7 @@ h3 a { color: #333; }
 h2 { display: contents; }
 
 input::placeholder, 
+textarea { resize: none !important; }
 textarea::placeholder { color: currentColor !important; opacity: 0.5; }
 
 button, input[type="button"] { cursor: pointer; padding: 0; }
